@@ -1,27 +1,23 @@
-$font-family-heading: "Satoshi", sans-serif;
+$font-family-heading: "Monument", sans-serif;
 $font-family-body: "Satoshi", sans-serif;
 
-$black: #111;
-$grey-dark: #313131;
-$grey-light: #c0c0c0;
-$white: #fefefe;
+$sunder-snow: #f7f7f7;
+$sunder-ice: #c6d3d8;
+$sunder-royal-light: #0c5ff2;
+$sunder-royal: #074895;
+$sunder-navy: #061a2a;
+$sunder-midnight: #000014;
+$enzy-hero: #6da894;
 
 :root {
-  --background-color: #{$black};
-  --primary-font-color: #{$white};
-  --secondary-font-color: #{$grey-light};
+  --background-color: #{$sunder-snow};
+  --font-color--primary: #{$sunder-midnight};
 
-  --link-color: #{$grey-light};
-  --link-color-hover: #{$white};
+  --body-padding: 64px;
+
+  --nav-height: 420px;
+  --nav-background-color: #{$sunder-ice};
 }
-
-// If you add a dark/light theme
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --background-color: #{$black};
-//     --primary-font-color: #{$white};
-//   }
-// }
 
 // Site Scaffolding
 

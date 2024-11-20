@@ -62,11 +62,8 @@
     </script>
   </head>
   <body>
-    <!-- prettier-ignore -->
-    {% include "./partials/header.html" %}
+    <main class="main-content">{{ content | safe }}</main>
     {% include "./partials/nav.html" %}
-    <main>{{ content | safe }}</main>
-    {%include "./partials/footer.html" %}
     <!-- prettier-ignore -->
 
     {% if path == "home" %}

@@ -1,6 +1,6 @@
-const siteHeader = document.querySelector(".site-header"),
-  navMenu = document.querySelector(".nav-menu"),
-  menuBtn = document.querySelector(".menu-btn");
+const siteNav = document.querySelector(".site-nav"),
+  navBtn = document.querySelector(".nav-btn"),
+  mainContent = document.querySelector(".main-content");
 
 const navLinks = document.querySelectorAll(".nav-link"),
   navFooterLinks = document.querySelectorAll(".nav-footer-link"),
@@ -10,13 +10,14 @@ const navLinks = document.querySelectorAll(".nav-link"),
 tabElementsNav.forEach((elem) => elem.setAttribute("tabIndex", "-1"));
 
 const toggleNav = () => {
-  const isNavOpen = navMenu.getAttribute("aria-hidden") === "true";
+  const isNavOpen = siteNav.getAttribute("aria-hidden") === "true";
 
-  siteHeader.classList.toggle("nav-active");
+  siteNav.classList.toggle("site-nav--active");
+  mainContent.classList.toggle("main-content--nav-active");
 
-  navMenu.setAttribute("aria-hidden", !isNavOpen);
-  menuBtn.setAttribute("aria-expanded", isNavOpen);
-  menuBtn.setAttribute(
+  siteNav.setAttribute("aria-hidden", !isNavOpen);
+  navBtn.setAttribute("aria-expanded", isNavOpen);
+  navBtn.setAttribute(
     "aria-label",
     isNavOpen ? "Close navigation menu" : "Open navigation menu"
   );
@@ -31,10 +32,11 @@ const toggleNav = () => {
 };
 
 const closeNav = () => {
-  navMenu.setAttribute("aria-hidden", "true");
-  menuBtn.setAttribute("aria-expanded", "false");
+  siteNav.setAttribute("aria-hidden", "true");
+  navBtn.setAttribute("aria-expanded", "false");
 
-  siteHeader.classList.remove("nav-active");
+  siteNav.classList.remove("site-nav--active");
+  mainContent.classList.remove("main-content--nav-active");
 
   // Reset tabindex for tabElementsPage and tabElementsNav
   tabElementsPage.forEach((el) => el.setAttribute("tabindex", "0"));
@@ -47,4 +49,4 @@ const closeNav = () => {
   }
 });
 
-menuBtn.addEventListener("click", toggleNav);
+navBtn.addEventListener("click", toggleNav);
