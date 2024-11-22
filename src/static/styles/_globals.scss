@@ -25,7 +25,9 @@
 
 .nav-btn {
   --button-size: 64px;
-  --line-offset: 6px;
+  --line-width: 40%;
+  --line-spacing: 6px;
+  --line-transition-delay: 0.32s;
 
   @include row-center;
   gap: 4px;
@@ -41,7 +43,7 @@
   z-index: 1;
 
   @include mq-motion-allow {
-    transition: 0.3s ease;
+    transition: 0.3s ease, background 0.32s ease 0.12s;
   }
   @include mq-max("sm") {
     --button-size: 56px;
@@ -60,22 +62,60 @@
   .line {
     @include absolute-center;
     background-color: white;
-    width: 40%;
+    width: var(--line-width);
     height: 2px;
     border-radius: 4px;
 
     &-default {
       &-1 {
-        translate: -50% calc(-50% - var(--line-offset));
+        translate: -50% calc(-50% - var(--line-spacing));
+        transition: 0.3s ease var(--line-transition-delay);
+      }
+      &-2 {
+        transition: 0.3s ease calc(var(--line-transition-delay) + 0.06s);
       }
       &-3 {
-        translate: -50% calc(-50% + var(--line-offset));
+        translate: -50% calc(-50% + var(--line-spacing));
+        transition: 0.3s ease calc(var(--line-transition-delay) + 0.12s);
+      }
+    }
+
+    &-close {
+      width: 0;
+      transition: 0.3s ease 0s;
+
+      &-1 {
+        rotate: 45deg;
+      }
+      &-2 {
+        rotate: -45deg;
       }
     }
   }
 
   &[aria-expanded="true"] {
     background: var(--font-color--primary);
+
+    .line {
+      &-default {
+        width: 0;
+
+        &-1 {
+          transition: 0.3s ease 0s;
+        }
+        &-2 {
+          transition: 0.3s ease 0.06s;
+        }
+        &-3 {
+          transition: 0.3s ease 0.12s;
+        }
+      }
+
+      &-close {
+        width: var(--line-width);
+        transition: 0.3s ease var(--line-transition-delay);
+      }
+    }
   }
 }
 

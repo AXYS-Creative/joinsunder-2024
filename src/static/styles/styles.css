@@ -201,7 +201,9 @@
 
 .nav-btn {
   --button-size: 64px;
-  --line-offset: 6px;
+  --line-width: 40%;
+  --line-spacing: 6px;
+  --line-transition-delay: 0.32s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -219,7 +221,7 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .nav-btn {
-    transition: 0.3s ease;
+    transition: 0.3s ease, background 0.32s ease 0.12s;
   }
 }
 @media screen and (max-width: 480px) {
@@ -240,18 +242,49 @@
   left: 50%;
   translate: -50% -50%;
   background-color: white;
-  width: 40%;
+  width: var(--line-width);
   height: 2px;
   border-radius: 4px;
 }
 .nav-btn .line-default-1 {
-  translate: -50% calc(-50% - var(--line-offset));
+  translate: -50% calc(-50% - var(--line-spacing));
+  transition: 0.3s ease var(--line-transition-delay);
+}
+.nav-btn .line-default-2 {
+  transition: 0.3s ease calc(var(--line-transition-delay) + 0.06s);
 }
 .nav-btn .line-default-3 {
-  translate: -50% calc(-50% + var(--line-offset));
+  translate: -50% calc(-50% + var(--line-spacing));
+  transition: 0.3s ease calc(var(--line-transition-delay) + 0.12s);
+}
+.nav-btn .line-close {
+  width: 0;
+  transition: 0.3s ease 0s;
+}
+.nav-btn .line-close-1 {
+  rotate: 45deg;
+}
+.nav-btn .line-close-2 {
+  rotate: -45deg;
 }
 .nav-btn[aria-expanded=true] {
   background: var(--font-color--primary);
+}
+.nav-btn[aria-expanded=true] .line-default {
+  width: 0;
+}
+.nav-btn[aria-expanded=true] .line-default-1 {
+  transition: 0.3s ease 0s;
+}
+.nav-btn[aria-expanded=true] .line-default-2 {
+  transition: 0.3s ease 0.06s;
+}
+.nav-btn[aria-expanded=true] .line-default-3 {
+  transition: 0.3s ease 0.12s;
+}
+.nav-btn[aria-expanded=true] .line-close {
+  width: var(--line-width);
+  transition: 0.3s ease var(--line-transition-delay);
 }
 
 .site-nav {
@@ -408,24 +441,6 @@ Monument Weights
 }
 button {
   cursor: pointer;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  padding-block: 380px;
-}
-@media screen and (max-width: 1512px) {
-  .hero {
-    padding-block: 320px;
-  }
-}
-.hero h1,
-.hero p {
-  text-align: center;
 }
 
 .error {
