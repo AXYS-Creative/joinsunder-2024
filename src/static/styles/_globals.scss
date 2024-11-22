@@ -14,7 +14,6 @@
 }
 
 .main-content {
-  background-color: black;
   height: 100vh;
   transition: 0.5s ease;
 
@@ -61,7 +60,7 @@
 
   .line {
     @include absolute-center;
-    background-color: white;
+    background-color: var(--background-color);
     width: var(--line-width);
     height: 2px;
     border-radius: 4px;

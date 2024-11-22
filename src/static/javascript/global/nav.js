@@ -33,6 +33,8 @@ const toggleNav = () => {
   tabElementsNav.forEach((el) =>
     el.setAttribute("tabindex", isNavOpen ? "-1" : "0")
   );
+
+  mainContent.addEventListener("click", closeNav); // Cleaned up in closeNav()
 };
 
 const closeNav = () => {
@@ -45,14 +47,9 @@ const closeNav = () => {
   // Reset tabindex for tabElementsPage and tabElementsNav
   tabElementsPage.forEach((el) => el.setAttribute("tabindex", "0"));
   tabElementsNav.forEach((el) => el.setAttribute("tabindex", "-1"));
-};
 
-// Add or remove the event listener for closing nav by clicking on main content
-if (!isNavOpen) {
-  mainContent.addEventListener("click", closeNav);
-} else {
   mainContent.removeEventListener("click", closeNav);
-}
+};
 
 // navLinks.forEach((link) => {
 //   if (!link.classList.contains("prevent-nav-close")) {

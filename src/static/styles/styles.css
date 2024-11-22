@@ -191,7 +191,6 @@
 }
 
 .main-content {
-  background-color: black;
   height: 100vh;
   transition: 0.5s ease;
 }
@@ -241,7 +240,7 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  background-color: white;
+  background-color: var(--background-color);
   width: var(--line-width);
   height: 2px;
   border-radius: 4px;
