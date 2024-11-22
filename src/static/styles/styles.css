@@ -2,6 +2,7 @@
 :root {
   --background-color: #f7f7f7;
   --font-color--primary: #000014;
+  --hero-color--primary: #0c5ff2;
   --body-padding: 64px;
   --nav-height: 420px;
   --nav-background-color: #c6d3d8;
@@ -190,6 +191,8 @@
 }
 
 .main-content {
+  background-color: black;
+  height: 100vh;
   transition: 0.5s ease;
 }
 .main-content--nav-active {
@@ -197,11 +200,58 @@
 }
 
 .nav-btn {
+  --button-size: 64px;
+  --line-offset: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: var(--hero-color--primary);
   position: fixed;
   bottom: var(--body-padding);
   left: 50%;
-  padding: 12px;
-  z-index: 3;
+  translate: -50% 0;
+  width: var(--button-size);
+  height: var(--button-size);
+  border: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nav-btn {
+    transition: 0.3s ease;
+  }
+}
+@media screen and (max-width: 480px) {
+  .nav-btn {
+    --button-size: 56px;
+    bottom: 32px;
+  }
+}
+.nav-btn:hover, .nav-btn:focus-visible {
+  scale: 1.05;
+}
+.nav-btn:active {
+  scale: 0.95;
+}
+.nav-btn .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: white;
+  width: 40%;
+  height: 2px;
+  border-radius: 4px;
+}
+.nav-btn .line-default-1 {
+  translate: -50% calc(-50% - var(--line-offset));
+}
+.nav-btn .line-default-3 {
+  translate: -50% calc(-50% + var(--line-offset));
+}
+.nav-btn[aria-expanded=true] {
+  background: var(--font-color--primary);
 }
 
 .site-nav {
@@ -356,6 +406,10 @@ Monument Weights
   font-weight: 100;
   font-style: normal;
 }
+button {
+  cursor: pointer;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
