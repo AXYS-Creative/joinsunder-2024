@@ -295,6 +295,22 @@
   translate: 0 100%;
   transition: 0.5s ease;
 }
+.site-nav .nav-slider {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+.site-nav .nav-link {
+  color: var(--font-color--primary);
+}
+.site-nav .nav-link__img {
+  width: 400px;
+  aspect-ratio: 2/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+  margin-block-start: 12px;
+}
 .site-nav--active {
   translate: 0 0;
 }
@@ -440,6 +456,10 @@ Monument Weights
 }
 button {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }
 
 .error {

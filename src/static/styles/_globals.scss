@@ -128,6 +128,24 @@
   translate: 0 100%;
   transition: 0.5s ease;
 
+  .nav-slider {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .nav-link {
+    color: var(--font-color--primary);
+
+    &__img {
+      width: 400px;
+      aspect-ratio: 2 / 1;
+      object-fit: cover;
+      border-radius: 4px; // make variable
+      margin-block-start: 12px;
+    }
+  }
+
   &--active {
     translate: 0 0;
   }
