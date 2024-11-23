@@ -101,9 +101,9 @@ collections:
             widget: "string"
             required: true
             hint: "Keep at least 100 characters"
-          - name: "og_img"
+          - name: "og_image"
             label: "Open Graph Image"
             widget: "image"
             default: "https://joinsunder-cms.netlify.app/static/img/og-image.png"
             required: true
-            hint: "For compatibility, be sure to upload a .png or .jpg file."
+            hint: "Recommended formats: PNG or JPG. Recommended image dimensions: 1200 x 630 pixels. File size should be under 8 MB."
