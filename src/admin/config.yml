@@ -16,9 +16,9 @@ collections:
   - name: "home_page"
     label: "Page - Home"
     description: >
-      Edit your site’s content here.
-      Have questions or need to add a new config? Visit your Trello board to add a new request.
-      https://trello.com/b/l897wwEP/join-sunder Have questions? Reach us at help@axyscreative.com
+      Edit the content for joinsunder.com
+      Have questions or need a new config setup? Visit your Trello board to add a new request.
+      https://trello.com/b/l897wwEP/join-sunder Or you can reach us at help@axyscreative.com
     files:
       - name: "hero_section"
         label: "Hero Section"
@@ -58,7 +58,7 @@ collections:
   - name: "meta_data"
     label: "Meta Data"
     description: >
-      Edit the site's meta data here. Open Graph dimensions: 1200x630. Open graph file name: open-graph.png
+      Edit the meta data for joinsunder.com.
     files:
       - name: "meta_data"
         label: "Meta Data"
@@ -98,9 +98,10 @@ collections:
             hint: "Keep at least 100 characters"
           - name: "og_img"
             label: "Open Graph Image"
-            widget: "string"
+            widget: "image"
+            default: "https://joinsunder-cms.netlify.app/static/img/og-image.png"
             required: true
-            hint: "https://sample.com/static/img/open-graph.png"
+            hint: "Be sure to upload a png or jpg as webp and avif formats don’t work."
           - name: "site_name"
             label: "Site Name"
             widget: "string"

@@ -1,10 +1,10 @@
-author: Sample Author
-contact_email: info@sample.com
-theme_color: "#000000"
-url: "https://sample.com"
+author: Sunder Energy
+contact_email: info@sunderenergy.com
+theme_color: "#000014"
+url: "https://joinsunder.com"
 
 # Open Graph Protocol
-og_title: "Sample Business | Motto Here" #Separate from page title in index.html
-og_description: "Open Graph Description Here" #Separate from page description in index.html
-og_image: "https://sample.com/images/og-image.png"
-og_site_name: "Sample Business"
+og_title: "Join Sunder, Join The Best" #Separate from page title in index.html
+og_description: "Looking for your next opportunity? Join Sunder Energy, where our mission is to empower individuals to shape a brighter future through sustainable energy solutions." #Separate from page description in index.html
+og_image: "https://sample.com/static/img/og-image.png"
+og_site_name: "Join Sunder"
