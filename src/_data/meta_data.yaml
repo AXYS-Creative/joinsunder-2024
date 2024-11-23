@@ -1,10 +1,12 @@
+site_name: Join Sunder
+url: https://joinsunder.com
 author: Sunder Energy
 contact_email: info@sunderenergy.com
 theme_color: "#000014"
-url: "https://joinsunder.com"
-
-# Open Graph Protocol
-og_title: "Join Sunder, Join The Best" #Separate from page title in index.html
-og_description: "Looking for your next opportunity? Join Sunder Energy, where our mission is to empower individuals to shape a brighter future through sustainable energy solutions." #Separate from page description in index.html
-og_image: "https://sample.com/static/img/og-image.png"
-og_site_name: "Join Sunder"
+og_title: Join Sunder, Join The Best
+og_image: https://sample.com/static/img/og-image.png
+og_description: Looking for your next opportunity? Join Sunder Energy, where our
+  mission is to empower individuals to shape a brighter future through
+  sustainable energy solutions.
+og_img: /static/img/og-image.png
+og_site_name: Join Sunder
