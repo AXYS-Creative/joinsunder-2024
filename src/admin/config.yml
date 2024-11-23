@@ -16,9 +16,25 @@ collections:
   - name: "home_page"
     label: "Page - Home"
     description: >
-      Edit the site content here.
+      Edit your site’s content here.
       Have questions or need to add a new config? Visit your Trello board to add a new request.
-      Don't have a Trello board? Reach out to Aaron or Bailey → help@axyscreative.com
+      https://trello.com/b/l897wwEP/join-sunder Have questions? Reach us at help@axyscreative.com
+    files:
+      - name: "hero_section"
+        label: "Hero Section"
+        file: "src/_data/home.yaml"
+        preview_path: "#"
+        editor:
+          preview: false
+        fields:
+          - name: "hero_text"
+            label: "Hero Text"
+            widget: "string"
+            required: true
+  - name: "global_components"
+    label: "Global Components"
+    description: >
+      Global site content, such as the primary navigation, different call to action buttons, etc.
     files:
       - name: "marquee"
         label: "Marquee"

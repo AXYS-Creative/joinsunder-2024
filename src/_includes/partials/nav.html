@@ -15,7 +15,23 @@
   <div class="nav-slider">
     <a class="nav-link tab-element-nav" href="/">
       Home
-      <img class="nav-link__img" src="/static/img/nav-home.webp" alt="" />
+      <picture>
+        <source
+          srcset="/static/img/nav-home-small.webp"
+          media="(max-width: 768px)"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/img/nav-home.webp"
+          media="(min-width: 769px)"
+          type="image/webp"
+        />
+        <img
+          class="nav-link__img"
+          src="/static/img/nav-home.webp"
+          alt="Navigation link home"
+        />
+      </picture>
     </a>
     <a class="nav-link tab-element-nav" href="/opportunity">
       Opportunity
