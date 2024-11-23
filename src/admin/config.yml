@@ -66,6 +66,16 @@ collections:
         editor:
           preview: false
         fields:
+          - name: "site_name"
+            label: "Site Name"
+            widget: "string"
+            required: true
+            hint: "Sample Business Co"
+          - name: "url"
+            label: "URL"
+            widget: "string"
+            required: true
+            hint: "Full URL to your site"
           - name: "author"
             label: "Author"
             widget: "string"
@@ -81,11 +91,6 @@ collections:
             widget: "color"
             required: true
             hint: "Hex color code for overflow color on some devices"
-          - name: "url"
-            label: "URL"
-            widget: "string"
-            required: true
-            hint: "Full URL to your site"
           - name: "og_title"
             label: "Open Graph Title"
             widget: "string"
@@ -101,9 +106,4 @@ collections:
             widget: "image"
             default: "https://joinsunder-cms.netlify.app/static/img/og-image.png"
             required: true
-            hint: "Be sure to upload a png or jpg as webp and avif formats don’t work."
-          - name: "site_name"
-            label: "Site Name"
-            widget: "string"
-            required: true
-            hint: "Sample Business Co"
+            hint: "For compatibility, be sure to upload a .png or .jpg file."
