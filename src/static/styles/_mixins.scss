@@ -149,9 +149,8 @@ $min-breakpoints: (
 @mixin heading($size, $size-xxl, $size-lg, $size-md, $size-sm) {
   font-family: $font-family-heading;
   font-size: $size;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.1;
 
   @include mq-max("xxl") {
     font-size: $size-xxl;
@@ -172,7 +171,7 @@ $min-breakpoints: (
 
 // Hero & Prefooter
 .h1 {
-  @include heading(96px, 6vw, 6vw, 8vw, 32px);
+  @include heading(72px, 4.2vw, 6.8vw, 6.8vw, 32px);
 }
 
 // Section Title Only
@@ -215,6 +214,18 @@ $min-breakpoints: (
 
   @include mq-max("md") {
     font-size: 14px;
+  }
+}
+
+//
+// Theme
+//
+
+@mixin dark-theme {
+  background: var(--font-color--primary);
+
+  * {
+    color: var(--background-color);
   }
 }
 

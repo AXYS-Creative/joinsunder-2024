@@ -13,45 +13,27 @@
 
 <nav class="site-nav" id="site-nav">
   <div class="nav-slider">
-    <a class="nav-link tab-element-nav" href="/">
-      Home
-      <picture>
+    {% for link in navigation.items %}
+    <a class="nav-link tab-element-nav" href="{{link.url}}">
+      {{link.text}}
+      <picture class="nav-link__img">
         <source
-          srcset="/static/img/nav-home-small.webp"
+          srcset="{{link.mobile_image}}"
           media="(max-width: 768px)"
           type="image/webp"
         />
         <source
-          srcset="/static/img/nav-home.webp"
+          srcset="{{link.desktop_image}}"
           media="(min-width: 769px)"
           type="image/webp"
         />
         <img
           class="nav-link__img"
-          src="/static/img/nav-home.webp"
-          alt="Navigation link home"
+          src="{{link.desktop_image}}"
+          alt="Navigation link {{link.text}}"
         />
       </picture>
     </a>
-    <a class="nav-link tab-element-nav" href="/opportunity">
-      Opportunity
-      <img
-        class="nav-link__img"
-        src="/static/img/nav-opportunity.webp"
-        alt=""
-      />
-    </a>
-    <a class="nav-link tab-element-nav" href="/compete">
-      Compete
-      <img class="nav-link__img" src="/static/img/nav-compete.webp" alt="" />
-    </a>
-    <a class="nav-link tab-element-nav" href="/experience">
-      Experience
-      <img class="nav-link__img" src="/static/img/nav-experience.webp" alt="" />
-    </a>
-    <a class="nav-link tab-element-nav" href="/resources">
-      Resources
-      <img class="nav-link__img" src="/static/img/nav-resources.webp" alt="" />
-    </a>
+    {% endfor %}
   </div>
 </nav>

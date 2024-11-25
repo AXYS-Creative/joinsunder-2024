@@ -14,18 +14,37 @@ $enzy-hero: #6da894;
   --font-color--primary: #{$sunder-midnight};
   --hero-color--primary: #{$sunder-royal-light};
 
-  --body-padding: 64px;
+  --body-padding: 48px;
 
   --nav-height: 420px;
   --nav-background-color: #{$sunder-ice};
+
+  --border-radius: 12px;
+
+  @media (max-width: 1512px) {
+    --nav-height: 348px;
+
+    --body-padding: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    --nav-height: 312px;
+  }
+
+  @media (max-width: 768px) {
+    --nav-height: 420px;
+
+    --border-radius: 4px;
+  }
 }
 
 // Site Scaffolding
 
-$content-width: 1920px;
-$body-padding: 64px;
-$body-padding-xxl: 40px;
-$body-padding-md: 24px;
+$content-width: 1920px; // Likely won't use for this site
+$body-padding-xxl: 40px; // remove or clean up
+$body-padding-md: 24px; // remove or clean up
+
+$z-index-header: 1;
 
 // $vertical-section-padding: 196px;
 // $horizontal-section-padding: 148px;

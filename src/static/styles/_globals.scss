@@ -13,6 +13,26 @@
   }
 }
 
+.site-header {
+  width: 100vw;
+  padding: var(--body-padding);
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    z-index: $z-index-header;
+  }
+
+  &__logo {
+    display: flex;
+    width: 148px;
+
+    &-image {
+      width: 100%;
+    }
+  }
+}
+
 .main-content {
   height: 100vh;
   transition: 0.5s ease;
@@ -26,7 +46,7 @@
   --button-size: 64px;
   --line-width: 40%;
   --line-spacing: 6px;
-  --line-transition-delay: 0.32s;
+  --line-transition-delay: 0.36s;
 
   @include row-center;
   gap: 4px;
@@ -124,25 +144,54 @@
   background-color: var(--nav-background-color);
   width: 100vw;
   height: var(--nav-height);
+  padding: var(--body-padding);
 
   translate: 0 100%;
-  transition: 0.5s ease;
+  transition: translate 0.5s ease;
+
+  @include mq-touch {
+    overflow-x: scroll;
+  }
 
   .nav-slider {
+    // border: $test;
     display: flex;
     gap: 24px;
-    padding: 24px;
+    width: fit-content;
+
+    @include mq-motion-allow {
+      transition: translate 0.8s $cubic-ease;
+    }
+
+    @include mq-max("md") {
+      padding-inline-end: var(--body-padding);
+    }
   }
 
   .nav-link {
     color: var(--font-color--primary);
 
     &__img {
-      width: 400px;
-      aspect-ratio: 2 / 1;
+      display: block;
       object-fit: cover;
-      border-radius: 4px; // make variable
+      border-radius: var(--border-radius);
       margin-block-start: 12px;
+      width: 188px;
+      height: 256px;
+
+      @include mq-min("md") {
+        width: 250px;
+        height: auto;
+        aspect-ratio: 1.85 / 1;
+      }
+
+      @include mq-min("lg") {
+        width: 320px;
+      }
+
+      @include mq-min("xxl") {
+        width: 400px;
+      }
     }
   }
 

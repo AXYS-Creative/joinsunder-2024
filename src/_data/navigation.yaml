@@ -1,6 +1,27 @@
+# Dev use only. Except for images.
 ---
 items:
   - text: Home
     url: "/"
-  - text: Blog
-    url: "/blog"
+    desktop_image: "/static/img/nav-home.webp"
+    mobile_image: "/static/img/nav-home-small.webp"
+  - text: Opportunity
+    url: "/opportunity"
+    desktop_image: "/static/img/nav-opportunity.webp"
+    mobile_image: "/static/img/nav-opportunity-small.webp"
+  - text: Compete
+    url: "/compete"
+    desktop_image: "/static/img/nav-compete.webp"
+    mobile_image: "/static/img/nav-compete-small.webp"
+  - text: Experience
+    url: "/experience"
+    desktop_image: "/static/img/nav-experience.webp"
+    mobile_image: "/static/img/nav-experience-small.webp"
+  - text: Resources
+    url: "/resources"
+    desktop_image: "/static/img/nav-resources.webp"
+    mobile_image: "/static/img/nav-resources-small.webp"
+  - text: Join
+    url: "/join"
+    desktop_image: "/static/img/nav-join.webp"
+    mobile_image: "/static/img/nav-join-small.webp"

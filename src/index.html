@@ -5,14 +5,18 @@ path: home
 title: Join Sunder Energy | Join the best
 description: Sample description // CHANGE ME
 
-# master props for cta-group
-cta_1_text: CHANGE ME
-cta_1_url: "#"
-cta_2_text: CHANGE ME TOO
-cta_2_url: "#"
-cta_2_target: "_blank"
+# master props
+header_fixed: true
+header_logo_color: light
 ---
 
 <section class="hero">
-  <h1 class="h1">{{ home.hero_text }}</h1>
+  <div class="text-group">
+    <h1 class="h1">{{ home.hero_text }}</h1>
+    <a class="cta-1 tab-element-page" href="/join">Join The Squad</a>
+  </div>
+
+  <div class="image-reel">
+    <p>image reel here</p>
+  </div>
 </section>

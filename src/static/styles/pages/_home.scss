@@ -1,0 +1,32 @@
+.main-home {
+  --min-height: 600px;
+
+  $children-width: calc(50vw - 16px);
+
+  .hero {
+    min-height: var(--min-height);
+  }
+
+  .text-group {
+    @include column-start;
+    @include dark-theme;
+    top: 0;
+    background-color: var(--font-color--primary);
+    height: max(100vh, var(--min-height));
+    padding: var(--body-padding);
+
+    @include mq-min("lg") {
+      position: fixed;
+      width: $children-width;
+    }
+  }
+
+  .image-reel {
+    border: $test;
+
+    @include mq-min("lg") {
+      width: $children-width;
+      float: right;
+    }
+  }
+}

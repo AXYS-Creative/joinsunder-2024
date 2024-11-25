@@ -65,7 +65,8 @@
     </script>
   </head>
   <body>
-    <main class="main-content">{{ content | safe }}</main>
+    {% include "./partials/header.html" %}
+    <main class="main-content main-{{path}}">{{ content | safe }}</main>
     {% include "./partials/nav.html" %}
     <!-- prettier-ignore -->
 
@@ -76,7 +77,9 @@
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"
     ></script>
     {% endif %}
+
     <script src="/static/js/alpine.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="

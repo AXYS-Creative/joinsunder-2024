@@ -17,8 +17,8 @@ collections:
     label: "Page - Home"
     description: >
       Edit the content for joinsunder.com
-      Have questions or need a new config setup? Visit your Trello board to add a new request.
-      https://trello.com/b/l897wwEP/join-sunder Or you can reach us at help@axyscreative.com
+      Have questions or need a new config? Visit your Trello board to add a new request.
+      https://trello.com/b/l897wwEP/join-sunder. You can also reach us at help@axyscreative.com
     files:
       - name: "hero_section"
         label: "Hero Section"

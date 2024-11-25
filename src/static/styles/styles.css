@@ -3,31 +3,48 @@
   --background-color: #f7f7f7;
   --font-color--primary: #000014;
   --hero-color--primary: #0c5ff2;
-  --body-padding: 64px;
+  --body-padding: 48px;
   --nav-height: 420px;
   --nav-background-color: #c6d3d8;
+  --border-radius: 12px;
+}
+@media (max-width: 1512px) {
+  :root {
+    --nav-height: 348px;
+    --body-padding: 24px;
+  }
+}
+@media (max-width: 1024px) {
+  :root {
+    --nav-height: 312px;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 420px;
+    --border-radius: 4px;
+  }
 }
 
 .h1 {
   font-family: "Monument", sans-serif;
-  font-size: 96px;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
   .h1 {
-    font-size: 6vw;
+    font-size: 4.2vw;
   }
 }
 @media screen and (max-width: 1024px) {
   .h1 {
-    font-size: 6vw;
+    font-size: 6.8vw;
   }
 }
 @media screen and (max-width: 768px) {
   .h1 {
-    font-size: 8vw;
+    font-size: 6.8vw;
   }
 }
 @media screen and (max-width: 480px) {
@@ -39,9 +56,8 @@
 .h2 {
   font-family: "Monument", sans-serif;
   font-size: 64px;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
   .h2 {
@@ -67,9 +83,8 @@
 .h3 {
   font-family: "Monument", sans-serif;
   font-size: 48px;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.1;
   font-weight: 700;
 }
 @media screen and (max-width: 1512px) {
@@ -96,9 +111,8 @@
 .h4 {
   font-family: "Monument", sans-serif;
   font-size: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.1;
   font-weight: 400;
 }
 @media screen and (max-width: 1512px) {
@@ -125,9 +139,8 @@
 .h5 {
   font-family: "Monument", sans-serif;
   font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
   .h5 {
@@ -153,9 +166,8 @@
 .h6 {
   font-family: "Monument", sans-serif;
   font-size: 32px;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1.1;
   font-weight: 600;
 }
 @media screen and (max-width: 1512px) {
@@ -190,6 +202,23 @@
   -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
 }
 
+.site-header {
+  width: 100vw;
+  padding: var(--body-padding);
+}
+.site-header--fixed {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.site-header__logo {
+  display: flex;
+  width: 148px;
+}
+.site-header__logo-image {
+  width: 100%;
+}
+
 .main-content {
   height: 100vh;
   transition: 0.5s ease;
@@ -202,7 +231,7 @@
   --button-size: 64px;
   --line-width: 40%;
   --line-spacing: 6px;
-  --line-transition-delay: 0.32s;
+  --line-transition-delay: 0.36s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -292,24 +321,59 @@
   background-color: var(--nav-background-color);
   width: 100vw;
   height: var(--nav-height);
+  padding: var(--body-padding);
   translate: 0 100%;
-  transition: 0.5s ease;
+  transition: translate 0.5s ease;
+}
+@media (hover: none) and (pointer: coarse) {
+  .site-nav {
+    overflow-x: scroll;
+  }
 }
 .site-nav .nav-slider {
   display: flex;
   gap: 24px;
-  padding: 24px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav .nav-slider {
+    transition: translate 0.8s cubic-bezier(0.18, 0.97, 0.47, 1);
+  }
+}
+@media screen and (max-width: 768px) {
+  .site-nav .nav-slider {
+    padding-inline-end: var(--body-padding);
+  }
 }
 .site-nav .nav-link {
   color: var(--font-color--primary);
 }
 .site-nav .nav-link__img {
-  width: 400px;
-  aspect-ratio: 2/1;
+  display: block;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   margin-block-start: 12px;
+  width: 188px;
+  height: 256px;
+}
+@media screen and (min-width: 769px) {
+  .site-nav .nav-link__img {
+    width: 250px;
+    height: auto;
+    aspect-ratio: 1.85/1;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .site-nav .nav-link__img {
+    width: 320px;
+  }
+}
+@media screen and (min-width: 1513px) {
+  .site-nav .nav-link__img {
+    width: 400px;
+  }
 }
 .site-nav--active {
   translate: 0 0;
@@ -460,6 +524,42 @@ button {
 
 a {
   text-decoration: none;
+}
+
+.main-home {
+  --min-height: 600px;
+}
+.main-home .hero {
+  min-height: var(--min-height);
+}
+.main-home .text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--font-color--primary);
+  top: 0;
+  background-color: var(--font-color--primary);
+  height: max(100vh, var(--min-height));
+  padding: var(--body-padding);
+}
+.main-home .text-group * {
+  color: var(--background-color);
+}
+@media screen and (min-width: 1025px) {
+  .main-home .text-group {
+    position: fixed;
+    width: calc(50vw - 16px);
+  }
+}
+.main-home .image-reel {
+  border: 2px dashed rgba(220, 20, 60, 0.75);
+}
+@media screen and (min-width: 1025px) {
+  .main-home .image-reel {
+    width: calc(50vw - 16px);
+    float: right;
+  }
 }
 
 .error {
