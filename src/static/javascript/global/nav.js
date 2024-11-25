@@ -62,56 +62,30 @@ const closeNav = () => {
 
 navBtn.addEventListener("click", toggleNav);
 
-// Nav Slider
-if (isMouseDevice) {
-  const navSlider = document.querySelector(".nav-slider");
-
-  // Biggest
-  // sensitivity = 2.75;
-  // offset = 7.25;
-
-  // Laptop
-  // sensitivity = 2.75;
-  // offset = 6.25;
-
-  // 1024px
-  // sensitivity = 2.75;
-  // offset = 10;
-
-  let sensitivity = 2.75; // The higher the number, the less sensitive.
-  let offset = 6.25; // The higher the number, the more intense the slider moves to the left
-
-  // Will need to use vw on nav linkes and nav height.
-  // The sensitivity isn't matching up for the mouse for different viewports
-
-  navSlider.addEventListener("mousemove", (e) => {
-    navSlider.style.translate = `calc(${offset}vw - calc(${
-      e.pageX / sensitivity
-    }px) * 1.4)`;
-    //
-  });
-}
-
-//
-// Responsive navSlider
-//
-
 if (isMouseDevice) {
   const navSlider = document.querySelector(".nav-slider");
   let viewportWidth = window.innerWidth;
   let sliderWidth = navSlider.offsetWidth;
 
+  const updateTranslateX = (mouseX) => {
+    const viewportCenter = viewportWidth / 2;
+
+    const mouseOffsetFromCenter = mouseX - viewportCenter;
+
+    const translateX = -(
+      (mouseOffsetFromCenter / viewportWidth) *
+      (sliderWidth - viewportWidth)
+    );
+
+    navSlider.style.translate = `${translateX}px 0`;
+  };
+
   navSlider.addEventListener("mousemove", (e) => {
-    const mouseXPercentage = e.pageX / viewportWidth;
-
-    // Adjust translateX to account for the slider's larger width
-    const translateX =
-      (0.5 - mouseXPercentage) * (viewportWidth / sliderWidth) * 100;
-
-    navSlider.style.transform = `translateX(${translateX}px)`;
+    updateTranslateX(e.pageX);
   });
 
   window.addEventListener("resize", () => {
     viewportWidth = window.innerWidth;
+    sliderWidth = navSlider.offsetWidth;
   });
 }

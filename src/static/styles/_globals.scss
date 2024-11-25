@@ -139,6 +139,7 @@
 }
 
 .site-nav {
+  @include column-center(flex-start);
   position: fixed;
   bottom: 0;
   background-color: var(--nav-background-color);
@@ -154,17 +155,22 @@
   }
 
   .nav-slider {
-    // border: $test;
+    --initial-offset: 64px;
+
     display: flex;
     gap: 24px;
     width: fit-content;
+    translate: calc(calc(-50vw - var(--initial-offset)) + 50%) 0; // Initial state. Overwritten on mouseover/swipe
+    padding-inline: 96px;
 
     @include mq-motion-allow {
       transition: translate 0.8s $cubic-ease;
     }
 
-    @include mq-max("md") {
-      padding-inline-end: var(--body-padding);
+    @include mq-max("sm") {
+      --initial-offset: 24px;
+
+      padding-inline: 48px;
     }
   }
 

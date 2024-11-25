@@ -316,6 +316,10 @@
 }
 
 .site-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   position: fixed;
   bottom: 0;
   background-color: var(--nav-background-color);
@@ -331,19 +335,23 @@
   }
 }
 .site-nav .nav-slider {
+  --initial-offset: 64px;
   display: flex;
   gap: 24px;
   width: -moz-fit-content;
   width: fit-content;
+  translate: calc(-50vw - var(--initial-offset) + 50%) 0;
+  padding-inline: 96px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .site-nav .nav-slider {
     transition: translate 0.8s cubic-bezier(0.18, 0.97, 0.47, 1);
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .site-nav .nav-slider {
-    padding-inline-end: var(--body-padding);
+    --initial-offset: 24px;
+    padding-inline: 48px;
   }
 }
 .site-nav .nav-link {
