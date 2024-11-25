@@ -171,7 +171,7 @@ $min-breakpoints: (
 
 // Hero & Prefooter
 .h1 {
-  @include heading(72px, 4.2vw, 6.8vw, 6.8vw, 32px);
+  @include heading(72px, 4.2vw, 6.8vw, 48px, 32px);
 }
 
 // Section Title Only
@@ -182,13 +182,11 @@ $min-breakpoints: (
 // Text Block Partial & Image Slider
 .h3 {
   @include heading(48px, 3vw, 3vw, 24px, 20px);
-  font-weight: 700;
 }
 
 // Services & Prices
 .h4 {
   @include heading(36px, 2vw, 2.8vw, 3.8vw, 12px);
-  font-weight: 400;
 }
 
 // Price Card Title Only
@@ -198,8 +196,9 @@ $min-breakpoints: (
 
 // FAQ Accordion Question Only
 .h6 {
-  @include heading(32px, 20px, 20px, 12px, 12px);
-  font-weight: 600;
+  @include heading(32px, 1.6vw, 2.4vw, 20px, 20px);
+  font-family: $font-family-body;
+  line-height: 1;
 }
 
 @mixin body-font-styles {

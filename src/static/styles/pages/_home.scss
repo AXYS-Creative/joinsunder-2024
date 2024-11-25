@@ -3,16 +3,17 @@
 
   $children-width: calc(50vw - 16px);
 
-  .hero {
-    min-height: var(--min-height);
-  }
+  // .hero {
+  //   @include mq-min("md") {
+  //     height: max(100dvh, var(--min-height));
+  //   }
+  // }
 
   .text-group {
-    @include column-start;
     @include dark-theme;
-    top: 0;
-    background-color: var(--font-color--primary);
-    height: max(100vh, var(--min-height));
+    @include column-start;
+    gap: 64px;
+    height: max(100dvh, var(--min-height));
     padding: var(--body-padding);
 
     @include mq-min("lg") {

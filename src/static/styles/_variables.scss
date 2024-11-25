@@ -27,14 +27,14 @@ $enzy-hero: #6da894;
     --body-padding: 24px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     --nav-height: 312px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     --nav-height: 420px;
 
-    --border-radius: 4px;
+    --border-radius: 8px;
   }
 }
 
