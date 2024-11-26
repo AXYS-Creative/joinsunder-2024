@@ -10,21 +10,30 @@ header_fixed: true
 header_logo_color: light
 ---
 
-<section class="hero">
-  <div class="text-group">
-    <h1 class="h1">{{ home.hero_text }}</h1>
-    <div class="cta-group">
-      <!-- prettier-ignore -->
-      {% set cta_text = "Join The Squad"%}
-      {% set cta_url = "/join"%}
-      {% include "./_includes/components/cta.html" %}
+<div class="text-group">
+  <h1 class="h1 hero-text">{{ home.hero_text }}</h1>
 
-      {% set cta_vid_text = "Play Video"%}
-      {% include "./_includes/components/cta-video.html" %}
-    </div>
+  <div class="cta-group">
+    <!-- prettier-ignore -->
+    {% set cta_text = "Join The Squad"%}
+    {% set cta_url = "/join"%}
+    {% include "./_includes/components/cta.html" %}
+
+    {% set cta_vid_text = "Play Video"%}
+    {% include "./_includes/components/cta-video.html" %}
+  </div>
+</div>
+
+<div class="image-reel">
+  <div class="image-reel__column image-reel__column-1">
+    {% for image in home.image_reel | slice(0, 12) %}
+    <img src="{{ image.src }}" alt="{{ image.desc }}" />
+    {% endfor %}
   </div>
 
-  <div class="image-reel">
-    <p>image reel here</p>
+  <div class="image-reel__column image-reel__column-2">
+    {% for image in home.image_reel | slice(12, 22) %}
+    <img src="{{ image.src }}" alt="{{ image.desc }}" />
+    {% endfor %}
   </div>
-</section>
+</div>

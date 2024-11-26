@@ -1,23 +1,31 @@
 .main-home {
   --min-height: 600px;
-
   $children-width: calc(50vw - 16px);
 
-  // .hero {
-  //   @include mq-min("md") {
-  //     height: max(100dvh, var(--min-height));
-  //   }
-  // }
+  translate: 0 0 !important; // translate children instead
+
+  @include mq-min("lg") {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .text-group,
+  .image-reel {
+    transition: $nav-transition;
+  }
 
   .text-group {
     @include dark-theme;
-    @include column-start;
-    gap: 64px;
-    height: max(100dvh, var(--min-height));
-    padding: var(--body-padding);
+
+    @include mq-max("lg") {
+      @include column-start;
+      gap: 48px;
+      padding: var(--body-padding);
+      // height: max(100dvh, var(--min-height));
+      height: max(100vh, var(--min-height));
+    }
 
     @include mq-min("lg") {
-      position: fixed;
       width: $children-width;
     }
 
@@ -32,11 +40,42 @@
   }
 
   .image-reel {
-    border: $test;
+    --gap: 16px;
+
+    height: var(--reel-height); // set from home.js
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap);
+    overflow: hidden;
 
     @include mq-min("lg") {
       width: $children-width;
-      float: right;
+    }
+
+    &__column {
+      @include column-center;
+      gap: var(--gap);
+      z-index: -1;
+
+      img {
+        width: 100%;
+        border-radius: var(--radius);
+
+        &:first-of-type {
+          border-radius: 0 0 var(--radius) var(--radius);
+        }
+
+        // @include mq-max("md") {
+        //   width: 50px;
+        // }
+      }
+    }
+  }
+
+  &.main-content--nav-active {
+    .text-group,
+    .image-reel {
+      translate: $nav-translate;
     }
   }
 }

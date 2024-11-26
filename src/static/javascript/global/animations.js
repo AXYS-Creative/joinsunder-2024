@@ -28,6 +28,20 @@ responsiveGsap.add(
     //   }
     // );
 
+    // Home Image Reel
+    const imgReelAnimation = (() => {
+      gsap.to(".image-reel__column-1", {
+        y: "-16.8%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".image-reel",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.2,
+        },
+      });
+    })();
+
     // GLOBAL - Easily toggle an 'animate' class on any element with '.gsap-animate' class
     const globalGenerateAnimate = (() => {
       const targetElements = document.querySelectorAll(".gsap-animate");
@@ -47,7 +61,6 @@ responsiveGsap.add(
       });
     })();
 
-    // GAME CHANGER!!!
     // Refresh ScrollTrigger instances on page load and resize
     window.addEventListener("load", () => {
       ScrollTrigger.refresh();

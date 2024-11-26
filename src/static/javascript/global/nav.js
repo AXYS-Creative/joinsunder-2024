@@ -2,7 +2,8 @@ import { isMouseDevice, mqMaxXxl } from "../utility.js";
 
 const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
-  mainContent = document.querySelector(".main-content");
+  mainContent = document.querySelector(".main-content"),
+  siteHeader = document.querySelector(".site-header");
 
 const navLinks = document.querySelectorAll(".nav-link"),
   tabElementsPage = document.querySelectorAll(".tab-element-page"),
@@ -16,6 +17,7 @@ const toggleNav = () => {
   isNavOpen = siteNav.classList.contains("site-nav--active");
 
   siteNav.classList.toggle("site-nav--active");
+  siteHeader.classList.toggle("site-header--nav-active");
   mainContent.classList.toggle("main-content--nav-active");
 
   // Set aria-hidden based on the new state of the navigation
@@ -44,6 +46,7 @@ const closeNav = () => {
   navBtn.setAttribute("aria-expanded", "false");
 
   siteNav.classList.remove("site-nav--active");
+  siteHeader.classList.remove("site-header--nav-active");
   mainContent.classList.remove("main-content--nav-active");
 
   // Reset tabindex for tabElementsPage and tabElementsNav

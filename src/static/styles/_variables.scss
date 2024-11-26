@@ -9,6 +9,9 @@ $sunder-navy: #061a2a;
 $sunder-midnight: #000014;
 $enzy-hero: #6da894;
 
+$nav-transition: translate 0.5s ease;
+$nav-translate: 0 calc(var(--nav-height) * -1);
+
 :root {
   --background-color: #{$sunder-snow};
   --font-color--primary: #{$sunder-midnight};
@@ -19,7 +22,7 @@ $enzy-hero: #6da894;
   --nav-height: 420px;
   --nav-background-color: #{$sunder-ice};
 
-  --border-radius: 12px;
+  --radius: 12px;
 
   @media (max-width: 1512px) {
     --nav-height: 348px;
@@ -34,7 +37,7 @@ $enzy-hero: #6da894;
   @media (max-width: 1024px) {
     --nav-height: 420px;
 
-    --border-radius: 8px;
+    --radius: 8px;
   }
 }
 

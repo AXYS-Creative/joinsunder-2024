@@ -2,6 +2,8 @@ export const isMouseDevice = window.matchMedia("(pointer: fine)").matches;
 export const mqMaxXxl = window.matchMedia("(max-width: 1512px)").matches;
 export const mqMaxMd = window.matchMedia("(max-width: 768px)").matches;
 
+export const root = document.documentElement;
+
 // Lenis
 export const lenis = new Lenis();
 

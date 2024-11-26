@@ -16,12 +16,6 @@
 .site-header {
   // Not setting width/padding for click through.
 
-  &--fixed {
-    .site-header__logo {
-      position: fixed;
-    }
-  }
-
   &__logo {
     position: absolute;
     top: var(--body-padding);
@@ -29,23 +23,39 @@
     display: flex;
     width: 148px;
     z-index: $z-index-header;
+    overflow: hidden;
 
     @include mq-max("sm") {
       width: 96px;
     }
 
     &-image {
+      display: block;
       width: 100%;
+      transition: $nav-transition;
+    }
+  }
+
+  &--fixed {
+    .site-header__logo {
+      @include mq-min("lg") {
+        position: fixed; // for the home page
+      }
+    }
+  }
+
+  &--nav-active {
+    .site-header__logo-image {
+      translate: $nav-translate;
     }
   }
 }
 
 .main-content {
-  height: 100vh;
-  transition: 0.5s ease;
+  transition: $nav-transition;
 
   &--nav-active {
-    translate: 0 calc(var(--nav-height) * -1);
+    translate: $nav-translate;
   }
 }
 
@@ -191,7 +201,7 @@
     &__img {
       display: block;
       object-fit: cover;
-      border-radius: var(--border-radius);
+      border-radius: var(--radius);
       margin-block-start: 12px;
       width: 188px;
       height: 256px;
@@ -219,6 +229,7 @@
 
 .cta {
   @extend .h6;
+  isolation: isolate;
   position: relative;
   border: 1px solid var(--background-color);
   padding: 0.75em 1.25em;
@@ -239,18 +250,20 @@
   }
 
   .hover-fill {
-    position: absolute;
-    top: var(--mouse-x);
-    left: var(--mouse-y);
-    translate: -50% -50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    opacity: 0;
-    background-color: var(--hero-color--primary);
-    transform-origin: center;
-    z-index: -1;
-    transition: width 0.4s ease 0.2s, height 0.4s ease 0.2s, opacity 0.3s ease;
+    @include mq-mouse {
+      position: absolute;
+      top: var(--mouse-x);
+      left: var(--mouse-y);
+      translate: -50% -50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      opacity: 0;
+      background-color: var(--hero-color--primary);
+      transform-origin: center;
+      z-index: -1;
+      transition: width 0.4s ease 0.2s, height 0.4s ease 0.2s, opacity 0.3s ease;
+    }
   }
 
   &--video {

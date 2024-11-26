@@ -23,7 +23,7 @@ collections:
       - name: "hero_section"
         label: "Hero Section"
         file: "src/_data/home.yaml"
-        preview_path: "#"
+        preview_path: "/"
         editor:
           preview: false
         fields:
@@ -31,6 +31,26 @@ collections:
             label: "Hero Text"
             widget: "string"
             required: true
+          - name: "images"
+            label: "Image Reel"
+            label_singular: "Image"
+            widget: "list"
+            collapsed: false
+            required: true
+            fields:
+              - {
+                  name: "src",
+                  label: "Image Source",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  name: "desc",
+                  label: "Image Description",
+                  widget: "string",
+                  required: true,
+                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                }
   - name: "global_components"
     label: "Global Components"
     description: >
