@@ -32,7 +32,7 @@ header_logo_color: light
   </div>
 
   <div class="image-reel__column image-reel__column-2">
-    {% for image in home.image_reel | slice(12, 22) %}
+    {% for image in home.image_reel | slice(12) %}
     <img src="{{ image.src }}" alt="{{ image.desc }}" />
     {% endfor %}
   </div>

@@ -31,7 +31,7 @@ collections:
             label: "Hero Text"
             widget: "string"
             required: true
-          - name: "images"
+          - name: "image_reel"
             label: "Image Reel"
             label_singular: "Image"
             widget: "list"

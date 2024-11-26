@@ -1,11 +1,13 @@
 .main-home {
   --min-height: 600px;
   $children-width: calc(50vw - 16px);
+  height: 100%;
 
   translate: 0 0 !important; // translate children instead
 
   @include mq-min("lg") {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
   }
 
@@ -15,22 +17,20 @@
   }
 
   .text-group {
+    @include column-start;
     @include dark-theme;
-
-    @include mq-max("lg") {
-      @include column-start;
-      gap: 48px;
-      padding: var(--body-padding);
-      // height: max(100dvh, var(--min-height));
-      height: max(100vh, var(--min-height));
-    }
+    padding: var(--body-padding);
+    height: max(100vh, var(--min-height));
+    gap: 48px;
 
     @include mq-min("lg") {
+      position: sticky;
+      top: 0;
       width: $children-width;
     }
 
     .cta-group {
-      @include row-center;
+      @include row-center(flex-start);
       gap: 24px;
 
       @include mq-max("sm") {
@@ -42,7 +42,8 @@
   .image-reel {
     --gap: 16px;
 
-    height: var(--reel-height); // set from home.js
+    border: $test;
+    // height: var(--reel-height); // set from home.js
     display: flex;
     align-items: flex-start;
     gap: var(--gap);

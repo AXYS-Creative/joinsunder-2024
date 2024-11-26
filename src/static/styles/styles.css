@@ -44,7 +44,7 @@
 }
 @media screen and (max-width: 768px) {
   .h1 {
-    font-size: 48px;
+    font-size: 52px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -629,11 +629,13 @@ a {
 
 .main-home {
   --min-height: 600px;
+  height: 100%;
   translate: 0 0 !important;
 }
 @media screen and (min-width: 1025px) {
   .main-home {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
   }
 }
@@ -642,30 +644,28 @@ a {
   transition: translate 0.5s ease;
 }
 .main-home .text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   background: var(--font-color--primary);
+  padding: var(--body-padding);
+  height: max(100vh, var(--min-height));
+  gap: 48px;
 }
 .main-home .text-group * {
   color: var(--background-color);
 }
-@media screen and (max-width: 1024px) {
-  .main-home .text-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 48px;
-    padding: var(--body-padding);
-    height: max(100vh, var(--min-height));
-  }
-}
 @media screen and (min-width: 1025px) {
   .main-home .text-group {
+    position: sticky;
+    top: 0;
     width: calc(50vw - 16px);
   }
 }
 .main-home .text-group .cta-group {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 24px;
 }
@@ -676,7 +676,7 @@ a {
 }
 .main-home .image-reel {
   --gap: 16px;
-  height: var(--reel-height);
+  border: 2px dashed rgba(220, 20, 60, 0.75);
   display: flex;
   align-items: flex-start;
   gap: var(--gap);
