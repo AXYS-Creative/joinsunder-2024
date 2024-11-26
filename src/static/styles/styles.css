@@ -651,6 +651,7 @@ a {
   background: var(--font-color--primary);
   padding: var(--body-padding);
   height: max(100vh, var(--min-height));
+  height: max(100dvh, var(--min-height));
   gap: 48px;
 }
 .main-home .text-group * {
@@ -676,7 +677,6 @@ a {
 }
 .main-home .image-reel {
   --gap: 16px;
-  border: 2px dashed rgba(220, 20, 60, 0.75);
   display: flex;
   align-items: flex-start;
   gap: var(--gap);

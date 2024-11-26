@@ -7,6 +7,6 @@ import "./components/cta.js";
 
 import "./content/tokens.js";
 
-// import "./pages/home.js";
+import "./pages/home.js";
 
 import "./utility.js";

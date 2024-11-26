@@ -8,6 +8,8 @@ description: Sample description // CHANGE ME
 # master props
 header_fixed: true
 header_logo_color: light
+# Page notes
+# Using eager loading for computed/dynamic height... might not work
 ---
 
 <div class="text-group">
@@ -27,13 +29,13 @@ header_logo_color: light
 <div class="image-reel">
   <div class="image-reel__column image-reel__column-1">
     {% for image in home.image_reel | slice(0, 12) %}
-    <img src="{{ image.src }}" alt="{{ image.desc }}" />
+    <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
     {% endfor %}
   </div>
 
   <div class="image-reel__column image-reel__column-2">
     {% for image in home.image_reel | slice(12) %}
-    <img src="{{ image.src }}" alt="{{ image.desc }}" />
+    <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
     {% endfor %}
   </div>
 </div>

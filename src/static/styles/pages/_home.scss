@@ -21,6 +21,7 @@
     @include dark-theme;
     padding: var(--body-padding);
     height: max(100vh, var(--min-height));
+    height: max(100dvh, var(--min-height));
     gap: 48px;
 
     @include mq-min("lg") {
@@ -42,7 +43,6 @@
   .image-reel {
     --gap: 16px;
 
-    border: $test;
     // height: var(--reel-height); // set from home.js
     display: flex;
     align-items: flex-start;

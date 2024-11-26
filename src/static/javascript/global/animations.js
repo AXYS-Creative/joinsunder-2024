@@ -31,7 +31,7 @@ responsiveGsap.add(
     // Home Image Reel
     const imgReelAnimation = (() => {
       gsap.to(".image-reel__column-1", {
-        y: "-16.8%",
+        y: "-16.75%",
         ease: "none",
         scrollTrigger: {
           trigger: ".image-reel",
