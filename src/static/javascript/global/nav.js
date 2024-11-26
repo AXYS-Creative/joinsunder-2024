@@ -62,7 +62,7 @@ const closeNav = () => {
 
 navBtn.addEventListener("click", toggleNav);
 
-if (isMouseDevice) {
+if (isMouseDevice && window.innerWidth < 2712) {
   const navSlider = document.querySelector(".nav-slider");
   let viewportWidth = window.innerWidth;
   let sliderWidth = navSlider.offsetWidth;

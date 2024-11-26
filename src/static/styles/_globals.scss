@@ -51,7 +51,7 @@
 
 .nav-btn {
   --button-size: 64px;
-  --line-width: 40%;
+  --line-width: 36%;
   --line-spacing: 6px;
   --line-transition-delay: 0.36s;
 
@@ -174,6 +174,10 @@
       transition: translate 0.8s $cubic-ease;
     }
 
+    @media (min-width: 2712px) {
+      translate: 0 0;
+    }
+
     @include mq-max("sm") {
       --initial-offset: 24px;
 
@@ -215,7 +219,76 @@
 
 .cta {
   @extend .h6;
-  border: 1px solid white;
-  padding: 0.6em 1.2em;
+  position: relative;
+  border: 1px solid var(--background-color);
+  padding: 0.75em 1.25em;
   border-radius: 48px;
+  overflow: hidden;
+  transition: border 0.3s ease 0.1s;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--hero-color--primary);
+
+    div.hover-fill {
+      width: 220%;
+      height: 320%;
+      opacity: 1;
+      transition: width 0.4s ease, height 0.4s ease;
+    }
+  }
+
+  .hover-fill {
+    position: absolute;
+    top: var(--mouse-x);
+    left: var(--mouse-y);
+    translate: -50% -50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    opacity: 0;
+    background-color: var(--hero-color--primary);
+    transform-origin: center;
+    z-index: -1;
+    transition: width 0.4s ease 0.2s, height 0.4s ease 0.2s, opacity 0.3s ease;
+  }
+
+  &--video {
+    border-color: var(--hero-color--primary);
+    background: linear-gradient(90deg, #15499340, #4aabd040);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    @include mq-max("sm") {
+      gap: 8px;
+    }
+
+    .icon-group {
+      --icon-size: 36px;
+
+      position: relative;
+      width: var(--icon-size);
+      height: var(--icon-size);
+      overflow: hidden;
+
+      @include mq-max("xxl") {
+        --icon-size: 24px;
+      }
+
+      @include mq-max("sm") {
+        --icon-size: 16px;
+      }
+
+      .icon {
+        @include absolute-center;
+        width: 80%;
+        height: 80%;
+        background: var(--background-color);
+        mask-image: url(../img/icons/play-solid.svg);
+        mask-repeat: no-repeat;
+        mask-position: center;
+      }
+    }
+  }
 }

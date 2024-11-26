@@ -13,7 +13,15 @@ header_logo_color: light
 <section class="hero">
   <div class="text-group">
     <h1 class="h1">{{ home.hero_text }}</h1>
-    <a class="cta tab-element-page" href="/join">Join The Squad</a>
+    <div class="cta-group">
+      <!-- prettier-ignore -->
+      {% set cta_text = "Join The Squad"%}
+      {% set cta_url = "/join"%}
+      {% include "./_includes/components/cta.html" %}
+
+      {% set cta_vid_text = "Play Video"%}
+      {% include "./_includes/components/cta-video.html" %}
+    </div>
   </div>
 
   <div class="image-reel">

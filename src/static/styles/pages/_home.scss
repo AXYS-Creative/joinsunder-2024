@@ -20,6 +20,15 @@
       position: fixed;
       width: $children-width;
     }
+
+    .cta-group {
+      @include row-center;
+      gap: 24px;
+
+      @include mq-max("sm") {
+        gap: 12px;
+      }
+    }
   }
 
   .image-reel {

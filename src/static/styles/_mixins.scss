@@ -196,7 +196,7 @@ $min-breakpoints: (
 
 // FAQ Accordion Question Only
 .h6 {
-  @include heading(32px, 1.6vw, 2.4vw, 20px, 20px);
+  @include heading(32px, 1.6vw, 2.4vw, 20px, 16px);
   font-family: $font-family-body;
   line-height: 1;
 }
