@@ -13,6 +13,14 @@
   }
 }
 
+// html {
+//   -ms-overflow-style: none;
+//   scrollbar-width: none;
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+// }
+
 .site-header {
   // Not setting width/padding for click through.
 
@@ -237,8 +245,7 @@
   overflow: hidden;
   transition: border 0.3s ease 0.1s;
 
-  &:hover,
-  &:focus-visible {
+  &:hover {
     border-color: var(--hero-color--primary);
 
     div.hover-fill {
@@ -249,9 +256,20 @@
     }
   }
 
+  &:focus-visible {
+    border-color: var(--hero-color--primary);
+    background-color: var(--hero-color--primary);
+
+    transition: 0.2s ease;
+
+    div.hover-fill {
+      display: none;
+    }
+  }
+
   .hover-fill {
     @include mq-mouse {
-      position: absolute;
+      @include absolute-center;
       top: var(--mouse-x);
       left: var(--mouse-y);
       translate: -50% -50%;
@@ -279,6 +297,7 @@
 
     .icon-group {
       --icon-size: 36px;
+      $anim-duration: 3s;
 
       position: relative;
       width: var(--icon-size);
@@ -301,6 +320,16 @@
         mask-image: url(../img/icons/play-solid.svg);
         mask-repeat: no-repeat;
         mask-position: center;
+      }
+
+      .icon-1 {
+        translate: -160% -50%;
+        animation: video-cta-icon__1 $anim-duration ease infinite;
+      }
+
+      .icon-2 {
+        translate: -50% -50%;
+        animation: video-cta-icon__2 $anim-duration ease infinite;
       }
     }
   }

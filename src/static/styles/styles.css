@@ -410,18 +410,29 @@
   overflow: hidden;
   transition: border 0.3s ease 0.1s;
 }
-.cta:hover, .cta:focus-visible {
+.cta:hover {
   border-color: var(--hero-color--primary);
 }
-.cta:hover div.hover-fill, .cta:focus-visible div.hover-fill {
+.cta:hover div.hover-fill {
   width: 220%;
   height: 320%;
   opacity: 1;
   transition: width 0.4s ease, height 0.4s ease;
 }
+.cta:focus-visible {
+  border-color: var(--hero-color--primary);
+  background-color: var(--hero-color--primary);
+  transition: 0.2s ease;
+}
+.cta:focus-visible div.hover-fill {
+  display: none;
+}
 @media (hover: hover) and (pointer: fine) {
   .cta .hover-fill {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
     top: var(--mouse-x);
     left: var(--mouse-y);
     translate: -50% -50%;
@@ -478,6 +489,14 @@
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
           mask-position: center;
+}
+.cta--video .icon-group .icon-1 {
+  translate: -160% -50%;
+  animation: video-cta-icon__1 3s ease infinite;
+}
+.cta--video .icon-group .icon-2 {
+  translate: -50% -50%;
+  animation: video-cta-icon__2 3s ease infinite;
 }
 
 .classic-link {
@@ -627,6 +646,28 @@ a {
   text-decoration: none;
 }
 
+@keyframes video-cta-icon__1 {
+  0% {
+    translate: -160% -50%;
+  }
+  80% {
+    translate: -160% -50%;
+  }
+  100% {
+    translate: -50% -50%;
+  }
+}
+@keyframes video-cta-icon__2 {
+  0% {
+    translate: -50% -50%;
+  }
+  80% {
+    translate: -50% -50%;
+  }
+  100% {
+    translate: 100% -50%;
+  }
+}
 .main-home {
   --min-height: 600px;
   height: 100%;

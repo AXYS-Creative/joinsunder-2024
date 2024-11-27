@@ -1,4 +1,4 @@
-import { isMouseDevice, mqMaxXxl } from "../utility.js";
+import { mqMouse, mqMaxXxl } from "../utility.js";
 
 const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
@@ -65,7 +65,7 @@ const closeNav = () => {
 
 navBtn.addEventListener("click", toggleNav);
 
-if (isMouseDevice && window.innerWidth < 2712) {
+if (mqMouse && window.innerWidth < 2712) {
   const navSlider = document.querySelector(".nav-slider");
   let viewportWidth = window.innerWidth;
   let sliderWidth = navSlider.offsetWidth;

@@ -1,8 +1,8 @@
-import { isMouseDevice } from "../utility.js";
+import { mqMouse } from "../utility.js";
 
 const ctaBtns = document.querySelectorAll(".cta");
 
-if (isMouseDevice) {
+if (mqMouse) {
   ctaBtns.forEach((btn) => {
     const hoverFill = btn.querySelector(".hover-fill");
 

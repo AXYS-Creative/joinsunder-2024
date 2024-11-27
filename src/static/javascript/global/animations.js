@@ -12,26 +12,11 @@ responsiveGsap.add(
   (context) => {
     let { maxSm, maxMd, maxXl, minMd } = context.conditions;
 
-    // // TEMPLATE TWEEN - SCRUB
-    // gsap.fromTo(
-    //   ".slider__inner",
-    //   { x: "-2%" },
-    //   {
-    //     x: maxSm ? "-32%" : maxXl ? "-32%" : "-32%",
-    //     scrollTrigger: {
-    //       trigger: ".slider",
-    //       start: "top bottom",
-    //       end: maxSm ? "bottom 75%" : "bottom top",
-    //       scrub: 0.8,
-    //       // markers: true,
-    //     },
-    //   }
-    // );
-
     // Home Image Reel
     const imgReelAnimation = (() => {
       gsap.to(".image-reel__column-1", {
-        y: "-16.75%",
+        // y: "-16.75%",
+        y: maxSm ? "-20.5%" : "-21.1%",
         ease: "none",
         scrollTrigger: {
           trigger: ".image-reel",
