@@ -1,4 +1,4 @@
-import { mqMouse, mqMaxXxl } from "../utility.js";
+import { mqMouse } from "../utility.js";
 
 const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
@@ -20,17 +20,14 @@ const toggleNav = () => {
   siteHeader.classList.toggle("site-header--nav-active");
   mainContent.classList.toggle("main-content--nav-active");
 
-  // Set aria-hidden based on the new state of the navigation
   siteNav.setAttribute("aria-hidden", isNavOpen ? "true" : "false");
 
-  // Update aria-expanded, aria-pressed, and aria-label on the nav button
   navBtn.setAttribute("aria-expanded", isNavOpen ? "false" : "true");
   navBtn.setAttribute(
     "aria-label",
     isNavOpen ? "Open navigation menu" : "Close navigation menu"
   );
 
-  // Update tabindex for tabElementsPage and tabElementsNav
   tabElementsPage.forEach((el) =>
     el.setAttribute("tabindex", isNavOpen ? "0" : "-1")
   );

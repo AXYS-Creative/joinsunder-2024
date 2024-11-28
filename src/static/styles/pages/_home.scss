@@ -3,17 +3,10 @@
   $children-width: calc(50vw - 16px);
   height: 100%;
 
-  translate: 0 0 !important; // translate children instead
-
   @include mq-min("lg") {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-  }
-
-  .text-group,
-  .image-reel {
-    transition: $nav-transition;
   }
 
   .text-group {
@@ -65,18 +58,7 @@
         &:first-of-type {
           border-radius: 0 0 var(--radius) var(--radius);
         }
-
-        // @include mq-max("md") {
-        //   width: 50px;
-        // }
       }
-    }
-  }
-
-  &.main-content--nav-active {
-    .text-group,
-    .image-reel {
-      translate: $nav-translate;
     }
   }
 }

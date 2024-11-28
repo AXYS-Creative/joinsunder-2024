@@ -13,14 +13,6 @@
   }
 }
 
-// html {
-//   -ms-overflow-style: none;
-//   scrollbar-width: none;
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
-// }
-
 .site-header {
   // Not setting width/padding for click through.
 
@@ -296,21 +288,10 @@
     }
 
     .icon-group {
-      --icon-size: 36px;
-      $anim-duration: 3s;
-
       position: relative;
-      width: var(--icon-size);
-      height: var(--icon-size);
+      width: 1em;
+      height: 1em;
       overflow: hidden;
-
-      @include mq-max("xxl") {
-        --icon-size: 24px;
-      }
-
-      @include mq-max("sm") {
-        --icon-size: 16px;
-      }
 
       .icon {
         @include absolute-center;
@@ -324,12 +305,12 @@
 
       .icon-1 {
         translate: -160% -50%;
-        animation: video-cta-icon__1 $anim-duration ease infinite;
+        animation: video-cta-icon__1 3s ease infinite;
       }
 
       .icon-2 {
         translate: -50% -50%;
-        animation: video-cta-icon__2 $anim-duration ease infinite;
+        animation: video-cta-icon__2 3s ease infinite;
       }
     }
   }
