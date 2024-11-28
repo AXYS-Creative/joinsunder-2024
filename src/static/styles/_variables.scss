@@ -17,27 +17,33 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
   --font-color--primary: #{$sunder-midnight};
   --hero-color--primary: #{$sunder-royal-light};
 
-  --body-padding: 48px;
+  --body-padding: 64px;
 
-  --nav-height: 420px;
+  --nav-height: 436px;
   --nav-background-color: #{$sunder-ice};
 
   --radius: 12px;
 
   @media (max-width: 1512px) {
-    --nav-height: 348px;
+    --nav-height: 364px;
 
-    --body-padding: 24px;
+    --body-padding: 48px;
   }
 
   @media (max-width: 1200px) {
-    --nav-height: 312px;
+    --nav-height: 324px;
   }
 
   @media (max-width: 1024px) {
-    --nav-height: 420px;
+    --nav-height: 448px;
 
     --radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    --nav-height: 364px;
+
+    --body-padding: 24px;
   }
 }
 

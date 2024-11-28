@@ -1,4 +1,4 @@
-import { mqMouse } from "../utility.js";
+import { mqMouse, mqMaxXxl, mqMaxMd } from "../utility.js";
 
 const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
@@ -69,7 +69,6 @@ if (mqMouse && window.innerWidth < 2712) {
 
   const updateTranslateX = (mouseX) => {
     const viewportCenter = viewportWidth / 2;
-
     const mouseOffsetFromCenter = mouseX - viewportCenter;
 
     const translateX = -(
@@ -87,5 +86,33 @@ if (mqMouse && window.innerWidth < 2712) {
   window.addEventListener("resize", () => {
     viewportWidth = window.innerWidth;
     sliderWidth = navSlider.offsetWidth;
+  });
+
+  // Keyboard focus
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  let currentTranslateX = 0;
+  let offsetTweak = mqMaxMd ? "60vw" : mqMaxXxl ? "25vw" : "20vw"; // for six links
+
+  navLinks.forEach((link) => {
+    link.addEventListener("focus", () => {
+      const linkRect = link.getBoundingClientRect();
+      const sliderRect = navSlider.getBoundingClientRect();
+
+      const linkOffsetInSlider = linkRect.left - sliderRect.left;
+
+      const centerOffset = viewportWidth / 2 - link.offsetWidth / 2;
+      const newTranslateX = -linkOffsetInSlider + centerOffset;
+
+      const maxTranslateX = 0;
+      const minTranslateX = -(sliderWidth - viewportWidth);
+      const clampedTranslateX = Math.max(
+        minTranslateX,
+        Math.min(maxTranslateX, newTranslateX)
+      );
+
+      currentTranslateX = clampedTranslateX;
+      navSlider.style.translate = `calc(${clampedTranslateX}px + ${offsetTweak}) 0`;
+    });
   });
 }

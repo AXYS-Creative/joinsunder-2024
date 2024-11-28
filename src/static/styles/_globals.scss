@@ -162,7 +162,7 @@
   background-color: var(--nav-background-color);
   width: 100vw;
   height: var(--nav-height);
-  padding: var(--body-padding);
+  padding: calc(var(--body-padding) / 2);
 
   translate: 0 100%;
   transition: translate 0.5s ease;
@@ -177,7 +177,7 @@
     display: flex;
     gap: 24px;
     width: fit-content;
-    translate: calc(calc(-50vw - var(--initial-offset)) + 50%) 0; // Initial state. Overwritten on mouseover/swipe
+    translate: calc(calc(-50vw - var(--initial-offset)) + 50%) 0; // Initial state. Overwritten on mouseover/swipe/focus
     padding-inline: 96px;
 
     @include mq-motion-allow {
@@ -191,7 +191,8 @@
     @include mq-max("sm") {
       --initial-offset: 24px;
 
-      padding-inline: 48px;
+      padding-inline: 48px 0;
+      gap: 16px;
     }
   }
 
@@ -203,12 +204,15 @@
       object-fit: cover;
       border-radius: var(--radius);
       margin-block-start: 12px;
-      width: 188px;
-      height: 256px;
+      width: 148px;
+      aspect-ratio: 1 / 1.4;
+
+      @include mq-min("md") {
+        width: 188px;
+      }
 
       @include mq-min("lg") {
         width: 250px;
-        height: auto;
         aspect-ratio: 1.85 / 1;
       }
 
@@ -235,6 +239,7 @@
   padding: 0.75em 1.25em;
   border-radius: 48px;
   overflow: hidden;
+  flex-shrink: 0;
   transition: border 0.3s ease 0.1s;
 
   &:hover {

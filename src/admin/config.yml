@@ -37,6 +37,7 @@ collections:
             widget: "list"
             collapsed: false
             required: true
+            max: 22
             fields:
               - {
                   name: "src",

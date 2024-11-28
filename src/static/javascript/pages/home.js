@@ -1,3 +1,5 @@
+import { mqMouse } from "../utility.js";
+
 // Dynamically determine Reel height. This needs special care to run at build time.
 const adjustImageReelHeight = () => {
   const imageReel = document.querySelector(".image-reel"),
@@ -13,3 +15,5 @@ window.addEventListener("load", () => {
 
   window.addEventListener("resize", adjustImageReelHeight);
 });
+
+console.log(mqMouse ? "mouse device" : "touch device");
