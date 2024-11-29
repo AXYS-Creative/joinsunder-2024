@@ -59,7 +59,7 @@ collections:
     files:
       - name: "navigation"
         label: "Navigation"
-        file: "src/_data/global.yaml"
+        file: "src/_data/navigation.yaml"
         preview_path: "/"
         editor:
           preview: false
@@ -85,7 +85,7 @@ collections:
                 }
       - name: "page_loader"
         label: "Page Loader"
-        file: "src/_data/global.yaml"
+        file: "src/_data/loader.yaml"
         preview_path: "/"
         editor:
           preview: false
@@ -93,6 +93,7 @@ collections:
           - name: "loader_toggle"
             label: "Loader Toggle"
             widget: "boolean"
+            default: true
           - name: "loader_text"
             label: "Loader Text"
             widget: "string"
