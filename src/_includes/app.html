@@ -71,7 +71,13 @@
     <!-- prettier-ignore -->
 
     {% if path == "home" %}
-    <!-- Netlify Identity Widget -->
+    
+    {% if loader_toggle == "true" %}
+    <div class="page-loader">
+      <p>{{ loader_text }}</p>
+    </div>
+    {% endif %}
+
     <script
       type="text/javascript"
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"

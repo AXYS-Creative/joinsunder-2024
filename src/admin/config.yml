@@ -55,26 +55,47 @@ collections:
   - name: "global_components"
     label: "Global Components"
     description: >
-      Global site content, such as the primary navigation, different call to action buttons, etc.
+      Global site content, such as the primary navigation.
     files:
-      - name: "marquee"
-        label: "Marquee"
-        file: "src/_data/marquee.yaml"
-        preview_path: "#"
+      - name: "navigation"
+        label: "Navigation"
+        file: "src/_data/global.yaml"
+        preview_path: "/"
         editor:
           preview: false
         fields:
-          - name: "marquee_toggle"
-            label: "Marquee Toggle"
-            widget: "boolean"
-            hint: "Hide or show the discount marquee."
-          - name: "marquee_text"
-            label: "Marquee Text"
+          - name: "nav_links"
+            label: "Nav Links"
+            widget: "list"
+            allow_add: false
+            collapsed: false
             required: true
-          - name: "marquee_text_speech"
-            label: "Marquee Text Speech"
+            fields:
+              - {
+                  name: "desktop_image",
+                  label: "Desktop Image",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  name: "mobile_image",
+                  label: "Mobile Image",
+                  widget: "image",
+                  required: true,
+                }
+      - name: "page_loader"
+        label: "Page Loader"
+        file: "src/_data/global.yaml"
+        preview_path: "/"
+        editor:
+          preview: false
+        fields:
+          - name: "loader_toggle"
+            label: "Loader Toggle"
+            widget: "boolean"
+          - name: "loader_text"
+            label: "Loader Text"
             widget: "string"
-            hint: "For accessibility, add your message here without any symbols, tokens or classes."
             required: true
   - name: "meta_data"
     label: "Meta Data"

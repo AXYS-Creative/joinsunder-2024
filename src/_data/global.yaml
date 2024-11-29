@@ -1,6 +1,6 @@
-# Dev use only. Except for images.
+# Dev use mainly. Images are CMS.
 ---
-items:
+nav_links:
   - text: Home
     url: "/"
     desktop_image: "/static/img/nav-home.webp"
@@ -25,3 +25,6 @@ items:
     url: "/join"
     desktop_image: "/static/img/nav-join.webp"
     mobile_image: "/static/img/nav-join-small.webp"
+
+loader_toggle: true
+loader_text: sample text

@@ -13,6 +13,10 @@
   }
 }
 
+body {
+  background-color: var(--background-color);
+}
+
 .site-header {
   // Not setting width/padding for click through.
 
@@ -60,8 +64,9 @@
 }
 
 .nav-btn {
-  --button-size: 64px;
-  --line-width: 36%;
+  // --button-size: 64px;
+  --button-size: 72px;
+  --line-width: 40%;
   --line-spacing: 6px;
   --line-transition-delay: 0.36s;
 
@@ -71,18 +76,26 @@
   position: fixed;
   bottom: var(--body-padding);
   left: 50%;
-  translate: -50% 0;
+  translate: -50% 0; // animate this on load?
   width: var(--button-size);
   height: var(--button-size);
-  border: none;
+  border: none; // play with border background?
   border-radius: 50%;
   z-index: 1;
 
   @include mq-motion-allow {
     transition: 0.3s ease, background 0.32s ease 0.12s;
+    translate: -50% 200%;
+    animation: nav-btn 0.4s ease 1s forwards;
   }
+
+  @include mq-min("lg") {
+    border: 4px solid var(--background-color); // Experimental
+  }
+
   @include mq-max("sm") {
     --button-size: 56px;
+    --line-width: 50%;
     bottom: 32px; // Make variable?
   }
 
@@ -129,8 +142,10 @@
     }
   }
 
+  // Check with sources. No need for both aria-expanded & aria-pressed
   &[aria-expanded="true"] {
     background: var(--font-color--primary);
+    border-color: var(--nav-background-color); // Only for lg screens.
 
     .line {
       &-default {
@@ -318,5 +333,21 @@
         animation: video-cta-icon__2 3s ease infinite;
       }
     }
+  }
+}
+
+// Currently only set to the home page
+.page-loader {
+  @include dark-theme;
+  @include row-center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: $z-index-loader;
+  // display: none; // Remove me
+
+  & > * {
+    @extend .h1;
   }
 }

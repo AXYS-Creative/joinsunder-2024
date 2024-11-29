@@ -1,12 +1,14 @@
 .main-home {
-  --min-height: 600px;
+  --min-height: 700px;
   $children-width: calc(50vw - 16px);
   height: 100%;
 
-  @include mq-min("lg") {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+  .hero {
+    @include mq-min("lg") {
+      @include row-start(space-between);
+      position: relative;
+      width: 100vw;
+    }
   }
 
   .text-group {

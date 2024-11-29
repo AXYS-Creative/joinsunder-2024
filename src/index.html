@@ -12,30 +12,32 @@ header_logo_color: light
 # Using eager loading for computed/dynamic height... might not work
 ---
 
-<div class="text-group">
-  <h1 class="h1 hero-text">{{ home.hero_text }}</h1>
+<section class="hero">
+  <div class="text-group">
+    <h1 class="h1 hero-text">{{ home.hero_text }}</h1>
 
-  <div class="cta-group">
-    <!-- prettier-ignore -->
-    {% set cta_text = "Join The Squad"%}
-    {% set cta_url = "/join"%}
-    {% include "./_includes/components/cta.html" %}
-
-    {% set cta_vid_text = "Play Video"%}
-    {% include "./_includes/components/cta-video.html" %}
-  </div>
-</div>
-
-<div class="image-reel">
-  <div class="image-reel__column image-reel__column-1">
-    {% for image in home.image_reel | slice(0, 12) %}
-    <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
-    {% endfor %}
+    <div class="cta-group">
+      <!-- prettier-ignore -->
+      {% set cta_text = "Join The Squad"%}
+      {% set cta_url = "/join"%}
+      {% include "./_includes/components/cta.html" %}
+  
+      {% set cta_vid_text = "Play Video"%}
+      {% include "./_includes/components/cta-video.html" %}
+    </div>
   </div>
 
-  <div class="image-reel__column image-reel__column-2">
-    {% for image in home.image_reel | slice(12) %}
-    <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
-    {% endfor %}
+  <div class="image-reel">
+    <div class="image-reel__column image-reel__column-1">
+      {% for image in home.image_reel | slice(0, 12) %}
+      <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
+      {% endfor %}
+    </div>
+
+    <div class="image-reel__column image-reel__column-2">
+      {% for image in home.image_reel | slice(12) %}
+      <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
+      {% endfor %}
+    </div>
   </div>
-</div>
+</section>
