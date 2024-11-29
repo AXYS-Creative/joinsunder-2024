@@ -67,7 +67,10 @@ collections:
           - name: "nav_links"
             label: "Nav Links"
             widget: "list"
+            summary: "{{ nav_links.text }}"
             allow_add: false
+            min: 6
+            max: 6
             collapsed: false
             required: true
             fields:
