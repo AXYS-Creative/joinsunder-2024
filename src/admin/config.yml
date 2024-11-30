@@ -101,6 +101,7 @@ collections:
             label: "Loader Text"
             widget: "string"
             required: true
+            hint: 'Wrap individual words in this convention to animate them: <span class="page-loader__block">Empower</span>'
   - name: "meta_data"
     label: "Meta Data"
     description: >

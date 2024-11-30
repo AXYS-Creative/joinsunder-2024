@@ -15,6 +15,86 @@
 
 body {
   background-color: var(--background-color);
+
+  // page specific animations based on if the loader exists
+  &.has-loader {
+    $loader-delay: 2s;
+
+    .main-home {
+      .hero-text {
+        opacity: 0;
+        animation: fade-in 0.4s ease $loader-delay + 0.2 forwards;
+      }
+    }
+
+    // Currently only set to the home page
+    .page-loader {
+      --slide-distance: 1.25ch;
+
+      @include dark-theme;
+      @include row-center;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      height: 100dvh;
+      z-index: $z-index-loader;
+      // animation: fade-out 0.5s ease $loader-delay forwards;
+
+      // @include mq-max("sm") {
+      //   --slide-distance: 1ch;
+      // }
+
+      p {
+        @extend .h1;
+        @include column-start;
+        font-size: 8vw;
+        line-height: 120%;
+
+        @include mq-max("sm") {
+          font-size: 10vw;
+        }
+
+        .page-loader__block {
+          border: $test;
+          font-family: inherit;
+          display: flex;
+          overflow: hidden;
+          height: var(--slide-distance);
+          padding-top: var(--slide-distance);
+          animation: loader-text 2s ease 0.5s forwards;
+
+          @for $i from 1 through 5 {
+            &:nth-of-type(#{$i}) {
+              animation-delay: 0.1s * $i;
+            }
+          }
+        }
+      }
+
+      @keyframes loader-text {
+        0% {
+          align-items: flex-start;
+          padding-top: var(--slide-distance);
+          // padding-bottom: 0ch;
+        }
+        25% {
+          align-items: flex-start;
+          padding-top: 0ch;
+          // padding-bottom: 0ch;
+        }
+        75% {
+          align-items: flex-end;
+          // padding-top: 0ch;
+          padding-bottom: 0ch;
+        }
+        100% {
+          align-items: flex-end;
+          padding-top: 0ch;
+          padding-bottom: var(--slide-distance);
+        }
+      }
+    }
+  }
 }
 
 .site-header {
@@ -333,21 +413,5 @@ body {
         animation: video-cta-icon__2 3s ease infinite;
       }
     }
-  }
-}
-
-// Currently only set to the home page
-.page-loader {
-  @include dark-theme;
-  @include row-center;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: $z-index-loader;
-  // display: none; // Remove me
-
-  & > * {
-    @extend .h1;
   }
 }

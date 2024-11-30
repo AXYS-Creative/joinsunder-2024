@@ -64,7 +64,7 @@
       }
     </script>
   </head>
-  <body>
+  <body {%if loader.loader_toggle %}class="has-loader" {%endif%}>
     {% include "./partials/header.html" %}
     <main class="main-content main-{{path}}">{{ content | safe }}</main>
     {% include "./partials/nav.html" %}
@@ -72,9 +72,9 @@
 
     {% if path == "home" %}
     
-    {% if loader_toggle == "true" %}
+    {% if loader.loader_toggle %}
     <div class="page-loader">
-      <p>{{ loader_text }}</p>
+      <p>{{ loader.loader_text | safe }}</p>
     </div>
     {% endif %}
 

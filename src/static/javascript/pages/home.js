@@ -16,4 +16,4 @@ window.addEventListener("load", () => {
   window.addEventListener("resize", adjustImageReelHeight);
 });
 
-console.log(mqMouse ? "mouse device" : "touch device");
+// console.log(mqMouse ? "mouse device" : "touch device");
