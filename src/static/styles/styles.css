@@ -286,6 +286,14 @@ body.has-loader .page-loader p .page-loader__block:nth-of-type(5) {
   }
 }
 
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
 .site-header__logo {
   position: absolute;
   top: var(--body-padding);
@@ -727,14 +735,6 @@ Monument Weights
   font-weight: 100;
   font-style: normal;
 }
-button {
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-}
-
 @keyframes fade-in {
   to {
     opacity: 1;

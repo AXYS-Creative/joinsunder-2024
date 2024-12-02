@@ -97,6 +97,14 @@ body {
   }
 }
 
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
 .site-header {
   // Not setting width/padding for click through.
 

@@ -1,27 +1,27 @@
 # Dev use mainly. Images are CMS.
 ---
 nav_links:
-  - text: Home
+  - title: Home
     url: "/"
     desktop_image: "/static/img/nav-home.webp"
     mobile_image: "/static/img/nav-home-small.webp"
-  - text: Opportunity
+  - title: Opportunity
     url: "/opportunity"
     desktop_image: "/static/img/nav-opportunity.webp"
     mobile_image: "/static/img/nav-opportunity-small.webp"
-  - text: Compete
+  - title: Compete
     url: "/compete"
     desktop_image: "/static/img/nav-compete.webp"
     mobile_image: "/static/img/nav-compete-small.webp"
-  - text: Experience
+  - title: Experience
     url: "/experience"
     desktop_image: "/static/img/nav-experience.webp"
     mobile_image: "/static/img/nav-experience-small.webp"
-  - text: Resources
+  - title: Resources
     url: "/resources"
     desktop_image: "/static/img/nav-resources.webp"
     mobile_image: "/static/img/nav-resources-small.webp"
-  - text: Join
+  - title: Join
     url: "/join"
     desktop_image: "/static/img/nav-join.webp"
     mobile_image: "/static/img/nav-join-small.webp"
