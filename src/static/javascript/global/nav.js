@@ -1,66 +1,91 @@
 import { mqMouse, mqMaxXxl, mqMaxMd } from "../utility.js";
+import {
+  isVideoPlayerOpen,
+  closeVideoPlayer,
+} from "../components/video-player.js";
 
-const siteNav = document.querySelector(".site-nav"),
+export const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
   mainContent = document.querySelector(".main-content"),
   siteHeader = document.querySelector(".site-header");
 
-const navLinks = document.querySelectorAll(".nav-link"),
-  tabElementsPage = document.querySelectorAll(".tab-element-page"),
+const tabElementsPage = document.querySelectorAll(".tab-element-page"),
   tabElementsNav = document.querySelectorAll(".tab-element-nav");
 
 tabElementsNav.forEach((elem) => elem.setAttribute("tabIndex", "-1"));
 
-let isNavOpen;
+let isNavOpen = false;
 
-const toggleNav = () => {
-  isNavOpen = siteNav.classList.contains("site-nav--active");
+// Update tabindex dynamically based on navigation state
+const updateTabIndex = () => {
+  const pageTabIndex = isNavOpen ? "-1" : "0";
+  const navTabIndex = isNavOpen ? "0" : "-1";
 
-  siteNav.classList.toggle("site-nav--active");
-  siteHeader.classList.toggle("site-header--nav-active");
-  mainContent.classList.toggle("main-content--nav-active");
-
-  siteNav.setAttribute("aria-hidden", isNavOpen ? "true" : "false");
-
-  navBtn.setAttribute("aria-expanded", isNavOpen ? "false" : "true");
-  navBtn.setAttribute(
-    "aria-label",
-    isNavOpen ? "Open navigation menu" : "Close navigation menu"
-  );
-
-  tabElementsPage.forEach((el) =>
-    el.setAttribute("tabindex", isNavOpen ? "0" : "-1")
-  );
-  tabElementsNav.forEach((el) =>
-    el.setAttribute("tabindex", isNavOpen ? "-1" : "0")
-  );
-
-  mainContent.addEventListener("click", closeNav); // Cleaned up in closeNav()
+  tabElementsPage.forEach((el) => el.setAttribute("tabindex", pageTabIndex));
+  tabElementsNav.forEach((el) => el.setAttribute("tabindex", navTabIndex));
 };
 
-const closeNav = () => {
-  siteNav.setAttribute("aria-hidden", "true");
-  navBtn.setAttribute("aria-expanded", "false");
+// Update aria-expanded and aria-label dynamically
+const updateAriaExpanded = () => {
+  if (isVideoPlayerOpen) {
+    navBtn.setAttribute("aria-expanded", true);
+    navBtn.setAttribute("aria-label", "Close video player");
+  } else if (isNavOpen) {
+    navBtn.setAttribute("aria-expanded", true);
+    navBtn.setAttribute("aria-label", "Close navigation menu");
+  } else {
+    navBtn.setAttribute("aria-expanded", false);
+    navBtn.setAttribute("aria-label", "Open navigation menu");
+  }
+};
 
+// Handle nav button clicks
+const handleNavBtnClick = () => {
+  if (isVideoPlayerOpen) {
+    // Close video player
+    closeVideoPlayer();
+    updateAriaExpanded();
+    return;
+  }
+
+  // Toggle navigation state
+  isNavOpen = !isNavOpen;
+
+  siteNav.classList.toggle("site-nav--active", isNavOpen);
+  siteHeader.classList.toggle("site-header--nav-active", isNavOpen);
+  mainContent.classList.toggle("main-content--nav-active", isNavOpen);
+
+  siteNav.setAttribute("aria-hidden", !isNavOpen);
+
+  updateTabIndex();
+  updateAriaExpanded();
+
+  if (isNavOpen) {
+    mainContent.addEventListener("click", closeNav);
+  } else {
+    mainContent.removeEventListener("click", closeNav);
+  }
+};
+
+// Close navigation
+const closeNav = () => {
+  isNavOpen = false;
+
+  siteNav.setAttribute("aria-hidden", "true");
   siteNav.classList.remove("site-nav--active");
   siteHeader.classList.remove("site-header--nav-active");
   mainContent.classList.remove("main-content--nav-active");
 
-  // Reset tabindex for tabElementsPage and tabElementsNav
-  tabElementsPage.forEach((el) => el.setAttribute("tabindex", "0"));
-  tabElementsNav.forEach((el) => el.setAttribute("tabindex", "-1"));
+  updateTabIndex();
+  updateAriaExpanded();
 
   mainContent.removeEventListener("click", closeNav);
 };
 
-// Maybe play with some ideas to close the nav if the current page is active page
-// navLinks.forEach((link) => {
-//   if (!link.classList.contains("prevent-nav-close")) {
-//     link.addEventListener("click", closeNav);
-//   }
-// });
+// Attach event listeners
+navBtn.addEventListener("click", handleNavBtnClick);
 
-navBtn.addEventListener("click", toggleNav);
+document.addEventListener("videoPlayerStateChange", updateAriaExpanded);
 
 if (mqMouse && window.innerWidth < 2712) {
   const navSlider = document.querySelector(".nav-slider");

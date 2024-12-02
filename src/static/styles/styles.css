@@ -287,6 +287,7 @@ body.has-loader .page-loader p .page-loader__block:nth-of-type(5) {
 }
 
 button {
+  border: none;
   cursor: pointer;
 }
 
@@ -345,20 +346,14 @@ a {
   translate: -50% 0;
   width: var(--button-size);
   height: var(--button-size);
-  border: none;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 4;
 }
 @media (prefers-reduced-motion: no-preference) {
   .nav-btn {
     transition: 0.3s ease, background 0.32s ease 0.12s;
     translate: -50% 200%;
     animation: nav-btn 0.4s ease 1s forwards;
-  }
-}
-@media screen and (min-width: 1025px) {
-  .nav-btn {
-    border: 4px solid var(--background-color);
   }
 }
 @media screen and (max-width: 480px) {
@@ -407,7 +402,6 @@ a {
 }
 .nav-btn[aria-expanded=true] {
   background: var(--font-color--primary);
-  border-color: var(--nav-background-color);
 }
 .nav-btn[aria-expanded=true] .line-default {
   width: 0;
@@ -594,6 +588,19 @@ a {
 .cta--video .icon-group .icon-2 {
   translate: -50% -50%;
   animation: video-cta-icon__2 3s ease infinite;
+}
+
+.video-player {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 255, 0.5);
+  z-index: 3;
+}
+.video-player--inactive {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .classic-link {

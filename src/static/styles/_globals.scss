@@ -98,6 +98,7 @@ body {
 }
 
 button {
+  border: none;
   cursor: pointer;
 }
 
@@ -167,9 +168,9 @@ a {
   translate: -50% 0; // animate this on load?
   width: var(--button-size);
   height: var(--button-size);
-  border: none; // play with border background?
+  // border: none; // play with border background?
   border-radius: 50%;
-  z-index: 1;
+  z-index: $z-index-nav-btn;
 
   @include mq-motion-allow {
     transition: 0.3s ease, background 0.32s ease 0.12s;
@@ -177,9 +178,9 @@ a {
     animation: nav-btn 0.4s ease 1s forwards;
   }
 
-  @include mq-min("lg") {
-    border: 4px solid var(--background-color); // Experimental
-  }
+  // @include mq-min("lg") {
+  //   border: 4px solid var(--background-color); // Experimental
+  // }
 
   @include mq-max("sm") {
     --button-size: 56px;
@@ -233,7 +234,7 @@ a {
   // Check with sources. No need for both aria-expanded & aria-pressed
   &[aria-expanded="true"] {
     background: var(--font-color--primary);
-    border-color: var(--nav-background-color); // Only for lg screens.
+    // border-color: var(--nav-background-color); // Only for lg screens.
 
     .line {
       &-default {
@@ -421,5 +422,19 @@ a {
         animation: video-cta-icon__2 3s ease infinite;
       }
     }
+  }
+}
+
+.video-player {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgba(blue, 0.5);
+  z-index: $z-index-video-player;
+
+  &--inactive {
+    opacity: 0;
+    pointer-events: none;
   }
 }

@@ -67,13 +67,18 @@ collections:
           - name: "nav_links"
             label: "Nav Links"
             widget: "list"
-            summary: "{{ title }}"
             allow_add: false
             min: 6
             max: 6
             collapsed: true
             required: true
             fields:
+              - {
+                  name: "title",
+                  label: "Link Title",
+                  widget: "string",
+                  required: true,
+                }
               - {
                   name: "desktop_image",
                   label: "Desktop Image",
