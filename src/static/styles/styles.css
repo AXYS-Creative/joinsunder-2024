@@ -591,12 +591,31 @@ a {
 }
 
 .video-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100dvh;
-  background-color: rgba(0, 0, 255, 0.5);
+  background-color: rgba(0, 0, 20, 0.9);
   z-index: 3;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .video-player {
+    transition: opacity 0.3s ease;
+  }
+}
+.video-player iframe {
+  width: auto;
+  height: 50%;
+  aspect-ratio: 2/1.125;
+}
+@media screen and (max-width: 768px) {
+  .video-player iframe {
+    width: 80%;
+    height: auto;
+  }
 }
 .video-player--inactive {
   opacity: 0;

@@ -153,7 +153,6 @@ a {
 }
 
 .nav-btn {
-  // --button-size: 64px;
   --button-size: 72px;
   --line-width: 40%;
   --line-spacing: 6px;
@@ -168,7 +167,6 @@ a {
   translate: -50% 0; // animate this on load?
   width: var(--button-size);
   height: var(--button-size);
-  // border: none; // play with border background?
   border-radius: 50%;
   z-index: $z-index-nav-btn;
 
@@ -177,10 +175,6 @@ a {
     translate: -50% 200%;
     animation: nav-btn 0.4s ease 1s forwards;
   }
-
-  // @include mq-min("lg") {
-  //   border: 4px solid var(--background-color); // Experimental
-  // }
 
   @include mq-max("sm") {
     --button-size: 56px;
@@ -231,10 +225,8 @@ a {
     }
   }
 
-  // Check with sources. No need for both aria-expanded & aria-pressed
   &[aria-expanded="true"] {
     background: var(--font-color--primary);
-    // border-color: var(--nav-background-color); // Only for lg screens.
 
     .line {
       &-default {
@@ -426,12 +418,28 @@ a {
 }
 
 .video-player {
+  @include row-center;
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100dvh;
-  background-color: rgba(blue, 0.5);
+  background-color: rgba($sunder-midnight, 0.9);
   z-index: $z-index-video-player;
+
+  @include mq-motion-allow {
+    transition: opacity 0.3s ease;
+  }
+
+  iframe {
+    width: auto;
+    height: 50%;
+    aspect-ratio: 2 / 1.125;
+
+    @include mq-max("md") {
+      width: 80%;
+      height: auto;
+    }
+  }
 
   &--inactive {
     opacity: 0;

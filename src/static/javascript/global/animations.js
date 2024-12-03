@@ -13,7 +13,7 @@ responsiveGsap.add(
     let { maxSm, maxMd, maxXl, minMd } = context.conditions;
 
     // Home Image Reel
-    const imgReelAnimation = (() => {
+    if (document.querySelector(".image-reel")) {
       gsap.to(".image-reel__column-1", {
         // y: "-16.75%",
         y: maxSm ? "-20.5%" : "-21.1%",
@@ -25,7 +25,7 @@ responsiveGsap.add(
           scrub: 0.2,
         },
       });
-    })();
+    }
 
     // GLOBAL - Easily toggle an 'animate' class on any element with '.gsap-animate' class
     const globalGenerateAnimate = (() => {

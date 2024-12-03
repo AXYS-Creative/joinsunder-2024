@@ -4,7 +4,7 @@ import {
   closeVideoPlayer,
 } from "../components/video-player.js";
 
-export const siteNav = document.querySelector(".site-nav"),
+const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
   mainContent = document.querySelector(".main-content"),
   siteHeader = document.querySelector(".site-header");
@@ -16,7 +16,6 @@ tabElementsNav.forEach((elem) => elem.setAttribute("tabIndex", "-1"));
 
 let isNavOpen = false;
 
-// Update tabindex dynamically based on navigation state
 const updateTabIndex = () => {
   const pageTabIndex = isNavOpen ? "-1" : "0";
   const navTabIndex = isNavOpen ? "0" : "-1";
@@ -25,26 +24,27 @@ const updateTabIndex = () => {
   tabElementsNav.forEach((el) => el.setAttribute("tabindex", navTabIndex));
 };
 
-// Update aria-expanded and aria-label dynamically
-const updateAriaExpanded = () => {
+const updateNavBtnState = () => {
   if (isVideoPlayerOpen) {
     navBtn.setAttribute("aria-expanded", true);
+    navBtn.setAttribute("aria-controls", "video-player");
     navBtn.setAttribute("aria-label", "Close video player");
   } else if (isNavOpen) {
     navBtn.setAttribute("aria-expanded", true);
+    navBtn.setAttribute("aria-controls", "site-nav");
     navBtn.setAttribute("aria-label", "Close navigation menu");
   } else {
     navBtn.setAttribute("aria-expanded", false);
+    navBtn.setAttribute("aria-controls", "site-nav");
     navBtn.setAttribute("aria-label", "Open navigation menu");
   }
 };
 
-// Handle nav button clicks
 const handleNavBtnClick = () => {
+  // Close video player
   if (isVideoPlayerOpen) {
-    // Close video player
     closeVideoPlayer();
-    updateAriaExpanded();
+    updateNavBtnState();
     return;
   }
 
@@ -52,13 +52,13 @@ const handleNavBtnClick = () => {
   isNavOpen = !isNavOpen;
 
   siteNav.classList.toggle("site-nav--active", isNavOpen);
-  siteHeader.classList.toggle("site-header--nav-active", isNavOpen);
+  siteHeader?.classList.toggle("site-header--nav-active", isNavOpen);
   mainContent.classList.toggle("main-content--nav-active", isNavOpen);
 
   siteNav.setAttribute("aria-hidden", !isNavOpen);
 
   updateTabIndex();
-  updateAriaExpanded();
+  updateNavBtnState();
 
   if (isNavOpen) {
     mainContent.addEventListener("click", closeNav);
@@ -67,7 +67,6 @@ const handleNavBtnClick = () => {
   }
 };
 
-// Close navigation
 const closeNav = () => {
   isNavOpen = false;
 
@@ -77,15 +76,14 @@ const closeNav = () => {
   mainContent.classList.remove("main-content--nav-active");
 
   updateTabIndex();
-  updateAriaExpanded();
+  updateNavBtnState();
 
   mainContent.removeEventListener("click", closeNav);
 };
 
-// Attach event listeners
 navBtn.addEventListener("click", handleNavBtnClick);
 
-document.addEventListener("videoPlayerStateChange", updateAriaExpanded);
+document.addEventListener("videoPlayerStateChange", updateNavBtnState);
 
 if (mqMouse && window.innerWidth < 2712) {
   const navSlider = document.querySelector(".nav-slider");
