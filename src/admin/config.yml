@@ -22,7 +22,7 @@ collections:
     files:
       - name: "hero_section"
         label: "Hero Section"
-        file: "src/_data/home.yaml"
+        file: "src/_data/page_home.yaml"
         preview_path: "/"
         editor:
           preview: false
@@ -56,6 +56,42 @@ collections:
                   widget: "string",
                   required: true,
                   hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                }
+  - name: "compete_page"
+    label: "Page - Compete"
+    files:
+      - name: "hero_section"
+        label: "Hero Section (Video Library)"
+        file: "src/_data/page_compete.yaml"
+        preview_path: "/compete"
+        editor:
+          preview: false
+        fields:
+          - name: "video_library"
+            label: "Video Library"
+            label_singular: "Video"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "title",
+                  label: "Title",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "sub_title",
+                  label: "Subtitle",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "embed",
+                  label: "Embed",
+                  widget: "string",
+                  required: true,
+                  hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here.",
                 }
   - name: "global_components"
     label: "Global Components"

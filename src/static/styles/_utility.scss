@@ -34,6 +34,10 @@
   transition: translate 0.8s $cubic-ease-slow-finish;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+}
+
 //
 // Media Query Utility // Be mindful to use aria-hidden to avoid a break in speech.
 //

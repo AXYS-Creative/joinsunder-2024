@@ -8,8 +8,18 @@ description: Sample description // CHANGE ME
 # master props
 header_fixed: false
 header_logo_color: dark
+show_header_cta: true
 ---
 
 <section class="hero">
-  <h1 class="h1">compete</h1>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for slide in page_compete.video_library %}
+      <button class="swiper-slide">
+        <img src="{{ slide.poster }}" alt="" class="" />
+      </button>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
 </section>

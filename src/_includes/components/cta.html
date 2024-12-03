@@ -1,4 +1,12 @@
-<a class="cta tab-element-page" href="{{cta_url}}">
-  {{ cta_text }}
+<a
+  class="cta tab-element-page {% if btn_type %}cta--{{btn_type}}{% endif %}"
+  href=" {% if cta_url %}{{ cta_url }}{% else %}/join{% endif %}"
+>
+  <!-- prettier-ignore -->
+  {% if cta_text %} 
+    {{ cta_text }} 
+  {% else %} 
+    Join The Squad 
+  {% endif %}
   <div class="hover-fill"></div>
 </a>

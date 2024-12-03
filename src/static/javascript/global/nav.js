@@ -9,7 +9,7 @@ const siteNav = document.querySelector(".site-nav"),
   mainContent = document.querySelector(".main-content"),
   siteHeader = document.querySelector(".site-header");
 
-const tabElementsPage = document.querySelectorAll(".tab-element-page"),
+export const tabElementsPage = document.querySelectorAll(".tab-element-page"),
   tabElementsNav = document.querySelectorAll(".tab-element-nav");
 
 tabElementsNav.forEach((elem) => elem.setAttribute("tabIndex", "-1"));

@@ -109,9 +109,14 @@ a {
 .site-header {
   // Not setting width/padding for click through.
 
-  &__logo {
+  .site-header__logo,
+  .cta {
     position: absolute;
     top: var(--body-padding);
+    translate: 0 -50%;
+  }
+
+  &__logo {
     left: var(--body-padding);
     display: flex;
     width: 148px;
@@ -129,10 +134,22 @@ a {
     }
   }
 
+  .cta {
+    right: var(--body-padding);
+    border-color: var(--font-color--primary);
+    color: var(--font-color--primary);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--background-color);
+    }
+  }
+
+  // for the home page
   &--fixed {
     .site-header__logo {
       @include mq-min("lg") {
-        position: fixed; // for the home page
+        position: fixed;
       }
     }
   }
@@ -328,11 +345,10 @@ a {
 }
 
 .cta {
-  @extend .h6;
+  @include btn-md;
   isolation: isolate;
   position: relative;
   border: 1px solid var(--background-color);
-  padding: 0.75em 1.25em;
   border-radius: 48px;
   overflow: hidden;
   flex-shrink: 0;
@@ -377,7 +393,12 @@ a {
     }
   }
 
+  &--lg {
+    @include btn-lg;
+  }
+
   &--video {
+    @include btn-lg;
     border-color: var(--hero-color--primary);
     background: linear-gradient(90deg, #15499340, #4aabd040);
     display: inline-flex;
@@ -418,6 +439,7 @@ a {
 }
 
 .video-player {
+  // Not using dialog because of top-layer (can't rest navBtn on top)
   @include row-center;
   position: fixed;
   top: 0;

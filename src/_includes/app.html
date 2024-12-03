@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="{{ meta_data.theme_color }}" />
     <meta name="author" content="{{ meta_data.author }}" />
     <meta name="description" content="{{ description }}" />
+    {% if path == "404" %}
+    <meta name="robots" content="noindex, nofollow" />
+    {% else %}
+    <meta name="robots" content="index, follow" />
+    {% endif %}
 
     <!-- Open Graph Tags -->
     <meta property="og:title" content="{{ meta_data.og_title }}" />
@@ -24,8 +28,21 @@
 
     <title>{{ title }}</title>
 
-    <link rel="canonical" href="{{ meta_data.url }}" />
+    {% if path != '404' %}
+    <link
+      rel="canonical"
+      href="{{ meta_data.url }}{%if path != 'home'%}/{{ path }}{%endif%}"
+    />
+    {% endif %}
     <link rel="stylesheet" type="text/css" href="/static/styles/styles.css" />
+
+    <!-- prettier-ignore -->
+    {% if path == "compete" %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    {% endif %}
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -74,7 +91,7 @@
     {% include "./components/video-player.html" %}
 
     {% if path == "home" %}
-    
+
     {% if loader.loader_toggle %}
     <div class="page-loader">
       <p>{{ loader.loader_text | safe }}</p>
@@ -85,6 +102,11 @@
       type="text/javascript"
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"
     ></script>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% if path == "compete" %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     {% endif %}
 
     <script src="/static/js/alpine.js"></script>

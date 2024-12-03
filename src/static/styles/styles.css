@@ -167,7 +167,7 @@
   }
 }
 
-.h6, .cta {
+.h6 {
   font-family: "Monument", sans-serif;
   font-size: 32px;
   font-weight: 400;
@@ -176,22 +176,22 @@
   line-height: 1;
 }
 @media screen and (max-width: 1512px) {
-  .h6, .cta {
+  .h6 {
     font-size: 1.6vw;
   }
 }
 @media screen and (max-width: 1024px) {
-  .h6, .cta {
+  .h6 {
     font-size: 2.4vw;
   }
 }
 @media screen and (max-width: 768px) {
-  .h6, .cta {
+  .h6 {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 480px) {
-  .h6, .cta {
+  .h6 {
     font-size: 16px;
   }
 }
@@ -295,9 +295,13 @@ a {
   text-decoration: none;
 }
 
-.site-header__logo {
+.site-header .site-header__logo,
+.site-header .cta {
   position: absolute;
   top: var(--body-padding);
+  translate: 0 -50%;
+}
+.site-header__logo {
   left: var(--body-padding);
   display: flex;
   width: 148px;
@@ -313,6 +317,14 @@ a {
   display: block;
   width: 100%;
   transition: translate 0.5s ease;
+}
+.site-header .cta {
+  right: var(--body-padding);
+  border-color: var(--font-color--primary);
+  color: var(--font-color--primary);
+}
+.site-header .cta:hover, .site-header .cta:focus-visible {
+  color: var(--background-color);
 }
 @media screen and (min-width: 1025px) {
   .site-header--fixed .site-header__logo {
@@ -503,14 +515,28 @@ a {
 }
 
 .cta {
+  color: var(--font-color--primary);
+  font-family: "Satoshi", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 0.5em 1.25em;
   isolation: isolate;
   position: relative;
   border: 1px solid var(--background-color);
-  padding: 0.75em 1.25em;
   border-radius: 48px;
   overflow: hidden;
   flex-shrink: 0;
   transition: border 0.3s ease 0.1s;
+}
+@media screen and (max-width: 1512px) {
+  .cta {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta {
+    font-size: 16px;
+  }
 }
 .cta:hover {
   border-color: var(--hero-color--primary);
@@ -548,12 +574,68 @@ a {
     transition: width 0.4s ease 0.2s, height 0.4s ease 0.2s, opacity 0.3s ease;
   }
 }
+.cta--lg {
+  font-family: "Monument", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  font-family: "Satoshi", sans-serif;
+  line-height: 1;
+  padding: 0.75em 1.25em;
+}
+@media screen and (max-width: 1512px) {
+  .cta--lg {
+    font-size: 1.6vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cta--lg {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta--lg {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .cta--lg {
+    font-size: 16px;
+  }
+}
 .cta--video {
+  font-family: "Monument", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  font-family: "Satoshi", sans-serif;
+  line-height: 1;
+  padding: 0.75em 1.25em;
   border-color: var(--hero-color--primary);
   background: linear-gradient(90deg, rgba(21, 73, 147, 0.2509803922), rgba(74, 171, 208, 0.2509803922));
   display: inline-flex;
   align-items: center;
   gap: 12px;
+}
+@media screen and (max-width: 1512px) {
+  .cta--video {
+    font-size: 1.6vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cta--video {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta--video {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .cta--video {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 480px) {
   .cta--video {
@@ -652,6 +734,10 @@ a {
 
 .magnet {
   transition: translate 0.8s cubic-bezier(0.09, 0.9, 0.5, 1);
+}
+
+.visibility-hidden {
+  visibility: hidden;
 }
 
 @media all {
@@ -871,6 +957,10 @@ Monument Weights
 }
 .main-home .image-reel__column img:first-of-type {
   border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.main-compete .hero {
+  padding-block-start: 128px;
 }
 
 .error {
