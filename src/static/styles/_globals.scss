@@ -430,7 +430,7 @@ a {
     transition: opacity 0.3s ease;
   }
 
-  iframe {
+  .video-player__embed {
     width: auto;
     height: 50%;
     aspect-ratio: 2 / 1.125;

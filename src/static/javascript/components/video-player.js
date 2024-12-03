@@ -4,8 +4,8 @@ const videoPlayer = document.querySelector(".video-player"),
 
 export let isVideoPlayerOpen = false;
 
-// Store the original src for restoring later
-const originalEmbedSrc = videoPlayerEmbed.getAttribute("src");
+videoPlayerEmbed?.classList.add("video-player__embed");
+const originalEmbedSrc = videoPlayerEmbed?.getAttribute("src");
 
 videoCta?.addEventListener("click", () => {
   isVideoPlayerOpen = true;

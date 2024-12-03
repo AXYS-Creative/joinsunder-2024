@@ -606,13 +606,13 @@ a {
     transition: opacity 0.3s ease;
   }
 }
-.video-player iframe {
+.video-player .video-player__embed {
   width: auto;
   height: 50%;
   aspect-ratio: 2/1.125;
 }
 @media screen and (max-width: 768px) {
-  .video-player iframe {
+  .video-player .video-player__embed {
     width: 80%;
     height: auto;
   }

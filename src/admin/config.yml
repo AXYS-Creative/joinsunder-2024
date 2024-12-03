@@ -31,6 +31,11 @@ collections:
             label: "Hero Text"
             widget: "string"
             required: true
+          - name: "video_embed"
+            label: "Video Embed"
+            widget: "string"
+            required: true
+            hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here."
           - name: "image_reel"
             label: "Image Reel"
             label_singular: "Image"

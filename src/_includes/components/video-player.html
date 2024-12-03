@@ -3,15 +3,5 @@
   id="video-player"
   aria-hidden="true"
 >
-  <iframe
-    class="video-player__embed"
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/K-13vo9aDqU?si=CP1ZNxd4mJZEc6a4"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen
-  ></iframe>
+  {{ home.video_embed | safe }}
 </div>
