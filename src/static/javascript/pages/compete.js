@@ -8,7 +8,7 @@ if (document.querySelector(".main-compete")) {
       clickable: true,
     },
     autoplay: {
-      delay: 6000,
+      delay: 3500,
       disableOnInteraction: false,
     },
     breakpoints: {

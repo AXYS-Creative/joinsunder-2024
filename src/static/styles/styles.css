@@ -295,8 +295,7 @@ a {
   text-decoration: none;
 }
 
-.site-header .site-header__logo,
-.site-header .cta {
+.site-header__logo, .site-header__cta-wrapper {
   position: absolute;
   top: var(--body-padding);
   translate: 0 -50%;
@@ -318,12 +317,15 @@ a {
   width: 100%;
   transition: translate 0.5s ease;
 }
-.site-header .cta {
+.site-header__cta-wrapper {
+  display: flex;
   right: var(--body-padding);
+}
+.site-header__cta-wrapper .cta {
   border-color: var(--font-color--primary);
   color: var(--font-color--primary);
 }
-.site-header .cta:hover, .site-header .cta:focus-visible {
+.site-header__cta-wrapper .cta:hover, .site-header__cta-wrapper .cta:focus-visible {
   color: var(--background-color);
 }
 @media screen and (min-width: 1025px) {
@@ -331,7 +333,8 @@ a {
     position: fixed;
   }
 }
-.site-header--nav-active .site-header__logo-image {
+.site-header--nav-active .site-header__logo-image,
+.site-header--nav-active .cta {
   translate: 0 calc(var(--nav-height) * -1);
 }
 
@@ -520,13 +523,12 @@ a {
   font-size: 20px;
   font-weight: 400;
   padding: 0.5em 1.25em;
-  isolation: isolate;
   position: relative;
   border: 1px solid var(--background-color);
   border-radius: 48px;
   overflow: hidden;
   flex-shrink: 0;
-  transition: border 0.3s ease 0.1s;
+  transition: border 0.3s ease 0.1s, color 0.3s ease, translate 0.5s ease;
 }
 @media screen and (max-width: 1512px) {
   .cta {
@@ -961,6 +963,17 @@ Monument Weights
 
 .main-compete .hero {
   padding-block-start: 128px;
+}
+.main-compete .swiper-wrapper {
+  display: flex;
+}
+.main-compete .swiper-wrapper .swiper-slide {
+  border: 2px dashed rgba(220, 20, 60, 0.75);
+  display: flex;
+}
+.main-compete .swiper-wrapper .poster {
+  width: 100%;
+  height: auto;
 }
 
 .error {

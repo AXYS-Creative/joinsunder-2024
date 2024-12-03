@@ -16,7 +16,14 @@ show_header_cta: true
     <div class="swiper-wrapper">
       {% for slide in page_compete.video_library %}
       <button class="swiper-slide">
-        <img src="{{ slide.poster }}" alt="" class="" />
+        <img
+          class="poster"
+          src="{{ slide.poster }}"
+          alt=""
+          class=""
+          width="250"
+          height="500"
+        />
       </button>
       {% endfor %}
     </div>

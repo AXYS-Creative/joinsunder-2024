@@ -87,6 +87,13 @@ collections:
                   required: true,
                 }
               - {
+                  name: "poster",
+                  label: "Poster",
+                  widget: "image",
+                  required: true,
+                  hint: Thumbnail shown on the video library carousel,
+                }
+              - {
                   name: "embed",
                   label: "Embed",
                   widget: "string",

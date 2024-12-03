@@ -109,8 +109,8 @@ a {
 .site-header {
   // Not setting width/padding for click through.
 
-  .site-header__logo,
-  .cta {
+  &__logo,
+  &__cta-wrapper {
     position: absolute;
     top: var(--body-padding);
     translate: 0 -50%;
@@ -134,14 +134,18 @@ a {
     }
   }
 
-  .cta {
+  &__cta-wrapper {
+    display: flex; // Fixes strange hover issue
     right: var(--body-padding);
-    border-color: var(--font-color--primary);
-    color: var(--font-color--primary);
 
-    &:hover,
-    &:focus-visible {
-      color: var(--background-color);
+    .cta {
+      border-color: var(--font-color--primary);
+      color: var(--font-color--primary);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--background-color);
+      }
     }
   }
 
@@ -155,7 +159,8 @@ a {
   }
 
   &--nav-active {
-    .site-header__logo-image {
+    .site-header__logo-image,
+    .cta {
       translate: $nav-translate;
     }
   }
@@ -346,13 +351,12 @@ a {
 
 .cta {
   @include btn-md;
-  isolation: isolate;
   position: relative;
   border: 1px solid var(--background-color);
   border-radius: 48px;
   overflow: hidden;
   flex-shrink: 0;
-  transition: border 0.3s ease 0.1s;
+  transition: border 0.3s ease 0.1s, color 0.3s ease, $nav-transition;
 
   &:hover {
     border-color: var(--hero-color--primary);

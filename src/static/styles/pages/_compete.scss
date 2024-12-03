@@ -2,4 +2,18 @@
   .hero {
     padding-block-start: 128px;
   }
+
+  .swiper-wrapper {
+    display: flex;
+
+    .swiper-slide {
+      border: $test;
+      display: flex;
+    }
+
+    .poster {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
