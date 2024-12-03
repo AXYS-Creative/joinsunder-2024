@@ -1,7 +1,7 @@
 <div
-  class="video-player video-player--inactive visibility-hidden"
+  class="video-player video-player--inactive"
   id="video-player"
   aria-hidden="true"
 >
-  {{ page_home.video_embed | safe }}
+  <div class="video-player__embed" id="dynamic-embed"></div>
 </div>

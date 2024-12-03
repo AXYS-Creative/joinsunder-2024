@@ -12,10 +12,14 @@ show_header_cta: true
 ---
 
 <section class="hero">
+  <h1 class="sr-only">Sunder Competition Videos</h1>
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
       {% for slide in page_compete.video_library %}
-      <button class="swiper-slide">
+      <button
+        class="swiper-slide compete__video-btn"
+        data-embed="{{ slide.embed }}"
+      >
         <img
           class="poster"
           src="{{ slide.poster }}"
@@ -24,6 +28,10 @@ show_header_cta: true
           width="250"
           height="500"
         />
+        <div class="caption">
+          <h2>{{ slide.title }}</h2>
+          <h3>{{ slide.sub_title }}</h3>
+        </div>
       </button>
       {% endfor %}
     </div>

@@ -1,19 +1,80 @@
 .main-compete {
   .hero {
+    height: 100vh; // To close nav when clicking outside
     padding-block-start: 128px;
+
+    @include mq-max("xxl") {
+      padding-block-start: 112px;
+    }
   }
 
-  .swiper-wrapper {
-    display: flex;
+  .swiper {
+    padding-inline: var(--body-padding);
 
-    .swiper-slide {
-      border: $test;
+    .swiper-wrapper {
       display: flex;
+      padding-block-end: 64px; // position pagination.
+      width: 150%;
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
     }
+  }
+
+  .swiper-slide {
+    position: relative;
+    display: flex;
+    border-radius: var(--radius);
+    overflow: hidden;
 
     .poster {
       width: 100%;
       height: auto;
+    }
+
+    .caption {
+      @include column-start;
+      position: absolute;
+      bottom: 0;
+      // top: 80%;
+      left: 0;
+      color: white;
+      padding: 24px;
+
+      // clean this up
+      h2 {
+        font-family: $font-family-heading;
+        font-weight: 500;
+        text-align: left;
+        font-size: 16px;
+      }
+
+      h3 {
+        font-family: $font-family-heading;
+        font-weight: 500;
+        font-size: 24px;
+        text-align: left;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    @include row-center(flex-start);
+    padding-block: 12px;
+    padding-inline: var(--body-padding);
+
+    &-bullet {
+      border: 1px solid var(--hero-color--primary);
+      background: transparent;
+      padding: 6px;
+      transition: 0.3s ease;
+      opacity: 1;
+
+      &-active {
+        background: var(--hero-color--primary);
+      }
     }
   }
 }

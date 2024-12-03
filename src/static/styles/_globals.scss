@@ -113,7 +113,10 @@ a {
   &__cta-wrapper {
     position: absolute;
     top: var(--body-padding);
-    translate: 0 -50%;
+
+    @include mq-min("md") {
+      translate: 0 -50%;
+    }
   }
 
   &__logo {
@@ -456,7 +459,7 @@ a {
     transition: opacity 0.3s ease;
   }
 
-  .video-player__embed {
+  iframe {
     width: auto;
     height: 50%;
     aspect-ratio: 2 / 1.125;

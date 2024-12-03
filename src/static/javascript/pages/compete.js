@@ -1,7 +1,17 @@
+import { openVideoPlayer } from "../components/video-player.js";
+
 if (document.querySelector(".main-compete")) {
+  const videoBtns = document.querySelectorAll(".compete__video-btn");
+
+  videoBtns.forEach((btn) => {
+    let embedCode = btn.getAttribute("data-embed");
+
+    btn.addEventListener("click", (e) => {
+      openVideoPlayer(embedCode);
+    });
+  });
+
   let swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2, // adjust below
-    spaceBetween: 220,
     loop: true,
     pagination: {
       el: ".swiper-pagination",
@@ -14,15 +24,23 @@ if (document.querySelector(".main-compete")) {
     breakpoints: {
       480: {
         slidesPerView: 2,
-        spaceBetween: 126,
+        spaceBetween: 24,
       },
-      768: {
+      769: {
         slidesPerView: 3,
-        spaceBetween: 220,
+        spaceBetween: 24,
       },
-      1024: {
+      1025: {
         slidesPerView: 4,
-        spaceBetween: 220,
+        spaceBetween: 24,
+      },
+      1201: {
+        slidesPerView: 4,
+        spaceBetween: 48,
+      },
+      1513: {
+        slidesPerView: 4,
+        spaceBetween: 64,
       },
     },
   });

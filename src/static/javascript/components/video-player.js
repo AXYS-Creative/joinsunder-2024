@@ -1,27 +1,21 @@
 import { tabElementsPage } from "../global/nav.js";
 
 const videoPlayer = document.querySelector(".video-player"),
-  videoPlayerEmbed = document.querySelector(".video-player iframe"),
   videoCta = document.querySelector(".cta--video");
 
 export let isVideoPlayerOpen = false;
 
-videoPlayerEmbed?.classList.add("video-player__embed");
-const originalEmbedSrc = videoPlayerEmbed?.getAttribute("src");
-
-videoCta?.addEventListener("click", () => {
+export const openVideoPlayer = (embedCode) => {
   isVideoPlayerOpen = true;
-  videoPlayer.classList.remove("visibility-hidden");
 
   videoPlayer.setAttribute("aria-hidden", !isVideoPlayerOpen);
   videoPlayer.classList.remove("video-player--inactive");
 
-  // Restore the src if it was removed
-  if (!videoPlayerEmbed.getAttribute("src")) {
-    videoPlayerEmbed.setAttribute("src", originalEmbedSrc);
+  if (embedCode) {
+    videoPlayer.innerHTML = embedCode; // Inject the embed code
   }
 
-  tabElementsPage.forEach((el) => el.setAttribute("tabindex", "-1"));
+  // tabElementsPage.forEach((el) => el.setAttribute("tabindex", "-1"));
 
   // Notify other modules about the state change
   document.dispatchEvent(
@@ -29,6 +23,10 @@ videoCta?.addEventListener("click", () => {
       detail: isVideoPlayerOpen,
     })
   );
+};
+
+videoCta?.addEventListener("click", () => {
+  openVideoPlayer(videoCta.getAttribute("data-embed"));
 });
 
 export const closeVideoPlayer = () => {
@@ -37,8 +35,9 @@ export const closeVideoPlayer = () => {
   videoPlayer.setAttribute("aria-hidden", "true");
   videoPlayer.classList.add("video-player--inactive");
 
-  // Remove the src to stop the video
-  videoPlayerEmbed.removeAttribute("src");
+  setTimeout(() => {
+    videoPlayer.innerHTML = ""; // Remove embed to stop the video
+  }, 300);
 
   tabElementsPage.forEach((el) => el.setAttribute("tabindex", "0"));
 
@@ -48,10 +47,6 @@ export const closeVideoPlayer = () => {
       detail: isVideoPlayerOpen,
     })
   );
-
-  setTimeout(() => {
-    videoPlayer.classList.add("visibility-hidden");
-  }, 1200);
 };
 
 // Close the video player when clicking outside the embed

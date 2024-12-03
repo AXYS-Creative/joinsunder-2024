@@ -298,7 +298,11 @@ a {
 .site-header__logo, .site-header__cta-wrapper {
   position: absolute;
   top: var(--body-padding);
-  translate: 0 -50%;
+}
+@media screen and (min-width: 769px) {
+  .site-header__logo, .site-header__cta-wrapper {
+    translate: 0 -50%;
+  }
 }
 .site-header__logo {
   left: var(--body-padding);
@@ -690,13 +694,13 @@ a {
     transition: opacity 0.3s ease;
   }
 }
-.video-player .video-player__embed {
+.video-player iframe {
   width: auto;
   height: 50%;
   aspect-ratio: 2/1.125;
 }
 @media screen and (max-width: 768px) {
-  .video-player .video-player__embed {
+  .video-player iframe {
     width: 80%;
     height: auto;
   }
@@ -738,8 +742,18 @@ a {
   transition: translate 0.8s cubic-bezier(0.09, 0.9, 0.5, 1);
 }
 
-.visibility-hidden {
-  visibility: hidden;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
 }
 
 @media all {
@@ -962,18 +976,75 @@ Monument Weights
 }
 
 .main-compete .hero {
+  height: 100vh;
   padding-block-start: 128px;
 }
-.main-compete .swiper-wrapper {
-  display: flex;
+@media screen and (max-width: 1512px) {
+  .main-compete .hero {
+    padding-block-start: 112px;
+  }
 }
-.main-compete .swiper-wrapper .swiper-slide {
-  border: 2px dashed rgba(220, 20, 60, 0.75);
-  display: flex;
+.main-compete .swiper {
+  padding-inline: var(--body-padding);
 }
-.main-compete .swiper-wrapper .poster {
+.main-compete .swiper .swiper-wrapper {
+  display: flex;
+  padding-block-end: 64px;
+  width: 150%;
+  cursor: grab;
+}
+.main-compete .swiper .swiper-wrapper:active {
+  cursor: grabbing;
+}
+.main-compete .swiper-slide {
+  position: relative;
+  display: flex;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.main-compete .swiper-slide .poster {
   width: 100%;
   height: auto;
+}
+.main-compete .swiper-slide .caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  padding: 24px;
+}
+.main-compete .swiper-slide .caption h2 {
+  font-family: "Monument", sans-serif;
+  font-weight: 500;
+  text-align: left;
+  font-size: 16px;
+}
+.main-compete .swiper-slide .caption h3 {
+  font-family: "Monument", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: left;
+}
+.main-compete .swiper-pagination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-block: 12px;
+  padding-inline: var(--body-padding);
+}
+.main-compete .swiper-pagination-bullet {
+  border: 1px solid var(--hero-color--primary);
+  background: transparent;
+  padding: 6px;
+  transition: 0.3s ease;
+  opacity: 1;
+}
+.main-compete .swiper-pagination-bullet-active {
+  background: var(--hero-color--primary);
 }
 
 .error {
