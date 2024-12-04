@@ -13,6 +13,8 @@ if (document.querySelector(".main-compete")) {
 
   let swiper = new Swiper(".mySwiper", {
     loop: true,
+    slidesPerView: 2,
+    spaceBetween: 12,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -30,17 +32,13 @@ if (document.querySelector(".main-compete")) {
         slidesPerView: 3,
         spaceBetween: 24,
       },
-      1025: {
+      1201: {
         slidesPerView: 4,
         spaceBetween: 24,
       },
-      1201: {
-        slidesPerView: 4,
-        spaceBetween: 48,
-      },
       1513: {
         slidesPerView: 4,
-        spaceBetween: 64,
+        spaceBetween: 48,
       },
     },
   });

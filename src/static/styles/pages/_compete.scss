@@ -6,6 +6,11 @@
     @include mq-max("xxl") {
       padding-block-start: 112px;
     }
+
+    @include mq-max("sm") {
+      @include row-center;
+      padding-block: 0 64px;
+    }
   }
 
   .swiper {
@@ -32,30 +37,57 @@
     .poster {
       width: 100%;
       height: auto;
+
+      &:active {
+        cursor: grabbing;
+      }
     }
 
     .caption {
-      @include column-start;
+      @include column-start(flex-start);
+      background: linear-gradient(transparent, $sunder-midnight);
       position: absolute;
-      bottom: 0;
-      // top: 80%;
+      // bottom: 0;
+      top: 76%;
       left: 0;
+      width: 100%;
+      height: 24%;
       color: white;
-      padding: 24px;
+      padding: 16px;
 
-      // clean this up
       h2 {
         font-family: $font-family-heading;
         font-weight: 500;
         text-align: left;
-        font-size: 16px;
+        font-size: 1vw;
+        margin-block-end: 0.2vw;
+
+        @include mq-max("xl") {
+          font-size: 1.4vw;
+        }
+
+        @include mq-max("md") {
+          font-size: 2.2vw;
+        }
       }
 
       h3 {
         font-family: $font-family-heading;
         font-weight: 500;
-        font-size: 24px;
+        font-size: 1.4vw;
         text-align: left;
+
+        @include mq-max("xxl") {
+          font-size: 1.5vw;
+        }
+
+        @include mq-max("xl") {
+          font-size: 1.8vw;
+        }
+
+        @include mq-max("md") {
+          font-size: 2.8vw;
+        }
       }
     }
   }

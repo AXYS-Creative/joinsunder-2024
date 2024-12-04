@@ -127,6 +127,7 @@ a {
     overflow: hidden;
 
     @include mq-max("sm") {
+      margin-block-start: 12px;
       width: 96px;
     }
 
@@ -178,16 +179,17 @@ a {
 }
 
 .nav-btn {
-  --button-size: 72px;
+  --button-size: 64px;
   --line-width: 40%;
   --line-spacing: 6px;
   --line-transition-delay: 0.36s;
+  --bottom-distance: 36px;
 
   @include row-center;
   gap: 4px;
   background: var(--hero-color--primary);
   position: fixed;
-  bottom: var(--body-padding);
+  bottom: var(--bottom-distance);
   left: 50%;
   translate: -50% 0; // animate this on load?
   width: var(--button-size);
@@ -204,7 +206,7 @@ a {
   @include mq-max("sm") {
     --button-size: 56px;
     --line-width: 50%;
-    bottom: 32px; // Make variable?
+    --bottom-distance: 32px;
   }
 
   &:hover,
@@ -411,6 +413,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    white-space: nowrap;
 
     @include mq-max("sm") {
       gap: 8px;
@@ -421,6 +424,7 @@ a {
       width: 1em;
       height: 1em;
       overflow: hidden;
+      flex-shrink: 0;
 
       .icon {
         @include absolute-center;
