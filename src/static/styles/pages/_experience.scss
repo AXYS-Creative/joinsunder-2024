@@ -1,3 +1,22 @@
 .main-experience {
-  border: $test;
+  .hero {
+    padding: 24px;
+
+    .image-reel {
+      &__column-4 {
+        @include mq-max("xl") {
+          display: none;
+        }
+      }
+      &__column-3 {
+        @include mq-max("md") {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .video-library {
+    background-color: $test-bg;
+  }
 }

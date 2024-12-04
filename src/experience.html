@@ -8,9 +8,36 @@ description: Sample description // CHANGE ME
 # master props
 header_fixed: false
 header_logo_color: dark
-show_header_cta: true
+show_header_cta: false
 ---
 
 <section class="hero">
-  <h1 class="sr-only">Experience the Sunder life</h1>
+  <h1 class="sr-only">{{ page_experience_images.page_heading }}</h1>
+
+  <div class="image-reel">
+    <div class="image-reel__column image-reel__column-1">
+      {% for img in page_experience_images.img_reel_1 %}
+      <img src="{{ img.src }}" alt="{{ img.alt }}" />
+      {% endfor %}
+    </div>
+    <div class="image-reel__column image-reel__column-2">
+      {% for img in page_experience_images.img_reel_2 %}
+      <img src="{{ img.src }}" alt="{{ img.alt }}" />
+      {% endfor %}
+    </div>
+    <div class="image-reel__column image-reel__column-3">
+      {% for img in page_experience_images.img_reel_3 %}
+      <img src="{{ img.src }}" alt="{{ img.alt }}" />
+      {% endfor %}
+    </div>
+    <div class="image-reel__column image-reel__column-4">
+      {% for img in page_experience_images.img_reel_4 %}
+      <img src="{{ img.src }}" alt="{{ img.alt }}" />
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="video-library" id="video-library">
+  <p>video library</p>
 </section>

@@ -12,18 +12,25 @@ responsiveGsap.add(
   (context) => {
     let { maxSm, maxMd, maxXl, minMd } = context.conditions;
 
-    // Home Image Reel
+    // Image Reel, home and experience
     if (document.querySelector(".image-reel")) {
-      gsap.to(".image-reel__column-1", {
-        // y: "-16.75%",
-        y: maxSm ? "-20.5%" : "-21.1%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".image-reel",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.2,
-        },
+      const columns = [".image-reel__column-1", ".image-reel__column-3"];
+      const yValue = maxSm ? "-20.5%" : "-21.1%";
+
+      columns.forEach((column) => {
+        const element = document.querySelector(column); // Check if the element exists
+        if (element) {
+          gsap.to(column, {
+            y: yValue,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".image-reel",
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 0.2,
+            },
+          });
+        }
       });
     }
 

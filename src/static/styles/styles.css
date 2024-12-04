@@ -333,9 +333,18 @@ a {
   color: var(--background-color);
 }
 @media screen and (min-width: 1025px) {
+  .site-header--fixed {
+    position: fixed;
+    z-index: 1;
+  }
+}
+@media screen and (min-width: 1025px) {
   .site-header--fixed .site-header__logo {
     position: fixed;
   }
+}
+.site-header--fixed .site-header__cta-wrapper {
+  position: fixed;
 }
 .site-header--nav-active .site-header__logo-image,
 .site-header--nav-active .cta {
@@ -713,6 +722,26 @@ a {
   pointer-events: none;
 }
 
+.image-reel {
+  --gap: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+  overflow: hidden;
+}
+.image-reel__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap);
+  flex: 1;
+}
+.image-reel__column img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
 .classic-link {
   position: relative;
 }
@@ -950,32 +979,16 @@ Monument Weights
     gap: 12px;
   }
 }
-.main-home .image-reel {
-  --gap: 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: var(--gap);
-  overflow: hidden;
-}
 @media screen and (min-width: 1025px) {
   .main-home .image-reel {
     width: calc(50vw - 16px);
   }
 }
-.main-home .image-reel__column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--gap);
-  z-index: -1;
-}
-.main-home .image-reel__column img {
-  width: 100%;
-  border-radius: var(--radius);
-}
-.main-home .image-reel__column img:first-of-type {
+.main-home .image-reel img:first-of-type {
   border-radius: 0 0 var(--radius) var(--radius);
+}
+.main-home .image-reel img:last-of-type {
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .main-compete .hero {
@@ -1108,8 +1121,21 @@ Monument Weights
   background: var(--hero-color--primary);
 }
 
-.main-experience {
-  border: 2px dashed rgba(220, 20, 60, 0.75);
+.main-experience .hero {
+  padding: 24px;
+}
+@media screen and (max-width: 1200px) {
+  .main-experience .hero .image-reel__column-4 {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-experience .hero .image-reel__column-3 {
+    display: none;
+  }
+}
+.main-experience .video-library {
+  background-color: rgba(0, 0, 128, 0.75);
 }
 
 .error {

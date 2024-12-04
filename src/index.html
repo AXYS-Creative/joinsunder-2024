@@ -8,10 +8,9 @@ description: Sample description // CHANGE ME
 # master props
 header_fixed: true
 header_logo_color: light
-btn_type: lg
-video_player_embed: hello
+show_header_cta: false
 # Page notes
-# Using eager loading for computed/dynamic height... might not work
+# Using eager loading for computed/dynamic height. Only use fetchpriority sparingly
 ---
 
 <section class="hero">
@@ -20,6 +19,7 @@ video_player_embed: hello
 
     <div class="cta-group">
       <!-- prettier-ignore -->
+      {% set btn_type = "lg"%}
       {% include "./_includes/components/cta.html" %}
   
       {% set cta_vid_text = "Play Video"%}
@@ -30,14 +30,24 @@ video_player_embed: hello
 
   <div class="image-reel">
     <div class="image-reel__column image-reel__column-1">
-      {% for image in page_home.image_reel | slice(0, 12) %}
-      <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
+      {% for img in page_home.img_reel | slice(0, 12) %}
+      <img
+        src="{{ img.src }}"
+        alt="{{ img.alt }}"
+        loading="eager"
+        fetchpriority="auto"
+      />
       {% endfor %}
     </div>
 
     <div class="image-reel__column image-reel__column-2">
-      {% for image in page_home.image_reel | slice(12) %}
-      <img src="{{ image.src }}" alt="{{ image.desc }}" loading="eager" />
+      {% for img in page_home.img_reel | slice(12) %}
+      <img
+        src="{{ img.src }}"
+        alt="{{ img.alt }}"
+        loading="eager"
+        fetchpriority="auto"
+      />
       {% endfor %}
     </div>
   </div>

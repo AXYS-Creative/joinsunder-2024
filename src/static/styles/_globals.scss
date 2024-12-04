@@ -152,12 +152,20 @@ a {
     }
   }
 
-  // for the home page
+  // Mainly set for home page. Check other instances
   &--fixed {
+    @include mq-min("lg") {
+      position: fixed;
+      z-index: 1; // use variable?
+    }
+
     .site-header__logo {
       @include mq-min("lg") {
         position: fixed;
       }
+    }
+    .site-header__cta-wrapper {
+      position: fixed;
     }
   }
 
@@ -476,5 +484,27 @@ a {
   &--inactive {
     opacity: 0;
     pointer-events: none;
+  }
+}
+
+.image-reel {
+  --gap: 16px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+  overflow: hidden;
+
+  &__column {
+    @include column-center;
+    gap: var(--gap);
+    flex: 1;
+    // z-index: -1;
+
+    img {
+      width: 100%;
+      border-radius: var(--radius);
+      // See 'home.scss' for border radius on top and bottom images
+    }
   }
 }

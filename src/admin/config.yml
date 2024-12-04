@@ -36,7 +36,7 @@ collections:
             widget: "string"
             required: true
             hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here."
-          - name: "image_reel"
+          - name: "img_reel"
             label: "Image Reel"
             label_singular: "Image"
             widget: "list"
@@ -51,7 +51,7 @@ collections:
                   required: true,
                 }
               - {
-                  name: "desc",
+                  name: "alt",
                   label: "Image Description",
                   widget: "string",
                   required: true,
@@ -61,9 +61,149 @@ collections:
     label: "Page - Compete"
     files:
       - name: "hero_section"
-        label: "Hero Section (Video Library)"
+        label: "Hero Section - Video Library"
         file: "src/_data/page_compete.yaml"
         preview_path: "/compete"
+        editor:
+          preview: false
+        fields:
+          - name: "page_heading"
+            label: "Page Heading"
+            widget: string
+            required: true
+            hint: Semantic page heading. Not shown in design, but including this improves accessibility.
+          - name: "video_library"
+            label: "Video Library"
+            label_singular: "Video"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "title",
+                  label: "Title",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "sub_title",
+                  label: "Subtitle",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "poster",
+                  label: "Poster",
+                  widget: "image",
+                  required: true,
+                  hint: Thumbnail shown on the video library carousel,
+                }
+              - {
+                  name: "embed",
+                  label: "Embed",
+                  widget: "string",
+                  required: true,
+                  hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here.",
+                }
+  - name: "experience_page"
+    label: "Page - Experience"
+    files:
+      - name: "hero_section"
+        label: "Hero Section - Image Reel"
+        file: "src/_data/page_experience_images.yaml"
+        preview_path: "/experience"
+        editor:
+          preview: false
+        fields:
+          - name: "page_heading"
+            label: "Page Heading"
+            widget: string
+            required: true
+            hint: Semantic page heading. Not shown in design, but including this improves accessibility.
+          - name: "img_reel_1"
+            label: "Image Reel 1"
+            label_singular: "Image"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "src",
+                  label: "Image Source",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  name: "alt",
+                  label: "Image Description",
+                  widget: "string",
+                  required: true,
+                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                }
+          - name: "img_reel_2"
+            label: "Image Reel 2"
+            label_singular: "Image"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "src",
+                  label: "Image Source",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  name: "alt",
+                  label: "Image Description",
+                  widget: "string",
+                  required: true,
+                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                }
+          - name: "img_reel_3"
+            label: "Image Reel 3"
+            label_singular: "Image"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "src",
+                  label: "Image Source",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  name: "alt",
+                  label: "Image Description",
+                  widget: "string",
+                  required: true,
+                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                }
+          - name: "img_reel_4"
+            label: "Image Reel 4"
+            label_singular: "Image"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "src",
+                  label: "Image Source",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  name: "alt",
+                  label: "Image Description",
+                  widget: "string",
+                  required: true,
+                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                }
+      - name: "video_library"
+        label: "Video Library"
+        file: "src/_data/page_experience_videos.yaml"
+        preview_path: "/experience#video-library"
         editor:
           preview: false
         fields:

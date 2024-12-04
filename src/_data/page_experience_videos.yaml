@@ -1,0 +1,5 @@
+video_library:
+  - title: Sunder Dome 2023
+    sub_title: Competition Mode Activated
+    poster: /static/img/compete-poster-1.webp
+    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/P3EPMpkaqW4?si=x_iT5jgWc2o7O3v4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

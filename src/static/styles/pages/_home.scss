@@ -36,30 +36,19 @@
   }
 
   .image-reel {
-    --gap: 16px;
-
+    // see globals.scss for all styles
     // height: var(--reel-height); // set from home.js
-    display: flex;
-    align-items: flex-start;
-    gap: var(--gap);
-    overflow: hidden;
 
     @include mq-min("lg") {
       width: $children-width;
     }
 
-    &__column {
-      @include column-center;
-      gap: var(--gap);
-      z-index: -1;
-
-      img {
-        width: 100%;
-        border-radius: var(--radius);
-
-        &:first-of-type {
-          border-radius: 0 0 var(--radius) var(--radius);
-        }
+    img {
+      &:first-of-type {
+        border-radius: 0 0 var(--radius) var(--radius);
+      }
+      &:last-of-type {
+        border-radius: var(--radius) var(--radius) 0 0;
       }
     }
   }
