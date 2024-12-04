@@ -50,7 +50,7 @@ export const closeVideoPlayer = () => {
 };
 
 // Close the video player when clicking outside the embed
-videoPlayer.addEventListener("click", (e) => {
+videoPlayer?.addEventListener("click", (e) => {
   if (e.target.classList.contains("video-player__embed")) return;
 
   closeVideoPlayer();

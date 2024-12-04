@@ -87,11 +87,8 @@
     {% include "./partials/nav.html" %}
     <!-- prettier-ignore -->
 
-    {% set embed_src = 'unique value here?'%}
-    {% include "./components/video-player.html" %}
-
     {% if path == "home" %}
-
+    
     {% if loader.loader_toggle %}
     <div class="page-loader">
       <p>{{ loader.loader_text | safe }}</p>
@@ -102,6 +99,11 @@
       type="text/javascript"
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"
     ></script>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% if path == "home" or path == "compete" %}
+      {% include "./components/video-player.html" %}
     {% endif %}
 
     <!-- prettier-ignore -->

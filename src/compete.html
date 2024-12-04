@@ -19,11 +19,14 @@ show_header_cta: true
       <button
         class="swiper-slide compete__video-btn"
         data-embed="{{ slide.embed }}"
+        aria-label="Play video: {{ slide.title }} - {{ slide.sub_title }}"
+        aria-controls="video-player"
       >
         <img
           class="poster"
           src="{{ slide.poster }}"
           alt=""
+          aria-hidden="true"
           class=""
           width="250"
           height="500"

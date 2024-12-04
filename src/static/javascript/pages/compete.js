@@ -9,6 +9,10 @@ if (document.querySelector(".main-compete")) {
     btn.addEventListener("click", (e) => {
       openVideoPlayer(embedCode);
     });
+
+    setTimeout(() => {
+      btn.removeAttribute("role"); // Axe a11y didn't like this
+    }, 500);
   });
 
   let swiper = new Swiper(".mySwiper", {
