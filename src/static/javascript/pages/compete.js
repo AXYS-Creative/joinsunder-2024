@@ -1,20 +1,25 @@
-import { openVideoPlayer } from "../components/video-player.js";
+import {
+  isVideoPlayerOpen,
+  openVideoPlayer,
+} from "../components/video-player.js";
+import { isNavOpen } from "../global/nav.js";
 
-if (document.querySelector(".main-compete")) {
-  const videoBtns = document.querySelectorAll(".compete__video-btn");
+const videoBtns = document.querySelectorAll(".compete__video-btn");
+const paginationWrapper = document.querySelector(".swiper-pagination");
 
-  videoBtns.forEach((btn) => {
-    let embedCode = btn.getAttribute("data-embed");
+videoBtns?.forEach((btn) => {
+  let embedCode = btn.getAttribute("data-embed");
 
-    btn.addEventListener("click", (e) => {
-      openVideoPlayer(embedCode);
-    });
-
-    setTimeout(() => {
-      btn.removeAttribute("role"); // Axe a11y didn't like this
-    }, 500);
+  btn.addEventListener("click", () => {
+    openVideoPlayer(embedCode);
   });
 
+  setTimeout(() => {
+    btn.removeAttribute("role"); // Axe a11y didn't like this
+  }, 500);
+});
+
+if (document.querySelector(".main-compete")) {
   let swiper = new Swiper(".mySwiper", {
     loop: true,
     slidesPerView: 2,
@@ -45,5 +50,16 @@ if (document.querySelector(".main-compete")) {
         spaceBetween: 48,
       },
     },
+  });
+
+  // Removing pagination tabbing when the nav or video player are open
+  document.addEventListener("navStateChange", () => {
+    paginationWrapper.style.visibility = isNavOpen ? "hidden" : "visible";
+  });
+
+  document.addEventListener("videoPlayerStateChange", () => {
+    paginationWrapper.style.visibility = isVideoPlayerOpen
+      ? "hidden"
+      : "visible";
   });
 }

@@ -17,7 +17,7 @@ show_header_cta: true
     <div class="swiper-wrapper">
       {% for slide in page_compete.video_library %}
       <button
-        class="swiper-slide compete__video-btn"
+        class="swiper-slide compete__video-btn tab-element-page"
         data-embed="{{ slide.embed }}"
         aria-label="Play video: {{ slide.title }} - {{ slide.sub_title }}"
         aria-controls="video-player"

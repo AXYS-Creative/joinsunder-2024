@@ -4,7 +4,7 @@ import {
   closeVideoPlayer,
 } from "../components/video-player.js";
 
-const siteNav = document.querySelector(".site-nav"),
+export const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
   mainContent = document.querySelector(".main-content"),
   siteHeader = document.querySelector(".site-header");
@@ -14,7 +14,7 @@ export const tabElementsPage = document.querySelectorAll(".tab-element-page"),
 
 tabElementsNav.forEach((elem) => elem.setAttribute("tabIndex", "-1"));
 
-let isNavOpen = false;
+export let isNavOpen = false;
 
 const updateTabIndex = () => {
   const pageTabIndex = isNavOpen ? "-1" : "0";
@@ -40,15 +40,7 @@ const updateNavBtnState = () => {
   }
 };
 
-const handleNavBtnClick = () => {
-  // Close video player
-  if (isVideoPlayerOpen) {
-    closeVideoPlayer();
-    updateNavBtnState();
-    return;
-  }
-
-  // Toggle navigation state
+const toggleNav = () => {
   isNavOpen = !isNavOpen;
 
   siteNav.classList.toggle("site-nav--active", isNavOpen);
@@ -65,6 +57,23 @@ const handleNavBtnClick = () => {
   } else {
     mainContent.removeEventListener("click", closeNav);
   }
+
+  // Notify other modules about the state change
+  document.dispatchEvent(
+    new CustomEvent("navStateChange", {
+      detail: isNavOpen,
+    })
+  );
+};
+
+const handleNavBtnClick = () => {
+  // Close video player
+  if (isVideoPlayerOpen) {
+    closeVideoPlayer();
+    updateNavBtnState();
+    return;
+  }
+  toggleNav();
 };
 
 const closeNav = () => {

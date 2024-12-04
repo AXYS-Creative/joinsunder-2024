@@ -1,4 +1,4 @@
-import { tabElementsPage } from "../global/nav.js";
+import { tabElementsPage, navBtn } from "../global/nav.js";
 
 const videoPlayer = document.querySelector(".video-player"),
   videoCta = document.querySelector(".cta--video");
@@ -15,7 +15,9 @@ export const openVideoPlayer = (embedCode) => {
     videoPlayer.innerHTML = embedCode; // Inject the embed code
   }
 
-  // tabElementsPage.forEach((el) => el.setAttribute("tabindex", "-1"));
+  tabElementsPage.forEach((el) => el.setAttribute("tabindex", "-1"));
+
+  navBtn.focus();
 
   // Notify other modules about the state change
   document.dispatchEvent(
