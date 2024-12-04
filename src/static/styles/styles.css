@@ -309,7 +309,6 @@ a {
   display: flex;
   width: 148px;
   z-index: 1;
-  overflow: hidden;
 }
 @media screen and (max-width: 480px) {
   .site-header__logo {
@@ -1035,6 +1034,13 @@ Monument Weights
   color: white;
   padding: 16px;
 }
+@media screen and (max-width: 480px) {
+  .main-compete .swiper-slide .caption {
+    top: 72%;
+    height: 28%;
+    padding: 8px;
+  }
+}
 .main-compete .swiper-slide .caption h2 {
   font-family: "Monument", sans-serif;
   font-weight: 500;
@@ -1049,7 +1055,7 @@ Monument Weights
 }
 @media screen and (max-width: 768px) {
   .main-compete .swiper-slide .caption h2 {
-    font-size: 2.2vw;
+    font-size: max(2.25vw, 12px);
   }
 }
 .main-compete .swiper-slide .caption h3 {
@@ -1070,25 +1076,40 @@ Monument Weights
 }
 @media screen and (max-width: 768px) {
   .main-compete .swiper-slide .caption h3 {
-    font-size: 2.8vw;
+    font-size: max(2.85vw, 12px);
   }
 }
 .main-compete .swiper-pagination {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 8px;
   padding-block: 12px;
   padding-inline: var(--body-padding);
+}
+@media screen and (max-width: 480px) {
+  .main-compete .swiper-pagination {
+    justify-content: center;
+  }
 }
 .main-compete .swiper-pagination-bullet {
   border: 1px solid var(--hero-color--primary);
   background: transparent;
-  padding: 6px;
+  padding: 10px;
   transition: 0.3s ease;
   opacity: 1;
 }
+@media screen and (max-width: 480px) {
+  .main-compete .swiper-pagination-bullet {
+    padding: 8px;
+  }
+}
 .main-compete .swiper-pagination-bullet-active {
   background: var(--hero-color--primary);
+}
+
+.main-experience {
+  border: 2px dashed rgba(220, 20, 60, 0.75);
 }
 
 .error {

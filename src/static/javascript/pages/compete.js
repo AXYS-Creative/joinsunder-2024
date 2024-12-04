@@ -18,7 +18,7 @@ if (document.querySelector(".main-compete")) {
   let swiper = new Swiper(".mySwiper", {
     loop: true,
     slidesPerView: 2,
-    spaceBetween: 12,
+    spaceBetween: 8,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,

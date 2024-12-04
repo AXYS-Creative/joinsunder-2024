@@ -124,7 +124,6 @@ a {
     display: flex;
     width: 148px;
     z-index: $z-index-header;
-    overflow: hidden;
 
     @include mq-max("sm") {
       margin-block-start: 12px;
