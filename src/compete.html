@@ -13,31 +13,9 @@ show_header_cta: true
 
 <section class="hero">
   <h1 class="sr-only">{{ page_compete.page_heading }}</h1>
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      {% for slide in page_compete.video_library %}
-      <button
-        class="swiper-slide compete__video-btn tab-element-page"
-        data-embed="{{ slide.embed }}"
-        aria-label="Play video: {{ slide.title }} - {{ slide.sub_title }}"
-        aria-controls="video-player"
-      >
-        <img
-          class="poster"
-          src="{{ slide.poster }}"
-          alt=""
-          aria-hidden="true"
-          class=""
-          width="250"
-          height="500"
-        />
-        <div class="caption">
-          <h2>{{ slide.title }}</h2>
-          <h3>{{ slide.sub_title }}</h3>
-        </div>
-      </button>
-      {% endfor %}
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
+
+  <!-- prettier-ignore -->
+  {% set video_data = page_compete.video_library %} 
+  {% set play_icon = page_compete.play_icon %}
+  {% include "./_includes/components/video-carousel.html" %}
 </section>

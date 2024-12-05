@@ -15,7 +15,9 @@ show_header_cta: false
   <h1 class="sr-only">{{ page_experience_images.page_heading }}</h1>
 
   <div class="image-reel">
-    <div class="image-reel__column image-reel__column-1">
+    <div
+      class="image-reel__column image-reel__column-1 image-reel__column-1--experience"
+    >
       {% for img in page_experience_images.img_reel_1 %}
       <img src="{{ img.src }}" alt="{{ img.alt }}" />
       {% endfor %}
@@ -25,7 +27,9 @@ show_header_cta: false
       <img src="{{ img.src }}" alt="{{ img.alt }}" />
       {% endfor %}
     </div>
-    <div class="image-reel__column image-reel__column-3">
+    <div
+      class="image-reel__column image-reel__column-3 image-reel__column-3--experience"
+    >
       {% for img in page_experience_images.img_reel_3 %}
       <img src="{{ img.src }}" alt="{{ img.alt }}" />
       {% endfor %}
@@ -39,5 +43,8 @@ show_header_cta: false
 </section>
 
 <section class="video-library" id="video-library">
-  <p>video library</p>
+  <!-- prettier-ignore -->
+  {% set video_data = page_experience_videos.video_library %}
+  {% set play_icon = page_experience_videos.play_icon %}
+  {% include "./_includes/components/video-carousel.html" %}
 </section>

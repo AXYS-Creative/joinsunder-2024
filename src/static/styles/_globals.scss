@@ -328,6 +328,7 @@ a {
 
   .nav-link {
     color: var(--font-color--primary);
+    overflow: hidden;
 
     &__img {
       display: block;
@@ -337,21 +338,25 @@ a {
       width: 148px;
       aspect-ratio: 1 / 1.4;
 
-      @include mq-min("md") {
-        width: 188px;
-      }
+      transition: 0.3s ease, scale 0.4s ease;
 
-      @include mq-min("lg") {
-        width: 250px;
-        aspect-ratio: 1.85 / 1;
-      }
+      @media all {
+        @include mq-min("md") {
+          width: 188px;
+        }
 
-      @include mq-min("xl") {
-        width: 320px;
-      }
+        @include mq-min("lg") {
+          width: 250px;
+          aspect-ratio: 1.85 / 1;
+        }
 
-      @include mq-min("xxl") {
-        width: 400px;
+        @include mq-min("xl") {
+          width: 320px;
+        }
+
+        @include mq-min("xxl") {
+          width: 400px;
+        }
       }
     }
   }
@@ -505,6 +510,151 @@ a {
       width: 100%;
       border-radius: var(--radius);
       // See 'home.scss' for border radius on top and bottom images
+    }
+  }
+}
+
+.swiper {
+  overflow: hidden;
+
+  .swiper-wrapper {
+    display: flex;
+    padding-block-end: 64px; // position pagination.
+    width: 150%;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  .swiper-slide {
+    position: relative;
+    display: flex;
+    border-radius: var(--radius);
+    overflow: hidden;
+
+    &:hover,
+    &:focus-visible {
+      .poster {
+        filter: brightness(1.25);
+        scale: 1.05;
+      }
+    }
+
+    .poster {
+      width: 100%;
+      height: auto;
+
+      transition: 0.3s ease, scale 0.4s ease;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    .caption {
+      @include column-start(flex-start);
+      background: linear-gradient(transparent, $sunder-midnight);
+      position: absolute;
+      // bottom: 0;
+      top: 76%;
+      left: 0;
+      width: 100%;
+      height: 24%;
+      color: white;
+      padding: 16px;
+
+      @include mq-max("sm") {
+        top: 72%;
+        height: 28%;
+        padding: 8px;
+      }
+
+      h2 {
+        font-family: $font-family-heading;
+        font-weight: 500;
+        text-align: left;
+        font-size: 1vw;
+        margin-block-end: 0.2vw;
+
+        @include mq-max("xl") {
+          font-size: 1.4vw;
+        }
+
+        @include mq-max("md") {
+          font-size: max(2.25vw, 12px); // a11y, don't drop below 12px
+        }
+      }
+
+      h3 {
+        font-family: $font-family-heading;
+        font-weight: 500;
+        font-size: 1.4vw;
+        text-align: left;
+
+        @include mq-max("xxl") {
+          font-size: 1.5vw;
+        }
+
+        @include mq-max("xl") {
+          font-size: 1.8vw;
+        }
+
+        @include mq-max("md") {
+          font-size: max(2.85vw, 12px);
+        }
+      }
+    }
+
+    .play-icon {
+      --icon-size: 40px;
+      --icon-placement: 16px;
+
+      position: absolute;
+      top: var(--icon-placement);
+      right: var(--icon-placement);
+      width: var(--icon-size);
+      height: var(--icon-size);
+      filter: drop-shadow(0px 0px 2px rgba($sunder-midnight, 0.25));
+
+      @include mq-max("xxl") {
+        --icon-size: 32px;
+        --icon-placement: 12px;
+      }
+
+      @include mq-max("sm") {
+        --icon-size: 24px;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    @include row-center(flex-start);
+    gap: 8px;
+    padding-block: 12px;
+    padding-inline: var(--body-padding);
+
+    @include mq-max("sm") {
+      justify-content: center;
+    }
+
+    &-bullet {
+      border: 1px solid var(--hero-color--primary);
+      background: transparent;
+      padding: 10px;
+      transition: 0.3s ease;
+      opacity: 1;
+      border-radius: 128px;
+      cursor: pointer;
+
+      @include mq-max("sm") {
+        padding: 8px;
+      }
+
+      &-active {
+        background: var(--hero-color--primary);
+      }
     }
   }
 }

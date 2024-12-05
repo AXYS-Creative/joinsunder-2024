@@ -71,7 +71,12 @@ collections:
             label: "Page Heading"
             widget: string
             required: true
-            hint: Semantic page heading. Not shown in design, but including this improves accessibility.
+            hint: Semantic page heading for accessibility. Not visually shown on the page (per design) but improves indexing and other areas.
+          - name: "play_icon"
+            label: "Play Icon"
+            widget: image
+            required: false
+            hint: Corner icon for each video poster. Leave this field empty to remove the icon.
           - name: "video_library"
             label: "Video Library"
             label_singular: "Video"
@@ -119,7 +124,7 @@ collections:
             label: "Page Heading"
             widget: string
             required: true
-            hint: Semantic page heading. Not shown in design, but including this improves accessibility.
+            hint: Semantic page heading for accessibility. Not visually shown on the page (per design) but improves site scraping.
           - name: "img_reel_1"
             label: "Image Reel 1"
             label_singular: "Image"
@@ -207,6 +212,11 @@ collections:
         editor:
           preview: false
         fields:
+          - name: "play_icon"
+            label: "Play Icon"
+            widget: image
+            required: false
+            hint: Corner icon for each video poster. Leave this field empty to remove the icon.
           - name: "video_library"
             label: "Video Library"
             label_singular: "Video"

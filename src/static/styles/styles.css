@@ -496,6 +496,7 @@ a {
 }
 .site-nav .nav-link {
   color: var(--font-color--primary);
+  overflow: hidden;
 }
 .site-nav .nav-link__img {
   display: block;
@@ -505,6 +506,7 @@ a {
   margin-block-start: 12px;
   width: 148px;
   aspect-ratio: 1/1.4;
+  transition: 0.3s ease, scale 0.4s ease;
 }
 @media screen and (min-width: 769px) {
   .site-nav .nav-link__img {
@@ -740,6 +742,147 @@ a {
 .image-reel__column img {
   width: 100%;
   border-radius: var(--radius);
+}
+
+.swiper {
+  overflow: hidden;
+}
+.swiper .swiper-wrapper {
+  display: flex;
+  padding-block-end: 64px;
+  width: 150%;
+  cursor: grab;
+}
+.swiper .swiper-wrapper:active {
+  cursor: grabbing;
+}
+.swiper .swiper-slide {
+  position: relative;
+  display: flex;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.swiper .swiper-slide:hover .poster, .swiper .swiper-slide:focus-visible .poster {
+  filter: brightness(1.25);
+  scale: 1.05;
+}
+.swiper .swiper-slide .poster {
+  width: 100%;
+  height: auto;
+  transition: 0.3s ease, scale 0.4s ease;
+}
+.swiper .swiper-slide .poster:active {
+  cursor: grabbing;
+}
+.swiper .swiper-slide .caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: linear-gradient(transparent, #000014);
+  position: absolute;
+  top: 76%;
+  left: 0;
+  width: 100%;
+  height: 24%;
+  color: white;
+  padding: 16px;
+}
+@media screen and (max-width: 480px) {
+  .swiper .swiper-slide .caption {
+    top: 72%;
+    height: 28%;
+    padding: 8px;
+  }
+}
+.swiper .swiper-slide .caption h2 {
+  font-family: "Monument", sans-serif;
+  font-weight: 500;
+  text-align: left;
+  font-size: 1vw;
+  margin-block-end: 0.2vw;
+}
+@media screen and (max-width: 1200px) {
+  .swiper .swiper-slide .caption h2 {
+    font-size: 1.4vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .swiper .swiper-slide .caption h2 {
+    font-size: max(2.25vw, 12px);
+  }
+}
+.swiper .swiper-slide .caption h3 {
+  font-family: "Monument", sans-serif;
+  font-weight: 500;
+  font-size: 1.4vw;
+  text-align: left;
+}
+@media screen and (max-width: 1512px) {
+  .swiper .swiper-slide .caption h3 {
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .swiper .swiper-slide .caption h3 {
+    font-size: 1.8vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .swiper .swiper-slide .caption h3 {
+    font-size: max(2.85vw, 12px);
+  }
+}
+.swiper .swiper-slide .play-icon {
+  --icon-size: 40px;
+  --icon-placement: 16px;
+  position: absolute;
+  top: var(--icon-placement);
+  right: var(--icon-placement);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 20, 0.25));
+}
+@media screen and (max-width: 1512px) {
+  .swiper .swiper-slide .play-icon {
+    --icon-size: 32px;
+    --icon-placement: 12px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .swiper .swiper-slide .play-icon {
+    --icon-size: 24px;
+  }
+}
+.swiper .swiper-pagination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding-block: 12px;
+  padding-inline: var(--body-padding);
+}
+@media screen and (max-width: 480px) {
+  .swiper .swiper-pagination {
+    justify-content: center;
+  }
+}
+.swiper .swiper-pagination-bullet {
+  border: 1px solid var(--hero-color--primary);
+  background: transparent;
+  padding: 10px;
+  transition: 0.3s ease;
+  opacity: 1;
+  border-radius: 128px;
+  cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .swiper .swiper-pagination-bullet {
+    padding: 8px;
+  }
+}
+.swiper .swiper-pagination-bullet-active {
+  background: var(--hero-color--primary);
 }
 
 .classic-link {
@@ -1008,121 +1151,20 @@ Monument Weights
     padding-block: 0 64px;
   }
 }
-.main-compete .swiper {
+.main-compete .hero .swiper {
   padding-inline: var(--body-padding);
-}
-.main-compete .swiper .swiper-wrapper {
-  display: flex;
-  padding-block-end: 64px;
-  width: 150%;
-  cursor: grab;
-}
-.main-compete .swiper .swiper-wrapper:active {
-  cursor: grabbing;
-}
-.main-compete .swiper-slide {
-  position: relative;
-  display: flex;
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.main-compete .swiper-slide .poster {
-  width: 100%;
-  height: auto;
-}
-.main-compete .swiper-slide .poster:active {
-  cursor: grabbing;
-}
-.main-compete .swiper-slide .caption {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background: linear-gradient(transparent, #000014);
-  position: absolute;
-  top: 76%;
-  left: 0;
-  width: 100%;
-  height: 24%;
-  color: white;
-  padding: 16px;
-}
-@media screen and (max-width: 480px) {
-  .main-compete .swiper-slide .caption {
-    top: 72%;
-    height: 28%;
-    padding: 8px;
-  }
-}
-.main-compete .swiper-slide .caption h2 {
-  font-family: "Monument", sans-serif;
-  font-weight: 500;
-  text-align: left;
-  font-size: 1vw;
-  margin-block-end: 0.2vw;
-}
-@media screen and (max-width: 1200px) {
-  .main-compete .swiper-slide .caption h2 {
-    font-size: 1.4vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .main-compete .swiper-slide .caption h2 {
-    font-size: max(2.25vw, 12px);
-  }
-}
-.main-compete .swiper-slide .caption h3 {
-  font-family: "Monument", sans-serif;
-  font-weight: 500;
-  font-size: 1.4vw;
-  text-align: left;
-}
-@media screen and (max-width: 1512px) {
-  .main-compete .swiper-slide .caption h3 {
-    font-size: 1.5vw;
-  }
-}
-@media screen and (max-width: 1200px) {
-  .main-compete .swiper-slide .caption h3 {
-    font-size: 1.8vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .main-compete .swiper-slide .caption h3 {
-    font-size: max(2.85vw, 12px);
-  }
-}
-.main-compete .swiper-pagination {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  padding-block: 12px;
-  padding-inline: var(--body-padding);
-}
-@media screen and (max-width: 480px) {
-  .main-compete .swiper-pagination {
-    justify-content: center;
-  }
-}
-.main-compete .swiper-pagination-bullet {
-  border: 1px solid var(--hero-color--primary);
-  background: transparent;
-  padding: 10px;
-  transition: 0.3s ease;
-  opacity: 1;
-}
-@media screen and (max-width: 480px) {
-  .main-compete .swiper-pagination-bullet {
-    padding: 8px;
-  }
-}
-.main-compete .swiper-pagination-bullet-active {
-  background: var(--hero-color--primary);
 }
 
+.main-experience {
+  --section-padding: 24px;
+}
+@media screen and (max-width: 768px) {
+  .main-experience {
+    --section-padding: 12px;
+  }
+}
 .main-experience .hero {
-  padding: 24px;
+  padding: var(--section-padding);
 }
 @media screen and (max-width: 1200px) {
   .main-experience .hero .image-reel__column-4 {
@@ -1135,7 +1177,11 @@ Monument Weights
   }
 }
 .main-experience .video-library {
-  background-color: rgba(0, 0, 128, 0.75);
+  padding: var(--section-padding);
+  padding-block-start: 64px;
+}
+.main-experience .video-library .swiper-pagination {
+  padding-inline-start: 0;
 }
 
 .error {

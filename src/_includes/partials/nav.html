@@ -16,7 +16,7 @@
     {% for link in navigation.nav_links %}
     <a class="nav-link tab-element-nav" href="{{link.url}}">
       {{link.title}}
-      <picture class="nav-link__img">
+      <picture>
         <source
           srcset="{{link.mobile_image}}"
           media="(max-width: 1024px)"

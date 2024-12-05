@@ -29,7 +29,9 @@ show_header_cta: false
   </div>
 
   <div class="image-reel">
-    <div class="image-reel__column image-reel__column-1">
+    <div
+      class="image-reel__column image-reel__column-1 image-reel__column-1--home"
+    >
       {% for img in page_home.img_reel | slice(0, 12) %}
       <img
         src="{{ img.src }}"

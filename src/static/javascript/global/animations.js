@@ -7,21 +7,22 @@ responsiveGsap.add(
     maxSm: "(max-width: 480px)",
     maxMd: "(max-width: 768px)",
     maxXl: "(max-width: 1200px)",
+    maxXxl: "(max-width: 1512px)",
     minMd: "(min-width: 769px)",
   },
   (context) => {
-    let { maxSm, maxMd, maxXl, minMd } = context.conditions;
+    let { maxSm, maxMd, maxXl, maxXxl, minMd } = context.conditions;
 
     // Image Reel, home and experience
     if (document.querySelector(".image-reel")) {
-      const columns = [".image-reel__column-1", ".image-reel__column-3"];
-      const yValue = maxSm ? "-20.5%" : "-21.1%";
+      const yValHome = maxSm ? "-20.5%" : "-21.1%";
+      const yValExperience = maxMd ? "-9.65%" : maxXxl ? "-9.675%" : "-9.85%";
 
-      columns.forEach((column) => {
-        const element = document.querySelector(column); // Check if the element exists
+      const reelSlide = (el, distance) => {
+        const element = document.querySelector(el);
         if (element) {
-          gsap.to(column, {
-            y: yValue,
+          gsap.to(el, {
+            y: distance,
             ease: "none",
             scrollTrigger: {
               trigger: ".image-reel",
@@ -31,7 +32,11 @@ responsiveGsap.add(
             },
           });
         }
-      });
+      };
+
+      reelSlide(".image-reel__column-1--home", yValHome);
+      reelSlide(".image-reel__column-1--experience", yValExperience);
+      reelSlide(".image-reel__column-3--experience", yValExperience);
     }
 
     // GLOBAL - Easily toggle an 'animate' class on any element with '.gsap-animate' class

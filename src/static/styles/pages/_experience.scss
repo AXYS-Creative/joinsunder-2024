@@ -1,8 +1,16 @@
 .main-experience {
+  --section-padding: 24px;
+
+  @include mq-max("md") {
+    --section-padding: 12px;
+  }
+
   .hero {
-    padding: 24px;
+    padding: var(--section-padding);
 
     .image-reel {
+      // border: $test;
+
       &__column-4 {
         @include mq-max("xl") {
           display: none;
@@ -17,6 +25,11 @@
   }
 
   .video-library {
-    background-color: $test-bg;
+    padding: var(--section-padding);
+    padding-block-start: 64px;
+
+    .swiper-pagination {
+      padding-inline-start: 0;
+    }
   }
 }
