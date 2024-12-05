@@ -302,8 +302,8 @@ collections:
                   required: true,
                 }
               - {
-                  name: "position",
-                  label: "Position",
+                  name: "role",
+                  label: "Role",
                   widget: "string",
                   required: true,
                 }

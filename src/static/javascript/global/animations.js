@@ -41,31 +41,76 @@ responsiveGsap.add(
       reelSlide(".image-reel__column-3--experience", yValExperience);
     }
 
-    // Experience Hero - Floating Text
-    if (document.querySelector(".main-resources") && minLg) {
-      let floatingText = [
-        {
-          el: ".floating-text-1",
-          trigger: ".image-group__image-2",
-        },
-        {
-          el: ".floating-text-2",
-          trigger: ".image-group__image-3",
-        },
-      ];
+    // Experience Page
+    if (document.querySelector(".main-resources")) {
+      // Hero - Floating Text
+      if (minLg) {
+        let floatingText = [
+          {
+            el: ".floating-text__block-1",
+            trigger: ".image-group__image-2",
+          },
+          {
+            el: ".floating-text__block-2",
+            trigger: ".image-group__image-3",
+          },
+        ];
 
-      floatingText.forEach(({ el, trigger }) => {
-        gsap.from(el, {
-          y: "100vh",
-          ease: "none",
+        floatingText.forEach(({ el, trigger }) => {
+          gsap.from(el, {
+            y: "100vh",
+            ease: "none",
+            scrollTrigger: {
+              trigger: trigger,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: 0.25,
+            },
+          });
+        });
+      }
+
+      // Meet the Team - Pinned
+      {
+        gsap.from(".pinned", {
           scrollTrigger: {
-            trigger: trigger,
-            start: "top bottom",
-            end: "bottom bottom",
-            scrub: 1,
+            trigger: ".pinned",
+            start: "top top",
+            end: "+=100%",
+            pin: true,
           },
         });
-      });
+
+        gsap.fromTo(
+          ".slot-text__slider",
+          {
+            width: "6.5ch",
+          },
+          {
+            width: "8.5ch",
+            scrollTrigger: {
+              trigger: ".slot-text",
+              start: "80% 50%",
+              end: "+=50%",
+              scrub: true,
+            },
+          }
+        );
+
+        gsap.to(".slot-text__slider-inner", {
+          translate: "0 -100%",
+          scrollTrigger: {
+            trigger: ".slot-text",
+            start: "80% 50%",
+            end: "+=50%",
+            scrub: true,
+          },
+        });
+
+        window.addEventListener("load", () => {
+          ScrollTrigger.refresh();
+        });
+      }
     }
 
     // GLOBAL - Easily toggle an 'animate' class on any element with '.gsap-animate' class

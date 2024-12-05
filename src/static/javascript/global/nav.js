@@ -1,8 +1,8 @@
 import { mqMouse, mqMaxXxl, mqMaxMd } from "../utility.js";
 import {
-  isVideoPlayerOpen,
-  closeVideoPlayer,
-} from "../components/video-player.js";
+  isvideoOverlayOpen,
+  closevideoOverlay,
+} from "../components/video-overlay.js";
 
 export const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
@@ -25,9 +25,9 @@ const updateTabIndex = () => {
 };
 
 const updateNavBtnState = () => {
-  if (isVideoPlayerOpen) {
+  if (isvideoOverlayOpen) {
     navBtn.setAttribute("aria-expanded", true);
-    navBtn.setAttribute("aria-controls", "video-player");
+    navBtn.setAttribute("aria-controls", "video-overlay");
     navBtn.setAttribute("aria-label", "Close video player");
   } else if (isNavOpen) {
     navBtn.setAttribute("aria-expanded", true);
@@ -68,8 +68,8 @@ const toggleNav = () => {
 
 const handleNavBtnClick = () => {
   // Close video player
-  if (isVideoPlayerOpen) {
-    closeVideoPlayer();
+  if (isvideoOverlayOpen) {
+    closevideoOverlay();
     updateNavBtnState();
     return;
   }
@@ -92,7 +92,7 @@ const closeNav = () => {
 
 navBtn.addEventListener("click", handleNavBtnClick);
 
-document.addEventListener("videoPlayerStateChange", updateNavBtnState);
+document.addEventListener("videoOverlayStateChange", updateNavBtnState);
 
 if (mqMouse && window.innerWidth < 2712) {
   const navSlider = document.querySelector(".nav-slider");

@@ -1,13 +1,13 @@
 portraits:
   - name: Max Britton
-    position: CEO
+    role: CEO
     src: /static/img/resources-portrait-max.jpg
   - name: Eric Nielsen
-    position: President
+    role: President
     src: /static/img/resources-portrait-eric.jpg
   - name: Brett Jaynes
-    position: CFO
+    role: CFO
     src: /static/img/resources-portrait-brett.jpg
   - name: Cary Jenkins
-    position: CTO
+    role: CTO
     src: /static/img/resources-portrait-cary.jpg

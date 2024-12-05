@@ -15,26 +15,43 @@
 
       @include mq-max("lg") {
         flex-direction: column-reverse;
-        // align-items: flex-end;
+        gap: 128px;
       }
     }
 
     &__caption {
-      @include column-start;
-      gap: 40px;
+      @include column-center;
+      gap: 24px;
 
       @include mq-min("lg") {
         position: sticky;
         top: 50vh;
         translate: 0 -50%;
+        align-items: flex-start;
+        gap: 40px;
       }
 
       .hero__title {
         font-weight: 600; // Possibly organize with heading level?
+
+        @include mq-max("lg") {
+          text-align: center;
+        }
+
+        @include mq-max("sm") {
+          padding-inline: 24px; // for text-wrap
+        }
       }
 
       .floating-text {
-        display: inline-block;
+        @include mq-max("lg") {
+          text-align: center;
+        }
+
+        &__block {
+          display: inline-block;
+          margin-inline-end: 0.5ch;
+        }
       }
     }
 
@@ -45,7 +62,6 @@
 
       @include mq-max("lg") {
         width: 100%;
-        margin-block-end: 48px;
       }
 
       &__image {
@@ -70,19 +86,72 @@
     padding: 128px 0;
 
     .pinned {
-      padding: 248px 0;
+      @include row-center;
+      height: 100dvh;
+
+      .slot-text {
+        @include row-start;
+        font-weight: 300;
+        text-align: center;
+
+        @include mq-max("md") {
+          font-size: max(4.2vw, 20px);
+        }
+
+        &__slider {
+          @include column-center(flex-start);
+          font-weight: 600;
+          height: 1ch;
+          overflow: hidden;
+        }
+      }
     }
 
     .team-portraits {
       @include row-center;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-inline: var(--body-padding);
+
+      @include mq-max("xl") {
+        gap: 16px;
+      }
 
       .figure {
+        display: flex;
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
         flex: 1;
 
-        // &__img {
-        //   width: 100%;
-        // }
+        @include mq-max("lg") {
+          flex: 1 0 320px;
+        }
+
+        &__caption {
+          @include column-start;
+          @include caption-gradient;
+          position: absolute;
+          bottom: 0;
+          padding: 24px;
+
+          @include mq-max("xl") {
+            padding: 16px;
+          }
+
+          &-name,
+          &-role {
+            font-family: $font-family-heading;
+          }
+
+          &-name {
+            @include h6;
+          }
+
+          &-role {
+            font-weight: 300;
+          }
+        }
       }
     }
   }

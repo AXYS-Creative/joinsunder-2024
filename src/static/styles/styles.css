@@ -168,13 +168,13 @@ h4,
 @media screen and (max-width: 768px) {
   h4,
   .h4 {
-    font-size: 3.8vw;
+    font-size: 24px;
   }
 }
 @media screen and (max-width: 480px) {
   h4,
   .h4 {
-    font-size: 12px;
+    font-size: 18px;
   }
 }
 h4 span,
@@ -218,34 +218,39 @@ h5 span,
   font-family: inherit;
 }
 
+h6,
 .h6 {
   font-family: "Monument", sans-serif;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.1;
-  font-family: "Satoshi", sans-serif;
-  line-height: 1;
+  font-weight: 600;
 }
 @media screen and (max-width: 1512px) {
+  h6,
   .h6 {
-    font-size: 1.6vw;
+    font-size: 1.4vw;
   }
 }
 @media screen and (max-width: 1024px) {
+  h6,
   .h6 {
     font-size: 2.4vw;
   }
 }
 @media screen and (max-width: 768px) {
+  h6,
   .h6 {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 480px) {
+  h6,
   .h6 {
     font-size: 16px;
   }
 }
+h6 span,
 .h6 span {
   font-family: inherit;
 }
@@ -725,11 +730,18 @@ img {
   }
 }
 .cta--video .icon-group {
+  --icon-size: 1em;
   position: relative;
-  width: 1em;
-  height: 1em;
+  width: var(--icon-size);
+  height: var(--icon-size);
   overflow: hidden;
   flex-shrink: 0;
+}
+@media screen and (max-width: 1200px) {
+  .cta--video .icon-group {
+    --icon-size: 1.25em;
+    scale: 0.75;
+  }
 }
 .cta--video .icon-group .icon {
   position: absolute;
@@ -756,7 +768,7 @@ img {
   animation: video-cta-icon__2 3s ease infinite;
 }
 
-.video-player {
+.video-overlay {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -768,22 +780,22 @@ img {
   z-index: 3;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .video-player {
+  .video-overlay {
     transition: opacity 0.3s ease;
   }
 }
-.video-player iframe {
+.video-overlay iframe {
   width: auto;
   height: 50%;
   aspect-ratio: 2/1.125;
 }
 @media screen and (max-width: 768px) {
-  .video-player iframe {
+  .video-overlay iframe {
     width: 80%;
     height: auto;
   }
 }
-.video-player--inactive {
+.video-overlay--inactive {
   opacity: 0;
   pointer-events: none;
 }
@@ -840,12 +852,12 @@ img {
   justify-content: flex-start;
   align-items: flex-start;
   background: linear-gradient(transparent, #000014);
+  color: var(--background-color);
+  width: 100%;
   position: absolute;
   top: 76%;
   left: 0;
-  width: 100%;
   height: 24%;
-  color: white;
   padding: 16px;
 }
 @media screen and (max-width: 480px) {
@@ -1268,27 +1280,46 @@ Monument Weights
 @media screen and (max-width: 1024px) {
   .main-resources .hero {
     flex-direction: column-reverse;
+    gap: 128px;
   }
 }
 .main-resources .hero__caption {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
+  align-items: center;
+  gap: 24px;
 }
 @media screen and (min-width: 1025px) {
   .main-resources .hero__caption {
     position: sticky;
     top: 50vh;
     translate: 0 -50%;
+    align-items: flex-start;
+    gap: 40px;
   }
 }
 .main-resources .hero__caption .hero__title {
   font-weight: 600;
 }
-.main-resources .hero__caption .floating-text {
+@media screen and (max-width: 1024px) {
+  .main-resources .hero__caption .hero__title {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-resources .hero__caption .hero__title {
+    padding-inline: 24px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .hero__caption .floating-text {
+    text-align: center;
+  }
+}
+.main-resources .hero__caption .floating-text__block {
   display: inline-block;
+  margin-inline-end: 0.5ch;
 }
 .main-resources .hero .image-group {
   display: flex;
@@ -1301,7 +1332,6 @@ Monument Weights
 @media screen and (max-width: 1024px) {
   .main-resources .hero .image-group {
     width: 100%;
-    margin-block-end: 48px;
   }
 }
 .main-resources .hero .image-group__image {
@@ -1323,16 +1353,109 @@ Monument Weights
   padding: 128px 0;
 }
 .main-resources .meet-the-team .pinned {
-  padding: 248px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+.main-resources .meet-the-team .pinned .slot-text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 300;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .main-resources .meet-the-team .pinned .slot-text {
+    font-size: max(4.2vw, 20px);
+  }
+}
+.main-resources .meet-the-team .pinned .slot-text__slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 600;
+  height: 1ch;
+  overflow: hidden;
 }
 .main-resources .meet-the-team .team-portraits {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-inline: var(--body-padding);
+}
+@media screen and (max-width: 1200px) {
+  .main-resources .meet-the-team .team-portraits {
+    gap: 16px;
+  }
 }
 .main-resources .meet-the-team .team-portraits .figure {
+  display: flex;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
   flex: 1;
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .meet-the-team .team-portraits .figure {
+    flex: 1 0 320px;
+  }
+}
+.main-resources .meet-the-team .team-portraits .figure__caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(transparent, #000014);
+  color: var(--background-color);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 24px;
+}
+@media screen and (max-width: 1200px) {
+  .main-resources .meet-the-team .team-portraits .figure__caption {
+    padding: 16px;
+  }
+}
+.main-resources .meet-the-team .team-portraits .figure__caption-name, .main-resources .meet-the-team .team-portraits .figure__caption-role {
+  font-family: "Monument", sans-serif;
+}
+.main-resources .meet-the-team .team-portraits .figure__caption-name {
+  font-family: "Monument", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.1;
+  font-weight: 600;
+}
+@media screen and (max-width: 1512px) {
+  .main-resources .meet-the-team .team-portraits .figure__caption-name {
+    font-size: 1.4vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .meet-the-team .team-portraits .figure__caption-name {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-resources .meet-the-team .team-portraits .figure__caption-name {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-resources .meet-the-team .team-portraits .figure__caption-name {
+    font-size: 16px;
+  }
+}
+.main-resources .meet-the-team .team-portraits .figure__caption-name span {
+  font-family: inherit;
+}
+.main-resources .meet-the-team .team-portraits .figure__caption-role {
+  font-weight: 300;
 }
 
 .error {

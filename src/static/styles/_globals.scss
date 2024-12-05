@@ -435,11 +435,18 @@ img {
     }
 
     .icon-group {
+      --icon-size: 1em;
+
       position: relative;
-      width: 1em;
-      height: 1em;
+      width: var(--icon-size);
+      height: var(--icon-size);
       overflow: hidden;
       flex-shrink: 0;
+
+      @include mq-max("xl") {
+        --icon-size: 1.25em;
+        scale: 0.75;
+      }
 
       .icon {
         @include absolute-center;
@@ -466,7 +473,7 @@ img {
   }
 }
 
-.video-player {
+.video-overlay {
   // Not using dialog because of top-layer (can't rest navBtn on top)
   @include row-center;
   position: fixed;
@@ -474,7 +481,7 @@ img {
   width: 100vw;
   height: 100dvh;
   background-color: rgba($sunder-midnight, 0.9);
-  z-index: $z-index-video-player;
+  z-index: $z-index-video-overlay;
 
   @include mq-motion-allow {
     transition: opacity 0.3s ease;
@@ -555,14 +562,12 @@ img {
 
     .caption {
       @include column-start(flex-start);
-      background: linear-gradient(transparent, $sunder-midnight);
+      @include caption-gradient;
       position: absolute;
       // bottom: 0;
       top: 76%;
       left: 0;
-      width: 100%;
       height: 24%;
-      color: white;
       padding: 16px;
 
       @include mq-max("sm") {

@@ -1,4 +1,4 @@
-import { isVideoPlayerOpen, openVideoPlayer } from "./video-player.js";
+import { isvideoOverlayOpen, openvideoOverlay } from "./video-overlay.js";
 import { isNavOpen } from "../global/nav.js";
 
 const videoBtns = document.querySelectorAll(".compete__video-btn");
@@ -8,7 +8,7 @@ videoBtns?.forEach((btn) => {
   let embedCode = btn.getAttribute("data-embed");
 
   btn.addEventListener("click", () => {
-    openVideoPlayer(embedCode);
+    openvideoOverlay(embedCode);
   });
 
   setTimeout(() => {
@@ -54,8 +54,8 @@ if (document.querySelector(".swiper")) {
     paginationWrapper.style.visibility = isNavOpen ? "hidden" : "visible";
   });
 
-  document.addEventListener("videoPlayerStateChange", () => {
-    paginationWrapper.style.visibility = isVideoPlayerOpen
+  document.addEventListener("videoOverlayStateChange", () => {
+    paginationWrapper.style.visibility = isvideoOverlayOpen
       ? "hidden"
       : "visible";
   });
