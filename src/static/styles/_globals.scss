@@ -629,27 +629,22 @@ a {
 
   .swiper-pagination {
     @include row-center(flex-start);
-    gap: 6px;
+    gap: 4px;
     padding-block: 12px;
     padding-inline: var(--body-padding);
 
     @include mq-max("sm") {
       justify-content: center;
-      gap: 8px;
     }
 
     &-bullet {
       border: 1px solid var(--hero-color--primary);
       background: transparent;
-      padding: 8px;
+      padding: 7px;
       transition: 0.3s ease;
       opacity: 1;
       border-radius: 128px;
       cursor: pointer;
-
-      @include mq-max("sm") {
-        padding: 6px;
-      }
 
       &-active {
         background: var(--hero-color--primary);

@@ -856,29 +856,23 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   padding-block: 12px;
   padding-inline: var(--body-padding);
 }
 @media screen and (max-width: 480px) {
   .swiper .swiper-pagination {
     justify-content: center;
-    gap: 8px;
   }
 }
 .swiper .swiper-pagination-bullet {
   border: 1px solid var(--hero-color--primary);
   background: transparent;
-  padding: 8px;
+  padding: 7px;
   transition: 0.3s ease;
   opacity: 1;
   border-radius: 128px;
   cursor: pointer;
-}
-@media screen and (max-width: 480px) {
-  .swiper .swiper-pagination-bullet {
-    padding: 6px;
-  }
 }
 .swiper .swiper-pagination-bullet-active {
   background: var(--hero-color--primary);
