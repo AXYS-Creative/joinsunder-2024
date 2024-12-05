@@ -1,6 +1,9 @@
-section_heading: A New Level of Support.
+heading: A New Level of Support
 
-section_subheading: A place to recruit,
+subheading:
+  static_text: A place to recruit, [%br%]
+  floating_text_1: collaborate
+  floating_text_2: and thrive.
 
 hero_images:
   - src: /static/img/resources-office-1.jpg

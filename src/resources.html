@@ -13,16 +13,23 @@ show_header_cta: true
 
 <section class="hero">
   <div class="hero__caption">
-    <h1 class="hero__title">A New Level of Support</h1>
-    <p class="h4 floating-text">
-      A place to recruit,
-      <br aria-hidden="true" />
-      <span class="floating-text__block floating-text__block-1">
-        collaborate
+    <h1 class="hero__title">{{ page_resources_hero.heading}}</h1>
+    <p class="h4 hero__subtitle">
+      {{ page_resources_hero.subheading.static_text }}
+
+      <!-- prettier-ignore -->
+      {% if page_resources_hero.subheading.floating_text_1 %}
+      <span class="floating-text floating-text-1">
+        {{ page_resources_hero.subheading.floating_text_1 }}
       </span>
-      <span class="floating-text__block floating-text__block-2">
-        and thrive.
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% if page_resources_hero.subheading.floating_text_2 %}
+      <span class="floating-text floating-text-2">
+        {{ page_resources_hero.subheading.floating_text_2 }}
       </span>
+      {% endif %}
     </p>
   </div>
 

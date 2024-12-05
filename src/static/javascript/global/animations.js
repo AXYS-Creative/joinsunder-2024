@@ -47,26 +47,30 @@ responsiveGsap.add(
       if (minLg) {
         let floatingText = [
           {
-            el: ".floating-text__block-1",
+            el: ".floating-text-1",
             trigger: ".image-group__image-2",
           },
           {
-            el: ".floating-text__block-2",
+            el: ".floating-text-2",
             trigger: ".image-group__image-3",
           },
         ];
 
         floatingText.forEach(({ el, trigger }) => {
-          gsap.from(el, {
-            y: "100vh",
-            ease: "none",
-            scrollTrigger: {
-              trigger: trigger,
-              start: "top bottom",
-              end: "bottom bottom",
-              scrub: 0.25,
-            },
-          });
+          const element = document.querySelector(el);
+
+          if (element) {
+            gsap.from(el, {
+              y: "100vh",
+              ease: "none",
+              scrollTrigger: {
+                trigger: trigger,
+                start: "top bottom",
+                end: "bottom bottom",
+                scrub: 0.25,
+              },
+            });
+          }
         });
       }
 

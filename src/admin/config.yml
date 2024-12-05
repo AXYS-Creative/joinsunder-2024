@@ -250,14 +250,36 @@ collections:
         editor:
           preview: false
         fields:
-          - name: "section_heading"
-            label: "Section Heading"
+          - name: "heading"
+            label: "Heading"
             widget: string
             required: true
-          - name: "section_subheading"
-            label: "Section Sub Heading"
-            widget: string
+          - name: "subheading"
+            label: "Sub Heading"
+            widget: object
             required: true
+            fields:
+              - {
+                  name: "static_text",
+                  label: "Static Text",
+                  widget: "string",
+                  required: true,
+                  hint: This text won't animate on scroll,
+                }
+              - {
+                  name: "floating_text_1",
+                  label: "Floating Text 1",
+                  widget: string,
+                  required: false,
+                  hint: The first text to animate on scroll,
+                }
+              - {
+                  name: "floating_text_2",
+                  label: "Floating Text 2",
+                  widget: string,
+                  required: false,
+                  hint: The second text to animate on scroll,
+                }
           - name: "hero_images"
             label: "Hero Images"
             label_singular: "Image"

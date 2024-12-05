@@ -1313,11 +1313,11 @@ Monument Weights
   }
 }
 @media screen and (max-width: 1024px) {
-  .main-resources .hero__caption .floating-text {
+  .main-resources .hero__caption .hero__subtitle {
     text-align: center;
   }
 }
-.main-resources .hero__caption .floating-text__block {
+.main-resources .hero__caption .hero__subtitle .floating-text {
   display: inline-block;
   margin-inline-end: 0.5ch;
 }

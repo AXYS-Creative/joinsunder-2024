@@ -43,12 +43,12 @@
         }
       }
 
-      .floating-text {
+      .hero__subtitle {
         @include mq-max("lg") {
           text-align: center;
         }
 
-        &__block {
+        .floating-text {
           display: inline-block;
           margin-inline-end: 0.5ch;
         }
