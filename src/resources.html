@@ -8,8 +8,49 @@ description: Sample description // CHANGE ME
 # master props
 header_fixed: false
 header_logo_color: dark
+show_header_cta: true
 ---
 
 <section class="hero">
-  <h1 class="h1">resources</h1>
+  <div class="hero__caption">
+    <h1 class="hero__title">A New Level of Support</h1>
+    <p class="h4">
+      A place to recruit,
+      <br aria-hidden="true" />
+      <span class="floating-text floating-text-1">collaborate</span>
+      <span class="floating-text floating-text-2">and thrive.</span>
+    </p>
+  </div>
+
+  <div class="image-group">
+    {% for img in page_resources_hero.hero_images %}
+    <img
+      class="image-group__image image-group__image-{{ loop.index }}"
+      src="{{ img.src }}"
+      alt="{{ img.alt }}"
+    />
+    {% endfor %}
+  </div>
+</section>
+
+<section class="meet-the-team">
+  <div class="pinned">
+    <h2>Meet the sunder team</h2>
+  </div>
+
+  <div class="team-portraits" id="team-portraits">
+    {% for img in page_resources_team.portraits %}
+    <figure class="figure">
+      <img
+        class="figure__img"
+        src="{{ img.src }}"
+        alt="{{ img.name }}, {{ img.position }}"
+      />
+      <figcaption class="figure__caption">
+        <span>{{ img.name }}</span>
+        <span>{{ img.position }}</span>
+      </figcaption>
+    </figure>
+    {% endfor %}
+  </div>
 </section>

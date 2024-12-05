@@ -1,0 +1,11 @@
+section_heading: A New Level of Support.
+
+section_subheading: A place to recruit,
+
+hero_images:
+  - src: /static/img/resources-office-1.jpg
+    alt: A cozy sitting area, with a couch and coffee table.
+  - src: /static/img/resources-office-2.jpg
+    alt: An organized desk to work on the computer.
+  - src: /static/img/resources-office-3.jpg
+    alt: A clean and modern open-concept office space.

@@ -55,7 +55,7 @@ collections:
                   label: "Image Description",
                   widget: "string",
                   required: true,
-                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                  hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
                 }
   - name: "compete_page"
     label: "Page - Compete"
@@ -72,11 +72,6 @@ collections:
             widget: string
             required: true
             hint: Semantic page heading for accessibility. Not visually shown on the page (per design) but improves indexing and other areas.
-          - name: "play_icon"
-            label: "Play Icon"
-            widget: image
-            required: false
-            hint: Corner icon for each video poster. Leave this field empty to remove the icon.
           - name: "video_library"
             label: "Video Library"
             label_singular: "Video"
@@ -143,7 +138,7 @@ collections:
                   label: "Image Description",
                   widget: "string",
                   required: true,
-                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                  hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
                 }
           - name: "img_reel_2"
             label: "Image Reel 2"
@@ -163,7 +158,7 @@ collections:
                   label: "Image Description",
                   widget: "string",
                   required: true,
-                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                  hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
                 }
           - name: "img_reel_3"
             label: "Image Reel 3"
@@ -183,7 +178,7 @@ collections:
                   label: "Image Description",
                   widget: "string",
                   required: true,
-                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                  hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
                 }
           - name: "img_reel_4"
             label: "Image Reel 4"
@@ -203,7 +198,7 @@ collections:
                   label: "Image Description",
                   widget: "string",
                   required: true,
-                  hint: "Describe the image. Try to avoid words like: image, photo, picture, etc.",
+                  hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
                 }
       - name: "video_library"
         label: "Video Library"
@@ -212,11 +207,6 @@ collections:
         editor:
           preview: false
         fields:
-          - name: "play_icon"
-            label: "Play Icon"
-            widget: image
-            required: false
-            hint: Corner icon for each video poster. Leave this field empty to remove the icon.
           - name: "video_library"
             label: "Video Library"
             label_singular: "Video"
@@ -250,6 +240,74 @@ collections:
                   required: true,
                   hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here.",
                 }
+  - name: "resources_page"
+    label: "Page - Resources"
+    files:
+      - name: "hero_section"
+        label: "Hero Section"
+        file: "src/_data/page_resources_hero.yaml"
+        preview_path: "/resources"
+        editor:
+          preview: false
+        fields:
+          - name: "section_heading"
+            label: "Section Heading"
+            widget: string
+            required: true
+          - name: "section_subheading"
+            label: "Section Sub Heading"
+            widget: string
+            required: true
+          - name: "hero_images"
+            label: "Hero Images"
+            label_singular: "Image"
+            widget: "list"
+            collapsed: true
+            allow_add: true
+            min: 3
+            max: 3
+            required: true
+            fields:
+              - {
+                  name: "src",
+                  label: "Image Source",
+                  widget: "image",
+                  required: true,
+                }
+              - {
+                  name: "alt",
+                  label: "Image Description",
+                  widget: "string",
+                  required: true,
+                  hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
+                }
+      - name: "team_portraits"
+        label: "Team Portraits"
+        file: "src/_data/page_resources_team.yaml"
+        preview_path: "/experience#team-portraits"
+        editor:
+          preview: false
+        fields:
+          - name: "portraits"
+            label: "Portraits"
+            label_singular: "Portrait"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "name",
+                  label: "Name",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "position",
+                  label: "Position",
+                  widget: "string",
+                  required: true,
+                }
+              - { name: "src", label: "Image", widget: "image", required: true }
   - name: "global_components"
     label: "Global Components"
     description: >
@@ -305,6 +363,18 @@ collections:
             widget: "string"
             required: true
             hint: 'Wrap individual words in this convention to animate them: <span class="page-loader__block">Empower</span>'
+      - name: "video_carousel"
+        label: "Video Carousel"
+        file: "src/_data/video_carousel.yaml"
+        preview_path: "/compete"
+        editor:
+          preview: false
+        fields:
+          - name: "play_icon"
+            label: "Play Icon"
+            widget: image
+            required: false
+            hint: Corner icon for each video poster. Leave this field empty to remove the icon.
   - name: "meta_data"
     label: "Meta Data"
     description: >

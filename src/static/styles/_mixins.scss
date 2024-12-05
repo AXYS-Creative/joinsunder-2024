@@ -152,44 +152,55 @@ $min-breakpoints: (
   font-weight: 400;
   line-height: 1.1;
 
-  @include mq-max("xxl") {
-    font-size: $size-xxl;
+  @media all {
+    @include mq-max("xxl") {
+      font-size: $size-xxl;
+    }
+
+    @include mq-max("lg") {
+      font-size: $size-lg;
+    }
+
+    @include mq-max("md") {
+      font-size: $size-md;
+    }
+
+    @include mq-max("sm") {
+      font-size: $size-sm;
+    }
   }
 
-  @include mq-max("lg") {
-    font-size: $size-lg;
-  }
-
-  @include mq-max("md") {
-    font-size: $size-md;
-  }
-
-  @include mq-max("sm") {
-    font-size: $size-sm;
+  span {
+    font-family: inherit;
   }
 }
 
 // Hero & Prefooter
+h1,
 .h1 {
   @include heading(72px, 4.2vw, 6vw, 52px, 32px);
 }
 
 // Section Title Only
+h2,
 .h2 {
   @include heading(64px, 4.4vw, 4.4vw, 6.4vw, 32px);
 }
 
 // Text Block Partial & Image Slider
+h3,
 .h3 {
   @include heading(48px, 3vw, 3vw, 24px, 20px);
 }
 
 // Services & Prices
+h4,
 .h4 {
   @include heading(36px, 2vw, 2.8vw, 3.8vw, 12px);
 }
 
 // Price Card Title Only
+h5,
 .h5 {
   @include heading(40px, 32px, 32px, 12px, 12px);
 }

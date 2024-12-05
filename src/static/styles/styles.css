@@ -32,33 +32,49 @@
   }
 }
 
-.h1, body.has-loader .page-loader p {
+h1,
+.h1,
+body.has-loader .page-loader p {
   font-family: "Monument", sans-serif;
   font-size: 72px;
   font-weight: 400;
   line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
-  .h1, body.has-loader .page-loader p {
+  h1,
+  .h1,
+  body.has-loader .page-loader p {
     font-size: 4.2vw;
   }
 }
 @media screen and (max-width: 1024px) {
-  .h1, body.has-loader .page-loader p {
+  h1,
+  .h1,
+  body.has-loader .page-loader p {
     font-size: 6vw;
   }
 }
 @media screen and (max-width: 768px) {
-  .h1, body.has-loader .page-loader p {
+  h1,
+  .h1,
+  body.has-loader .page-loader p {
     font-size: 52px;
   }
 }
 @media screen and (max-width: 480px) {
-  .h1, body.has-loader .page-loader p {
+  h1,
+  .h1,
+  body.has-loader .page-loader p {
     font-size: 32px;
   }
 }
+h1 span,
+.h1 span,
+body.has-loader .page-loader p span {
+  font-family: inherit;
+}
 
+h2,
 .h2 {
   font-family: "Monument", sans-serif;
   font-size: 64px;
@@ -66,26 +82,35 @@
   line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
+  h2,
   .h2 {
     font-size: 4.4vw;
   }
 }
 @media screen and (max-width: 1024px) {
+  h2,
   .h2 {
     font-size: 4.4vw;
   }
 }
 @media screen and (max-width: 768px) {
+  h2,
   .h2 {
     font-size: 6.4vw;
   }
 }
 @media screen and (max-width: 480px) {
+  h2,
   .h2 {
     font-size: 32px;
   }
 }
+h2 span,
+.h2 span {
+  font-family: inherit;
+}
 
+h3,
 .h3 {
   font-family: "Monument", sans-serif;
   font-size: 48px;
@@ -93,26 +118,35 @@
   line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
+  h3,
   .h3 {
     font-size: 3vw;
   }
 }
 @media screen and (max-width: 1024px) {
+  h3,
   .h3 {
     font-size: 3vw;
   }
 }
 @media screen and (max-width: 768px) {
+  h3,
   .h3 {
     font-size: 24px;
   }
 }
 @media screen and (max-width: 480px) {
+  h3,
   .h3 {
     font-size: 20px;
   }
 }
+h3 span,
+.h3 span {
+  font-family: inherit;
+}
 
+h4,
 .h4 {
   font-family: "Monument", sans-serif;
   font-size: 36px;
@@ -120,26 +154,35 @@
   line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
+  h4,
   .h4 {
     font-size: 2vw;
   }
 }
 @media screen and (max-width: 1024px) {
+  h4,
   .h4 {
     font-size: 2.8vw;
   }
 }
 @media screen and (max-width: 768px) {
+  h4,
   .h4 {
     font-size: 3.8vw;
   }
 }
 @media screen and (max-width: 480px) {
+  h4,
   .h4 {
     font-size: 12px;
   }
 }
+h4 span,
+.h4 span {
+  font-family: inherit;
+}
 
+h5,
 .h5 {
   font-family: "Monument", sans-serif;
   font-size: 40px;
@@ -147,24 +190,32 @@
   line-height: 1.1;
 }
 @media screen and (max-width: 1512px) {
+  h5,
   .h5 {
     font-size: 32px;
   }
 }
 @media screen and (max-width: 1024px) {
+  h5,
   .h5 {
     font-size: 32px;
   }
 }
 @media screen and (max-width: 768px) {
+  h5,
   .h5 {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 480px) {
+  h5,
   .h5 {
     font-size: 12px;
   }
+}
+h5 span,
+.h5 span {
+  font-family: inherit;
 }
 
 .h6 {
@@ -194,6 +245,9 @@
   .h6 {
     font-size: 16px;
   }
+}
+.h6 span {
+  font-family: inherit;
 }
 
 * {
@@ -295,6 +349,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  width: 100%;
+}
+
 .site-header__logo, .site-header__cta-wrapper {
   position: absolute;
   top: var(--body-padding);
@@ -318,7 +376,6 @@ a {
 }
 .site-header__logo-image {
   display: block;
-  width: 100%;
   transition: translate 0.5s ease;
 }
 .site-header__cta-wrapper {
@@ -621,6 +678,9 @@ a {
     font-size: 16px;
   }
 }
+.cta--lg span {
+  font-family: inherit;
+}
 .cta--video {
   font-family: "Monument", sans-serif;
   font-size: 32px;
@@ -656,6 +716,9 @@ a {
     font-size: 16px;
   }
 }
+.cta--video span {
+  font-family: inherit;
+}
 @media screen and (max-width: 480px) {
   .cta--video {
     gap: 8px;
@@ -682,6 +745,7 @@ a {
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
           mask-position: center;
+  padding: 12px;
 }
 .cta--video .icon-group .icon-1 {
   translate: -160% -50%;
@@ -740,7 +804,6 @@ a {
   flex: 1;
 }
 .image-reel__column img {
-  width: 100%;
   border-radius: var(--radius);
 }
 
@@ -765,7 +828,6 @@ a {
   scale: 1.05;
 }
 .swiper .swiper-slide .poster {
-  width: 100%;
   height: auto;
   transition: 0.3s ease, scale 0.4s ease;
 }
@@ -856,7 +918,7 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   padding-block: 12px;
   padding-inline: var(--body-padding);
 }
@@ -868,7 +930,7 @@ a {
 .swiper .swiper-pagination-bullet {
   border: 1px solid var(--hero-color--primary);
   background: transparent;
-  padding: 7px;
+  padding: 8px;
   transition: 0.3s ease;
   opacity: 1;
   border-radius: 128px;
@@ -1183,6 +1245,94 @@ Monument Weights
 }
 .main-experience .video-library .swiper-pagination {
   padding-inline-start: 0;
+}
+
+.main-resources {
+  padding-block-start: 136px;
+}
+@media screen and (max-width: 1512px) {
+  .main-resources {
+    padding-block-start: 112px;
+  }
+}
+.main-resources .hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+@media screen and (min-width: 1025px) {
+  .main-resources .hero {
+    padding-inline-start: var(--body-padding);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .hero {
+    flex-direction: column-reverse;
+  }
+}
+.main-resources .hero__caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+}
+@media screen and (min-width: 1025px) {
+  .main-resources .hero__caption {
+    position: sticky;
+    top: 50vh;
+    translate: 0 -50%;
+  }
+}
+.main-resources .hero__caption .hero__title {
+  font-weight: 600;
+}
+.main-resources .hero__caption .floating-text {
+  display: inline-block;
+}
+.main-resources .hero .image-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--body-padding);
+  width: 50%;
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .hero .image-group {
+    width: 100%;
+    margin-block-end: 48px;
+  }
+}
+.main-resources .hero .image-group__image {
+  border-radius: var(--radius) 0 0 var(--radius);
+  align-self: flex-end;
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .hero .image-group__image {
+    width: calc(100% - var(--body-padding));
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .hero .image-group__image:nth-of-type(2) {
+    border-radius: 0 var(--radius) var(--radius) 0;
+    align-self: flex-start;
+  }
+}
+.main-resources .meet-the-team {
+  padding: 128px 0;
+}
+.main-resources .meet-the-team .pinned {
+  padding: 248px 0;
+}
+.main-resources .meet-the-team .team-portraits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.main-resources .meet-the-team .team-portraits .figure {
+  flex: 1;
 }
 
 .error {

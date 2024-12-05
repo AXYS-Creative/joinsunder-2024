@@ -1,0 +1,89 @@
+.main-resources {
+  padding-block-start: 136px;
+
+  @include mq-max("xxl") {
+    padding-block-start: 112px;
+  }
+
+  .hero {
+    @include row-start(space-between);
+
+    @media all {
+      @include mq-min("lg") {
+        padding-inline-start: var(--body-padding);
+      }
+
+      @include mq-max("lg") {
+        flex-direction: column-reverse;
+        // align-items: flex-end;
+      }
+    }
+
+    &__caption {
+      @include column-start;
+      gap: 40px;
+
+      @include mq-min("lg") {
+        position: sticky;
+        top: 50vh;
+        translate: 0 -50%;
+      }
+
+      .hero__title {
+        font-weight: 600; // Possibly organize with heading level?
+      }
+
+      .floating-text {
+        display: inline-block;
+      }
+    }
+
+    .image-group {
+      @include column-start;
+      gap: var(--body-padding);
+      width: 50%;
+
+      @include mq-max("lg") {
+        width: 100%;
+        margin-block-end: 48px;
+      }
+
+      &__image {
+        border-radius: var(--radius) 0 0 var(--radius);
+        align-self: flex-end;
+
+        @include mq-max("lg") {
+          width: calc(100% - var(--body-padding));
+        }
+
+        &:nth-of-type(2) {
+          @include mq-max("lg") {
+            border-radius: 0 var(--radius) var(--radius) 0;
+            align-self: flex-start;
+          }
+        }
+      }
+    }
+  }
+
+  .meet-the-team {
+    padding: 128px 0;
+
+    .pinned {
+      padding: 248px 0;
+    }
+
+    .team-portraits {
+      @include row-center;
+      gap: 12px;
+
+      .figure {
+        flex: 1;
+
+        // &__img {
+        //   width: 100%;
+        // }
+      }
+    }
+  }
+}

@@ -106,6 +106,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  width: 100%;
+}
+
 .site-header {
   // Not setting width/padding for click through.
 
@@ -132,7 +136,6 @@ a {
 
     &-image {
       display: block;
-      width: 100%;
       transition: $nav-transition;
     }
   }
@@ -444,8 +447,10 @@ a {
         height: 80%;
         background: var(--background-color);
         mask-image: url(../img/icons/play-solid.svg);
+        // mask-image: url(../img/icon-play.svg);
         mask-repeat: no-repeat;
         mask-position: center;
+        padding: 12px;
       }
 
       .icon-1 {
@@ -504,10 +509,8 @@ a {
     @include column-center;
     gap: var(--gap);
     flex: 1;
-    // z-index: -1;
 
     img {
-      width: 100%;
       border-radius: var(--radius);
       // See 'home.scss' for border radius on top and bottom images
     }
@@ -541,7 +544,6 @@ a {
     }
 
     .poster {
-      width: 100%;
       height: auto;
 
       transition: 0.3s ease, scale 0.4s ease;
@@ -629,7 +631,7 @@ a {
 
   .swiper-pagination {
     @include row-center(flex-start);
-    gap: 4px;
+    gap: 6px;
     padding-block: 12px;
     padding-inline: var(--body-padding);
 
@@ -640,7 +642,7 @@ a {
     &-bullet {
       border: 1px solid var(--hero-color--primary);
       background: transparent;
-      padding: 7px;
+      padding: 8px;
       transition: 0.3s ease;
       opacity: 1;
       border-radius: 128px;

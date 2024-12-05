@@ -9,9 +9,10 @@ responsiveGsap.add(
     maxXl: "(max-width: 1200px)",
     maxXxl: "(max-width: 1512px)",
     minMd: "(min-width: 769px)",
+    minLg: "(min-width: 1025px)",
   },
   (context) => {
-    let { maxSm, maxMd, maxXl, maxXxl, minMd } = context.conditions;
+    let { maxSm, maxMd, maxXl, maxXxl, minMd, minLg } = context.conditions;
 
     // Image Reel, home and experience
     if (document.querySelector(".image-reel")) {
@@ -38,6 +39,33 @@ responsiveGsap.add(
       reelSlide(".image-reel__column-1--home", yValHome);
       reelSlide(".image-reel__column-1--experience", yValExperience);
       reelSlide(".image-reel__column-3--experience", yValExperience);
+    }
+
+    // Experience Hero - Floating Text
+    if (document.querySelector(".main-resources") && minLg) {
+      let floatingText = [
+        {
+          el: ".floating-text-1",
+          trigger: ".image-group__image-2",
+        },
+        {
+          el: ".floating-text-2",
+          trigger: ".image-group__image-3",
+        },
+      ];
+
+      floatingText.forEach(({ el, trigger }) => {
+        gsap.from(el, {
+          y: "100vh",
+          ease: "none",
+          scrollTrigger: {
+            trigger: trigger,
+            start: "top bottom",
+            end: "bottom bottom",
+            scrub: 1,
+          },
+        });
+      });
     }
 
     // GLOBAL - Easily toggle an 'animate' class on any element with '.gsap-animate' class

@@ -20,8 +20,8 @@
         <h2>{{ slide.title }}</h2>
         <h3>{{ slide.sub_title }}</h3>
       </div>
-      {% if play_icon %}
-      <img class="play-icon" src="{{ play_icon }}" alt="" />
+      {% if video_carousel.play_icon %}
+      <img class="play-icon" src="{{ video_carousel.play_icon }}" alt="" />
       {% endif %}
     </button>
     {% endfor %}
