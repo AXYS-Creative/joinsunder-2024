@@ -9,8 +9,6 @@
     padding: var(--section-padding);
 
     .image-reel {
-      // border: $test;
-
       &__column-4 {
         @include mq-max("xl") {
           display: none;
@@ -26,7 +24,11 @@
 
   .video-library {
     padding: var(--section-padding);
-    padding-block-start: 64px;
+    padding-block: 64px 96px;
+
+    @include mq-max("md") {
+      padding-block: 48px 128px;
+    }
 
     .swiper-pagination {
       padding-inline-start: 0;

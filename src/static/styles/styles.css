@@ -748,9 +748,7 @@ a {
   overflow: hidden;
 }
 .swiper .swiper-wrapper {
-  display: flex;
-  padding-block-end: 64px;
-  width: 150%;
+  display: inline-flex;
   cursor: grab;
 }
 .swiper .swiper-wrapper:active {
@@ -858,19 +856,20 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   padding-block: 12px;
   padding-inline: var(--body-padding);
 }
 @media screen and (max-width: 480px) {
   .swiper .swiper-pagination {
     justify-content: center;
+    gap: 8px;
   }
 }
 .swiper .swiper-pagination-bullet {
   border: 1px solid var(--hero-color--primary);
   background: transparent;
-  padding: 10px;
+  padding: 8px;
   transition: 0.3s ease;
   opacity: 1;
   border-radius: 128px;
@@ -878,7 +877,7 @@ a {
 }
 @media screen and (max-width: 480px) {
   .swiper .swiper-pagination-bullet {
-    padding: 8px;
+    padding: 6px;
   }
 }
 .swiper .swiper-pagination-bullet-active {
@@ -1154,6 +1153,9 @@ Monument Weights
 .main-compete .hero .swiper {
   padding-inline: var(--body-padding);
 }
+.main-compete .hero .swiper .swiper-wrapper {
+  padding-block-end: 64px;
+}
 
 .main-experience {
   --section-padding: 24px;
@@ -1178,7 +1180,12 @@ Monument Weights
 }
 .main-experience .video-library {
   padding: var(--section-padding);
-  padding-block-start: 64px;
+  padding-block: 64px 96px;
+}
+@media screen and (max-width: 768px) {
+  .main-experience .video-library {
+    padding-block: 48px 128px;
+  }
 }
 .main-experience .video-library .swiper-pagination {
   padding-inline-start: 0;

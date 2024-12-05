@@ -18,7 +18,7 @@ videoBtns?.forEach((btn) => {
 
 if (document.querySelector(".swiper")) {
   let swiper = new Swiper(".mySwiper", {
-    loop: window.innerWidth < 520,
+    loop: window.innerWidth < 768,
     slidesPerView: 2,
     spaceBetween: 8,
     pagination: {

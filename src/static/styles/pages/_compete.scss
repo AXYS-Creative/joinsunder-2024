@@ -3,17 +3,23 @@
     height: 100vh; // To close nav when clicking outside
     padding-block-start: 128px;
 
-    @include mq-max("xxl") {
-      padding-block-start: 112px;
-    }
+    @media all {
+      @include mq-max("xxl") {
+        padding-block-start: 112px;
+      }
 
-    @include mq-max("sm") {
-      @include row-center;
-      padding-block: 0 64px;
+      @include mq-max("sm") {
+        @include row-center;
+        padding-block: 0 64px;
+      }
     }
 
     .swiper {
       padding-inline: var(--body-padding);
+
+      .swiper-wrapper {
+        padding-block-end: 64px; // position pagination.
+      }
     }
   }
 }
