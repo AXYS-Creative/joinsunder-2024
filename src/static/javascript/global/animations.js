@@ -85,6 +85,9 @@ responsiveGsap.add(
           },
         });
 
+        let animStart = "80% 20%";
+        let animEnd = "+=50%";
+
         gsap.fromTo(
           ".slot-text__slider",
           {
@@ -94,19 +97,21 @@ responsiveGsap.add(
             width: "8.5ch",
             scrollTrigger: {
               trigger: ".slot-text",
-              start: "80% 50%",
-              end: "+=50%",
+              start: animStart,
+              end: animEnd,
               scrub: true,
             },
           }
         );
 
+        let sliderDistance = maxSm ? "3px" : "23px"; // tie with scss (minus 1px)
+
         gsap.to(".slot-text__slider-inner", {
-          translate: "0 -100%",
+          translate: `0 calc(-100% - ${sliderDistance})`,
           scrollTrigger: {
             trigger: ".slot-text",
-            start: "80% 50%",
-            end: "+=50%",
+            start: animStart,
+            end: animEnd,
             scrub: true,
           },
         });

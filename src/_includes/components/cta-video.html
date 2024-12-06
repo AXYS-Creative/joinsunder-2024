@@ -3,7 +3,7 @@
   data-embed="{{ cta_vid_embed }}"
   aria-controls="video-overlay"
 >
-  {{ cta_vid_text }}
+  {% if cta_vid_text %} {{ cta_vid_text }} {% else %} Play Video {% endif %}
   <span class="icon-group">
     <span class="icon icon-1"></span>
     <span class="icon icon-2"></span>

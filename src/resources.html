@@ -73,3 +73,28 @@ show_header_cta: true
     {% endfor %}
   </div>
 </section>
+
+<section class="enzy" id="enzy">
+  <div class="enzy-hero">
+    <div class="enzy-hero__caption">
+      <h2>Enzy</h2>
+
+      <!-- prettier-ignore -->
+      {% set cta_vid_embed = page_home.video_embed %} 
+      {% include "./_includes/components/cta-video.html" %}
+    </div>
+
+    <figure class="enzy-hero__image">
+      <img
+        src="{{ page_resources_enzy.hero_img }}"
+        alt=""
+        aria-describedby="enzy-hero-img"
+      />
+      <figcaption id="enzy-hero-img">
+        {{ page_resources_enzy.caption }}
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="enzy-features"></div>
+</section>

@@ -102,7 +102,12 @@
     {% endif %}
 
     <!-- prettier-ignore -->
-    {% if path == "home" or path == "compete" or path == "experience" %}
+    {% 
+      if path == "home" 
+      or path == "compete" 
+      or path == "experience" 
+      or path == "resources" 
+    %}
       {% include "./components/video-overlay.html" %}
     {% endif %}
 

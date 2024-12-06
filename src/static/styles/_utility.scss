@@ -105,7 +105,13 @@
 // CMS Tokens
 //
 
-.text-stroke {
-  -webkit-text-stroke: 1px var(--font-color--primary);
-  color: transparent;
+@media all {
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--font-color--primary);
+    color: transparent;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
 }

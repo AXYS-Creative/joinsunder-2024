@@ -31,6 +31,7 @@ collections:
             label: "Hero Text"
             widget: "string"
             required: true
+            hint: Modify text with tokens. Visit https://axyscreative.com/tokens for more info.
           - name: "video_embed"
             label: "Video Embed"
             widget: "string"
@@ -254,6 +255,7 @@ collections:
             label: "Heading"
             widget: string
             required: true
+            hint: Modify text with tokens. Visit https://axyscreative.com/tokens for more info.
           - name: "subheading"
             label: "Sub Heading"
             widget: object
@@ -306,7 +308,7 @@ collections:
       - name: "team_portraits"
         label: "Team Portraits"
         file: "src/_data/page_resources_team.yaml"
-        preview_path: "/experience#team-portraits"
+        preview_path: "/resources#team-portraits"
         editor:
           preview: false
         fields:
@@ -330,6 +332,22 @@ collections:
                   required: true,
                 }
               - { name: "src", label: "Image", widget: "image", required: true }
+      - name: "enzy_section"
+        label: "Enzy Section"
+        file: "src/_data/page_resources_enzy.yaml"
+        preview_path: "/resources#enzy"
+        editor:
+          preview: false
+        fields:
+          - name: "video_embed"
+            label: "Video Embed"
+            widget: "string"
+            required: true
+            hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here."
+          - name: "caption"
+            label: "Caption"
+            widget: "string"
+            required: true
   - name: "global_components"
     label: "Global Components"
     description: >

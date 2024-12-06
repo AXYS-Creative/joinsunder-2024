@@ -601,6 +601,7 @@ img {
   font-size: 20px;
   font-weight: 400;
   padding: 0.5em 1.25em;
+  isolation: isolate;
   position: relative;
   border: 1px solid var(--background-color);
   border-radius: 48px;
@@ -1058,11 +1059,15 @@ img {
     display: flex;
   }
 }
-.text-stroke {
-  -webkit-text-stroke: 1px var(--font-color--primary);
-  color: transparent;
+@media all {
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--font-color--primary);
+    color: transparent;
+  }
+  .underline {
+    text-decoration: underline;
+  }
 }
-
 /* 
 Satoshi Weights 
 300 - 900 | Variable 
@@ -1371,13 +1376,42 @@ Monument Weights
   }
 }
 .main-resources .meet-the-team .pinned .slot-text__slider {
+  --offset: 0.5ch;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-weight: 600;
-  height: 1ch;
+  position: relative;
+  height: calc(1ch + var(--offset) * 2);
+  padding-block-start: var(--offset);
+  translate: 0 calc(var(--offset) * -1);
   overflow: hidden;
+  font-weight: 600;
+}
+.main-resources .meet-the-team .pinned .slot-text__slider::before, .main-resources .meet-the-team .pinned .slot-text__slider::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  z-index: 1;
+}
+.main-resources .meet-the-team .pinned .slot-text__slider::before {
+  top: 0;
+  background: linear-gradient(var(--background-color), transparent);
+  translate: 0 -4px;
+}
+.main-resources .meet-the-team .pinned .slot-text__slider::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--background-color), transparent);
+  translate: 0 4px;
+}
+.main-resources .meet-the-team .pinned .slot-text__slider-inner:first-of-type {
+  padding-block-end: 24px;
+}
+@media screen and (max-width: 480px) {
+  .main-resources .meet-the-team .pinned .slot-text__slider-inner:first-of-type {
+    padding-block-end: 4px;
+  }
 }
 .main-resources .meet-the-team .team-portraits {
   display: flex;
@@ -1456,6 +1490,16 @@ Monument Weights
 }
 .main-resources .meet-the-team .team-portraits .figure__caption-role {
   font-weight: 300;
+}
+.main-resources .enzy {
+  background-color: aquamarine;
+  height: 100vh;
+  padding-inline: var(--body-padding);
+}
+.main-resources .enzy .enzy-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .error {

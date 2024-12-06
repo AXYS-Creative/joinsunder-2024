@@ -371,6 +371,7 @@ img {
 
 .cta {
   @include btn-md;
+  isolation: isolate; // enzy instance bg is overlapped
   position: relative;
   border: 1px solid var(--background-color);
   border-radius: 48px;
