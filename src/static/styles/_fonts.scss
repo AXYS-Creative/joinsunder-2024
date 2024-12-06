@@ -1,14 +1,5 @@
-/* 
-Satoshi Weights 
-300 - 900 | Variable 
+// Sunder fonts
 
-Monument Weights 
-100, 200, 450, 675, 800 | Not Variable 
-*/
-
-@import url("https://fonts.googleapis.com/css2?family=Saira:wght@100;300;500;700;900&display=swap");
-
-/* Sunder Fonts */
 @font-face {
   font-family: "satoshi";
   src: url(../fonts/Satoshi-Variable.woff2);
@@ -41,5 +32,13 @@ Monument Weights
   font-family: "monument";
   src: url(../fonts/PPMonumentExtended-Thin.woff2);
   font-weight: 100;
+  font-style: normal;
+}
+
+// Enzy Fonts
+
+@font-face {
+  font-family: "saira";
+  src: url(../fonts/Saira-Variable.woff2);
   font-style: normal;
 }

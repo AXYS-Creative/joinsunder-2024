@@ -77,14 +77,14 @@ show_header_cta: true
 <section class="enzy" id="enzy">
   <div class="enzy-hero">
     <div class="enzy-hero__caption">
-      <h2>Enzy</h2>
-
+      <img class="enzy-logo" src="{{ page_resources_enzy.enzy_logo }}" alt="" />
       <!-- prettier-ignore -->
-      {% set cta_vid_embed = page_home.video_embed %} 
+      {% set enzy_styles = 'cta--enzy' %} 
+      {% set cta_vid_embed = page_resources_enzy.video_embed %} 
       {% include "./_includes/components/cta-video.html" %}
     </div>
 
-    <figure class="enzy-hero__image">
+    <figure class="enzy-hero__figure">
       <img
         src="{{ page_resources_enzy.hero_img }}"
         alt=""
@@ -96,5 +96,15 @@ show_header_cta: true
     </figure>
   </div>
 
-  <div class="enzy-features"></div>
+  <div class="enzy-features">
+    {% for perk in page_resources_enzy.enzy_perks %}
+    <div class="feature-block">
+      <img class="feature-block__img" src="{{ perk.img }}" alt="" />
+      <div class="feature-block__caption">
+        <h2>{{ perk.title }}</h2>
+        <p>{{ perk.subtitle }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </section>

@@ -1,5 +1,6 @@
-$font-family-heading: "Monument", sans-serif;
-$font-family-body: "Satoshi", sans-serif;
+$sunder-font--heading: "Monument", sans-serif;
+$sunder-font--body: "Satoshi", sans-serif;
+$enzy-font: "Saira", sans-serif;
 
 $sunder-snow: #f7f7f7;
 $sunder-ice: #c6d3d8;
@@ -14,7 +15,11 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
 
 :root {
   --background-color: #{$sunder-snow};
+
+  --font-family-heading: #{$sunder-font--heading};
+  --font-family-body: #{$sunder-font--body};
   --font-color--primary: #{$sunder-midnight};
+
   --hero-color--primary: #{$sunder-royal-light};
 
   --body-padding: 64px;

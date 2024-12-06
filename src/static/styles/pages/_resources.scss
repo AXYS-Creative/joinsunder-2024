@@ -56,11 +56,15 @@
     }
 
     .image-group {
+      --img-spacing: var(--body-padding);
+
       @include column-start;
-      gap: var(--body-padding);
+      gap: var(--img-spacing);
       width: 50%;
 
       @include mq-max("lg") {
+        --img-spacing: calc(var(--body-padding) * 2.5);
+
         width: 100%;
       }
 
@@ -69,7 +73,7 @@
         align-self: flex-end;
 
         @include mq-max("lg") {
-          width: calc(100% - var(--body-padding));
+          width: calc(100% - var(--img-spacing));
         }
 
         &:nth-of-type(2) {
@@ -177,7 +181,7 @@
 
           &-name,
           &-role {
-            font-family: $font-family-heading;
+            font-family: var(--font-family-heading);
           }
 
           &-name {
@@ -193,12 +197,119 @@
   }
 
   .enzy {
-    background-color: aquamarine;
-    height: 100vh;
+    --font-family-heading: #{$enzy-font};
+    --font-family-body: #{$enzy-font};
+
+    background: linear-gradient(180deg, #6ca793, rgba(108, 167, 147, 0) 140%);
     padding-inline: var(--body-padding);
 
     .enzy-hero {
-      @include row-center(space-between);
+      --children-width: 40%;
+
+      @include row-start(space-evenly);
+      isolation: isolate;
+      position: relative;
+      padding-block: 164px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url("/static/img/resources-enzy-glyph.svg");
+        background-size: cover;
+        background-position: 0% 120%;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      @include mq-max("xxl") {
+        padding-block: 112px;
+      }
+
+      @include mq-max("lg") {
+        --children-width: 100%;
+
+        flex-direction: column;
+      }
+
+      &__caption {
+        @include column-start;
+        gap: 48px;
+        width: var(--children-width);
+        padding-block-start: 196px;
+
+        @include mq-max("xxl") {
+          padding-block-start: 128px;
+        }
+
+        .enzy-logo {
+          @include mq-min("lg") {
+            width: 75%;
+          }
+        }
+
+        .cta {
+          @include mq-min("lg") {
+            margin-inline-start: 22%;
+          }
+        }
+      }
+
+      &__figure {
+        @include column-center;
+        // padding-block-start: 196px;
+        width: var(--children-width);
+
+        @include mq-max("xxl") {
+          // padding-block-start: 128px;
+        }
+
+        figcaption {
+          font-size: max(2vw, 24px);
+          translate: -4vw 0;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .enzy-features {
+      --font-color--primary: var(--background-color);
+
+      @include column-center;
+
+      .feature-block {
+        width: 100%;
+
+        @include mq-min("md") {
+          @include row-center;
+          gap: 20%;
+        }
+
+        &:nth-of-type(even) {
+          flex-direction: row-reverse;
+        }
+
+        &__img,
+        &__caption {
+          @include mq-min("md") {
+            width: 25%;
+          }
+        }
+
+        &__caption {
+          text-align: center;
+
+          h2 {
+            font-weight: 700;
+          }
+          p {
+            @include h4;
+          }
+        }
+      }
     }
   }
 }

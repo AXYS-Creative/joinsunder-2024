@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: $font-family-body;
+  font-family: var(--font-family-body);
+  color: var(--font-color--primary);
 
   // Autofill for form fields: input, textarea, select, etc. Feel free to delete if there are no forms
   &:-webkit-autofill,
@@ -106,6 +107,10 @@ a {
   text-decoration: none;
 }
 
+// p {
+//   @include body-font-styles;
+// }
+
 img {
   width: 100%;
 }
@@ -146,7 +151,6 @@ img {
 
     .cta {
       border-color: var(--font-color--primary);
-      color: var(--font-color--primary);
 
       &:hover,
       &:focus-visible {
@@ -330,7 +334,6 @@ img {
   }
 
   .nav-link {
-    color: var(--font-color--primary);
     overflow: hidden;
 
     &__img {
@@ -472,6 +475,16 @@ img {
       }
     }
   }
+
+  &--enzy {
+    background: linear-gradient(
+      90deg,
+      rgba(109, 168, 148, 0.3019607843),
+      rgba(110, 168, 149, 0.4392156863)
+    );
+    color: var(--background-color);
+    border-color: #6da894;
+  }
 }
 
 .video-overlay {
@@ -578,7 +591,6 @@ img {
       }
 
       h2 {
-        font-family: $font-family-heading;
         font-weight: 500;
         text-align: left;
         font-size: 1vw;
@@ -594,7 +606,6 @@ img {
       }
 
       h3 {
-        font-family: $font-family-heading;
         font-weight: 500;
         font-size: 1.4vw;
         text-align: left;

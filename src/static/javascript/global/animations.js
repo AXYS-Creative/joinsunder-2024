@@ -115,10 +115,6 @@ responsiveGsap.add(
             scrub: true,
           },
         });
-
-        window.addEventListener("load", () => {
-          ScrollTrigger.refresh();
-        });
       }
     }
 

@@ -1,3 +1,18 @@
-video_embed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/K-13vo9aDqU?si=CP1ZNxd4mJZEc6a4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+enzy_logo: /static/img/resources-enzy-logo.svg
+video_embed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/LC06KUhhdT4?si=jDXPNfePXtBiZYaM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
 hero_img: /static/img/resources-phone-group.webp
-caption: AI-Powered Performance and Recognition Platform
+caption: AI-Powered Performance [%br%] and Recognition Platform
+
+enzy_perks:
+  - title: LeaderBoard
+    subtitle: Drive Behavior + Performance
+    img: /static/img/resources-phone-1.webp
+  - title: Messages
+    subtitle: Connect + Communicate
+    img: /static/img/resources-phone-2.webp
+  - title: Games
+    subtitle: Incentivize, Compete, Reward
+    img: /static/img/resources-phone-3.webp
+  - title: Reports
+    subtitle: Understand Trends in Realtime
+    img: /static/img/resources-phone-4.webp

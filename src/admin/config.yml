@@ -344,10 +344,33 @@ collections:
             widget: "string"
             required: true
             hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here."
+          - name: "hero_img"
+            label: "Hero Image"
+            widget: "image"
+            required: true
           - name: "caption"
             label: "Caption"
             widget: "string"
             required: true
+          - name: "enzy_perks"
+            label: "Enzy Perks"
+            label_singular: "Perk"
+            widget: "list"
+            required: true
+            fields:
+              - {
+                  name: "title",
+                  label: "Title",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "subtitle",
+                  label: "Subtitle",
+                  widget: "string",
+                  required: true,
+                }
+              - { name: "img", label: "Image", widget: "image", required: true }
   - name: "global_components"
     label: "Global Components"
     description: >

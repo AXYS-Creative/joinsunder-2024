@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Saira:wght@100;300;500;700;900&display=swap");
 :root {
   --background-color: #f7f7f7;
+  --font-family-heading: Monument, sans-serif;
+  --font-family-body: Satoshi, sans-serif;
   --font-color--primary: #000014;
   --hero-color--primary: #0c5ff2;
   --body-padding: 64px;
@@ -35,7 +36,7 @@
 h1,
 .h1,
 body.has-loader .page-loader p {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 72px;
   font-weight: 400;
   line-height: 1.1;
@@ -76,7 +77,7 @@ body.has-loader .page-loader p span {
 
 h2,
 .h2 {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 64px;
   font-weight: 400;
   line-height: 1.1;
@@ -112,7 +113,7 @@ h2 span,
 
 h3,
 .h3 {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 48px;
   font-weight: 400;
   line-height: 1.1;
@@ -148,7 +149,7 @@ h3 span,
 
 h4,
 .h4 {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 36px;
   font-weight: 400;
   line-height: 1.1;
@@ -184,7 +185,7 @@ h4 span,
 
 h5,
 .h5 {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 40px;
   font-weight: 400;
   line-height: 1.1;
@@ -220,7 +221,7 @@ h5 span,
 
 h6,
 .h6 {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 20px;
   font-weight: 400;
   line-height: 1.1;
@@ -259,7 +260,8 @@ h6 span,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Satoshi", sans-serif;
+  font-family: var(--font-family-body);
+  color: var(--font-color--primary);
 }
 *:-webkit-autofill, *:-webkit-autofill:hover, *:-webkit-autofill:focus-visible {
   -webkit-text-fill-color: var(--font-color--primary);
@@ -389,7 +391,6 @@ img {
 }
 .site-header__cta-wrapper .cta {
   border-color: var(--font-color--primary);
-  color: var(--font-color--primary);
 }
 .site-header__cta-wrapper .cta:hover, .site-header__cta-wrapper .cta:focus-visible {
   color: var(--background-color);
@@ -557,7 +558,6 @@ img {
   }
 }
 .site-nav .nav-link {
-  color: var(--font-color--primary);
   overflow: hidden;
 }
 .site-nav .nav-link__img {
@@ -597,7 +597,7 @@ img {
 
 .cta {
   color: var(--font-color--primary);
-  font-family: "Satoshi", sans-serif;
+  font-family: var(--font-family-body);
   font-size: 20px;
   font-weight: 400;
   padding: 0.5em 1.25em;
@@ -656,11 +656,11 @@ img {
   }
 }
 .cta--lg {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 32px;
   font-weight: 400;
   line-height: 1.1;
-  font-family: "Satoshi", sans-serif;
+  font-family: var(--font-family-body);
   line-height: 1;
   padding: 0.75em 1.25em;
 }
@@ -688,11 +688,11 @@ img {
   font-family: inherit;
 }
 .cta--video {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 32px;
   font-weight: 400;
   line-height: 1.1;
-  font-family: "Satoshi", sans-serif;
+  font-family: var(--font-family-body);
   line-height: 1;
   padding: 0.75em 1.25em;
   border-color: var(--hero-color--primary);
@@ -767,6 +767,11 @@ img {
 .cta--video .icon-group .icon-2 {
   translate: -50% -50%;
   animation: video-cta-icon__2 3s ease infinite;
+}
+.cta--enzy {
+  background: linear-gradient(90deg, rgba(109, 168, 148, 0.3019607843), rgba(110, 168, 149, 0.4392156863));
+  color: var(--background-color);
+  border-color: #6da894;
 }
 
 .video-overlay {
@@ -861,6 +866,9 @@ img {
   height: 24%;
   padding: 16px;
 }
+.swiper .swiper-slide .caption * {
+  color: currentColor;
+}
 @media screen and (max-width: 480px) {
   .swiper .swiper-slide .caption {
     top: 72%;
@@ -869,7 +877,6 @@ img {
   }
 }
 .swiper .swiper-slide .caption h2 {
-  font-family: "Monument", sans-serif;
   font-weight: 500;
   text-align: left;
   font-size: 1vw;
@@ -886,7 +893,6 @@ img {
   }
 }
 .swiper .swiper-slide .caption h3 {
-  font-family: "Monument", sans-serif;
   font-weight: 500;
   font-size: 1.4vw;
   text-align: left;
@@ -1068,14 +1074,6 @@ img {
     text-decoration: underline;
   }
 }
-/* 
-Satoshi Weights 
-300 - 900 | Variable 
-
-Monument Weights 
-100, 200, 450, 675, 800 | Not Variable 
-*/
-/* Sunder Fonts */
 @font-face {
   font-family: "satoshi";
   src: url(../fonts/Satoshi-Variable.woff2);
@@ -1108,6 +1106,11 @@ Monument Weights
   font-family: "monument";
   src: url(../fonts/PPMonumentExtended-Thin.woff2);
   font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "saira";
+  src: url(../fonts/Saira-Variable.woff2);
   font-style: normal;
 }
 @keyframes fade-in {
@@ -1327,15 +1330,17 @@ Monument Weights
   margin-inline-end: 0.5ch;
 }
 .main-resources .hero .image-group {
+  --img-spacing: var(--body-padding);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--body-padding);
+  gap: var(--img-spacing);
   width: 50%;
 }
 @media screen and (max-width: 1024px) {
   .main-resources .hero .image-group {
+    --img-spacing: calc(var(--body-padding) * 2.5);
     width: 100%;
   }
 }
@@ -1345,7 +1350,7 @@ Monument Weights
 }
 @media screen and (max-width: 1024px) {
   .main-resources .hero .image-group__image {
-    width: calc(100% - var(--body-padding));
+    width: calc(100% - var(--img-spacing));
   }
 }
 @media screen and (max-width: 1024px) {
@@ -1450,16 +1455,19 @@ Monument Weights
   bottom: 0;
   padding: 24px;
 }
+.main-resources .meet-the-team .team-portraits .figure__caption * {
+  color: currentColor;
+}
 @media screen and (max-width: 1200px) {
   .main-resources .meet-the-team .team-portraits .figure__caption {
     padding: 16px;
   }
 }
 .main-resources .meet-the-team .team-portraits .figure__caption-name, .main-resources .meet-the-team .team-portraits .figure__caption-role {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
 }
 .main-resources .meet-the-team .team-portraits .figure__caption-name {
-  font-family: "Monument", sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 20px;
   font-weight: 400;
   line-height: 1.1;
@@ -1492,14 +1500,142 @@ Monument Weights
   font-weight: 300;
 }
 .main-resources .enzy {
-  background-color: aquamarine;
-  height: 100vh;
+  --font-family-heading: Saira, sans-serif;
+  --font-family-body: Saira, sans-serif;
+  background: linear-gradient(180deg, #6ca793, rgba(108, 167, 147, 0) 140%);
   padding-inline: var(--body-padding);
 }
 .main-resources .enzy .enzy-hero {
+  --children-width: 40%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  isolation: isolate;
+  position: relative;
+  padding-block: 164px;
+}
+.main-resources .enzy .enzy-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/static/img/resources-enzy-glyph.svg");
+  background-size: cover;
+  background-position: 0% 120%;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
+}
+@media screen and (max-width: 1512px) {
+  .main-resources .enzy .enzy-hero {
+    padding-block: 112px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .enzy .enzy-hero {
+    --children-width: 100%;
+    flex-direction: column;
+  }
+}
+.main-resources .enzy .enzy-hero__caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  width: var(--children-width);
+  padding-block-start: 196px;
+}
+@media screen and (max-width: 1512px) {
+  .main-resources .enzy .enzy-hero__caption {
+    padding-block-start: 128px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .main-resources .enzy .enzy-hero__caption .enzy-logo {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .main-resources .enzy .enzy-hero__caption .cta {
+    margin-inline-start: 22%;
+  }
+}
+.main-resources .enzy .enzy-hero__figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: var(--children-width);
+}
+.main-resources .enzy .enzy-hero__figure figcaption {
+  font-size: max(2vw, 24px);
+  translate: -4vw 0;
+  font-weight: 700;
+}
+.main-resources .enzy .enzy-features {
+  --font-color--primary: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-resources .enzy .enzy-features .feature-block {
+  width: 100%;
+}
+@media screen and (min-width: 769px) {
+  .main-resources .enzy .enzy-features .feature-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+  }
+}
+.main-resources .enzy .enzy-features .feature-block:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+@media screen and (min-width: 769px) {
+  .main-resources .enzy .enzy-features .feature-block__img, .main-resources .enzy .enzy-features .feature-block__caption {
+    width: 25%;
+  }
+}
+.main-resources .enzy .enzy-features .feature-block__caption {
+  text-align: center;
+}
+.main-resources .enzy .enzy-features .feature-block__caption h2 {
+  font-weight: 700;
+}
+.main-resources .enzy .enzy-features .feature-block__caption p {
+  font-family: var(--font-family-heading);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  font-family: var(--font-family-body);
+  line-height: 1;
+}
+@media screen and (max-width: 1512px) {
+  .main-resources .enzy .enzy-features .feature-block__caption p {
+    font-size: 1.6vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .enzy .enzy-features .feature-block__caption p {
+    font-size: 2.4vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-resources .enzy .enzy-features .feature-block__caption p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-resources .enzy .enzy-features .feature-block__caption p {
+    font-size: 16px;
+  }
+}
+.main-resources .enzy .enzy-features .feature-block__caption p span {
+  font-family: inherit;
 }
 
 .error {
