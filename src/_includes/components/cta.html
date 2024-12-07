@@ -1,5 +1,8 @@
 <a
-  class="cta tab-element-page {% if btn_type %}cta--{{btn_type}}{% endif %}"
+  class="cta tab-element-page 
+    {% if btn_size %}cta--{{btn_size}}{% endif %}
+    {% if cta_type === 'light'%}cta--light{% endif %}
+    {% if cta_type === 'dark'%}cta--dark{% endif %}"
   href=" {% if cta_url %}{{ cta_url }}{% else %}/join{% endif %}"
 >
   <!-- prettier-ignore -->

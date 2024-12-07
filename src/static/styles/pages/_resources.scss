@@ -15,6 +15,7 @@
 
       @include mq-max("lg") {
         flex-direction: column-reverse;
+        align-items: center;
         gap: 128px;
       }
     }
@@ -73,7 +74,7 @@
         align-self: flex-end;
 
         @include mq-max("lg") {
-          width: calc(100% - var(--img-spacing));
+          width: min(calc(100% - var(--img-spacing)), 650px);
         }
 
         &:nth-of-type(2) {
@@ -91,7 +92,11 @@
 
     .pinned {
       @include row-center;
-      height: 100dvh;
+      height: 100vh;
+
+      @include mq-max("md") {
+        height: 50vh;
+      }
 
       .slot-text {
         @include row-start;
@@ -165,6 +170,9 @@
         overflow: hidden;
         flex: 1;
 
+        @include mq-min("sm") {
+          max-width: 75%;
+        }
         @include mq-max("lg") {
           flex: 1 0 320px;
         }
@@ -200,8 +208,17 @@
   .enzy {
     --font-family-heading: #{$enzy-font};
     --font-family-body: #{$enzy-font};
+    --gradient-distance: 180%;
 
-    background: linear-gradient(180deg, #6ca793, rgba(108, 167, 147, 0) 140%);
+    background: linear-gradient(
+      180deg,
+      #6ca793,
+      rgba(108, 167, 147, 0) var(--gradient-distance)
+    );
+
+    @include mq-max("lg") {
+      --gradient-distance: 240%;
+    }
 
     .enzy-hero {
       --children-width: 40%;
@@ -225,6 +242,10 @@
         background-repeat: no-repeat;
         opacity: 0.5;
         z-index: -1;
+
+        @include mq-max("lg") {
+          opacity: 0.25;
+        }
       }
 
       @media all {
@@ -301,6 +322,11 @@
           font-size: max(2vw, 24px);
           font-weight: 700;
           text-align: center;
+
+          @include mq-max("sm") {
+            font-size: 20px;
+            font-weight: 600;
+          }
         }
       }
 
@@ -334,7 +360,7 @@
 
         @include mq-max("lg") {
           @include column-center;
-          gap: 20%;
+          gap: 24px;
         }
 
         &:nth-of-type(even) {
@@ -393,11 +419,19 @@
           h2 {
             font-weight: 700;
             margin-block-end: 24px;
+
+            @include mq-max("sm") {
+              font-weight: 600;
+            }
           }
           p {
             @include h4;
             font-weight: 200;
             white-space: nowrap;
+
+            @include mq-max("sm") {
+              font-weight: 400;
+            }
           }
         }
 

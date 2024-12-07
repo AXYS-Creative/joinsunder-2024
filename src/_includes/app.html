@@ -83,10 +83,17 @@
   </head>
   <body {%if loader.loader_toggle %}class="has-loader" {%endif%}>
     {% include "./partials/header.html" %}
-    <main class="main-content main-{{path}}">{{ content | safe }}</main>
-    {% include "./partials/nav.html" %}
-    <!-- prettier-ignore -->
 
+    <main class="main-content main-{{path}}">{{ content | safe }}</main>
+
+    <!-- prettier-ignore -->
+    {% if path == "opportunity" or path == "resources" %}
+      {% include "./partials/footer.html" %}
+    {% endif %}
+
+    {% include "./partials/nav.html" %}
+
+    <!-- prettier-ignore -->
     {% if path == "home" %}
     
     {% if loader.loader_toggle %}

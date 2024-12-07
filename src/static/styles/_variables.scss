@@ -27,7 +27,10 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
   --nav-height: 436px;
   --nav-background-color: #{$sunder-ice};
 
+  --footer-height: 164px;
+
   --radius: 12px;
+  --radius-lg: 40px;
 
   @media (max-width: 1512px) {
     --nav-height: 364px;
@@ -41,14 +44,20 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
 
   @media (max-width: 1024px) {
     --nav-height: 448px;
+    --footer-height: 136px;
 
     --radius: 8px;
+    --radius-lg: 24px;
   }
 
   @media (max-width: 768px) {
     --nav-height: 364px;
 
     --body-padding: 24px;
+  }
+
+  @media (max-width: 480px) {
+    --footer-height: 196px;
   }
 }
 

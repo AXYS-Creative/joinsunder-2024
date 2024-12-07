@@ -13,6 +13,11 @@ responsiveGsap.add(
   },
   (context) => {
     let { maxSm, maxMd, maxXl, maxXxl, minMd, minLg } = context.conditions;
+    let navyMarkers = {
+      startColor: "navy",
+      endColor: "navy",
+      indent: 148,
+    };
 
     // Image Reel, home and experience
     if (document.querySelector(".image-reel")) {
@@ -41,7 +46,7 @@ responsiveGsap.add(
       reelSlide(".image-reel__column-3--experience", yValExperience);
     }
 
-    // Experience Page
+    // Resources Page
     if (document.querySelector(".main-resources")) {
       // Hero - Floating Text
       if (minLg) {
@@ -79,7 +84,7 @@ responsiveGsap.add(
         gsap.from(".pinned", {
           scrollTrigger: {
             trigger: ".pinned",
-            start: "top top",
+            start: maxMd ? "top 25%" : "top top",
             end: "+=100%",
             pin: true,
           },

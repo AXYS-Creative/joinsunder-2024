@@ -7,7 +7,9 @@
   --body-padding: 64px;
   --nav-height: 436px;
   --nav-background-color: #c6d3d8;
+  --footer-height: 164px;
   --radius: 12px;
+  --radius-lg: 40px;
 }
 @media (max-width: 1512px) {
   :root {
@@ -23,13 +25,20 @@
 @media (max-width: 1024px) {
   :root {
     --nav-height: 448px;
+    --footer-height: 136px;
     --radius: 8px;
+    --radius-lg: 24px;
   }
 }
 @media (max-width: 768px) {
   :root {
     --nav-height: 364px;
     --body-padding: 24px;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --footer-height: 196px;
   }
 }
 
@@ -59,7 +68,7 @@ body.has-loader .page-loader p {
   h1,
   .h1,
   body.has-loader .page-loader p {
-    font-size: 52px;
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -346,6 +355,9 @@ body.has-loader .page-loader p .page-loader__block:nth-of-type(5) {
     padding-bottom: var(--slide-distance);
   }
 }
+body:has(.site-footer) section:last-of-type {
+  padding-block-end: calc(var(--footer-height) + 96px);
+}
 
 button {
   border: none;
@@ -389,12 +401,6 @@ img {
   display: flex;
   right: var(--body-padding);
 }
-.site-header__cta-wrapper .cta {
-  border-color: var(--font-color--primary);
-}
-.site-header__cta-wrapper .cta:hover, .site-header__cta-wrapper .cta:focus-visible {
-  color: var(--background-color);
-}
 @media screen and (min-width: 1025px) {
   .site-header--fixed {
     position: fixed;
@@ -414,11 +420,49 @@ img {
   translate: 0 calc(var(--nav-height) * -1);
 }
 
-.main-content {
+.main-content,
+.site-footer {
   transition: translate 0.5s ease;
 }
-.main-content--nav-active {
+.main-content--nav-active,
+.site-footer--nav-active {
   translate: 0 calc(var(--nav-height) * -1);
+}
+
+.site-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: calc(var(--footer-height) * -1) auto 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding-inline-end: 64px;
+  height: var(--footer-height);
+}
+@media screen and (min-width: 1201px) {
+  .site-footer {
+    width: 86%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .site-footer {
+    padding-inline-end: 48px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .site-footer {
+    align-items: flex-start;
+    justify-content: center;
+    padding: 36px 0;
+  }
+}
+.site-footer--enzy-colors {
+  box-shadow: -2px 0 4px rgba(0, 0, 20, 0.05);
+  background: linear-gradient(90deg, rgba(191, 217, 208, 0) 10%, #6da894);
+}
+@media screen and (max-width: 480px) {
+  .site-footer--enzy-colors {
+    box-shadow: -1px 0 4px rgba(0, 0, 20, 0.1);
+  }
 }
 
 .nav-btn {
@@ -687,6 +731,23 @@ img {
 .cta--lg span {
   font-family: inherit;
 }
+.cta--dark {
+  border-color: var(--font-color--primary);
+}
+.cta--dark:hover, .cta--dark:focus-visible {
+  color: var(--background-color);
+}
+.cta--light {
+  border-color: var(--background-color);
+  color: var(--background-color);
+}
+.cta--light:hover, .cta--light:focus-visible {
+  border-color: var(--background-color);
+  color: var(--hero-color--primary);
+}
+.cta--light .hover-fill {
+  background: var(--background-color);
+}
 .cta--video {
   font-family: var(--font-family-heading);
   font-size: 32px;
@@ -772,6 +833,12 @@ img {
   background: linear-gradient(90deg, rgba(109, 168, 148, 0.3019607843), rgba(110, 168, 149, 0.4392156863));
   color: var(--background-color);
   border-color: #6da894;
+}
+@media screen and (max-width: 1024px) {
+  .cta--enzy {
+    background: #92dcc1;
+    border-color: #92dcc1;
+  }
 }
 
 .video-overlay {
@@ -1288,6 +1355,7 @@ img {
 @media screen and (max-width: 1024px) {
   .main-resources .hero {
     flex-direction: column-reverse;
+    align-items: center;
     gap: 128px;
   }
 }
@@ -1350,7 +1418,7 @@ img {
 }
 @media screen and (max-width: 1024px) {
   .main-resources .hero .image-group__image {
-    width: calc(100% - var(--img-spacing));
+    width: min(100% - var(--img-spacing), 650px);
   }
 }
 @media screen and (max-width: 1024px) {
@@ -1366,7 +1434,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
+  height: 100vh;
+}
+@media screen and (max-width: 768px) {
+  .main-resources .meet-the-team .pinned {
+    height: 50vh;
+  }
 }
 .main-resources .meet-the-team .pinned .slot-text {
   display: flex;
@@ -1439,6 +1512,11 @@ img {
   overflow: hidden;
   flex: 1;
 }
+@media screen and (min-width: 481px) {
+  .main-resources .meet-the-team .team-portraits .figure {
+    max-width: 75%;
+  }
+}
 @media screen and (max-width: 1024px) {
   .main-resources .meet-the-team .team-portraits .figure {
     flex: 1 0 320px;
@@ -1503,7 +1581,13 @@ img {
 .main-resources .enzy {
   --font-family-heading: Saira, sans-serif;
   --font-family-body: Saira, sans-serif;
-  background: linear-gradient(180deg, #6ca793, rgba(108, 167, 147, 0) 140%);
+  --gradient-distance: 180%;
+  background: linear-gradient(180deg, #6ca793, rgba(108, 167, 147, 0) var(--gradient-distance));
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .enzy {
+    --gradient-distance: 240%;
+  }
 }
 .main-resources .enzy .enzy-hero {
   --children-width: 40%;
@@ -1528,6 +1612,11 @@ img {
   background-repeat: no-repeat;
   opacity: 0.5;
   z-index: -1;
+}
+@media screen and (max-width: 1024px) {
+  .main-resources .enzy .enzy-hero::before {
+    opacity: 0.25;
+  }
 }
 @media screen and (max-width: 1512px) {
   .main-resources .enzy .enzy-hero {
@@ -1614,6 +1703,12 @@ img {
   font-weight: 700;
   text-align: center;
 }
+@media screen and (max-width: 480px) {
+  .main-resources .enzy .enzy-hero__figure figcaption {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
 @media screen and (min-width: 1025px) {
   .main-resources .enzy .enzy-hero > .cta {
     display: none;
@@ -1649,7 +1744,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20%;
+    gap: 24px;
   }
 }
 .main-resources .enzy .enzy-features .feature-block:nth-of-type(even) {
@@ -1701,6 +1796,11 @@ img {
   font-weight: 700;
   margin-block-end: 24px;
 }
+@media screen and (max-width: 480px) {
+  .main-resources .enzy .enzy-features .feature-block__caption h2 {
+    font-weight: 600;
+  }
+}
 .main-resources .enzy .enzy-features .feature-block__caption p {
   font-family: var(--font-family-heading);
   font-size: 40px;
@@ -1731,6 +1831,11 @@ img {
 }
 .main-resources .enzy .enzy-features .feature-block__caption p span {
   font-family: inherit;
+}
+@media screen and (max-width: 480px) {
+  .main-resources .enzy .enzy-features .feature-block__caption p {
+    font-weight: 400;
+  }
 }
 @media screen and (max-width: 1024px) {
   .main-resources .enzy .enzy-features .feature-block__img {

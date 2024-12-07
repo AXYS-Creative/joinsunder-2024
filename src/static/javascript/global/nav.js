@@ -7,7 +7,8 @@ import {
 export const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
   mainContent = document.querySelector(".main-content"),
-  siteHeader = document.querySelector(".site-header");
+  siteHeader = document.querySelector(".site-header"),
+  siteFooter = document.querySelector(".site-footer");
 
 export const tabElementsPage = document.querySelectorAll(".tab-element-page"),
   tabElementsNav = document.querySelectorAll(".tab-element-nav");
@@ -45,6 +46,7 @@ const toggleNav = () => {
 
   siteNav.classList.toggle("site-nav--active", isNavOpen);
   siteHeader?.classList.toggle("site-header--nav-active", isNavOpen);
+  siteFooter?.classList.toggle("site-footer--nav-active", isNavOpen);
   mainContent.classList.toggle("main-content--nav-active", isNavOpen);
 
   siteNav.setAttribute("aria-hidden", !isNavOpen);
@@ -54,8 +56,10 @@ const toggleNav = () => {
 
   if (isNavOpen) {
     mainContent.addEventListener("click", closeNav);
+    siteFooter?.addEventListener("click", closeNav);
   } else {
     mainContent.removeEventListener("click", closeNav);
+    siteFooter?.removeEventListener("click", closeNav);
   }
 
   // Notify other modules about the state change
@@ -81,7 +85,8 @@ const closeNav = () => {
 
   siteNav.setAttribute("aria-hidden", "true");
   siteNav.classList.remove("site-nav--active");
-  siteHeader.classList.remove("site-header--nav-active");
+  siteHeader?.classList.remove("site-header--nav-active");
+  siteFooter?.classList.remove("site-footer--nav-active");
   mainContent.classList.remove("main-content--nav-active");
 
   updateTabIndex();
@@ -94,6 +99,7 @@ navBtn.addEventListener("click", handleNavBtnClick);
 
 document.addEventListener("videoOverlayStateChange", updateNavBtnState);
 
+// Nav Slider & Keyboard focus
 if (mqMouse && window.innerWidth < 2712) {
   const navSlider = document.querySelector(".nav-slider");
   let viewportWidth = window.innerWidth;

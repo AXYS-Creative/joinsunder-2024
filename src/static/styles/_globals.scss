@@ -96,6 +96,13 @@ body {
       }
     }
   }
+
+  // For pages with a footer, the last section has padding-bottom to make room for the translated footer
+  &:has(.site-footer) {
+    section:last-of-type {
+      padding-block-end: calc(var(--footer-height) + 96px);
+    }
+  }
 }
 
 button {
@@ -148,15 +155,6 @@ img {
   &__cta-wrapper {
     display: flex; // Fixes strange hover issue
     right: var(--body-padding);
-
-    .cta {
-      border-color: var(--font-color--primary);
-
-      &:hover,
-      &:focus-visible {
-        color: var(--background-color);
-      }
-    }
   }
 
   // Mainly set for home page. Check other instances
@@ -184,11 +182,43 @@ img {
   }
 }
 
-.main-content {
+.main-content,
+.site-footer {
   transition: $nav-transition;
 
   &--nav-active {
     translate: $nav-translate;
+  }
+}
+
+.site-footer {
+  @include row-center(flex-end);
+  margin: calc(var(--footer-height) * -1) auto 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding-inline-end: 64px;
+  height: var(--footer-height);
+
+  @include mq-min("xl") {
+    width: 86%;
+  }
+
+  @include mq-max("lg") {
+    padding-inline-end: 48px;
+  }
+
+  @include mq-max("sm") {
+    align-items: flex-start;
+    justify-content: center;
+    padding: 36px 0;
+  }
+
+  &--enzy-colors {
+    box-shadow: -2px 0 4px rgba($sunder-midnight, 0.05);
+    background: linear-gradient(90deg, rgba(191, 217, 208, 0) 10%, #6da894);
+
+    @include mq-max("sm") {
+      box-shadow: -1px 0 4px rgba($sunder-midnight, 0.1);
+    }
   }
 }
 
@@ -425,6 +455,30 @@ img {
     @include btn-lg;
   }
 
+  &--dark {
+    border-color: var(--font-color--primary);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--background-color);
+    }
+  }
+
+  &--light {
+    border-color: var(--background-color);
+    color: var(--background-color);
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--background-color);
+      color: var(--hero-color--primary);
+    }
+
+    .hover-fill {
+      background: var(--background-color);
+    }
+  }
+
   &--video {
     @include btn-lg;
     border-color: var(--hero-color--primary);
@@ -484,6 +538,11 @@ img {
     );
     color: var(--background-color);
     border-color: #6da894;
+
+    @include mq-max("lg") {
+      background: #92dcc1;
+      border-color: #92dcc1;
+    }
   }
 }
 
