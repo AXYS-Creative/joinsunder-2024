@@ -79,8 +79,8 @@ show_header_cta: true
     <div class="enzy-hero__caption">
       <img class="enzy-logo" src="{{ page_resources_enzy.enzy_logo }}" alt="" />
       <!-- prettier-ignore -->
-      {% set enzy_styles = 'cta--enzy' %} 
-      {% set cta_vid_embed = page_resources_enzy.video_embed %} 
+      {% set enzy_styles = 'cta--enzy' %}
+      {% set cta_vid_embed = page_resources_enzy.video_embed %}
       {% include "./_includes/components/cta-video.html" %}
     </div>
 
@@ -94,6 +94,11 @@ show_header_cta: true
         {{ page_resources_enzy.caption }}
       </figcaption>
     </figure>
+
+    <!-- prettier-ignore -->
+    {% set enzy_styles = 'cta--enzy' %}
+    {% set cta_vid_embed = page_resources_enzy.video_embed %}
+    {% include "./_includes/components/cta-video.html" %}
   </div>
 
   <div class="enzy-features">

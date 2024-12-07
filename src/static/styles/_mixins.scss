@@ -194,9 +194,12 @@ h3,
 }
 
 // Resources hero subtitle
+@mixin h4 {
+  @include heading(40px, 2.4vw, 2.8vw, 24px, 18px);
+}
 h4,
 .h4 {
-  @include heading(36px, 2vw, 2.8vw, 24px, 18px);
+  @include h4;
 }
 
 // cta--lg

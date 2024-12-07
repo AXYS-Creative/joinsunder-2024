@@ -1,7 +1,7 @@
 import { tabElementsPage, navBtn } from "../global/nav.js";
 
-const videoOverlay = document.querySelector(".video-overlay"),
-  videoCta = document.querySelector(".cta--video");
+const videoOverlay = document.querySelector(".video-overlay");
+const videoCta = document.querySelectorAll(".cta--video");
 
 export let isvideoOverlayOpen = false;
 
@@ -27,8 +27,10 @@ export const openvideoOverlay = (embedCode) => {
   );
 };
 
-videoCta?.addEventListener("click", () => {
-  openvideoOverlay(videoCta.getAttribute("data-embed"));
+videoCta?.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    openvideoOverlay(btn.getAttribute("data-embed"));
+  });
 });
 
 export const closevideoOverlay = () => {

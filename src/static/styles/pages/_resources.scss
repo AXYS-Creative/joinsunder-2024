@@ -152,6 +152,7 @@
       flex-wrap: wrap;
       gap: 24px;
       padding-inline: var(--body-padding);
+      scroll-margin-top: 20vh;
 
       @include mq-max("xl") {
         gap: 16px;
@@ -201,15 +202,16 @@
     --font-family-body: #{$enzy-font};
 
     background: linear-gradient(180deg, #6ca793, rgba(108, 167, 147, 0) 140%);
-    padding-inline: var(--body-padding);
 
     .enzy-hero {
       --children-width: 40%;
+      --section-spacing: 196px; // Make this global?
 
       @include row-start(space-evenly);
       isolation: isolate;
       position: relative;
-      padding-block: 164px;
+      padding-block: var(--section-spacing);
+      margin-block-end: var(--section-spacing);
 
       &::before {
         content: "";
@@ -219,25 +221,37 @@
         height: 100%;
         background: url("/static/img/resources-enzy-glyph.svg");
         background-size: cover;
-        background-position: 0% 120%;
+        background-position: 50% 120%;
         background-repeat: no-repeat;
         opacity: 0.5;
         z-index: -1;
       }
 
-      @include mq-max("xxl") {
-        padding-block: 112px;
-      }
+      @media all {
+        @include mq-max("xxl") {
+          --section-spacing: 148px;
+        }
 
-      @include mq-max("lg") {
-        --children-width: 100%;
+        @include mq-max("lg") {
+          --children-width: 100%;
 
-        flex-direction: column;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        @include mq-max("xxl") {
+          --section-spacing: 148px;
+        }
+
+        @include mq-max("lg") {
+          --section-spacing: 96px;
+        }
       }
 
       &__caption {
         @include column-start;
         gap: 48px;
+        padding-inline: var(--body-padding);
         width: var(--children-width);
         padding-block-start: 196px;
 
@@ -245,32 +259,55 @@
           padding-block-start: 128px;
         }
 
+        @include mq-max("lg") {
+          align-items: center;
+          padding-block: 0 calc(var(--section-spacing) / 1.25);
+        }
+
         .enzy-logo {
-          @include mq-min("lg") {
-            width: 75%;
+          width: 75%;
+
+          @include mq-max("lg") {
+            width: max(50%, 216px);
           }
         }
 
+        // First cta instance
         .cta {
           @include mq-min("lg") {
             margin-inline-start: 22%;
+          }
+          @include mq-max("lg") {
+            display: none;
           }
         }
       }
 
       &__figure {
         @include column-center;
-        // padding-block-start: 196px;
+        padding-inline: var(--body-padding);
         width: var(--children-width);
 
-        @include mq-max("xxl") {
-          // padding-block-start: 128px;
+        @include mq-max("lg") {
+          width: 75%;
+          margin-block-end: 48px;
+        }
+
+        @include mq-max("md") {
+          width: 100%;
         }
 
         figcaption {
           font-size: max(2vw, 24px);
-          translate: -4vw 0;
           font-weight: 700;
+          text-align: center;
+        }
+      }
+
+      // Second cta instance
+      & > .cta {
+        @include mq-min("lg") {
+          display: none;
         }
       }
     }
@@ -280,33 +317,93 @@
 
       @include column-center;
 
+      @media all {
+        @include mq-max("lg") {
+          gap: 164px;
+        }
+
+        @include mq-max("sm") {
+          gap: 96px;
+        }
+      }
+
       .feature-block {
+        @include row-center(space-around);
+        position: relative;
         width: 100%;
 
-        @include mq-min("md") {
-          @include row-center;
+        @include mq-max("lg") {
+          @include column-center;
           gap: 20%;
         }
 
         &:nth-of-type(even) {
           flex-direction: row-reverse;
+
+          @include mq-max("lg") {
+            flex-direction: column;
+          }
+        }
+
+        &:first-of-type {
+          &::after {
+            top: 50%;
+            height: 50%;
+          }
+        }
+
+        &:last-of-type {
+          &::after {
+            bottom: 50%;
+            height: 50%;
+          }
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: var(--background-color);
+
+          @include mq-max("lg") {
+            display: none;
+          }
+        }
+
+        &::before {
+          padding: 8px;
+          border-radius: 50%;
+        }
+
+        &::after {
+          height: 100%;
+          width: 2px;
         }
 
         &__img,
         &__caption {
-          @include mq-min("md") {
+          @include mq-min("lg") {
             width: 25%;
           }
         }
 
         &__caption {
-          text-align: center;
+          @include column-center;
 
           h2 {
             font-weight: 700;
+            margin-block-end: 24px;
           }
           p {
             @include h4;
+            font-weight: 200;
+            white-space: nowrap;
+          }
+        }
+
+        &__img {
+          @include mq-max("lg") {
+            width: 50%;
           }
         }
       }
