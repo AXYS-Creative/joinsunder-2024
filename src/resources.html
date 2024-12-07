@@ -47,9 +47,9 @@ footer_gradient: site-footer--enzy-colors
 
 <section class="meet-the-team">
   <div class="pinned">
-    <h2 class="slot-text">
-      Meet the
-      <span class="slot-text__slider">
+    <h2 class="slot-text" aria-label="Meet Sunder’s executive team">
+      <span aria-hidden="true">Meet the</span>
+      <span class="slot-text__slider" aria-hidden="true">
         <span class="slot-text__slider-inner">Sunder</span>
         <span class="slot-text__slider-inner">Executive</span>
       </span>
@@ -59,14 +59,9 @@ footer_gradient: site-footer--enzy-colors
 
   <div class="team-portraits" id="team-portraits">
     {% for img in page_resources_team.portraits %}
-    <figure class="figure">
-      <img
-        class="figure__img"
-        src="{{ img.src }}"
-        alt=""
-        aria-labelledby="caption-{{ loop.index }}"
-      />
-      <figcaption class="figure__caption" id="caption-{{ loop.index }}">
+    <figure class="figure gsap-animate">
+      <img class="figure__img" src="{{ img.src }}" alt="" />
+      <figcaption class="figure__caption">
         <span class="figure__caption-name">{{ img.name }}</span>
         <span class="figure__caption-role">{{ img.role }}</span>
       </figcaption>
@@ -77,6 +72,7 @@ footer_gradient: site-footer--enzy-colors
 
 <section class="enzy" id="enzy">
   <div class="enzy-hero">
+    <h2 class="sr-only">Enzy</h2>
     <div class="enzy-hero__caption">
       <img class="enzy-logo" src="{{ page_resources_enzy.enzy_logo }}" alt="" />
       <!-- prettier-ignore -->
@@ -103,12 +99,13 @@ footer_gradient: site-footer--enzy-colors
   </div>
 
   <div class="enzy-features">
+    <h2 class="sr-only">Enzy’s features</h2>
     {% for perk in page_resources_enzy.enzy_perks %}
-    <div class="feature-block">
+    <div class="feature-block gsap-animate">
       <img class="feature-block__img" src="{{ perk.img }}" alt="" />
       <div class="feature-block__caption">
-        <h2>{{ perk.title }}</h2>
-        <p>{{ perk.subtitle }}</p>
+        <h3 class="feature-block__caption-title">{{ perk.title }}</h3>
+        <h4 class="feature-block__caption-description">{{ perk.subtitle }}</h4>
       </div>
     </div>
     {% endfor %}

@@ -182,9 +182,12 @@ h1,
 }
 
 //
+@mixin h2 {
+  @include heading(64px, 4.4vw, 4.4vw, 6.4vw, 32px);
+}
 h2,
 .h2 {
-  @include heading(64px, 4.4vw, 4.4vw, 6.4vw, 32px);
+  @include h2;
 }
 
 //

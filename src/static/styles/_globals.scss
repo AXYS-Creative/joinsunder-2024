@@ -474,6 +474,10 @@ img {
       color: var(--hero-color--primary);
     }
 
+    &:focus-visible {
+      background-color: var(--background-color);
+    }
+
     .hover-fill {
       background: var(--background-color);
     }

@@ -170,6 +170,27 @@
         overflow: hidden;
         flex: 1;
 
+        // gsap-animate
+        @include mq-motion-allow {
+          opacity: 0;
+
+          @include mq-min("md") {
+            translate: 0 20%;
+          }
+
+          &.animate {
+            opacity: 1;
+            translate: 0 0;
+            transition: 0.5s ease 0.15s;
+
+            @for $i from 1 through 4 {
+              &:nth-of-type(#{$i}) {
+                transition-delay: 0.075s * $i;
+              }
+            }
+          }
+        }
+
         @include mq-min("sm") {
           max-width: 75%;
         }
@@ -363,6 +384,43 @@
           gap: 24px;
         }
 
+        // gsap-animate
+        @include mq-motion-allow {
+          .feature-block__img {
+            opacity: 0;
+            scale: 0.95;
+          }
+          .feature-block__caption-title,
+          .feature-block__caption-description {
+            opacity: 0;
+            translate: 25% 0;
+          }
+
+          &.animate {
+            .feature-block__img,
+            .feature-block__caption-title,
+            .feature-block__caption-description {
+              opacity: 1;
+              translate: 0 0;
+              scale: 1;
+            }
+
+            .feature-block__img {
+              transition: 0.5s ease 0.25s;
+
+              @include mq-max("lg") {
+                transition-delay: 0s;
+              }
+            }
+            .feature-block__caption-title {
+              transition: 0.5s ease 0.25s;
+            }
+            .feature-block__caption-description {
+              transition: 0.5s ease 0.3s;
+            }
+          }
+        }
+
         &:nth-of-type(even) {
           flex-direction: row-reverse;
 
@@ -416,15 +474,17 @@
         &__caption {
           @include column-center;
 
-          h2 {
+          &-title {
+            @include h2;
             font-weight: 700;
             margin-block-end: 24px;
 
             @include mq-max("sm") {
               font-weight: 600;
+              margin-block-end: 12px;
             }
           }
-          p {
+          &-description {
             @include h4;
             font-weight: 200;
             white-space: nowrap;
