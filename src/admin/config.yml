@@ -11,7 +11,7 @@ logo_url: https://joinsunder-cms.netlify.app/static/img/admin-logo.svg # CHANGE 
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 collections:
   - name: "home_page"
     label: "Page - Home"
@@ -371,6 +371,21 @@ collections:
                   required: true,
                 }
               - { name: "img", label: "Image", widget: "image", required: true }
+  - name: "join_page"
+    label: "Page - Join"
+    files:
+      - name: "hero_section"
+        label: "Hero Section"
+        file: "src/_data/page_join.yaml"
+        preview_path: "/resources"
+        editor:
+          preview: false
+        fields:
+          - name: "page_heading"
+            label: "Page Heading"
+            widget: string
+            required: true
+            hint: Semantic page heading for accessibility. Not visually shown on the page (per design) but improves site scraping.
   - name: "global_components"
     label: "Global Components"
     description: >

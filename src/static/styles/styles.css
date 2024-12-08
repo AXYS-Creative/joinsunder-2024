@@ -1337,6 +1337,10 @@ img {
   padding-inline-start: 0;
 }
 
+.main-join {
+  min-height: 100dvh;
+}
+
 .main-resources {
   padding-block-start: 136px;
 }
