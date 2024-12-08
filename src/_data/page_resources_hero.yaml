@@ -1,10 +1,8 @@
 heading: A New Level [%br.lg-screen-and-below%] of Support
-
 subheading:
   static_text: A place to recruit, [%br%]
-  floating_text_1: collaborate
+  floating_text_1: collaborate (using editorial_workflows)
   floating_text_2: and thrive.
-
 hero_images:
   - src: /static/img/resources-office-1.jpg
     alt: A cozy sitting area, with a couch and coffee table.
