@@ -2,32 +2,72 @@ video_library:
   - title: 2023
     sub_title: Paradise cabo
     poster: /static/img/experience-poster-1.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/EOdM6yTCCJg?si=EI2JIqfNChwGxzlt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/EOdM6yTCCJg?si=EI2JIqfNChwGxzlt"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   - title: 2022
     sub_title: Paradise cabo
     poster: /static/img/experience-poster-2.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/DIB0r_xZlyI?si=tf04HoabX-4__Bra"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   - title: 2022
     sub_title: OSS Merida
     poster: /static/img/experience-poster-3.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   - title: 2022
     sub_title: Miami Florida
     poster: /static/img/experience-poster-4.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   - title: 2022
     sub_title: Squad Game Prizes
     poster: /static/img/experience-poster-5.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   - title: 2022
     sub_title: Pirates Cove
     poster: /static/img/experience-poster-6.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   - title: 2022
     sub_title: Field Day
     poster: /static/img/experience-poster-7.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   - title: 2021
     sub_title: Rapid Sunder Prizes
     poster: /static/img/experience-poster-8.webp
-    embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    embed: <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/iidmB7rjBEg?si=EHb9vC4s684kVPVy"
+      title="YouTube video player" frameborder="0" allow="accelerometer;
+      autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+      web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
