@@ -5,9 +5,9 @@ portraits:
   - name: Eric Nielsen
     role: President
     src: /static/img/resources-portrait-eric.jpg
-  - name: Devon Glassman
+  - name: Brett Jaynes
     role: CFO
-    src: /static/img/resources-portrait-devon.jpg
+    src: /static/img/resources-portrait-brett.jpg
   - name: Cary Jenkins
     role: CTO
     src: /static/img/resources-portrait-cary.jpg
