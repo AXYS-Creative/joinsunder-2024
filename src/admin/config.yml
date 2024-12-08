@@ -11,7 +11,7 @@ logo_url: https://joinsunder-cms.netlify.app/static/img/admin-logo.svg # CHANGE 
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
-publish_mode: editorial_workflow
+publish_mode: simple
 collections:
   - name: "home_page"
     label: "Page - Home"
