@@ -488,7 +488,7 @@ collections:
             label: "Theme Color"
             widget: "color"
             required: true
-            hint: "Hex color code for overflow color on some devices"
+            hint: "Hex code for overflow color on some devices"
           - name: "og_title"
             label: "Open Graph Title"
             widget: "string"
