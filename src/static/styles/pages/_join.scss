@@ -1,3 +1,127 @@
 .main-join {
+  --min-height: 700px; // Optional, locks image in place vs scroll at the end of page
   min-height: 100dvh;
+
+  .hero {
+    @include mq-min("lg") {
+      @include row-start(space-between);
+
+      width: 100vw;
+    }
+
+    &-img {
+      position: sticky;
+      top: 0;
+      width: 50vw;
+      height: max(100dvh, var(--min-height));
+      object-fit: cover;
+
+      @include mq-max("lg") {
+        display: none;
+      }
+    }
+
+    .form-panel {
+      @include dark-theme;
+      @include column-center(flex-start);
+      min-height: 100dvh;
+      width: 50vw;
+      padding-block: 128px;
+
+      @media all {
+        @include mq-max("xxl") {
+          padding-block: 96px;
+        }
+
+        @include mq-max("lg") {
+          width: 100vw;
+        }
+
+        @include mq-max("md") {
+          padding-block: 64px;
+        }
+      }
+
+      &__logo-link {
+        display: contents;
+      }
+
+      &__logo-img {
+        width: min(40%, 250px);
+        margin-block-end: 128px;
+
+        @include mq-max("md") {
+          margin-block-end: 64px;
+        }
+      }
+    }
+
+    .join-sunder-form {
+      @include body-font-styles;
+      @include column-center;
+      gap: 2em;
+      width: 75%;
+
+      @include mq-max("md") {
+        width: calc(100% - var(--body-padding) * 2);
+      }
+
+      .form-block {
+        position: relative;
+        width: 100%;
+        height: 2em;
+
+        .label,
+        .input {
+          @include row-center(flex-start);
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          font-size: inherit;
+        }
+        .label {
+          pointer-events: none;
+          transition: 0.25s ease;
+        }
+        .input {
+          border: none;
+          border-bottom: 1px solid currentColor;
+          background-color: transparent;
+          resize: none;
+
+          &:is(textarea) {
+            height: 8ch;
+          }
+        }
+      }
+
+      .form-block-group {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .input:focus ~ .label,
+      .input:not(:placeholder-shown).input:not(focus) ~ .label,
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus {
+        translate: 0 -100%;
+        font-size: 0.75em;
+        opacity: 1;
+      }
+      .textarea:focus ~ .label,
+      .textarea:not(:placeholder-shown).textarea:not(focus) ~ .label {
+        translate: 0 -100%;
+
+        .nested-label {
+          translate: 8px -1px;
+          opacity: 1;
+          visibility: visible;
+
+          transition: 0.6s $cubic-ease, opacity 0.6s $cubic-ease 0.4s;
+        }
+      }
+    }
+  }
 }

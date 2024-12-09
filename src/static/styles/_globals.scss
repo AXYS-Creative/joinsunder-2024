@@ -406,7 +406,8 @@ img {
   @include btn-md;
   isolation: isolate; // enzy instance bg is overlapped
   position: relative;
-  border: 1px solid var(--background-color);
+  // border: 1px solid var(--background-color);
+  border: 1px solid currentColor;
   border-radius: 48px;
   overflow: hidden;
   flex-shrink: 0;
@@ -456,8 +457,6 @@ img {
   }
 
   &--dark {
-    border-color: var(--font-color--primary);
-
     &:hover,
     &:focus-visible {
       color: var(--background-color);
@@ -465,7 +464,6 @@ img {
   }
 
   &--light {
-    border-color: var(--background-color);
     color: var(--background-color);
 
     &:hover,

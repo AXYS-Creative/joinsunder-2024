@@ -10,5 +10,113 @@ header_fixed: #Leaving this value empty hides the header
 ---
 
 <section class="hero">
-  <h1 class="sr-only">Join sunder energy</h1>
+  <h1 class="sr-only">{{ page_join.page_heading }}</h1>
+  <img class="hero-img" src="{{ page_join.hero_img }}" alt="" />
+  <div class="form-panel">
+    <a class="form-panel__logo-link" href="/">
+      <img
+        src="/static/img/logo-light.svg"
+        alt=""
+        class="form-panel__logo-img"
+      />
+    </a>
+    <form
+      class="join-sunder-form"
+      action="/contact"
+      method="post"
+      name="join-sunder-form"
+      netlify="true"
+      netlify-honeybot="bot-field"
+      data-netlify-recaptcha="true"
+      hidden
+    >
+      <input type="hidden" name="join-sunder-form" value="contact" />
+
+      <div class="form-block form-block--name">
+        <input
+          class="input tab-element-page"
+          id="name"
+          type="text"
+          placeholder=" "
+          aria-label="Please enter your first and last name."
+          required
+        />
+        <label class="label" for="name">Name</label>
+      </div>
+
+      <div class="form-block-group form-block-group--email-phone">
+        <div class="form-block form-block--email">
+          <input
+            class="input tab-element-page"
+            id="email"
+            type="email"
+            placeholder=" "
+            aria-label="Please enter your email."
+            required
+          />
+          <label class="label" for="email">Email</label>
+        </div>
+        <div class="form-block form-block--phone">
+          <input
+            class="input tab-element-page"
+            id="phone"
+            type="tel"
+            placeholder=" "
+            aria-label="Please enter your phone number."
+            required
+          />
+          <label class="label" for="phone">Phone</label>
+        </div>
+      </div>
+
+      <div class="form-block form-block--city">
+        <input
+          class="input tab-element-page"
+          id="city"
+          type="text"
+          placeholder=" "
+          aria-label="Please enter your city."
+          required
+        />
+        <label class="label" for="city">City</label>
+      </div>
+
+      <div class="form-block-group form-block-group--state-zip">
+        <div class="form-block form-block--state">
+          <input
+            class="input tab-element-page"
+            id="state"
+            type="text"
+            placeholder=" "
+            aria-label="Please enter your state."
+            required
+          />
+          <label class="label" for="state">State</label>
+        </div>
+        <div class="form-block form-block--zip">
+          <input
+            class="input tab-element-page"
+            id="zip"
+            type="number"
+            placeholder=" "
+            aria-label="Please enter your zip code."
+            required
+          />
+          <label class="label" for="zip">Zip</label>
+        </div>
+      </div>
+
+      <div class="form-block form-block--discovery">
+        <textarea
+          class="input tab-element-page"
+          id="discovery"
+          type="text"
+          placeholder=" "
+          aria-label="How did you hear about us?"
+          required
+        ></textarea>
+        <label class="label" for="discovery">How did you hear about us?</label>
+      </div>
+    </form>
+  </div>
 </section>

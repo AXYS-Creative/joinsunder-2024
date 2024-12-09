@@ -11,7 +11,7 @@
   <span class="line line-close line-close-2"></span>
 </button>
 
-<nav class="site-nav" id="site-nav">
+<nav class="site-nav" id="site-nav" aria-label="Site navigation">
   <div class="nav-slider">
     {% for link in navigation.nav_links %}
     <a class="nav-link tab-element-nav" href="{{link.url}}">
@@ -27,11 +27,7 @@
           media="(min-width: 1025px)"
           type="image/webp"
         />
-        <img
-          class="nav-link__img"
-          src="{{link.desktop_image}}"
-          alt="Navigation link {{link.title}}"
-        />
+        <img class="nav-link__img" src="{{link.desktop_image}}" alt="" />
       </picture>
     </a>
     {% endfor %}

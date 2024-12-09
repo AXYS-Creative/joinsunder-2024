@@ -41,8 +41,8 @@ const updateNavBtnState = () => {
   }
 };
 
-const toggleNav = () => {
-  isNavOpen = !isNavOpen;
+const updateNavState = (state) => {
+  isNavOpen = state;
 
   siteNav.classList.toggle("site-nav--active", isNavOpen);
   siteHeader?.classList.toggle("site-header--nav-active", isNavOpen);
@@ -68,6 +68,17 @@ const toggleNav = () => {
       detail: isNavOpen,
     })
   );
+};
+
+const toggleNav = () => {
+  updateNavState(!isNavOpen);
+};
+
+// Screen reader use
+const openNav = () => {
+  if (!isNavOpen) {
+    updateNavState(true);
+  }
 };
 
 const handleNavBtnClick = () => {
@@ -153,4 +164,7 @@ if (mqMouse && window.innerWidth < 2712) {
       navSlider.style.translate = `calc(${clampedTranslateX}px + ${offsetTweak}) 0`;
     });
   });
+
+  // Screen Reader
+  navLinks[0].addEventListener("focus", openNav);
 }

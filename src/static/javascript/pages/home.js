@@ -16,10 +16,8 @@ window.addEventListener("load", () => {
   window.addEventListener("resize", adjustImageReelHeight);
 });
 
-// console.log(mqMouse ? "mouse device" : "touch device");
-
+// Image Reel Logic. Using old logic
 if (document.querySelector(".main-home")) {
-  // Image Reel Logic. Using old logic
   let isPlaying = false;
   let shouldScroll = false;
   let wasSmallerScreen = false;

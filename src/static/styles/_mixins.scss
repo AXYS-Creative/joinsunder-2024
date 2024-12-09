@@ -257,10 +257,13 @@ h6,
 //
 
 @mixin dark-theme {
-  background: var(--font-color--primary);
+  --background-color: #{$sunder-midnight};
+  --font-color--primary: #{$sunder-snow};
+
+  background: var(--background-color);
 
   * {
-    color: var(--background-color);
+    color: var(--font-color--primary);
   }
 }
 

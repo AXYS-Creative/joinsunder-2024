@@ -47,7 +47,7 @@ footer_gradient: site-footer--enzy-colors
 
 <section class="meet-the-team">
   <div class="pinned">
-    <h2 class="slot-text" aria-label="Meet Sunder’s executive team">
+    <h2 class="slot-text" aria-label="Meet the Sunder executive team.">
       <span aria-hidden="true">Meet the</span>
       <span class="slot-text__slider" aria-hidden="true">
         <span class="slot-text__slider-inner">Sunder</span>
@@ -72,24 +72,29 @@ footer_gradient: site-footer--enzy-colors
 
 <section class="enzy" id="enzy">
   <div class="enzy-hero">
-    <h2 class="sr-only">Enzy</h2>
+    <h2 class="sr-only">{{ page_resources_enzy.enzy_hero.section_heading }}</h2>
     <div class="enzy-hero__caption">
-      <img class="enzy-logo" src="{{ page_resources_enzy.enzy_logo }}" alt="" />
+      <img
+        class="enzy-logo"
+        src="{{ page_resources_enzy.enzy_hero.enzy_logo }}"
+        alt="enzy logo"
+      />
       <!-- prettier-ignore -->
       {% set enzy_styles = 'cta--enzy' %}
-      {% set cta_vid_embed = page_resources_enzy.video_embed %}
+      {% set cta_vid_embed = page_resources_enzy.enzy_hero.video_embed %}
       {% include "./_includes/components/cta-video.html" %}
     </div>
 
     <figure class="enzy-hero__figure">
       <img
-        src="{{ page_resources_enzy.hero_img }}"
-        alt=""
-        aria-describedby="enzy-hero-img"
+        src="{{ page_resources_enzy.enzy_hero.hero_img }}"
+        alt="{{ page_resources_enzy.enzy_hero.alt }}"
       />
-      <figcaption id="enzy-hero-img">
-        {{ page_resources_enzy.caption }}
+      {% if page_resources_enzy.enzy_hero.caption %}
+      <figcaption class="enzy-hero__figure-caption" aria-hidden="true">
+        {{ page_resources_enzy.enzy_hero.caption }}
       </figcaption>
+      {% endif %}
     </figure>
 
     <!-- prettier-ignore -->
