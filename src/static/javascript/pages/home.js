@@ -1,4 +1,4 @@
-import { mqMouse } from "../utility.js";
+// import { mqMouse } from "../utility.js";
 
 // Dynamically determine Reel height.
 const adjustImageReelHeight = () => {

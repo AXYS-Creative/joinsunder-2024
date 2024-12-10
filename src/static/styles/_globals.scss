@@ -12,6 +12,12 @@
     -webkit-text-fill-color: var(--font-color--primary);
     -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
   }
+
+  // This hides the default buttons on input type="number"
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    display: none;
+  }
 }
 
 body {
@@ -107,6 +113,7 @@ body {
 
 button {
   border: none;
+  background: none;
   cursor: pointer;
 }
 
@@ -512,7 +519,7 @@ img {
         @include absolute-center;
         width: 80%;
         height: 80%;
-        background: var(--background-color);
+        background: currentColor;
         mask-image: url(../img/icons/play-solid.svg);
         // mask-image: url(../img/icon-play.svg);
         mask-repeat: no-repeat;

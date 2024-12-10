@@ -14,6 +14,7 @@ header_fixed: #Leaving this value empty hides the header
   <img class="hero-img" src="{{ page_join.hero_img }}" alt="" />
   <div class="form-panel">
     <a class="form-panel__logo-link" href="/">
+      <span class="sr-only">Return home</span>
       <img
         src="/static/img/logo-light.svg"
         alt=""
@@ -36,8 +37,10 @@ header_fixed: #Leaving this value empty hides the header
         <input
           class="input tab-element-page"
           id="name"
+          name="name"
           type="text"
           placeholder=" "
+          title="Please enter your first and last name."
           aria-label="Please enter your first and last name."
           required
         />
@@ -49,8 +52,10 @@ header_fixed: #Leaving this value empty hides the header
           <input
             class="input tab-element-page"
             id="email"
+            name="email"
             type="email"
             placeholder=" "
+            title="Please enter your email."
             aria-label="Please enter your email."
             required
           />
@@ -60,8 +65,10 @@ header_fixed: #Leaving this value empty hides the header
           <input
             class="input tab-element-page"
             id="phone"
+            name="phone"
             type="tel"
             placeholder=" "
+            title="Please enter your phone number."
             aria-label="Please enter your phone number."
             required
           />
@@ -73,8 +80,10 @@ header_fixed: #Leaving this value empty hides the header
         <input
           class="input tab-element-page"
           id="city"
+          name="city"
           type="text"
           placeholder=" "
+          title="Please enter your city."
           aria-label="Please enter your city."
           required
         />
@@ -86,8 +95,10 @@ header_fixed: #Leaving this value empty hides the header
           <input
             class="input tab-element-page"
             id="state"
+            name="state"
             type="text"
             placeholder=" "
+            title="Please enter your state."
             aria-label="Please enter your state."
             required
           />
@@ -97,8 +108,10 @@ header_fixed: #Leaving this value empty hides the header
           <input
             class="input tab-element-page"
             id="zip"
+            name="zip"
             type="number"
             placeholder=" "
+            title="Please enter your zip code."
             aria-label="Please enter your zip code."
             required
           />
@@ -108,15 +121,31 @@ header_fixed: #Leaving this value empty hides the header
 
       <div class="form-block form-block--discovery">
         <textarea
-          class="input tab-element-page"
+          class="input input--textarea tab-element-page"
           id="discovery"
-          type="text"
-          placeholder=" "
+          maxlength="250"
+          spellcheck="true"
+          name="How did you hear about us?"
+          title="How did you hear about us?"
           aria-label="How did you hear about us?"
+          placeholder=" "
           required
         ></textarea>
-        <label class="label" for="discovery">How did you hear about us?</label>
+        <label
+          class="label label--textarea"
+          id="discovery-label"
+          for="discovery"
+          aria-live="assertive"
+        >
+          How did you hear about us?
+          <span class="nested-label"></span>
+        </label>
       </div>
+
+      <button class="cta cta--dark tab-element-page" type="submit">
+        Submit
+        <div class="hover-fill"></div>
+      </button>
     </form>
   </div>
 </section>
