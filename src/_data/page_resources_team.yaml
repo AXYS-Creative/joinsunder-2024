@@ -1,13 +1,13 @@
 portraits:
   - name: Max Britton
     role: CEO
-    src: /static/img/resources-portrait-max.jpg
+    src: /static/img/resources-portrait-max.webp
   - name: Eric Nielsen
     role: President
-    src: /static/img/resources-portrait-eric.jpg
+    src: /static/img/resources-portrait-eric.webp
   - name: Devon Glassman
     role: CFO
-    src: /static/img/resources-portrait-devon.jpg
+    src: /static/img/resources-portrait-devon.webp
   - name: Cary Jenkins
     role: CTO
-    src: /static/img/resources-portrait-cary.jpg
+    src: /static/img/resources-portrait-cary.webp

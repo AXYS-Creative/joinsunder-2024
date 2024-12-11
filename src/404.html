@@ -5,12 +5,16 @@ author: CHANGE ME
 
 layout: app
 path: 404
+header_logo_color: dark
 ---
 
 <section class="error">
   <h1>404 error</h1>
   <p>The page you’re looking for doesn’t exist</p>
-  <div class="cta-group">
-    <a href="/" class="cta-1">Return home</a>
-  </div>
+  <!-- prettier-ignore -->
+  {% set cta_text = "Return Home"%}
+  {% set cta_url = "/"%}
+  {% set btn_size = "lg"%}
+  {% set cta_type = "dark"%}
+  {% include "./_includes/components/cta.html" %}
 </section>

@@ -13,7 +13,7 @@
       position: sticky;
       top: 0;
       width: 50vw;
-      height: max(100dvh, var(--min-height));
+      height: max(100.01dvh, var(--min-height));
       object-fit: cover;
 
       @include mq-max("lg") {

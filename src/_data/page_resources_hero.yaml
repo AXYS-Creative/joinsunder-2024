@@ -4,9 +4,9 @@ subheading:
   floating_text_1: collaborate
   floating_text_2: and thrive.
 hero_images:
-  - src: /static/img/resources-office-1.jpg
+  - src: /static/img/resources-office-1.webp
     alt: A cozy sitting area, with a couch and coffee table.
-  - src: /static/img/resources-office-2.jpg
+  - src: /static/img/resources-office-2.webp
     alt: An organized desk to work on the computer.
-  - src: /static/img/resources-office-3.jpg
+  - src: /static/img/resources-office-3.webp
     alt: A clean and modern open-concept office space.

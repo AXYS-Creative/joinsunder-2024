@@ -60,7 +60,13 @@ footer_gradient: site-footer--enzy-colors
   <div class="team-portraits" id="team-portraits">
     {% for img in page_resources_team.portraits %}
     <figure class="figure gsap-animate">
-      <img class="figure__img" src="{{ img.src }}" alt="" />
+      <img
+        class="figure__img"
+        src="{{ img.src }}"
+        alt=""
+        width="320"
+        height="480"
+      />
       <figcaption class="figure__caption">
         <span class="figure__caption-name">{{ img.name }}</span>
         <span class="figure__caption-role">{{ img.role }}</span>

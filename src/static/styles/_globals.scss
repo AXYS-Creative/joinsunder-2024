@@ -117,6 +117,7 @@ button {
 
 p,
 a,
+figcaption,
 input,
 textarea {
   @include body-font-styles;
@@ -129,6 +130,7 @@ a {
 
 img {
   width: 100%;
+  height: auto;
 }
 
 .site-header {

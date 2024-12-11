@@ -371,6 +371,7 @@ button {
 
 p,
 a,
+figcaption,
 input,
 textarea {
   color: var(--font-color--primary);
@@ -382,6 +383,7 @@ textarea {
 @media screen and (max-width: 1512px) {
   p,
   a,
+  figcaption,
   input,
   textarea {
     font-size: 18px;
@@ -390,6 +392,7 @@ textarea {
 @media screen and (max-width: 768px) {
   p,
   a,
+  figcaption,
   input,
   textarea {
     font-size: 16px;
@@ -402,6 +405,7 @@ a {
 
 img {
   width: 100%;
+  height: auto;
 }
 
 .site-header__logo, .site-header__cta-wrapper {
@@ -1383,7 +1387,7 @@ img {
   position: sticky;
   top: 0;
   width: 50vw;
-  height: max(100dvh, var(--min-height));
+  height: max(100.01dvh, var(--min-height));
   -o-object-fit: cover;
      object-fit: cover;
 }
