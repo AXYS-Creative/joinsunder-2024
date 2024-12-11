@@ -115,13 +115,16 @@ button {
   cursor: pointer;
 }
 
-a {
+p,
+a,
+input,
+textarea {
   @include body-font-styles;
   text-decoration: none;
 }
 
-p {
-  @include body-font-styles;
+a {
+  text-decoration: none;
 }
 
 img {

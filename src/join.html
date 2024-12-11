@@ -67,6 +67,7 @@ header_fixed: #Leaving this value empty hides the header
             id="phone"
             name="phone"
             type="tel"
+            pattern="[0-9]*"
             placeholder=" "
             title="Please enter your phone number."
             aria-label="Please enter your phone number."
@@ -110,6 +111,7 @@ header_fixed: #Leaving this value empty hides the header
             id="zip"
             name="zip"
             type="number"
+            inputmode="numeric"
             placeholder=" "
             title="Please enter your zip code."
             aria-label="Please enter your zip code."
@@ -119,6 +121,7 @@ header_fixed: #Leaving this value empty hides the header
         </div>
       </div>
 
+      {% if page_join.join_form.show_field_discovery %}
       <div class="form-block form-block--discovery">
         <textarea
           class="input input--textarea tab-element-page"
@@ -141,6 +144,7 @@ header_fixed: #Leaving this value empty hides the header
           <span class="nested-label"></span>
         </label>
       </div>
+      {% endif %}
 
       <div data-netlify-recaptcha="true" class="recaptcha"></div>
 

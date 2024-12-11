@@ -414,8 +414,28 @@ collections:
             hint: Semantic page heading for accessibility. Not visually shown on the page (per design) but improves site scraping.
           - name: "hero_img"
             label: "Hero Image"
-            widget: "image"
+            widget: image
             required: true
+          - name: "join_form"
+            label: "Join Form"
+            widget: object
+            required: true
+            fields:
+              - {
+                  name: "show_field_discovery",
+                  label: "Discovery Method Display",
+                  widget: boolean,
+                  default: true,
+                  required: false,
+                  hint: "Show field: 'How did you hear about us?'",
+                }
+              - {
+                  name: "max_count_discovery",
+                  label: "Discovery Method Character Limit",
+                  widget: "number",
+                  required: false,
+                  hint: "Character limit for field: 'How did you hear about us?'. Default 250",
+                }
   - name: "global_components"
     label: "Global Components"
     description: >

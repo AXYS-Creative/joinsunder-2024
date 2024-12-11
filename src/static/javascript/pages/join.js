@@ -1,4 +1,10 @@
 if (document.querySelector(".main-join")) {
+  // Telephone Regex
+  const phoneInput = document.getElementById("phone");
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, ""); // Remove all non-digits
+  });
+
   // Textarea max character count
   const textarea = document.querySelector(".input--textarea");
   const nestedLabel = document.querySelector(".nested-label");

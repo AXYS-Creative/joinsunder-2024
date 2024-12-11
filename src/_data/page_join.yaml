@@ -1,2 +1,5 @@
 page_heading: Join Sunder Energy. Join the best.
 hero_img: /static/img/join-hero.png
+join_form:
+  show_field_discovery: true
+  max_count_discovery: 250
