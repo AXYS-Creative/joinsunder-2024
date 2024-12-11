@@ -1,6 +1,5 @@
-// Textarea max character count
-
 if (document.querySelector(".main-join")) {
+  // Textarea max character count
   const textarea = document.querySelector(".input--textarea");
   const nestedLabel = document.querySelector(".nested-label");
   const maxLength = textarea?.maxLength;
@@ -19,4 +18,9 @@ if (document.querySelector(".main-join")) {
     updateCharCount();
     textarea?.addEventListener("input", updateCharCount);
   }
+
+  // reCAPTCHA
+  const recaptcha = document.querySelector(".g-recaptcha");
+
+  recaptcha?.setAttribute("data-theme", "dark");
 }

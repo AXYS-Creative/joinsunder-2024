@@ -473,6 +473,7 @@
 
         &__caption {
           @include column-center;
+          color: var(--background-color);
 
           &-title {
             @include h2;

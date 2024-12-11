@@ -26,7 +26,7 @@ header_fixed: #Leaving this value empty hides the header
       action="/contact"
       method="post"
       name="join-sunder-form"
-      netlify="true"
+      netlify
       netlify-honeybot="bot-field"
       data-netlify-recaptcha="true"
       hidden
@@ -141,6 +141,8 @@ header_fixed: #Leaving this value empty hides the header
           <span class="nested-label"></span>
         </label>
       </div>
+
+      <div data-netlify-recaptcha="true" class="recaptcha"></div>
 
       <button class="cta cta--dark tab-element-page" type="submit">
         Submit

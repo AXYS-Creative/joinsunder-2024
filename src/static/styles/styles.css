@@ -269,8 +269,6 @@ h6 span,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-family-body);
-  color: var(--font-color--primary);
 }
 *:-webkit-autofill, *:-webkit-autofill:hover, *:-webkit-autofill:focus-visible {
   -webkit-text-fill-color: var(--font-color--primary);
@@ -372,7 +370,38 @@ button {
 }
 
 a {
+  color: var(--font-color--primary);
+  font-family: var(--font-family-body);
+  font-size: 20px;
+  font-weight: 400;
   text-decoration: none;
+}
+@media screen and (max-width: 1512px) {
+  a {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  a {
+    font-size: 16px;
+  }
+}
+
+p {
+  color: var(--font-color--primary);
+  font-family: var(--font-family-body);
+  font-size: 20px;
+  font-weight: 400;
+}
+@media screen and (max-width: 1512px) {
+  p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 16px;
+  }
 }
 
 img {
@@ -1442,7 +1471,7 @@ img {
   opacity: 1;
 }
 .main-join .hero .join-sunder-form .form-block:has(textarea) {
-  height: 8em;
+  height: 6em;
 }
 .main-join .hero .join-sunder-form .form-block .label,
 .main-join .hero .join-sunder-form .form-block .input {
@@ -1483,7 +1512,6 @@ img {
 .main-join .hero .join-sunder-form .input:not(:placeholder-shown).input:not(focus) ~ .label, .main-join .hero .join-sunder-form:-webkit-autofill, .main-join .hero .join-sunder-form:-webkit-autofill:hover, .main-join .hero .join-sunder-form:-webkit-autofill:focus {
   translate: 0 -100%;
   font-size: 0.8em;
-  opacity: 1;
 }
 .main-join .hero .join-sunder-form .input:focus ~ .label .nested-label,
 .main-join .hero .join-sunder-form .input:not(:placeholder-shown).input:not(focus) ~ .label .nested-label, .main-join .hero .join-sunder-form:-webkit-autofill .nested-label, .main-join .hero .join-sunder-form:-webkit-autofill:hover .nested-label, .main-join .hero .join-sunder-form:-webkit-autofill:focus .nested-label {
@@ -2017,6 +2045,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: var(--background-color);
 }
 .main-resources .enzy .enzy-features .feature-block__caption-title {
   font-family: var(--font-family-heading);

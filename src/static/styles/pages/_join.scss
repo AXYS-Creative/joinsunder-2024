@@ -78,7 +78,7 @@
         }
 
         &:has(textarea) {
-          height: 8em;
+          height: 6em;
         }
 
         .label,
@@ -129,7 +129,6 @@
       &:-webkit-autofill:focus {
         translate: 0 -100%;
         font-size: 0.8em;
-        opacity: 1;
 
         .nested-label {
           translate: 8px -1px;

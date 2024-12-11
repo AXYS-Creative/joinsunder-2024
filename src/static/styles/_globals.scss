@@ -2,8 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-family-body);
-  color: var(--font-color--primary);
 
   // Autofill for form fields: input, textarea, select, etc. Feel free to delete if there are no forms
   &:-webkit-autofill,
@@ -118,12 +116,13 @@ button {
 }
 
 a {
+  @include body-font-styles;
   text-decoration: none;
 }
 
-// p {
-//   @include body-font-styles;
-// }
+p {
+  @include body-font-styles;
+}
 
 img {
   width: 100%;
