@@ -12,17 +12,20 @@ if (document.querySelector(".main-join")) {
 
   const updateCharCount = () => {
     const remaining = maxLength - textarea.value.length;
-    nestedLabel.textContent =
-      remaining === maxLength
-        ? `Max — ${maxLength} characters`
-        : `${remaining} character${remaining === 1 ? "" : "s"} remaining`;
 
-    // nestedLabel.classList.toggle("text-error", remaining === 0);
+    if (nestedLabel) {
+      nestedLabel.textContent =
+        remaining === maxLength
+          ? `Max — ${maxLength} characters`
+          : `${remaining} character${remaining === 1 ? "" : "s"} remaining`;
+
+      // nestedLabel.classList.toggle("text-error", remaining === 0);
+    }
   };
 
   if (maxLength) {
     updateCharCount();
-    textarea?.addEventListener("input", updateCharCount);
+    textarea.addEventListener("input", updateCharCount);
   }
 
   // reCAPTCHA

@@ -126,7 +126,7 @@ header_fixed: #Leaving this value empty hides the header
         <textarea
           class="input input--textarea tab-element-page"
           id="discovery"
-          maxlength="250"
+          maxlength="{{ page_join.join_form.max_count_discovery }}"
           spellcheck="true"
           name="How did you hear about us?"
           title="How did you hear about us?"
@@ -141,7 +141,10 @@ header_fixed: #Leaving this value empty hides the header
           aria-live="assertive"
         >
           How did you hear about us?
+          <!-- prettier-ignore -->
+          {% if page_join.join_form.max_count_discovery %}
           <span class="nested-label"></span>
+          {% endif %}
         </label>
       </div>
       {% endif %}
