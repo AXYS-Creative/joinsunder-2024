@@ -21,6 +21,3 @@ package-lock.json
 # Prevent outputted css files from sass (doesn't appear to be working)
 *.css.map
 *.map
-
-# No designs/unpaid
-404.html
