@@ -297,6 +297,7 @@ collections:
                   label: "Image Source",
                   widget: "image",
                   required: true,
+                  hint: "For site performance, ensure image size does not exceed 50KB",
                 }
               - {
                   name: "alt",
@@ -434,7 +435,15 @@ collections:
                   label: "Discovery Method Character Limit",
                   widget: "number",
                   required: false,
-                  hint: "Character limit for field: 'How did you hear about us?'. Default 250",
+                  hint: "Character limit for field: 'How did you hear about us?' — Default 250",
+                }
+              - {
+                  name: "show_recaptcha",
+                  label: "reCAPTCHA Display",
+                  widget: boolean,
+                  default: true,
+                  required: false,
+                  hint: "Show reCAPTCHA for additional spam prevention",
                 }
   - name: "global_components"
     label: "Global Components"

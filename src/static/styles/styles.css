@@ -1574,6 +1574,7 @@ img {
 @media screen and (max-width: 1024px) {
   .main-resources .hero__caption .hero__title {
     text-align: center;
+    text-wrap: balance;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1804,6 +1805,7 @@ img {
   --font-family-heading: Saira, sans-serif;
   --font-family-body: Saira, sans-serif;
   --gradient-distance: 180%;
+  overflow: hidden;
   background: linear-gradient(180deg, #6ca793, rgba(108, 167, 147, 0) var(--gradient-distance));
 }
 @media screen and (max-width: 1024px) {

@@ -37,6 +37,7 @@
 
         @include mq-max("lg") {
           text-align: center;
+          text-wrap: balance;
         }
 
         @include mq-max("sm") {
@@ -231,6 +232,7 @@
     --font-family-body: #{$enzy-font};
     --gradient-distance: 180%;
 
+    overflow: hidden; // text animation translate causing x-scroll on mobile
     background: linear-gradient(
       180deg,
       #6ca793,
