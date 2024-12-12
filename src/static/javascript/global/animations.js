@@ -21,8 +21,7 @@ responsiveGsap.add(
 
     // Image Reel, home and experience
     if (document.querySelector(".image-reel")) {
-      const yValHome = maxSm ? "-20.5%" : "-21.1%";
-      // const yValExperience = maxMd ? "-9.65%" : maxXxl ? "-9.675%" : "-9.85%";
+      const yValHome = maxSm ? "-20.5%" : "-21.05%";
       const yValExperience = maxMd ? "-8.5%" : maxXxl ? "-8.7%" : "-8.8%";
 
       const reelSlide = (el, distance) => {

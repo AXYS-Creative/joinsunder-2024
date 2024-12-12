@@ -404,7 +404,7 @@ collections:
       - name: "hero_section"
         label: "Hero Section"
         file: "src/_data/page_join.yaml"
-        preview_path: "/resources"
+        preview_path: "/join"
         editor:
           preview: false
         fields:
