@@ -8,13 +8,17 @@
   --nav-height: 436px;
   --nav-background-color: #c6d3d8;
   --footer-height: 164px;
+  --hero-top-padding: 128px;
+  --section-spacing: 248px;
   --radius: 12px;
   --radius-lg: 40px;
 }
 @media (max-width: 1512px) {
   :root {
-    --nav-height: 364px;
     --body-padding: 48px;
+    --nav-height: 364px;
+    --hero-top-padding: 112px;
+    --section-spacing: 196px;
   }
 }
 @media (max-width: 1200px) {
@@ -372,6 +376,7 @@ button {
 p,
 a,
 figcaption,
+blockquote,
 input,
 textarea {
   color: var(--font-color--primary);
@@ -384,6 +389,7 @@ textarea {
   p,
   a,
   figcaption,
+  blockquote,
   input,
   textarea {
     font-size: 18px;
@@ -393,6 +399,7 @@ textarea {
   p,
   a,
   figcaption,
+  blockquote,
   input,
   textarea {
     font-size: 16px;
@@ -490,6 +497,9 @@ img {
     justify-content: center;
     padding: 36px 0;
   }
+}
+.site-footer--sunder-colors {
+  background: linear-gradient(90deg, #000014 10%, #0c5ff2);
 }
 .site-footer--enzy-colors {
   box-shadow: -2px 0 4px rgba(0, 0, 20, 0.05);
@@ -1527,13 +1537,134 @@ img {
   width: max(25%, 128px);
 }
 
-.main-resources {
-  padding-block-start: 136px;
+.main-opportunity {
+  padding-block-start: var(--hero-top-padding);
+  overflow: hidden;
 }
-@media screen and (max-width: 1512px) {
-  .main-resources {
-    padding-block-start: 112px;
+@media screen and (max-width: 1024px) {
+  .main-opportunity {
+    padding-block-start: 248px;
   }
+}
+@media screen and (max-width: 768px) {
+  .main-opportunity {
+    padding-block-start: 296px;
+  }
+}
+.main-opportunity .hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  isolation: isolate;
+  background-color: var(--background-color);
+  position: relative;
+  padding-inline-start: var(--body-padding);
+  padding-block-end: var(--body-padding);
+  margin: 0 var(--body-padding) var(--section-spacing);
+  font-size: clamp(48px, 5vw, 96px);
+}
+@media screen and (max-width: 768px) {
+  .main-opportunity .hero {
+    margin-inline-end: 0;
+    padding-block: 24px 148px;
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-opportunity .hero {
+    font-size: max(24px, 8vw);
+  }
+}
+.main-opportunity .hero__title {
+  font-size: inherit;
+  flex-shrink: 0;
+  color: #fff;
+}
+@media screen and (min-width: 1025px) {
+  .main-opportunity .hero__title {
+    mix-blend-mode: difference;
+  }
+}
+.main-opportunity .hero__picture {
+  display: flex;
+  width: 40%;
+  translate: 0 var(--body-padding);
+}
+@media screen and (max-width: 1024px) {
+  .main-opportunity .hero__picture {
+    position: absolute;
+    bottom: var(--body-padding);
+    right: 0;
+    width: 364px;
+    z-index: -1;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-opportunity .hero__picture {
+    translate: var(--body-padding) 0;
+  }
+}
+.main-opportunity .hero__backdrop {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  border-radius: 0 var(--radius-lg);
+  width: 100%;
+  height: 12.65ch;
+  z-index: -2;
+}
+@media screen and (max-width: 1024px) {
+  .main-opportunity .hero__backdrop {
+    height: calc(100% + var(--body-padding));
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-opportunity .hero__backdrop {
+    border-top-right-radius: 0;
+  }
+}
+.main-opportunity .quotes-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: var(--body-padding);
+}
+.main-opportunity .quotes-section .quote-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+.main-opportunity .quotes-section .quote-block:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+.main-opportunity .quotes-section .quote-block__figure {
+  position: relative;
+  display: flex;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 30%;
+}
+.main-opportunity .quotes-section .quote-block__figure-caption {
+  position: absolute;
+  bottom: 0;
+  padding: 24px;
+  width: 100%;
+  background-color: black;
+  color: var(--background-color);
+}
+.main-opportunity .quotes-section .quote-block__quote {
+  width: 50%;
+}
+.main-opportunity .quotes-section .quote-block__quote-title {
+  margin-block-end: 64px;
+}
+
+.main-resources {
+  padding-block-start: var(--hero-top-padding);
 }
 .main-resources .hero {
   display: flex;

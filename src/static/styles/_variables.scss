@@ -29,13 +29,18 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
 
   --footer-height: 164px;
 
+  --hero-top-padding: 128px;
+
+  --section-spacing: 248px;
+
   --radius: 12px;
   --radius-lg: 40px;
 
   @media (max-width: 1512px) {
-    --nav-height: 364px;
-
     --body-padding: 48px;
+    --nav-height: 364px;
+    --hero-top-padding: 112px;
+    --section-spacing: 196px;
   }
 
   @media (max-width: 1200px) {

@@ -58,6 +58,80 @@ collections:
                   required: true,
                   hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
                 }
+  - name: "opportunity_page"
+    label: "Page - Opportunity"
+    files:
+      - name: "hero_section"
+        label: "Hero Section"
+        file: "src/_data/page_opportunity_hero.yaml"
+        preview_path: "/opportunity"
+        editor:
+          preview: false
+        fields:
+          - name: "heading"
+            label: "Heading"
+            widget: "string"
+            required: true
+            hint: Customize text with tokens. Visit https://axyscreative.com/tokens to learn more.
+          - name: "hero_img_lg"
+            label: "Hero Image Desktop"
+            widget: "image"
+            required: true
+          - name: "hero_img_sm"
+            label: "Hero Image Mobile"
+            widget: "image"
+            required: true
+      - name: "quotes_section"
+        label: "Quotes Section"
+        file: "src/_data/page_opportunity_quotes.yaml"
+        preview_path: "/opportunity#quotes-section"
+        editor:
+          preview: false
+        fields:
+          - name: "section_title"
+            label: "Section Title"
+            widget: "string"
+            required: true
+            hint: Semantic page heading for accessibility. Not visually shown on the page (per design) but improves indexing and other areas. If left blank, defaults to 'Insights from our leaders.'
+          - name: "quotes"
+            label: "Quotes"
+            label_singular: "Quote"
+            widget: "list"
+            collapsed: true
+            required: true
+            fields:
+              - {
+                  name: "name_first",
+                  label: "First Name",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "name_last",
+                  label: "Last Name",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "role",
+                  label: "Role",
+                  widget: "string",
+                  required: true,
+                }
+              - { name: "img", label: "Image", widget: "image", required: true }
+              - {
+                  name: "quote_title",
+                  label: "Quote Title",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "quote",
+                  label: "Quote",
+                  widget: "text",
+                  required: true,
+                  hint: Don't include quotation marks around the text. This is already included.,
+                }
   - name: "compete_page"
     label: "Page - Compete"
     files:
@@ -346,8 +420,8 @@ collections:
             required: true
             fields:
               - {
-                  name: "section_heading",
-                  label: "Section Heading",
+                  name: section_heading,
+                  label: Section Heading,
                   widget: string,
                   required: true,
                   hint: Semantic section heading for accessibility. Not visually shown on the page (per design) but improves site scraping.,
@@ -355,20 +429,20 @@ collections:
               - {
                   name: "video_embed",
                   label: "Video Embed",
-                  widget: "string",
+                  widget: string,
                   required: true,
                   hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here.",
                 }
               - {
-                  name: "hero_img",
-                  label: "Hero Image",
-                  widget: "image",
+                  name: hero_img,
+                  label: Hero Image,
+                  widget: image,
                   required: true,
                 }
               - {
-                  name: "alt",
-                  label: "Image Description",
-                  widget: "string",
+                  name: alt,
+                  label: Image Description,
+                  widget: string,
                   required: true,
                   hint: "For accessibility. Describe the image while avoiding these words: image, photo, picture, etc.",
                 }

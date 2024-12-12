@@ -8,8 +8,69 @@ description: Sample description // CHANGE ME
 # master props
 header_fixed: false
 header_logo_color: dark
+show_header_cta: true
+footer_gradient: site-footer--sunder-colors
 ---
 
 <section class="hero">
-  <h1 class="h1">Opportunity</h1>
+  <h1 class="h1 hero__title">{{ page_opportunity_hero.heading }}</h1>
+
+  <picture class="hero__picture">
+    <source
+      srcset="{{ page_opportunity_hero.hero_img_sm }}"
+      media="(max-width: 1024px)"
+      type="image/webp"
+    />
+    <source
+      srcset="{{ page_opportunity_hero.hero_img_lg }}"
+      media="(min-width: 1025px)"
+      type="image/webp"
+    />
+    <img
+      class="hero__img"
+      src="{{ page_opportunity_hero.hero_img_lg }}"
+      alt=""
+      loading="lazy"
+      fetchpriority="low"
+      width="480"
+      height="480"
+    />
+  </picture>
+  <div class="hero__backdrop" aria-hidden="true"></div>
+</section>
+
+<section class="quotes-section" id="quotes-section">
+  <h2 class="sr-only">
+    <!-- prettier-ignore -->
+    {% if page_opportunity_quotes.section_title %}
+      {{ page_opportunity_quotes.section_title }}
+    {% else %}
+      Insights from our leaders
+    {% endif %}
+  </h2>
+
+  {% for quote in page_opportunity_quotes.quotes %}
+  <div class="quote-block">
+    <figure class="quote-block__figure">
+      <img class="quote-block__figure-img" src="{{ quote.img }}" alt="" />
+      <figcaption class="quote-block__figure-caption">
+        <span class="quote-block__figure-caption__name-first">
+          {{ quote.name_first }}
+        </span>
+        <span class="quote-block__figure-caption__name-last">
+          {{ quote.name_last }}
+        </span>
+        <span class="quote-block__figure-caption__role">
+          {{ quote.role }}
+        </span>
+      </figcaption>
+    </figure>
+    <div class="quote-block__quote">
+      <h3 class="quote-block__quote-title">{{ quote.quote_title }}</h3>
+      <blockquote class="quote-block__quote-actual">
+        “{{ quote.quote }}”
+      </blockquote>
+    </div>
+  </div>
+  {% endfor %}
 </section>

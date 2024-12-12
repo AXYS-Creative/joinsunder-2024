@@ -118,6 +118,7 @@ button {
 p,
 a,
 figcaption,
+blockquote,
 input,
 textarea {
   @include body-font-styles;
@@ -209,18 +210,24 @@ img {
   padding-inline-end: 64px;
   height: var(--footer-height);
 
-  @include mq-min("xl") {
-    width: 86%;
+  @media all {
+    @include mq-min("xl") {
+      width: 86%;
+    }
+
+    @include mq-max("lg") {
+      padding-inline-end: 48px;
+    }
+
+    @include mq-max("sm") {
+      align-items: flex-start;
+      justify-content: center;
+      padding: 36px 0;
+    }
   }
 
-  @include mq-max("lg") {
-    padding-inline-end: 48px;
-  }
-
-  @include mq-max("sm") {
-    align-items: flex-start;
-    justify-content: center;
-    padding: 36px 0;
+  &--sunder-colors {
+    background: linear-gradient(90deg, #000014 10%, #0c5ff2);
   }
 
   &--enzy-colors {

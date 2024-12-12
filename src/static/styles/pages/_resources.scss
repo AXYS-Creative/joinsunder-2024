@@ -1,9 +1,5 @@
 .main-resources {
-  padding-block-start: 136px;
-
-  @include mq-max("xxl") {
-    padding-block-start: 112px;
-  }
+  padding-block-start: var(--hero-top-padding);
 
   .hero {
     @include row-start(space-between);

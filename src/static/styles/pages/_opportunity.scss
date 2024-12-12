@@ -1,0 +1,124 @@
+.main-opportunity {
+  padding-block-start: var(--hero-top-padding);
+  overflow: hidden; // for hero img on smaller devices
+
+  @include mq-max("lg") {
+    padding-block-start: 248px;
+  }
+
+  @include mq-max("md") {
+    padding-block-start: 296px;
+  }
+
+  .hero {
+    @include row-end(space-between);
+    isolation: isolate; // Fixes mix-blend-mode issue when opening nav 1/2
+    background-color: var(--background-color); // Helps fix issue above 2/2
+    position: relative;
+    padding-inline-start: var(--body-padding);
+    padding-block-end: var(--body-padding);
+    margin: 0 var(--body-padding) var(--section-spacing);
+    font-size: clamp(48px, 5vw, 96px);
+
+    @include mq-max("md") {
+      margin-inline-end: 0;
+      padding-block: 24px 148px;
+      font-size: 40px;
+    }
+
+    @include mq-max("sm") {
+      font-size: max(24px, 8vw);
+    }
+
+    &__title {
+      font-size: inherit;
+      flex-shrink: 0;
+      color: #fff;
+
+      @include mq-min("lg") {
+        mix-blend-mode: difference;
+      }
+    }
+
+    &__picture {
+      display: flex; // fixes position issue
+      width: 40%;
+      translate: 0 var(--body-padding);
+
+      @include mq-max("lg") {
+        position: absolute;
+        bottom: var(--body-padding);
+        right: 0;
+        width: 364px;
+        z-index: -1;
+      }
+
+      @include mq-max("md") {
+        translate: var(--body-padding) 0;
+      }
+    }
+
+    &__backdrop {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      border-radius: 0 var(--radius-lg);
+      width: 100%;
+      height: 12.65ch;
+      z-index: -2;
+
+      @include mq-max("lg") {
+        height: calc(100% + var(--body-padding));
+      }
+
+      @include mq-max("md") {
+        border-top-right-radius: 0;
+      }
+    }
+  }
+
+  .quotes-section {
+    @include column-center;
+    padding-inline: var(--body-padding);
+
+    .quote-block {
+      @include row-center;
+      gap: 64px;
+
+      &:nth-of-type(even) {
+        flex-direction: row-reverse;
+      }
+
+      &__figure {
+        position: relative;
+        display: flex;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        flex-shrink: 0;
+        width: 30%;
+
+        // &-img {
+        //   width: 480px;
+        // }
+
+        &-caption {
+          position: absolute;
+          bottom: 0;
+          padding: 24px;
+          width: 100%;
+          background-color: black;
+          color: var(--background-color);
+        }
+      }
+
+      &__quote {
+        width: 50%;
+
+        &-title {
+          margin-block-end: 64px;
+        }
+      }
+    }
+  }
+}
