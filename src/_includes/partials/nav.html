@@ -27,7 +27,15 @@
           media="(min-width: 1025px)"
           type="image/webp"
         />
-        <img class="nav-link__img" src="{{link.desktop_image}}" alt="" />
+        <img
+          class="nav-link__img"
+          src="{{link.desktop_image}}"
+          alt=""
+          loading="lazy"
+          fetchpriority="low"
+          width="320"
+          height="180"
+        />
       </picture>
     </a>
     {% endfor %}
