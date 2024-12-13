@@ -42,7 +42,7 @@
 
     &__picture {
       display: flex; // fixes position issue
-      width: 40%;
+      width: min(40%, 850px);
       translate: 0 var(--body-padding);
 
       @include mq-max("lg") {
@@ -82,12 +82,58 @@
     @include column-center;
     padding-inline: var(--body-padding);
 
+    @include mq-max("lg") {
+      gap: 128px;
+    }
+
     .quote-block {
       @include row-center;
       gap: 64px;
 
+      @include mq-max("lg") {
+        flex-direction: column-reverse;
+      }
+
       &:nth-of-type(even) {
         flex-direction: row-reverse;
+
+        @include mq-max("lg") {
+          flex-direction: column-reverse;
+        }
+      }
+
+      // Handle additional quotes. Design only has divider for desktop
+      &:has(+ .quote-block) {
+        --divider-height: 250px;
+        --padding: 24px;
+
+        @include mq-max("xxl") {
+          --divider-height: 180px;
+        }
+
+        @include mq-min("lg") {
+          position: relative;
+          margin-block-end: var(--divider-height);
+          padding-block: var(--padding);
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            width: 2px;
+            height: var(--divider-height);
+            display: block;
+            background-color: var(--font-color--primary);
+
+            @include mq-max("xxl") {
+              width: 1px;
+            }
+          }
+
+          & + .quote-block {
+            padding-block: var(--padding);
+          }
+        }
       }
 
       &__figure {
@@ -96,27 +142,54 @@
         border-radius: var(--radius-lg);
         overflow: hidden;
         flex-shrink: 0;
-        width: 30%;
+        width: min(30%, 580px);
 
-        // &-img {
-        //   width: 480px;
-        // }
+        @include mq-max("lg") {
+          width: min(100%, 420px);
+        }
 
         &-caption {
+          @include column-start;
+          @include caption-gradient;
           position: absolute;
           bottom: 0;
-          padding: 24px;
+          padding: 12px 24px 24px;
           width: 100%;
-          background-color: black;
           color: var(--background-color);
+
+          * {
+            font-family: var(--font-family-heading);
+            font-weight: 600;
+          }
+
+          &__name-first {
+            font-size: 1.6em;
+          }
+          &__name-last {
+            font-size: 2.4em;
+          }
+          &__role {
+            font-weight: 400;
+          }
         }
       }
 
       &__quote {
-        width: 50%;
+        @include mq-min("lg") {
+          width: 50%;
+        }
 
         &-title {
           margin-block-end: 64px;
+          font-weight: 600;
+
+          @include mq-max("xxl") {
+            margin-block-end: 48px;
+          }
+
+          @include mq-max("lg") {
+            margin-block-end: 16px;
+          }
         }
       }
     }

@@ -52,7 +52,13 @@ footer_gradient: site-footer--sunder-colors
   {% for quote in page_opportunity_quotes.quotes %}
   <div class="quote-block">
     <figure class="quote-block__figure">
-      <img class="quote-block__figure-img" src="{{ quote.img }}" alt="" />
+      <img
+        class="quote-block__figure-img"
+        src="{{ quote.img }}"
+        alt=""
+        width="360"
+        height="360"
+      />
       <figcaption class="quote-block__figure-caption">
         <span class="quote-block__figure-caption__name-first">
           {{ quote.name_first }}

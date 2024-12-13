@@ -181,7 +181,7 @@ h1,
   @include heading(72px, 4.2vw, 6vw, 40px, 32px);
 }
 
-//
+// Enzy Perk Title
 @mixin h2 {
   @include heading(64px, 4.4vw, 4.4vw, 6.4vw, 32px);
 }
@@ -190,7 +190,7 @@ h2,
   @include h2;
 }
 
-//
+// Opportunity Quote Title
 h3,
 .h3 {
   @include heading(48px, 3vw, 3vw, 24px, 20px);
