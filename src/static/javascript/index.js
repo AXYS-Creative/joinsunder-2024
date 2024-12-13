@@ -9,5 +9,6 @@ import "./content/tokens.js";
 
 import "./pages/home.js";
 import "./pages/join.js";
+import "./pages/opportunity.js";
 
 import "./utility.js";

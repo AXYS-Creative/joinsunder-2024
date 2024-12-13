@@ -132,6 +132,33 @@ collections:
                   required: true,
                   hint: Don't include quotation marks around the text. This is already included.,
                 }
+      - name: "sunder_definition"
+        label: "Sunder Definition Video"
+        file: "src/_data/page_opportunity_definition.yaml"
+        preview_path: "/opportunity#sunder-definition"
+        editor:
+          preview: false
+        fields:
+          - name: "video_title"
+            label: "Video Title"
+            widget: "string"
+            required: false
+          - name: "video_src"
+            label: "Video Source"
+            widget: "image"
+            required: true
+            media_library:
+              config:
+                max_file_size: 20000000 # In bytes. 1MB = 1,000,000 bytes
+          - name: "video_img"
+            label: "Video Poster"
+            widget: "image"
+            required: false
+          - name: "video_transcript"
+            label: "Video Transcript"
+            widget: "text"
+            required: true
+            hint: An accessibility feature. Provide the transcript of video text for screen readers.
   - name: "compete_page"
     label: "Page - Compete"
     files:

@@ -29,7 +29,7 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
 
   --footer-height: 164px;
 
-  --hero-top-padding: 128px;
+  --hero-top-padding: 180px;
 
   --section-spacing: 248px;
 
@@ -39,7 +39,7 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
   @media (max-width: 1512px) {
     --body-padding: 48px;
     --nav-height: 364px;
-    --hero-top-padding: 112px;
+    --hero-top-padding: 148px;
     --section-spacing: 196px;
   }
 

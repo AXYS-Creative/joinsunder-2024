@@ -40,3 +40,26 @@
     translate: 100% -50%;
   }
 }
+
+@keyframes video-icon__1 {
+  0% {
+    translate: calc(-100% - 1ch) 0;
+  }
+  25% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+@keyframes video-icon__2 {
+  0% {
+    translate: 0 0;
+  }
+  25% {
+    translate: calc(100% + 1ch) 0;
+  }
+  100% {
+    translate: calc(100% + 1ch) 0;
+  }
+}

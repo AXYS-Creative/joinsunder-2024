@@ -80,3 +80,43 @@ footer_gradient: site-footer--sunder-colors
   </div>
   {% endfor %}
 </section>
+
+<section class="sunder-definition" id="sunder-definition">
+  <h2 class="sunder-definition__title">
+    <span
+      class="sunder-definition__title-scrub sunder-definition__title-scrub-1"
+    >
+      We are the <br aria-hidden="true" />
+      leaders
+    </span>
+    <span
+      class="sunder-definition__title-scrub sunder-definition__title-scrub-2"
+    >
+      in the solar <br aria-hidden="true" />
+      industry
+    </span>
+  </h2>
+  <button
+    class="sunder-definition__video tab-element-page"
+    aria-pressed="false"
+  >
+    <h3 class="sunder-definition__video-title">
+      {{ page_opportunity_definition.video_title}}
+    </h3>
+    <span class="sunder-definition__video-icon">
+      <span class="sunder-definition__video-icon-img"></span>
+      <span class="sunder-definition__video-icon-img"></span>
+    </span>
+    <video
+      class="sunder-definition__video-actual"
+      poster="{{ page_opportunity_definition.video_img }}"
+      src="{{ page_opportunity_definition.video_src }}"
+      type="video/mp4"
+      preload="none"
+      width="850"
+      aria-label="{{ page_opportunity_definition.video_transcript }}"
+    ></video>
+  </button>
+</section>
+
+<section class="sunder-growth"></section>

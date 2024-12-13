@@ -18,6 +18,11 @@ responsiveGsap.add(
       endColor: "navy",
       indent: 148,
     };
+    let whiteMarkers = {
+      startColor: "white",
+      endColor: "white",
+      indent: 320,
+    };
 
     // Image Reel, home and experience
     if (document.querySelector(".image-reel")) {
@@ -43,6 +48,56 @@ responsiveGsap.add(
       reelSlide(".image-reel__column-1--home", yValHome);
       reelSlide(".image-reel__column-1--experience", yValExperience);
       reelSlide(".image-reel__column-3--experience", yValExperience);
+    }
+
+    // Opportunity Page
+    if (document.querySelector(".main-opportunity")) {
+      // Sunder Definition Video
+      {
+        let pinDuration = "+=180%";
+        let delayChildren = "0%"; // Smaller = greater delay (don't drop below 0)
+
+        gsap.from(".sunder-definition", {
+          scrollTrigger: {
+            trigger: ".sunder-definition",
+            start: maxMd ? "top 25%" : "top top",
+            end: pinDuration,
+            pin: true,
+          },
+        });
+        gsap.to(".sunder-definition__title-scrub-1", {
+          top: "10%",
+          left: "10%",
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".sunder-definition__title-scrub-1",
+            start: maxMd ? "top 25%" : `top ${delayChildren}`,
+            end: "+=100%",
+            scrub: 1,
+          },
+        });
+        gsap.to(".sunder-definition__title-scrub-2", {
+          bottom: "10%",
+          right: "10%",
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".sunder-definition__title-scrub-1",
+            start: maxMd ? "top 25%" : `top ${delayChildren}`,
+            end: "+=100%",
+            scrub: 1,
+          },
+        });
+        gsap.from(".sunder-definition__video", {
+          scale: 0.25,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".sunder-definition__title-scrub-1",
+            start: maxMd ? "top 25%" : `top ${delayChildren}`,
+            end: "+=100%",
+            scrub: 1,
+          },
+        });
+      }
     }
 
     // Resources Page

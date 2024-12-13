@@ -3,11 +3,11 @@
   overflow: hidden; // for hero img on smaller devices
 
   @include mq-max("lg") {
-    padding-block-start: 248px;
+    padding-block-start: 212px;
   }
 
   @include mq-max("md") {
-    padding-block-start: 296px;
+    padding-block-start: 264px;
   }
 
   .hero {
@@ -22,7 +22,7 @@
 
     @include mq-max("md") {
       margin-inline-end: 0;
-      padding-block: 24px 148px;
+      padding-block: 24px 48px;
       font-size: 40px;
     }
 
@@ -33,10 +33,16 @@
     &__title {
       font-size: inherit;
       flex-shrink: 0;
+      line-height: 1.4;
       color: #fff;
 
       @include mq-min("lg") {
         mix-blend-mode: difference;
+        line-height: 1.25;
+      }
+
+      @include mq-max("md") {
+        line-height: 1.5;
       }
     }
 
@@ -49,12 +55,16 @@
         position: absolute;
         bottom: var(--body-padding);
         right: 0;
-        width: 364px;
+        width: 400px;
         z-index: -1;
       }
 
       @include mq-max("md") {
-        translate: var(--body-padding) 0;
+        translate: calc(var(--body-padding) * 2) 0;
+      }
+
+      @include mq-max("sm") {
+        width: min(100%, 320px);
       }
     }
 
@@ -65,7 +75,7 @@
       background-color: #000;
       border-radius: 0 var(--radius-lg);
       width: 100%;
-      height: 12.65ch;
+      height: 14ch;
       z-index: -2;
 
       @include mq-max("lg") {
@@ -81,6 +91,7 @@
   .quotes-section {
     @include column-center;
     padding-inline: var(--body-padding);
+    margin-block-end: var(--section-spacing);
 
     @include mq-max("lg") {
       gap: 128px;
@@ -164,9 +175,17 @@
 
           &__name-first {
             font-size: 1.6em;
+
+            @include mq-max("xs") {
+              font-size: 1.4em;
+            }
           }
           &__name-last {
             font-size: 2.4em;
+
+            @include mq-max("xs") {
+              font-size: 1.8em;
+            }
           }
           &__role {
             font-weight: 400;
@@ -193,5 +212,160 @@
         }
       }
     }
+  }
+
+  .sunder-definition {
+    background-color: grey;
+    height: max(100dvh, 750px);
+    @include row-center;
+
+    @include mq-max("md") {
+      height: 50dvh;
+    }
+
+    &__title {
+      color: var(--background-color);
+      font-weight: 600;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+
+      @include mq-max("lg") {
+        font-size: 5vw;
+      }
+
+      span {
+        position: absolute;
+        white-space: nowrap;
+
+        &:first-of-type {
+          top: 50%;
+          left: 50%;
+          translate: -87% -75%;
+        }
+        &:last-of-type {
+          bottom: 50%;
+          right: 50%;
+          translate: 87% 75%;
+          text-align: right;
+        }
+      }
+    }
+
+    &__video {
+      $video-transition: 0.3s ease;
+
+      display: flex; // Fixes issue
+
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      width: min(50vw, 1200px);
+      aspect-ratio: 2 / 1.1225; // Close to original video size (before object-fit: cover)
+      cursor: pointer;
+
+      @media all {
+        @include mq-max("xxl") {
+          width: 60vw;
+        }
+
+        @include mq-max("xl") {
+          width: 80vw;
+        }
+
+        @include mq-max("lg") {
+          aspect-ratio: 2 / 1.25;
+        }
+      }
+
+      // Experimental :hover & :focus-visible only on desktop
+      @include non-mobile-hover {
+        .sunder-definition__video-actual {
+          scale: 1.05;
+          filter: brightness(1.1);
+        }
+        .sunder-definition__video-icon-img:first-of-type {
+          animation: video-icon__1 1.5s ease infinite;
+        }
+        .sunder-definition__video-icon-img:last-of-type {
+          animation: video-icon__2 1.5s ease infinite;
+        }
+      }
+
+      &-title {
+        // @include caption-gradient;
+        // background-color: rgba($sunder-navy, 0.5);
+        background: linear-gradient(45deg, $sunder-navy, transparent);
+        color: var(--background-color);
+        font-weight: 600;
+        text-align: left;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        padding: var(--body-padding);
+
+        transition: $video-transition;
+      }
+
+      &-icon {
+        @include row-center;
+        position: absolute;
+        bottom: var(--body-padding);
+        left: var(--body-padding);
+        padding: 12px;
+        z-index: 1;
+        scale: 2.5;
+        transform-origin: bottom left;
+        overflow: hidden;
+
+        transition: $video-transition;
+
+        @include mq-max("md") {
+          scale: 1.5;
+        }
+
+        @include mq-max("sm") {
+          scale: 1;
+        }
+
+        &-img {
+          position: absolute;
+          background-color: var(--background-color);
+          mask-image: url(../img/icon-play.svg);
+          mask-repeat: no-repeat;
+          mask-position: center;
+          width: 100%;
+          height: 100%;
+
+          transition: $video-transition;
+
+          &:first-of-type {
+            translate: calc(-100% - 1ch) 0;
+          }
+        }
+      }
+
+      &-actual {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        transition: $video-transition;
+      }
+
+      &--active {
+        .sunder-definition__video-title,
+        .sunder-definition__video-icon {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .sunder-growth {
+    height: 100vh;
   }
 }
