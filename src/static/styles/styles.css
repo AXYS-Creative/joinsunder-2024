@@ -1863,14 +1863,14 @@ img {
   }
 }
 @media (hover: hover) and (pointer: fine) {
-  .main-opportunity .sunder-definition__video:hover .sunder-definition__video-actual, .main-opportunity .sunder-definition__video:focus-visible .sunder-definition__video-actual {
+  .main-opportunity .sunder-definition__video:hover:not(.sunder-definition__video--active) .sunder-definition__video-actual, .main-opportunity .sunder-definition__video:focus-visible:not(.sunder-definition__video--active) .sunder-definition__video-actual {
     scale: 1.05;
     filter: brightness(1.1);
   }
-  .main-opportunity .sunder-definition__video:hover .sunder-definition__video-icon-img:first-of-type, .main-opportunity .sunder-definition__video:focus-visible .sunder-definition__video-icon-img:first-of-type {
+  .main-opportunity .sunder-definition__video:hover:not(.sunder-definition__video--active) .sunder-definition__video-icon-img:first-of-type, .main-opportunity .sunder-definition__video:focus-visible:not(.sunder-definition__video--active) .sunder-definition__video-icon-img:first-of-type {
     animation: video-icon__1 1.5s ease infinite;
   }
-  .main-opportunity .sunder-definition__video:hover .sunder-definition__video-icon-img:last-of-type, .main-opportunity .sunder-definition__video:focus-visible .sunder-definition__video-icon-img:last-of-type {
+  .main-opportunity .sunder-definition__video:hover:not(.sunder-definition__video--active) .sunder-definition__video-icon-img:last-of-type, .main-opportunity .sunder-definition__video:focus-visible:not(.sunder-definition__video--active) .sunder-definition__video-icon-img:last-of-type {
     animation: video-icon__2 1.5s ease infinite;
   }
 }

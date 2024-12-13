@@ -579,13 +579,15 @@ collections:
                   widget: "image",
                   required: true,
                   hint: For site performance keep the file under 100kb. The smaller the faster.,
-                  media_library: { config: { max_file_size: 100000 } }, # 1KB = 100,000 bytes
+                  media_library: { config: { max_file_size: 100000 } }, # 1KB = 1,000 bytes
                 }
               - {
                   name: "mobile_image", # 420 x 694 in dev tools
                   label: "Mobile Image",
                   widget: "image",
                   required: true,
+                  hint: For site performance keep the file under 50kb. The smaller the faster.,
+                  media_library: { config: { max_file_size: 50000 } }, # 1KB = 1,000 bytes
                 }
       - name: "page_loader"
         label: "Page Loader"
