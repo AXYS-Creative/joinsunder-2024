@@ -149,7 +149,7 @@ collections:
             required: true
             media_library:
               config:
-                max_file_size: 20000000 # In bytes. 1MB = 1,000,000 bytes
+                max_file_size: 20000000 # 1MB = 1,000,000 bytes
           - name: "video_img"
             label: "Video Poster"
             widget: "image"
@@ -574,13 +574,15 @@ collections:
                   required: true,
                 }
               - {
-                  name: "desktop_image",
+                  name: "desktop_image", # 1512 x 823, address bar showing
                   label: "Desktop Image",
                   widget: "image",
                   required: true,
+                  hint: For site performance keep the file under 100kb. The smaller the faster.,
+                  media_library: { config: { max_file_size: 100000 } }, # 1KB = 100,000 bytes
                 }
               - {
-                  name: "mobile_image",
+                  name: "mobile_image", # 420 x 694 in dev tools
                   label: "Mobile Image",
                   widget: "image",
                   required: true,

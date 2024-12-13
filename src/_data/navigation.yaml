@@ -3,25 +3,25 @@
 nav_links:
   - title: Home
     url: "/"
-    desktop_image: "/static/img/nav-home.webp"
-    mobile_image: "/static/img/nav-home-small.webp"
+    desktop_image: "/static/img/nav-home-lg.webp"
+    mobile_image: "/static/img/nav-home-sm.webp"
   - title: Opportunity
     url: "/opportunity"
-    desktop_image: "/static/img/nav-opportunity.webp"
-    mobile_image: "/static/img/nav-opportunity-small.webp"
+    desktop_image: "/static/img/nav-opportunity-lg.webp"
+    mobile_image: "/static/img/nav-opportunity-sm.webp"
   - title: Compete
     url: "/compete"
-    desktop_image: "/static/img/nav-compete.webp"
-    mobile_image: "/static/img/nav-compete-small.webp"
+    desktop_image: "/static/img/nav-compete-lg.webp"
+    mobile_image: "/static/img/nav-compete-sm.webp"
   - title: Experience
     url: "/experience"
-    desktop_image: "/static/img/nav-experience.webp"
-    mobile_image: "/static/img/nav-experience-small.webp"
+    desktop_image: "/static/img/nav-experience-lg.webp"
+    mobile_image: "/static/img/nav-experience-sm.webp"
   - title: Resources
     url: "/resources"
-    desktop_image: "/static/img/nav-resources.webp"
-    mobile_image: "/static/img/nav-resources-small.webp"
+    desktop_image: "/static/img/nav-resources-lg.webp"
+    mobile_image: "/static/img/nav-resources-sm.webp"
   - title: Join
     url: "/join"
-    desktop_image: "/static/img/nav-join.webp"
-    mobile_image: "/static/img/nav-join-small.webp"
+    desktop_image: "/static/img/nav-join-lg.webp"
+    mobile_image: "/static/img/nav-join-sm.webp"
