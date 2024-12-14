@@ -37,7 +37,7 @@ if (document.querySelector(".main-home")) {
         };
         setTimeout(() => {
           pageScroll();
-        }, 1200);
+        }, 2600);
       }
       wasSmallerScreen = false;
     } else {

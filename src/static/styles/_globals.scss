@@ -21,21 +21,19 @@
 body {
   background-color: var(--background-color);
 
-  // page specific animations based on if the loader exists
-  &.has-loader {
-    $loader-delay: 2s;
-
-    .main-home {
-      .hero-text {
-        opacity: 0;
-        animation: fade-in 0.4s ease $loader-delay + 0.2 forwards;
-      }
+  // Animations based on if the loader exists. Currently scoped to home page
+  &.has-loader:has(.main-home) {
+    .nav-btn {
+      animation-delay: var(--loader-duration-after);
     }
+    // .main-home {
+    //   .hero-text {
+    //     animation: fade-in 0.4s ease var(--loader-duration) + 0.4 forwards;
+    //   }
+    // }
 
     // Currently only set to the home page
     .page-loader {
-      --slide-distance: 1.25ch;
-
       @include dark-theme;
       @include row-center;
       position: fixed;
@@ -43,13 +41,9 @@ body {
       width: 100vw;
       height: 100dvh;
       z-index: $z-index-loader;
-      // animation: fade-out 0.5s ease $loader-delay forwards;
+      animation: fade-out 0.5s ease calc(var(--loader-duration) - 0.1s) forwards;
 
-      // @include mq-max("sm") {
-      //   --slide-distance: 1ch;
-      // }
-
-      p {
+      &__text {
         @extend .h1;
         @include column-start;
         font-size: 8vw;
@@ -57,45 +51,6 @@ body {
 
         @include mq-max("sm") {
           font-size: 10vw;
-        }
-
-        .page-loader__block {
-          border: $test;
-          font-family: inherit;
-          display: flex;
-          overflow: hidden;
-          height: var(--slide-distance);
-          padding-top: var(--slide-distance);
-          animation: loader-text 2s ease 0.5s forwards;
-
-          @for $i from 1 through 5 {
-            &:nth-of-type(#{$i}) {
-              animation-delay: 0.1s * $i;
-            }
-          }
-        }
-      }
-
-      @keyframes loader-text {
-        0% {
-          align-items: flex-start;
-          padding-top: var(--slide-distance);
-          // padding-bottom: 0ch;
-        }
-        25% {
-          align-items: flex-start;
-          padding-top: 0ch;
-          // padding-bottom: 0ch;
-        }
-        75% {
-          align-items: flex-end;
-          // padding-top: 0ch;
-          padding-bottom: 0ch;
-        }
-        100% {
-          align-items: flex-end;
-          padding-top: 0ch;
-          padding-bottom: var(--slide-distance);
         }
       }
     }
@@ -258,11 +213,11 @@ img {
   height: var(--button-size);
   border-radius: 50%;
   z-index: $z-index-nav-btn;
+  animation: nav-btn 0.4s ease 1s forwards;
 
   @include mq-motion-allow {
     transition: 0.3s ease, background 0.32s ease 0.12s;
     translate: -50% 200%;
-    animation: nav-btn 0.4s ease 1s forwards;
   }
 
   @include mq-max("sm") {
@@ -384,15 +339,21 @@ img {
   .nav-link {
     overflow: hidden;
 
-    &__img {
-      display: block;
-      object-fit: cover;
-      border-radius: var(--radius);
+    @include non-mobile-hover {
+      .nav-link__img {
+        scale: 1.025;
+        filter: brightness(1.2);
+      }
+    }
+
+    picture {
+      @include row-center;
       margin-block-start: 12px;
+      border-radius: var(--radius);
+      overflow: hidden;
+
       width: 148px;
       aspect-ratio: 1 / 1.4;
-
-      transition: 0.3s ease, scale 0.4s ease;
 
       @media all {
         @include mq-min("md") {
@@ -412,6 +373,10 @@ img {
           width: 400px;
         }
       }
+    }
+
+    &__img {
+      transition: 0.3s ease, scale 0.4s ease;
     }
   }
 

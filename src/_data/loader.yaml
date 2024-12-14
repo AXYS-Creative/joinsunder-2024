@@ -1,4 +1,5 @@
-loader_toggle: false
-loader_text: <span class="page-loader__block">Empower</span>
-  <span class="page-loader__block">your</span>
-  <span class="page-loader__block">future</span>
+loader_toggle: true
+loader_text:
+  - Empower
+  - Your
+  - Future

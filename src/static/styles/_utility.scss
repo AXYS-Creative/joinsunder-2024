@@ -102,6 +102,49 @@
 }
 
 //
+// CMS
+//
+
+.popup-text {
+  // border: 2px solid yellow;
+
+  &__block {
+    font-family: inherit;
+    display: flex;
+    overflow: hidden;
+
+    @for $i from 1 through 5 {
+      &:nth-of-type(#{$i}) {
+        span {
+          animation-delay: calc(var(--loader-duration-before) + 0.075s * $i);
+        }
+      }
+    }
+
+    &-inner {
+      translate: 0 105%;
+      animation: popup-text 0.5s ease forwards;
+    }
+  }
+
+  &--loader {
+    .popup-text__block {
+      @for $i from 1 through 5 {
+        &:nth-of-type(#{$i}) {
+          span {
+            animation-delay: 0.1s * $i;
+          }
+        }
+      }
+
+      &-inner {
+        animation: popup-text--loader var(--loader-duration) ease forwards;
+      }
+    }
+  }
+}
+
+//
 // CMS Tokens
 //
 

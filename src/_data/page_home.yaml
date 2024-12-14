@@ -1,6 +1,10 @@
-hero_text: Join [%br%] America’s [%br%] Leading [%br%] Solar Sales [%br%] Company
+hero_text:
+  - Join
+  - America’s
+  - Leading
+  - Solar Sales
+  - Company
 video_embed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/K-13vo9aDqU?si=CP1ZNxd4mJZEc6a4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
-
 img_reel:
   - src: "/static/img/home-landscape-1.webp"
     alt: "A group of people cheering"

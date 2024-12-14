@@ -27,11 +27,15 @@ collections:
         editor:
           preview: false
         fields:
-          - name: "hero_text"
-            label: "Hero Text"
-            widget: "string"
-            required: true
-            hint: Customize text with tokens. Visit https://axyscreative.com/tokens to learn more.
+          # - name: "hero_text"
+          #   label: "Hero Text"
+          #   widget: "list"
+          #   required: true
+          #   fields:
+          #     - name: "line"
+          #       label: "text"
+          #       widget: "string"
+          #       required: true
           - name: "video_embed"
             label: "Video Embed"
             widget: "string"
@@ -600,11 +604,15 @@ collections:
             label: "Loader Toggle"
             widget: "boolean"
             default: true
-          - name: "loader_text"
-            label: "Loader Text"
-            widget: "string"
-            required: true
-            hint: 'Wrap individual words in this convention to animate them: <span class="page-loader__block">Empower</span>'
+          # - name: "loader_text"
+          #   label: "Loader Text"
+          #   widget: "list"
+          #   required: true
+          #   fields:
+          #     - name: "line"
+          #       label: "text"
+          #       widget: "string"
+          #       required: true
       - name: "video_carousel"
         label: "Video Carousel"
         file: "src/_data/video_carousel.yaml"

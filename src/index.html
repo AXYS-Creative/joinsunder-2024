@@ -15,7 +15,11 @@ show_header_cta: false
 
 <section class="hero">
   <div class="text-group">
-    <h1 class="h1 hero-text">{{ page_home.hero_text }}</h1>
+    <!-- prettier-ignore -->
+    {% set lines = page_home.hero_text %}
+    {% set classnames = "hero-text" %}
+    {% set element = "h1" %}
+    {% include "./_includes/components/popup-text.html" %}
 
     <div class="cta-group">
       <!-- prettier-ignore -->
