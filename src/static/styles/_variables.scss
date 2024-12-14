@@ -14,9 +14,10 @@ $nav-transition: translate 0.5s ease;
 $nav-translate: 0 calc(var(--nav-height) * -1);
 
 :root {
-  --loader-duration: 2s;
-  --loader-duration-before: calc(var(--loader-duration) - 0.25s);
-  --loader-duration-after: calc(var(--loader-duration) + 0.25s);
+  // See _globals.scss body for details. Basically don't animate if the loader is off
+  --loader-duration: 0s;
+  --loader-duration-before: 0s;
+  --loader-duration-after: 0s;
 
   --background-color: #{$sunder-snow};
 

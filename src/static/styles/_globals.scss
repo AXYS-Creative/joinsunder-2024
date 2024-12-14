@@ -23,6 +23,10 @@ body {
 
   // Animations based on if the loader exists. Currently scoped to home page
   &.has-loader:has(.main-home) {
+    --loader-duration: 2s;
+    --loader-duration-before: calc(var(--loader-duration) - 0.25s);
+    --loader-duration-after: calc(var(--loader-duration) + 0.25s);
+
     .nav-btn {
       animation-delay: var(--loader-duration-after);
     }

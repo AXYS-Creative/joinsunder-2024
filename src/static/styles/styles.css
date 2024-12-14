@@ -1,7 +1,7 @@
 :root {
-  --loader-duration: 2s;
-  --loader-duration-before: calc(var(--loader-duration) - 0.25s);
-  --loader-duration-after: calc(var(--loader-duration) + 0.25s);
+  --loader-duration: 0s;
+  --loader-duration-before: 0s;
+  --loader-duration-after: 0s;
   --background-color: #f7f7f7;
   --font-family-heading: Monument, sans-serif;
   --font-family-body: Satoshi, sans-serif;
@@ -288,6 +288,11 @@ h6 span,
 
 body {
   background-color: var(--background-color);
+}
+body.has-loader:has(.main-home) {
+  --loader-duration: 2s;
+  --loader-duration-before: calc(var(--loader-duration) - 0.25s);
+  --loader-duration-after: calc(var(--loader-duration) + 0.25s);
 }
 body.has-loader:has(.main-home) .nav-btn {
   animation-delay: var(--loader-duration-after);

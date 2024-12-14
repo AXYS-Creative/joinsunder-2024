@@ -27,15 +27,16 @@ collections:
         editor:
           preview: false
         fields:
-          # - name: "hero_text"
-          #   label: "Hero Text"
-          #   widget: "list"
-          #   required: true
-          #   fields:
-          #     - name: "line"
-          #       label: "text"
-          #       widget: "string"
-          #       required: true
+          - name: "hero_text"
+            label: "Hero Text"
+            widget: "list"
+            collapsed: false
+            required: true
+            fields:
+              - name: "line"
+                label: "text"
+                widget: "string"
+                required: true
           - name: "video_embed"
             label: "Video Embed"
             widget: "string"
@@ -601,18 +602,21 @@ collections:
           preview: false
         fields:
           - name: "loader_toggle"
-            label: "Loader Toggle"
+            label: "Show Loader"
             widget: "boolean"
             default: true
-          # - name: "loader_text"
-          #   label: "Loader Text"
-          #   widget: "list"
-          #   required: true
-          #   fields:
-          #     - name: "line"
-          #       label: "text"
-          #       widget: "string"
-          #       required: true
+          - name: "loader_text"
+            label: "Loader Text"
+            widget: "list"
+            required: true
+            collapsed: false
+            min: 3
+            max: 3
+            fields:
+              - name: "line"
+                label: "text"
+                widget: "string"
+                required: true
       - name: "video_carousel"
         label: "Video Carousel"
         file: "src/_data/video_carousel.yaml"

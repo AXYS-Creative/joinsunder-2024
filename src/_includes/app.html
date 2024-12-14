@@ -97,7 +97,7 @@
     {% if path == "home" %}
     
     {% if loader.loader_toggle %}
-    <div class="page-loader">
+    <div class="page-loader" role="alert" aria-live="assertive">
       <!-- prettier-ignore -->
       {% set lines = loader.loader_text %}
       {% set classnames = "page-loader__text popup-text--loader" %}
