@@ -53,12 +53,19 @@ show_header_cta: false
     </div>
 
     <div class="image-reel__column image-reel__column-2">
+      <!-- prettier-ignore -->
       {% for img in page_home.img_reel | slice(12) %}
       <img
         src="{{ img.src }}"
         alt="{{ img.alt }}"
         loading="eager"
         fetchpriority="auto"
+        width="360"
+        {%if loop.index0 % 2 == 0%}
+          height="480"
+          {%else%}
+          height="240"
+        {%endif%}
       />
       {% endfor %}
     </div>

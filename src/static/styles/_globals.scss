@@ -64,7 +64,6 @@ body {
   &:has(.site-footer) {
     section:last-of-type {
       padding-block-end: calc(var(--footer-height) + 96px);
-      z-index: -1;
     }
   }
 }
@@ -169,6 +168,8 @@ img {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   padding-inline-end: 64px;
   height: var(--footer-height);
+  position: relative; // resolves issue on mobile? Along with z-index below
+  z-index: 0;
 
   @media all {
     @include mq-min("xl") {

@@ -384,9 +384,9 @@
     &__title {
       display: flex;
       margin-block-start: var(--body-padding);
-      // position: sticky; // no idea what's happening
-      // align-self: flex-start;
-      // top: 0;
+      position: sticky; // no idea what's happening
+      align-self: flex-start;
+      top: var(--body-padding);
     }
 
     &__graph {
@@ -488,5 +488,6 @@
 
   .sunder-line-graph {
     @include dark-theme;
+    margin-block-end: 164px; // This only works since the background changes. Otherwise it'll show white.
   }
 }

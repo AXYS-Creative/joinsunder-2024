@@ -159,11 +159,12 @@ collections:
             label: "Video Poster"
             widget: "image"
             required: false
+            hint: Image to display before video begins
           - name: "video_transcript"
             label: "Video Transcript"
             widget: "text"
             required: true
-            hint: An accessibility feature. Provide the transcript of video text for screen readers.
+            hint: An accessibility feature. Provide the transcript of video's text to be read by screen readers.
       - name: "sales_force"
         label: "Sales Force (Bar Graph)"
         file: "src/_data/page_opportunity_salesforce.yaml"
@@ -175,6 +176,7 @@ collections:
             label: "Section Title"
             widget: "string"
             required: true
+            hint: Customize text with tokens. Visit https://axyscreative.com/tokens to learn more.
           - name: "bar_graph"
             label: "Year Stats"
             label_singular: "Year"

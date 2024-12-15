@@ -40,6 +40,9 @@ footer_gradient: site-footer--enzy-colors
       class="image-group__image image-group__image-{{ loop.index }}"
       src="{{ img.src }}"
       alt="{{ img.alt }}"
+      width="570"
+      height="860"
+      loading="lazy"
     />
     {% endfor %}
   </div>
@@ -66,6 +69,7 @@ footer_gradient: site-footer--enzy-colors
         alt=""
         width="320"
         height="480"
+        loading="lazy"
       />
       <figcaption class="figure__caption">
         <span class="figure__caption-name">{{ img.name }}</span>
@@ -84,6 +88,9 @@ footer_gradient: site-footer--enzy-colors
         class="enzy-logo"
         src="{{ page_resources_enzy.enzy_hero.enzy_logo }}"
         alt="enzy logo"
+        loading="lazy"
+        width="380"
+        height="112"
       />
       <!-- prettier-ignore -->
       {% set enzy_styles = 'cta--enzy' %}
@@ -95,6 +102,9 @@ footer_gradient: site-footer--enzy-colors
       <img
         src="{{ page_resources_enzy.enzy_hero.hero_img }}"
         alt="{{ page_resources_enzy.enzy_hero.alt }}"
+        loading="lazy"
+        width="500"
+        width="480"
       />
       {% if page_resources_enzy.enzy_hero.caption %}
       <figcaption class="enzy-hero__figure-caption" aria-hidden="true">
@@ -113,7 +123,14 @@ footer_gradient: site-footer--enzy-colors
     <h2 class="sr-only">Enzy’s features</h2>
     {% for perk in page_resources_enzy.enzy_perks %}
     <div class="feature-block gsap-animate">
-      <img class="feature-block__img" src="{{ perk.img }}" alt="" />
+      <img
+        class="feature-block__img"
+        src="{{ perk.img }}"
+        alt=""
+        loading="lazy"
+        width="380"
+        height="596"
+      />
       <div class="feature-block__caption">
         <h3 class="feature-block__caption-title">{{ perk.title }}</h3>
         <h4 class="feature-block__caption-description">{{ perk.subtitle }}</h4>
