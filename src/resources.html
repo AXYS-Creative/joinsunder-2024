@@ -42,7 +42,7 @@ footer_gradient: site-footer--enzy-colors
       alt="{{ img.alt }}"
       width="570"
       height="860"
-      loading="lazy"
+      loading="{% if loop.index == 1 %}eager{% else %}lazy{% endif %}"
     />
     {% endfor %}
   </div>
@@ -104,7 +104,7 @@ footer_gradient: site-footer--enzy-colors
         alt="{{ page_resources_enzy.enzy_hero.alt }}"
         loading="lazy"
         width="500"
-        width="480"
+        height="480"
       />
       {% if page_resources_enzy.enzy_hero.caption %}
       <figcaption class="enzy-hero__figure-caption" aria-hidden="true">
