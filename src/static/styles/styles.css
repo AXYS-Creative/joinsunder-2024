@@ -202,32 +202,34 @@ h4 span,
 h5,
 .h5 {
   font-family: var(--font-family-heading);
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1.1;
+  font-family: var(--font-family-body);
+  line-height: 1;
 }
 @media screen and (max-width: 1512px) {
   h5,
   .h5 {
-    font-size: 32px;
+    font-size: 1.6vw;
   }
 }
 @media screen and (max-width: 1024px) {
   h5,
   .h5 {
-    font-size: 32px;
+    font-size: 2.4vw;
   }
 }
 @media screen and (max-width: 768px) {
   h5,
   .h5 {
-    font-size: 12px;
+    font-size: 20px;
   }
 }
 @media screen and (max-width: 480px) {
   h5,
   .h5 {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 h5 span,
@@ -329,6 +331,7 @@ body.has-loader:has(.main-home) .page-loader__text {
 }
 body:has(.site-footer) section:last-of-type {
   padding-block-end: calc(var(--footer-height) + 96px);
+  z-index: -1;
 }
 
 button {
@@ -659,6 +662,9 @@ img {
 }
 
 .cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--font-color--primary);
   font-family: var(--font-family-body);
   font-size: 20px;
@@ -750,6 +756,11 @@ img {
 .cta--lg span {
   font-family: inherit;
 }
+@media screen and (max-width: 768px) {
+  .cta--lg {
+    height: 52px;
+  }
+}
 .cta--dark:hover, .cta--dark:focus-visible {
   color: var(--background-color);
 }
@@ -803,6 +814,11 @@ img {
 }
 .cta--video span {
   font-family: inherit;
+}
+@media screen and (max-width: 768px) {
+  .cta--video {
+    height: 52px;
+  }
 }
 @media screen and (max-width: 480px) {
   .cta--video {
@@ -1835,15 +1851,14 @@ img {
     margin-block-end: 16px;
   }
 }
-.main-opportunity .sunder-definition {
-  background-color: grey;
+.main-opportunity .sunder-definition__pin {
   height: max(100dvh, 750px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 @media screen and (max-width: 768px) {
-  .main-opportunity .sunder-definition {
+  .main-opportunity .sunder-definition__pin {
     height: 50dvh;
   }
 }
@@ -1976,7 +1991,135 @@ img {
   opacity: 0;
 }
 .main-opportunity .sunder-growth {
-  height: 100vh;
+  --background-color: #000014;
+  --font-color--primary: #f7f7f7;
+  background: var(--background-color);
+  height: 100dvh;
+}
+.main-opportunity .sunder-growth * {
+  color: var(--font-color--primary);
+}
+.main-opportunity .graph-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  padding-inline: var(--body-padding);
+  height: max(100dvh, 750px);
+}
+.main-opportunity .graph-section__title {
+  display: flex;
+  margin-block-start: var(--body-padding);
+}
+.main-opportunity .graph-section__graph {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 65%;
+  aspect-ratio: 1.5/1;
+}
+@media screen and (max-width: 768px) {
+  .main-opportunity .graph-section__graph {
+    width: calc(100% - var(--body-padding) * 2);
+    aspect-ratio: 0.75/1;
+  }
+}
+.main-opportunity .sunder-bar-graph {
+  background-color: var(--background-color);
+}
+.main-opportunity .sunder-bar-graph .bar-graph__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+.main-opportunity .sunder-bar-graph .bar-graph__block:last-of-type .bar-graph__bar-caption {
+  font-weight: 600;
+  scale: 1.75;
+  transform-origin: top right;
+}
+@media screen and (max-width: 768px) {
+  .main-opportunity .sunder-bar-graph .bar-graph__block:last-of-type .bar-graph__bar-caption {
+    scale: 1.5;
+  }
+}
+.main-opportunity .sunder-bar-graph .bar-graph__block:last-of-type .bar-graph__bar-caption::after {
+  content: "Growth";
+  color: var(--font-color--primary);
+  font-family: var(--font-family-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: currentColor;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+@media screen and (max-width: 1512px) {
+  .main-opportunity .sunder-bar-graph .bar-graph__block:last-of-type .bar-graph__bar-caption::after {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-opportunity .sunder-bar-graph .bar-graph__block:last-of-type .bar-graph__bar-caption::after {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .main-opportunity .sunder-bar-graph .bar-graph__block.animate .bar-graph__bar {
+    transition: 1s ease;
+    height: var(--bar-height);
+  }
+  .main-opportunity .sunder-bar-graph .bar-graph__block.animate .bar-graph__bar-caption {
+    transition: opacity 1s ease 0.75s;
+    opacity: 1;
+  }
+}
+.main-opportunity .sunder-bar-graph .bar-graph__bar {
+  position: relative;
+  display: flex;
+  background: linear-gradient(180deg, #0093d4 10%, rgba(0, 147, 212, 0));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 75%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .main-opportunity .sunder-bar-graph .bar-graph__bar {
+    height: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .main-opportunity .sunder-bar-graph .bar-graph__bar {
+    height: var(--bar-height);
+  }
+}
+.main-opportunity .sunder-bar-graph .bar-graph__bar-caption {
+  color: #0093d4;
+  position: absolute;
+  right: calc(100% + 0.5ch);
+  top: 0.5ch;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .main-opportunity .sunder-bar-graph .bar-graph__bar-caption {
+    opacity: 0;
+  }
+}
+.main-opportunity .sunder-bar-graph .bar-graph__year {
+  font-family: var(--font-family-body);
+  height: 24px;
+  font-weight: 600;
+}
+.main-opportunity .sunder-line-graph {
+  --background-color: #000014;
+  --font-color--primary: #f7f7f7;
+  background: var(--background-color);
+}
+.main-opportunity .sunder-line-graph * {
+  color: var(--font-color--primary);
 }
 
 .main-resources {

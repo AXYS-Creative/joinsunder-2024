@@ -24,6 +24,8 @@ responsiveGsap.add(
       indent: 320,
     };
 
+    const sunderMidnight = "#000014";
+
     // Image Reel, home and experience
     if (document.querySelector(".image-reel")) {
       const yValHome = maxSm ? "-20.5%" : "-21.05%";
@@ -52,14 +54,27 @@ responsiveGsap.add(
 
     // Opportunity Page
     if (document.querySelector(".main-opportunity")) {
+      // Background color change
+      {
+        gsap.to(".main-opportunity", {
+          backgroundColor: sunderMidnight,
+          scrollTrigger: {
+            trigger: ".sunder-definition",
+            start: "25% bottom",
+            end: "75% top",
+            scrub: true,
+          },
+        });
+      }
+
       // Sunder Definition Video
       {
         let pinDuration = "+=180%";
         let delayChildren = "0%"; // Smaller = greater delay (don't drop below 0)
 
-        gsap.from(".sunder-definition", {
+        gsap.from(".sunder-definition__pin", {
           scrollTrigger: {
-            trigger: ".sunder-definition",
+            trigger: ".sunder-definition__pin",
             start: maxMd ? "top 25%" : "top top",
             end: pinDuration,
             pin: true,

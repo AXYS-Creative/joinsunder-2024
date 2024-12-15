@@ -215,12 +215,13 @@
   }
 
   .sunder-definition {
-    background-color: grey;
-    height: max(100dvh, 750px);
-    @include row-center;
+    &__pin {
+      height: max(100dvh, 750px);
+      @include row-center;
 
-    @include mq-max("md") {
-      height: 50dvh;
+      @include mq-max("md") {
+        height: 50dvh;
+      }
     }
 
     &__title {
@@ -369,6 +370,123 @@
   }
 
   .sunder-growth {
-    height: 100vh;
+    @include dark-theme;
+    height: 100dvh;
+  }
+
+  // Reusable
+  .graph-section {
+    @include row-start(flex-start);
+    position: relative;
+    padding-inline: var(--body-padding);
+    height: max(100dvh, 750px);
+
+    &__title {
+      display: flex;
+      margin-block-start: var(--body-padding);
+      // position: sticky; // no idea what's happening
+      // align-self: flex-start;
+      // top: 0;
+    }
+
+    &__graph {
+      @include absolute-center;
+      @include row-end(space-between);
+      width: 65%;
+      aspect-ratio: 1.5 / 1;
+
+      @include mq-max("md") {
+        width: calc(100% - var(--body-padding) * 2);
+        aspect-ratio: 0.75 / 1;
+      }
+    }
+  }
+
+  .sunder-bar-graph {
+    $graph-color: #0093d4;
+    background-color: var(--background-color); // Page fades to dark
+
+    .bar-graph {
+      &__block {
+        @include column-center(flex-end);
+        gap: 16px;
+        height: 100%;
+
+        &:last-of-type {
+          .bar-graph__bar-caption {
+            font-weight: 600;
+            scale: 1.75;
+            transform-origin: top right;
+
+            @include mq-max("md") {
+              scale: 1.5;
+            }
+
+            &::after {
+              content: "Growth";
+              @include body-font-styles;
+              color: currentColor;
+              position: absolute;
+              top: 100%;
+              left: 0;
+            }
+          }
+        }
+
+        &.animate {
+          @include mq-motion-allow {
+            .bar-graph__bar {
+              transition: 1s ease;
+              height: var(--bar-height);
+
+              &-caption {
+                transition: opacity 1s ease 0.75s;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      &__bar {
+        position: relative;
+        display: flex;
+        background: linear-gradient(
+          180deg,
+          $graph-color 10%,
+          rgba(0, 147, 212, 0)
+        );
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        width: 75%;
+
+        @include mq-motion-allow {
+          height: 0;
+        }
+        @include mq-motion-reduce {
+          height: var(--bar-height); // variable set from CMS via inline style.
+        }
+
+        &-caption {
+          color: $graph-color;
+          position: absolute;
+          right: calc(100% + 0.5ch);
+          top: 0.5ch;
+
+          @include mq-motion-allow {
+            opacity: 0;
+          }
+        }
+      }
+
+      &__year {
+        font-family: var(--font-family-body);
+        height: 24px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .sunder-line-graph {
+    @include dark-theme;
   }
 }

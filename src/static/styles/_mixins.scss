@@ -226,7 +226,7 @@ h4,
 }
 h5,
 .h5 {
-  @include heading(40px, 32px, 32px, 12px, 12px);
+  @include h5;
 }
 
 // Resources, team protraits caption
@@ -263,6 +263,10 @@ h6,
 @mixin btn-lg {
   @include h5;
   padding: 0.75em 1.25em;
+
+  @include mq-max("md") {
+    height: 52px;
+  }
 }
 
 //
