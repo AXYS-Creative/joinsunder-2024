@@ -1,15 +1,15 @@
-title: Sales [%br%] Force
+section_title: Sales [%br%] Force
 
 bar_graph:
   - year: 2019
     caption:
-    height: 2.5%
+    height: 2.5
   - year: 2020
     caption: 10x
-    height: 25%
+    height: 25
   - year: 2021
     caption: 20x
-    height: 50%
+    height: 50
   - year: 2022
     caption: 30x
-    height: 75%
+    height: 75

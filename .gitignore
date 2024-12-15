@@ -10,13 +10,13 @@ package-lock.json
 # Local Netlify folder
 .netlify
 
-# Ignore all video files
-*.mp4
-*.avi
-*.mov
-*.wmv
-*.flv
-*.mkv
+# # Ignore all video files
+# *.mp4
+# *.avi
+# *.mov
+# *.wmv
+# *.flv
+# *.mkv
 
 # Prevent outputted css files from sass (doesn't appear to be working)
 *.css.map

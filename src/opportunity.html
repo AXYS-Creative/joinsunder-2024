@@ -101,9 +101,11 @@ footer_gradient: site-footer--sunder-colors
       class="sunder-definition__video tab-element-page"
       aria-pressed="false"
     >
+      {% if page_opportunity_definition.video_title %}
       <h3 class="sunder-definition__video-title">
-        {{ page_opportunity_definition.video_title}}
+        {{ page_opportunity_definition.video_title }}
       </h3>
+      {% endif %}
       <span class="sunder-definition__video-icon">
         <span class="sunder-definition__video-icon-img"></span>
         <span class="sunder-definition__video-icon-img"></span>
@@ -125,14 +127,18 @@ footer_gradient: site-footer--sunder-colors
   <h2>Growth History</h2>
 </section>
 
-<section class="sunder-bar-graph graph-section">
-  <h2 class="graph-section__title h3">{{page_opportunity_salesforce.title}}</h2>
+<section class="sunder-bar-graph graph-section" id="sunder-bar-graph">
+  <h2 class="graph-section__title h3">
+    {{page_opportunity_salesforce.section_title}}
+  </h2>
 
   <div class="bar-graph graph-section__graph" role="region">
     {% for bar in page_opportunity_salesforce.bar_graph %}
     <div class="bar-graph__block gsap-animate">
-      <div class="bar-graph__bar" style="--bar-height: {{ bar.height }};">
+      <div class="bar-graph__bar" style="--bar-height: {{ bar.height }}%;">
+        {% if bar.caption %}
         <h4 class="bar-graph__bar-caption">{{ bar.caption }}</h4>
+        {% endif %}
       </div>
       <h3 class="bar-graph__year h5">{{ bar.year }}</h3>
     </div>

@@ -164,6 +164,45 @@ collections:
             widget: "text"
             required: true
             hint: An accessibility feature. Provide the transcript of video text for screen readers.
+      - name: "sales_force"
+        label: "Sales Force (Bar Graph)"
+        file: "src/_data/page_opportunity_salesforce.yaml"
+        preview_path: "/opportunity#sunder-bar-graph"
+        editor:
+          preview: false
+        fields:
+          - name: "section_title"
+            label: "Section Title"
+            widget: "string"
+            required: true
+          - name: "bar_graph"
+            label: "Year Stats"
+            label_singular: "Year"
+            widget: "list"
+            required: true
+            fields:
+              - {
+                  name: "year",
+                  label: "year",
+                  widget: "number",
+                  required: true,
+                }
+              - {
+                  name: "caption",
+                  label: "caption",
+                  widget: "string",
+                  required: false,
+                  hint: "Label towards the top of the bar i.e. '10x'. An empty value removes the tag",
+                }
+              - {
+                  name: "height",
+                  label: "height",
+                  widget: "number",
+                  min: 0,
+                  max: 100,
+                  required: true,
+                  hint: Height of each bar as a percentage,
+                }
   - name: "compete_page"
     label: "Page - Compete"
     files:
