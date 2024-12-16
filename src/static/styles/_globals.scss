@@ -315,6 +315,10 @@ img {
 
   @include mq-touch {
     overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .nav-slider {

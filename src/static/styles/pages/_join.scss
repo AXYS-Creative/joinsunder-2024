@@ -141,6 +141,12 @@
         }
       }
 
+      .recaptcha {
+        @include mq-max("sm") {
+          scale: 0.8;
+        }
+      }
+
       .cta {
         width: max(25%, 128px);
       }

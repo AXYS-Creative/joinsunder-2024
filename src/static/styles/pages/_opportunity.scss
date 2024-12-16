@@ -1,13 +1,12 @@
 .main-opportunity {
   padding-block-start: var(--hero-top-padding);
-  overflow: hidden; // for hero img on smaller devices
 
   @include mq-max("lg") {
     padding-block-start: 212px;
   }
 
-  @include mq-max("md") {
-    padding-block-start: 264px;
+  @include mq-max("sm") {
+    padding-block-start: 164px;
   }
 
   .hero {
@@ -22,8 +21,9 @@
 
     @include mq-max("md") {
       margin-inline-end: 0;
-      padding-block: 24px 48px;
+      padding-block: 148px 48px;
       font-size: 40px;
+      overflow: hidden;
     }
 
     @include mq-max("sm") {
@@ -51,20 +51,22 @@
       width: min(40%, 850px);
       translate: 0 var(--body-padding);
 
-      @include mq-max("lg") {
-        position: absolute;
-        bottom: var(--body-padding);
-        right: 0;
-        width: 400px;
-        z-index: -1;
-      }
+      @media all {
+        @include mq-max("lg") {
+          position: absolute;
+          bottom: var(--body-padding);
+          right: 0;
+          width: 400px;
+          z-index: -1;
+        }
 
-      @include mq-max("md") {
-        translate: calc(var(--body-padding) * 2) 0;
-      }
+        @include mq-max("md") {
+          translate: calc(var(--body-padding) * 2) 0;
+        }
 
-      @include mq-max("sm") {
-        width: min(100%, 320px);
+        @include mq-max("sm") {
+          width: min(100%, 320px);
+        }
       }
     }
 
@@ -83,6 +85,7 @@
       }
 
       @include mq-max("md") {
+        height: calc(80% + var(--body-padding));
         border-top-right-radius: 0;
       }
     }
@@ -215,6 +218,8 @@
   }
 
   .sunder-definition {
+    overflow: hidden;
+
     &__pin {
       height: max(100dvh, 750px);
       @include row-center;
@@ -379,20 +384,24 @@
     @include row-start(flex-start);
     position: relative;
     padding-inline: var(--body-padding);
-    height: max(100dvh, 750px);
+    height: max(100dvh, 1080px); // For xxxl screens. Also fixes footer spacing.
+
+    @include mq-max("lg") {
+      min-height: 768px;
+    }
 
     &__title {
-      display: flex;
-      margin-block-start: var(--body-padding);
-      position: sticky; // no idea what's happening
+      position: sticky; // Requires all ancestors to NOT have any overflow property
+      margin-block: var(--body-padding);
       align-self: flex-start;
       top: var(--body-padding);
     }
 
     &__graph {
+      border: $test;
       @include absolute-center;
       @include row-end(space-between);
-      width: 65%;
+      width: min(65%, 1512px);
       aspect-ratio: 1.5 / 1;
 
       @include mq-max("md") {
@@ -488,6 +497,6 @@
 
   .sunder-line-graph {
     @include dark-theme;
-    margin-block-end: 164px; // This only works since the background changes. Otherwise it'll show white.
+    // margin-block-end: 164px; // This only works since the background changes. Otherwise it'll show white.
   }
 }
