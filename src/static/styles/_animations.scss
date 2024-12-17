@@ -64,6 +64,7 @@
   }
 }
 
+// Loader
 @keyframes popup-text {
   to {
     translate: 0 0;
@@ -84,5 +85,28 @@
   }
   100% {
     translate: 0 -100%;
+  }
+}
+
+// Opportunity Page
+
+@keyframes line-graph__line {
+  from {
+    stroke-dashoffset: 1470.5576171875px;
+    stroke-dasharray: 1470.5576171875px;
+  }
+  to {
+    stroke-dashoffset: 2941.115234375px;
+    stroke-dasharray: 1470.5576171875px;
+  }
+}
+@keyframes line-graph__dot {
+  from {
+    stroke-dashoffset: 118.23892818282235px;
+    stroke-dasharray: 118.23892818282235px;
+  }
+  to {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 118.23892818282235px;
   }
 }

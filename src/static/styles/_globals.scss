@@ -403,13 +403,13 @@ img {
   border-radius: 48px;
   overflow: hidden;
   flex-shrink: 0;
-  white-space: nowrap;
   transition: border 0.3s ease 0.1s, color 0.3s ease, $nav-transition;
 
   &:hover {
     border-color: var(--hero-color--primary);
 
     div.hover-fill {
+      position: absolute;
       width: 220%;
       height: 320%;
       opacity: 1;

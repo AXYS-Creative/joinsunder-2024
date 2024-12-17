@@ -3,6 +3,14 @@
   $children-width: calc(50vw - 16px);
   height: 100%;
 
+  @include mq-max("lg") {
+    --min-height: 672px;
+  }
+
+  @include mq-max("sm") {
+    --min-height: 612px;
+  }
+
   .hero {
     @include mq-min("lg") {
       @include row-start(space-between);
@@ -15,14 +23,14 @@
     @include column-start;
     @include dark-theme;
     padding: var(--body-padding);
-    height: max(100vh, var(--min-height));
-    height: max(100dvh, var(--min-height));
     gap: 48px;
+    height: max(90dvh, var(--min-height));
 
     @include mq-min("lg") {
       position: sticky;
       top: 0;
       width: $children-width;
+      height: max(100dvh, var(--min-height));
     }
 
     .cta-group {

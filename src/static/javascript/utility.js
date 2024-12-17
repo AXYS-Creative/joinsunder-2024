@@ -1,7 +1,7 @@
 export const mqMouse = window.matchMedia("(pointer: fine)").matches;
 export const mqMaxXxl = window.matchMedia("(max-width: 1512px)").matches;
-export const mqMaxLg = window.matchMedia("(max-width: 1024px)").matches;
 export const mqMaxMd = window.matchMedia("(max-width: 768px)").matches;
+export const mqMinLg = window.matchMedia("(min-width: 1025px)"); // doesn't have .matches for event listener
 
 export const root = document.documentElement;
 

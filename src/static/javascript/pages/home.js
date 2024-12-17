@@ -1,4 +1,4 @@
-// import { mqMouse } from "../utility.js";
+import { mqMinLg } from "../utility.js";
 
 // Dynamically determine Reel height.
 const adjustImageReelHeight = () => {
@@ -16,46 +16,38 @@ window.addEventListener("load", () => {
   window.addEventListener("resize", adjustImageReelHeight);
 });
 
-// Image Reel Logic. Using old logic
+// Auto scroll for LG+ screens
 if (document.querySelector(".main-home")) {
-  let isPlaying = false;
-  let shouldScroll = false;
-  let wasSmallerScreen = false;
-  const mediaQuery = window.matchMedia("(min-width: 1025px)");
+  let scrollActive = false;
 
-  const handleSmallerScreens = (e) => {
-    if (e.matches) {
-      if (!isPlaying) {
-        isPlaying = true;
-        shouldScroll = true;
-        const pageScroll = () => {
-          if (shouldScroll) {
-            window.scrollBy(0, 1);
-            // setTimeout(pageScroll, 32);
-            setTimeout(pageScroll, 35);
-          }
-        };
-        setTimeout(() => {
-          pageScroll();
-        }, 2600);
-      }
-      wasSmallerScreen = false;
-    } else {
-      if (isPlaying) {
-        isPlaying = false;
-        shouldScroll = false;
-        wasSmallerScreen = true;
-        mediaQuery.removeEventListener("change", handleSmallerScreens);
-      }
+  const pageScroll = () => {
+    if (!scrollActive) return;
+    window.scrollBy(0, 1);
+    setTimeout(pageScroll, 35);
+  };
+
+  const startScroll = () => {
+    if (!scrollActive) {
+      scrollActive = true;
+      setTimeout(() => {
+        pageScroll();
+      }, 2600);
     }
   };
 
-  mediaQuery.addEventListener("change", () => {
-    if (wasSmallerScreen && mediaQuery.matches) {
-      location.reload();
-    }
-    handleSmallerScreens(mediaQuery);
-  });
+  const stopScroll = () => {
+    scrollActive = false;
+  };
 
-  handleSmallerScreens(mediaQuery);
+  if (mqMinLg.matches) {
+    startScroll();
+  }
+
+  mqMinLg.addEventListener("change", (e) => {
+    if (e.matches) {
+      startScroll();
+    } else {
+      stopScroll();
+    }
+  });
 }

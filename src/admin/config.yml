@@ -148,6 +148,7 @@ collections:
             label: "Video Title"
             widget: "string"
             required: false
+            hint: Customize text with tokens. Visit https://axyscreative.com/tokens to learn more.
           - name: "video_src"
             label: "Video Source"
             widget: "image"
@@ -182,6 +183,8 @@ collections:
             label_singular: "Year"
             widget: "list"
             required: true
+            min: 3
+            max: 5
             fields:
               - {
                   name: "year",
