@@ -169,7 +169,6 @@ img {
   padding-inline-end: 64px;
   height: var(--footer-height);
   position: relative; // resolves issue on mobile? Along with z-index below
-  z-index: 0;
 
   @media all {
     @include mq-min("xl") {
@@ -404,6 +403,7 @@ img {
   border-radius: 48px;
   overflow: hidden;
   flex-shrink: 0;
+  white-space: nowrap;
   transition: border 0.3s ease 0.1s, color 0.3s ease, $nav-transition;
 
   &:hover {

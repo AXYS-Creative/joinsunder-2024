@@ -1,0 +1,11 @@
+section_title: Kilowatts [%br%] Installed
+
+line_graph:
+  - year: 2019
+    kw_count: 6,130
+  - year: 2020
+    kw_count: 56,630
+  - year: 2021
+    kw_count: 135,948
+  - year: 2022
+    kw_count: 222,780

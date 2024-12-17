@@ -185,25 +185,58 @@ collections:
             fields:
               - {
                   name: "year",
-                  label: "year",
+                  label: "Year",
                   widget: "number",
                   required: true,
                 }
               - {
                   name: "caption",
-                  label: "caption",
+                  label: "Caption",
                   widget: "string",
                   required: false,
                   hint: "Label towards the top of the bar i.e. '10x'. An empty value removes the tag",
                 }
               - {
                   name: "height",
-                  label: "height",
+                  label: "Height",
                   widget: "number",
                   min: 0,
                   max: 100,
                   required: true,
                   hint: Height of each bar as a percentage,
+                }
+      - name: "kilowatts_installed"
+        label: "Kilowatts Installed (Line Graph)"
+        file: "src/_data/page_opportunity_kilowatts.yaml"
+        preview_path: "/opportunity#sunder-line-graph"
+        editor:
+          preview: false
+        fields:
+          - name: "section_title"
+            label: "Section Title"
+            widget: "string"
+            required: true
+            hint: Customize text with tokens. Visit https://axyscreative.com/tokens to learn more.
+          - name: "line_graph"
+            label: "Year Stats"
+            widget: "list"
+            required: true
+            min: 4
+            max: 4
+            fields:
+              - {
+                  name: "year",
+                  label: "Year",
+                  widget: "number",
+                  min: 2015,
+                  max: 2095,
+                  required: true,
+                }
+              - {
+                  name: "kw_count",
+                  label: "KW Count",
+                  widget: "string",
+                  required: true,
                 }
   - name: "compete_page"
     label: "Page - Compete"

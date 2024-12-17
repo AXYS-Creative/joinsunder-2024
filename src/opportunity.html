@@ -139,20 +139,127 @@ footer_gradient: site-footer--sunder-colors
         <h4 class="bar-graph__bar-caption">{{ bar.caption }}</h4>
         {% endif %}
       </div>
-      <h3 class="bar-graph__year h5">{{ bar.year }}</h3>
+      <h3 class="bar-graph__year graph-section__graph-year">{{ bar.year }}</h3>
     </div>
     {% endfor %}
   </div>
 </section>
 
-<section class="sunder-line-graph graph-section">
+<section class="sunder-line-graph graph-section" id="sunder-line-graph">
   <h2 class="graph-section__title h3">
     Kilowatts
     <br aria-hidden="true" />
     Installed
   </h2>
 
-  <div class="bar-graph graph-section__graph" role="region">
-    <p>line graph</p>
+  <div class="line-graph graph-section__graph" role="region">
+    <svg
+      class="svg-line"
+      width="1310"
+      height="855"
+      viewBox="0 0 1310 855"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1272 34L1066.63 197.13L858.021 350.569L664.777 483.819L463.447 629.182L250.798 746.28L43 823"
+        stroke="url(#paint0_linear_913_4)"
+        stroke-width="10"
+        id="lineGraphPath"
+      ></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_913_4"
+          x1="1018.5"
+          y1="81.5"
+          x2="195.613"
+          y2="642.399"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#0194D5"></stop>
+          <stop offset="1" stop-color="white"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+    <svg
+      class="svg-dots"
+      width="1310"
+      height="855"
+      viewBox="0 0 1310 855"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="25"
+        cy="830"
+        r="18.5"
+        stroke="white"
+        stroke-width="13"
+        class="svg-dots__dot-1"
+      ></circle>
+      <circle
+        cx="457"
+        cy="633"
+        r="18.5"
+        fill="#000014"
+        stroke="url(#paint0_linear_480_26)"
+        stroke-width="13"
+        class="svg-dots__dot-2"
+      ></circle>
+      <circle
+        cx="857"
+        cy="349"
+        r="18.5"
+        fill="#000014"
+        stroke="url(#paint1_linear_480_26)"
+        stroke-width="13"
+        class="svg-dots__dot-3"
+      ></circle>
+      <circle
+        cx="1285"
+        cy="25"
+        r="18.5"
+        stroke="#0194D5"
+        stroke-width="13"
+        class="svg-dots__dot-4"
+      ></circle>
+      <defs>
+        <linearGradient
+          id="paint0_linear_480_26"
+          x1="431"
+          y1="649"
+          x2="487.5"
+          y2="622"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#C9E8F6"></stop>
+          <stop offset="1" stop-color="#BAE2F4"></stop>
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_480_26"
+          x1="840.5"
+          y1="371"
+          x2="881.5"
+          y2="334.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#52B6E2"></stop>
+          <stop offset="1" stop-color="#45B1E0"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="line-graph__years">
+      {% for data in page_opportunity_kilowatts.line_graph %}
+      <div
+        class="line-graph__years-column column-{{loop.index}}"
+        data-stat="{{data.kw_count}} KW"
+      >
+        <h3 class="line-graph__years-year graph-section__graph-year">
+          {{ data.year }}
+          <span class="sr-only">{{ data.kw_count }} Kilowatts</span>
+        </h3>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
