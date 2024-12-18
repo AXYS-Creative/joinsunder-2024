@@ -221,11 +221,11 @@
     overflow: hidden;
 
     &__pin {
-      height: max(100dvh, 750px);
+      height: max(100lvh, 750px);
       @include row-center;
 
       @include mq-max("md") {
-        height: 50dvh;
+        height: 50lvh;
       }
     }
 
@@ -375,8 +375,101 @@
   }
 
   .sunder-growth {
+    $color-active: #4693d4;
+    $color-pending: #bcd0d7;
+
+    position: relative;
     @include dark-theme;
-    height: 100dvh;
+
+    &__pin {
+      height: max(100dvh, 750px); // dvh to make sure counter isn't covered
+      padding: var(--body-padding);
+    }
+
+    // &__title {
+    //   margin-block-end: 12vh;
+    // }
+
+    &__links {
+      @include column-start;
+      gap: 12px;
+      margin-block-start: 20vh;
+
+      &-link {
+        border-color: transparent;
+        width: 96px;
+        transition: 0.3s ease;
+
+        &:hover,
+        &:focus-visible {
+          border-color: $color-active;
+          background: transparent;
+        }
+
+        &.active {
+          background: $color-active;
+        }
+      }
+    }
+
+    &__counter {
+      position: absolute;
+      bottom: calc(var(--body-padding) * 2);
+      right: var(--body-padding);
+
+      @include mq-max("lg") {
+        bottom: auto;
+        top: var(--body-padding);
+      }
+
+      @media all {
+        @mixin stagger-transition-delay($i, $initial-delay, $stagger-delay) {
+          @while $i > 0 {
+            &:nth-of-type(#{$i}) {
+              transition-delay: ($initial-delay + $stagger-delay * $i);
+            }
+            $i: $i - 1;
+          }
+        }
+
+        .number-counter {
+          display: flex;
+        }
+
+        .digit {
+          @include stagger-transition-delay(20, 0, 90ms);
+          display: block;
+          width: 1ch;
+          height: 1ch;
+          overflow: hidden;
+          transition-property: transform;
+        }
+
+        .sequence {
+          display: block;
+          transition-property: transform;
+          transition-duration: 2000ms;
+          transition-delay: inherit;
+        }
+      }
+    }
+
+    &__static-markers {
+      visibility: hidden !important;
+      @include column-center(space-evenly);
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 48px;
+      height: 100%;
+
+      .growth-marker {
+        background-color: yellow;
+        width: 100%;
+        height: 8px;
+        scroll-margin-top: 50vh;
+      }
+    }
   }
 
   // Reusable graph section

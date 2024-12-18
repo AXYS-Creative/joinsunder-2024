@@ -24,13 +24,13 @@
     @include dark-theme;
     padding: var(--body-padding);
     gap: 48px;
-    height: max(90dvh, var(--min-height));
+    height: max(90svh, var(--min-height));
 
     @include mq-min("lg") {
       position: sticky;
       top: 0;
       width: $children-width;
-      height: max(100dvh, var(--min-height));
+      height: max(100svh, var(--min-height));
     }
 
     .cta-group {

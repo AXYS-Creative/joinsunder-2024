@@ -122,8 +122,68 @@ footer_gradient: site-footer--sunder-colors
   </div>
 </section>
 
-<section class="sunder-growth">
-  <h2>Growth History</h2>
+<section class="sunder-growth" id="sunder-growth">
+  <div class="sunder-growth__pin">
+    <h2 class="sunder-growth__title h3">
+      {{ page_opportunity_growth.section_title }}
+    </h2>
+
+    <div class="sunder-growth__links">
+      {% for year in page_opportunity_growth.growth_data %}
+      <a
+        class="cta sunder-growth__links-link growth-link-{{ loop.index }}"
+        href="#growth-marker-{{loop.index}}"
+      >
+        {{ year.year }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="sunder-growth__counter">
+      <h3 class="h1 number-counter" id="state-count" data-counter-value="48">
+        <span class="digit">
+          <span class="sequence" aria-hidden="true">
+            0<br />
+            1<br />
+            2<br />
+            3<br />
+            4<br />
+            5<br />
+            6<br />
+            7<br />
+            8<br />
+            9
+          </span>
+        </span>
+        <span class="digit">
+          <span class="sequence" aria-hidden="true">
+            0<br />
+            1<br />
+            2<br />
+            3<br />
+            4<br />
+            5<br />
+            6<br />
+            7<br />
+            8<br />
+            9
+          </span>
+        </span>
+      </h3>
+
+      <label class="h5" for="state-count">States</label>
+    </div>
+  </div>
+
+  <div class="sunder-growth__static-markers" aria-hidden="true">
+    {% for year in page_opportunity_growth.growth_data %}
+    <div
+      class="growth-marker marker-{{ loop.index }}"
+      data-counter-value="{{ year.state_count }}"
+      id="growth-marker-{{ loop.index }}"
+    ></div>
+    {% endfor %}
+  </div>
 </section>
 
 <section class="sunder-bar-graph graph-section" id="sunder-bar-graph">

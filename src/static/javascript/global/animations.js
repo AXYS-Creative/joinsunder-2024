@@ -113,6 +113,92 @@ responsiveGsap.add(
           },
         });
       }
+
+      // Growth History (USA map)
+      {
+        const pinDuration = "+=400%";
+        const growthMarkers = document.querySelectorAll(
+          ".sunder-growth__static-markers .growth-marker"
+        );
+
+        // Pinning the Growth Section
+        {
+          gsap.to(".sunder-growth__pin", {
+            scrollTrigger: {
+              trigger: ".sunder-growth__pin",
+              start: "top top",
+              end: pinDuration,
+              pin: true,
+            },
+          });
+        }
+
+        // Growth Link Highlight
+        {
+          const growthLinks = document.querySelectorAll(
+            ".sunder-growth__links-link"
+          );
+
+          growthMarkers.forEach((marker, index) => {
+            const nextMarker = growthMarkers[index + 1]; // Get the next marker
+            const link = growthLinks[index]; // Corresponding link for this marker
+
+            ScrollTrigger.create({
+              trigger: marker,
+              start: "-12px center", // Trigger when this marker crosses the center
+              end: nextMarker
+                ? `400px center` // End when the next marker crosses the center
+                : "400px center", // Last marker ends when it leaves the viewport
+              onEnter: () => link.classList.add("active"),
+              onEnterBack: () => link.classList.add("active"),
+              onLeave: () => link.classList.remove("active"),
+              onLeaveBack: () => link.classList.remove("active"),
+            });
+          });
+        }
+
+        // Number Ticker Animation
+        {
+          const numberCounter = document.querySelector(".number-counter");
+
+          growthMarkers.forEach((marker, index) => {
+            const targetValue = marker.getAttribute("data-counter-value");
+
+            // If it's the first marker, reset counter to 00 on leaveBack
+            const isFirstMarker = index === 0;
+
+            ScrollTrigger.create({
+              trigger: marker,
+              start: "-12px center", // Trigger when this marker crosses the center
+              end: "400px center", // End when leaving the center
+              scrub: true,
+              onEnter: () => updateCounter(numberCounter, targetValue),
+              onEnterBack: () => updateCounter(numberCounter, targetValue),
+              onLeaveBack: () => {
+                if (isFirstMarker) updateCounter(numberCounter, "00");
+              },
+            });
+          });
+
+          const updateCounter = (counter, value) => {
+            const digits = [...value.padStart(2, "0")].map(Number); // Ensure "07" is always [0, 7]
+            const digitElements = counter.querySelectorAll(".digit");
+
+            digits.forEach((digitValue, index) => {
+              const sequence = digitElements[index]?.querySelector(".sequence");
+
+              if (!sequence) return;
+
+              // Animate to the desired number
+              gsap.to(sequence, {
+                y: `-${digitValue * 10}%`, // Move vertically to the correct position
+                duration: 0.5,
+                ease: "ease",
+              });
+            });
+          };
+        }
+      }
     }
 
     // Resources Page
