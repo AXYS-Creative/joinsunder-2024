@@ -2048,7 +2048,8 @@ img {
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20vh;
-  height: max(100dvh, 750px);
+  height: 100dvh;
+  min-height: 750px;
   padding: var(--body-padding);
 }
 @media screen and (max-width: 1200px) {
@@ -2058,8 +2059,13 @@ img {
 }
 @media screen and (max-width: 768px) {
   .main-opportunity .sunder-growth__pin {
-    justify-content: space-between;
     align-items: center;
+    min-height: 650px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .main-opportunity .sunder-growth__pin {
+    min-height: 500px;
   }
 }
 .main-opportunity .sunder-growth__title {
@@ -2084,14 +2090,10 @@ img {
 @media screen and (max-width: 768px) {
   .main-opportunity .sunder-growth__links {
     flex-direction: row;
-    translate: 0 calc(var(--body-padding) * -6);
+    align-items: flex-end;
     gap: 4px;
     scale: 0.8;
-  }
-}
-@media screen and (max-width: 480px) {
-  .main-opportunity .sunder-growth__links {
-    translate: 0 calc(var(--body-padding) * -8);
+    height: 68%;
   }
 }
 .main-opportunity .sunder-growth__links-link {
@@ -2135,9 +2137,11 @@ img {
 .main-opportunity .sunder-growth__links-link:nth-last-of-type(10) {
   transition: 0.3s ease, opacity 0.5s ease 0.5s;
 }
-.main-opportunity .sunder-growth__links-link:hover, .main-opportunity .sunder-growth__links-link:focus-visible {
-  border-color: var(--hero-color--primary);
-  background: transparent;
+@media (hover: hover) and (pointer: fine) {
+  .main-opportunity .sunder-growth__links-link:hover, .main-opportunity .sunder-growth__links-link:focus-visible {
+    border-color: var(--hero-color--primary);
+    background: transparent;
+  }
 }
 .main-opportunity .sunder-growth__links-link.active {
   background: #4693d4;
@@ -2245,21 +2249,11 @@ img {
 @media screen and (max-width: 1024px) {
   .main-opportunity .sunder-growth__map {
     top: 25vh;
-    left: auto;
-    translate: 0 0;
-    right: var(--body-padding);
-    align-items: flex-start;
-    width: 57%;
   }
 }
 @media screen and (max-width: 768px) {
   .main-opportunity .sunder-growth__map {
-    width: 60%;
-    align-items: center;
-    left: 50%;
-    translate: -50% 0;
-    right: auto;
-    top: 28vh;
+    width: 70%;
   }
 }
 @media screen and (max-width: 480px) {

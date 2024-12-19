@@ -264,7 +264,6 @@
       $video-transition: 0.3s ease;
 
       display: flex; // Fixes issue
-
       position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -286,7 +285,6 @@
         }
       }
 
-      // Experimental :hover & :focus-visible only on desktop
       @include non-mobile-hover {
         // Not for when the video is playing
         &:not(.sunder-definition__video--active) {
@@ -305,7 +303,6 @@
 
       &-title {
         // @include caption-gradient;
-        // background-color: rgba($sunder-navy, 0.5);
         background: linear-gradient(45deg, $sunder-navy, transparent);
         color: var(--background-color);
         font-weight: 600;
@@ -382,18 +379,21 @@
     position: relative;
 
     &__pin {
-      // border: $test;
       @include column-start(flex-start);
       gap: 20vh;
-      height: max(100dvh, 750px); // dvh to make sure counter isn't covered
+      height: 100dvh;
+      min-height: 750px;
       padding: var(--body-padding);
 
       @include mq-max("xl") {
         gap: 12vh;
       }
       @include mq-max("md") {
-        justify-content: space-between;
         align-items: center;
+        min-height: 650px;
+      }
+      @include mq-max("sm") {
+        min-height: 500px;
       }
     }
 
@@ -416,13 +416,10 @@
 
       @include mq-max("md") {
         flex-direction: row;
-        translate: 0 calc(var(--body-padding) * -6);
+        align-items: flex-end;
         gap: 4px;
         scale: 0.8;
-      }
-
-      @include mq-max("sm") {
-        translate: 0 calc(var(--body-padding) * -8);
+        height: 68%;
       }
 
       &-link {
@@ -441,8 +438,7 @@
           }
         }
 
-        &:hover,
-        &:focus-visible {
+        @include non-mobile-hover {
           border-color: var(--hero-color--primary);
           background: transparent;
         }
@@ -515,7 +511,7 @@
     }
 
     &__map {
-      // @include absolute-center; // postioning issue
+      // @include absolute-center; postioning issue with gsap
       @include column-center;
       position: absolute;
       top: 20vh;
@@ -529,25 +525,14 @@
           gap: 24px;
           width: 47%;
         }
-
         @include mq-max("xl") {
           top: 22.5vh;
         }
         @include mq-max("lg") {
           top: 25vh;
-          left: auto;
-          translate: 0 0;
-          right: var(--body-padding);
-          align-items: flex-start;
-          width: 57%;
         }
         @include mq-max("md") {
-          width: 60%;
-          align-items: center;
-          left: 50%;
-          translate: -50% 0;
-          right: auto;
-          top: 28vh;
+          width: 70%;
         }
         @include mq-max("sm") {
           top: 30vh;
