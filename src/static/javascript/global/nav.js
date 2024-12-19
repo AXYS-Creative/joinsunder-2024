@@ -145,23 +145,25 @@ if (mqMouse && window.innerWidth < 2712) {
 
   navLinks.forEach((link) => {
     link.addEventListener("focus", () => {
-      const linkRect = link.getBoundingClientRect();
-      const sliderRect = navSlider.getBoundingClientRect();
+      if (link.matches(":focus-visible")) {
+        const linkRect = link.getBoundingClientRect();
+        const sliderRect = navSlider.getBoundingClientRect();
 
-      const linkOffsetInSlider = linkRect.left - sliderRect.left;
+        const linkOffsetInSlider = linkRect.left - sliderRect.left;
 
-      const centerOffset = viewportWidth / 2 - link.offsetWidth / 2;
-      const newTranslateX = -linkOffsetInSlider + centerOffset;
+        const centerOffset = viewportWidth / 2 - link.offsetWidth / 2;
+        const newTranslateX = -linkOffsetInSlider + centerOffset;
 
-      const maxTranslateX = 0;
-      const minTranslateX = -(sliderWidth - viewportWidth);
-      const clampedTranslateX = Math.max(
-        minTranslateX,
-        Math.min(maxTranslateX, newTranslateX)
-      );
+        const maxTranslateX = 0;
+        const minTranslateX = -(sliderWidth - viewportWidth);
+        const clampedTranslateX = Math.max(
+          minTranslateX,
+          Math.min(maxTranslateX, newTranslateX)
+        );
 
-      currentTranslateX = clampedTranslateX;
-      navSlider.style.translate = `calc(${clampedTranslateX}px + ${offsetTweak}) 0`;
+        currentTranslateX = clampedTranslateX;
+        navSlider.style.translate = `calc(${clampedTranslateX}px + ${offsetTweak}) 0`;
+      }
     });
   });
 
