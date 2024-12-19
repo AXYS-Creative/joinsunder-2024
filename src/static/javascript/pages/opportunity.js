@@ -48,7 +48,7 @@ if (document.querySelector(".main-opportunity")) {
   observer.observe(sunderDefinitionVideo);
 
   //
-  // Keyboard tabbing for gsap pinned section (opportunity - sunder definition video)
+  // Keyboard tabbing
   //
   const sunderGrowthSection = document.querySelector(".sunder-growth");
 
@@ -63,3 +63,25 @@ if (document.querySelector(".main-opportunity")) {
     // }
   });
 }
+
+const growthLinks = document.querySelectorAll(".sunder-growth__links-link");
+const growthMarkers = document.querySelectorAll(".growth-marker");
+
+growthLinks.forEach((link, index) => {
+  link.addEventListener("focus", () => {
+    growthMarkers[index].scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    growthMarkers[index].scrollIntoView({
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      link.focus();
+    }, 300);
+  });
+});

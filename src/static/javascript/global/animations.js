@@ -6,13 +6,15 @@ responsiveGsap.add(
   {
     maxSm: "(max-width: 480px)",
     maxMd: "(max-width: 768px)",
+    maxLg: "(max-width: 1024px)",
     maxXl: "(max-width: 1200px)",
     maxXxl: "(max-width: 1512px)",
     minMd: "(min-width: 769px)",
     minLg: "(min-width: 1025px)",
   },
   (context) => {
-    let { maxSm, maxMd, maxXl, maxXxl, minMd, minLg } = context.conditions;
+    let { maxSm, maxMd, maxLg, maxXl, maxXxl, minMd, minLg } =
+      context.conditions;
     let navyMarkers = {
       startColor: "navy",
       endColor: "navy",
@@ -116,10 +118,33 @@ responsiveGsap.add(
 
       // Growth History (USA map)
       {
+        // Gague distance between two pins
+        let multiplier = maxSm
+          ? 4.9
+          : maxMd
+          ? 4.7
+          : maxLg
+          ? 4.75
+          : maxXl
+          ? 4.825
+          : maxXxl
+          ? 4.85
+          : 4.9;
+        const marker1 = document.querySelector(".marker-1");
+        const marker2 = document.querySelector(".marker-2");
+        const verticalDistance =
+          Math.abs(
+            marker1.getBoundingClientRect().top -
+              marker2.getBoundingClientRect().top
+          ) * multiplier;
+
         const pinDuration = "+=400%";
+        const pinDurationExtended = "+=480%";
         const growthMarkers = document.querySelectorAll(
           ".sunder-growth__static-markers .growth-marker"
         );
+        const startPoint = "-12px center";
+        const endPoint = `${verticalDistance}px center`;
 
         // Pinning the Growth Section
         {
@@ -133,6 +158,47 @@ responsiveGsap.add(
           });
         }
 
+        // Fading in USA Map
+        {
+          gsap.fromTo(
+            ".sunder-growth__map-map",
+            {
+              opacity: 0,
+              y: "-50%",
+            },
+            {
+              opacity: 1,
+              y: "0%",
+              scrollTrigger: {
+                trigger: ".sunder-growth__pin",
+                start: "-70% top",
+                end: "top top",
+                scrub: 0,
+              },
+            }
+          );
+        }
+
+        // Display Growth Elements
+        {
+          const fadeElements = [
+            ".sunder-growth__title",
+            ".sunder-growth__links",
+            ".sunder-growth__counter",
+          ];
+
+          fadeElements.forEach((selector) => {
+            const element = document.querySelector(selector);
+
+            ScrollTrigger.create({
+              trigger: ".sunder-growth__pin",
+              start: "top top",
+              end: pinDurationExtended,
+              toggleClass: { targets: element, className: "show-item" },
+            });
+          });
+        }
+
         // Growth Link Highlight
         {
           const growthLinks = document.querySelectorAll(
@@ -140,19 +206,17 @@ responsiveGsap.add(
           );
 
           growthMarkers.forEach((marker, index) => {
-            const nextMarker = growthMarkers[index + 1]; // Get the next marker
-            const link = growthLinks[index]; // Corresponding link for this marker
+            const link = growthLinks[index];
 
             ScrollTrigger.create({
               trigger: marker,
-              start: "-12px center", // Trigger when this marker crosses the center
-              end: nextMarker
-                ? `400px center` // End when the next marker crosses the center
-                : "400px center", // Last marker ends when it leaves the viewport
+              start: startPoint,
+              end: endPoint,
               onEnter: () => link.classList.add("active"),
               onEnterBack: () => link.classList.add("active"),
               onLeave: () => link.classList.remove("active"),
               onLeaveBack: () => link.classList.remove("active"),
+              // markers: true,
             });
           });
         }
@@ -164,19 +228,19 @@ responsiveGsap.add(
           growthMarkers.forEach((marker, index) => {
             const targetValue = marker.getAttribute("data-counter-value");
 
-            // If it's the first marker, reset counter to 00 on leaveBack
             const isFirstMarker = index === 0;
 
             ScrollTrigger.create({
               trigger: marker,
-              start: "-12px center", // Trigger when this marker crosses the center
-              end: "400px center", // End when leaving the center
+              start: startPoint,
+              end: endPoint,
               scrub: true,
               onEnter: () => updateCounter(numberCounter, targetValue),
               onEnterBack: () => updateCounter(numberCounter, targetValue),
               onLeaveBack: () => {
                 if (isFirstMarker) updateCounter(numberCounter, "00");
               },
+              // markers: true,
             });
           });
 
@@ -187,16 +251,109 @@ responsiveGsap.add(
             digits.forEach((digitValue, index) => {
               const sequence = digitElements[index]?.querySelector(".sequence");
 
-              if (!sequence) return;
-
-              // Animate to the desired number
               gsap.to(sequence, {
-                y: `-${digitValue * 10}%`, // Move vertically to the correct position
+                y: `-${digitValue * 10}%`,
                 duration: 0.5,
                 ease: "ease",
               });
             });
           };
+        }
+
+        // State highlight
+        {
+          const highlightGroups = [
+            {
+              elements: document.querySelectorAll(".state-2019"),
+              trigger: ".marker-1",
+              start: startPoint,
+              end: pinDurationExtended,
+              toggleClass: "active",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2019"),
+              trigger: ".marker-1",
+              start: startPoint,
+              end: endPoint,
+              toggleClass: "active-pending",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2019"),
+              trigger: ".marker-2",
+              start: startPoint,
+              end: pinDurationExtended,
+              toggleClass: "active",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2020"),
+              trigger: ".marker-2",
+              start: startPoint,
+              end: endPoint,
+              toggleClass: "active-pending",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2020"),
+              trigger: ".marker-3",
+              start: startPoint,
+              end: pinDurationExtended,
+              toggleClass: "active",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2021"),
+              trigger: ".marker-3",
+              start: startPoint,
+              end: endPoint,
+              toggleClass: "active-pending",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2021"),
+              trigger: ".marker-4",
+              start: startPoint,
+              end: pinDurationExtended,
+              toggleClass: "active",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2022"),
+              trigger: ".marker-4",
+              start: startPoint,
+              end: endPoint,
+              toggleClass: "active-pending",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2022"),
+              trigger: ".marker-5",
+              start: startPoint,
+              end: pinDurationExtended,
+              toggleClass: "active",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2023"),
+              trigger: ".marker-5",
+              start: startPoint,
+              end: endPoint,
+              toggleClass: "active-pending",
+            },
+            {
+              elements: document.querySelectorAll(".pending-2023"),
+              trigger: ".marker-6",
+              start: startPoint,
+              end: pinDurationExtended,
+              toggleClass: "active",
+            },
+          ];
+
+          highlightGroups.forEach(
+            ({ elements, trigger, start, end, toggleClass }) => {
+              elements.forEach((element) => {
+                ScrollTrigger.create({
+                  trigger,
+                  start,
+                  end,
+                  toggleClass: { targets: element, className: toggleClass },
+                });
+              });
+            }
+          );
         }
       }
     }

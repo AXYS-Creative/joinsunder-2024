@@ -166,6 +166,39 @@ collections:
             widget: "text"
             required: true
             hint: An accessibility feature. Provide the transcript of video's text to be read by screen readers.
+      - name: "growth_map"
+        label: "Growth Map"
+        file: "src/_data/page_opportunity_growth.yaml"
+        preview_path: "/opportunity#sunder-growth"
+        editor:
+          preview: false
+        fields:
+          - name: "section_title"
+            label: "Section Title"
+            widget: "string"
+            required: true
+            hint: Customize text with tokens. Visit https://axyscreative.com/tokens to learn more.
+          - name: "growth_data"
+            label: "Year Stats"
+            label_singular: "Year"
+            widget: "list"
+            required: true
+            min: 4
+            max: 6
+            fields:
+              - {
+                  name: "year",
+                  label: "Year",
+                  widget: "number",
+                  required: true,
+                }
+              - {
+                  name: "state_count",
+                  label: "State Count",
+                  widget: "string",
+                  required: true,
+                  hint: "For example, '07' or '18'",
+                }
       - name: "sales_force"
         label: "Sales Force (Bar Graph)"
         file: "src/_data/page_opportunity_salesforce.yaml"

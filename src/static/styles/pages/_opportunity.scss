@@ -101,7 +101,7 @@
     }
 
     .quote-block {
-      @include row-center;
+      @include row-center(space-evenly);
       gap: 64px;
 
       @include mq-max("lg") {
@@ -198,7 +198,7 @@
 
       &__quote {
         @include mq-min("lg") {
-          width: 50%;
+          width: 40%;
         }
 
         &-title {
@@ -378,31 +378,72 @@
     $color-active: #4693d4;
     $color-pending: #bcd0d7;
 
-    position: relative;
     @include dark-theme;
+    position: relative;
 
     &__pin {
+      // border: $test;
+      @include column-start(flex-start);
+      gap: 20vh;
       height: max(100dvh, 750px); // dvh to make sure counter isn't covered
       padding: var(--body-padding);
+
+      @include mq-max("xl") {
+        gap: 12vh;
+      }
+      @include mq-max("md") {
+        justify-content: space-between;
+        align-items: center;
+      }
     }
 
-    // &__title {
-    //   margin-block-end: 12vh;
-    // }
+    &__title {
+      opacity: 0;
+      transition: 0.5s ease;
+
+      @include mq-max("md") {
+        align-self: flex-start;
+      }
+
+      &.show-item {
+        opacity: 1;
+      }
+    }
 
     &__links {
       @include column-start;
       gap: 12px;
-      margin-block-start: 20vh;
+
+      @include mq-max("md") {
+        flex-direction: row;
+        translate: 0 calc(var(--body-padding) * -6);
+        gap: 4px;
+        scale: 0.8;
+      }
+
+      @include mq-max("sm") {
+        translate: 0 calc(var(--body-padding) * -8);
+      }
 
       &-link {
         border-color: transparent;
         width: 96px;
-        transition: 0.3s ease;
+        opacity: 0;
+        transition: border 0.3s ease, opacity 0.5s ease;
+
+        @include mq-max("md") {
+          width: 72px;
+        }
+
+        @for $i from 1 through 10 {
+          &:nth-last-of-type(#{$i}) {
+            transition: 0.3s ease, opacity 0.5s ease 0.05s * $i;
+          }
+        }
 
         &:hover,
         &:focus-visible {
-          border-color: $color-active;
+          border-color: var(--hero-color--primary);
           background: transparent;
         }
 
@@ -410,12 +451,27 @@
           background: $color-active;
         }
       }
+
+      &.show-item {
+        .sunder-growth__links-link {
+          opacity: 1;
+
+          @for $i from 1 through 10 {
+            &:nth-of-type(#{$i}) {
+              transition: 0.3s ease, opacity 0.5s ease 0.05s * $i;
+            }
+          }
+        }
+      }
     }
 
     &__counter {
+      @include column-end;
       position: absolute;
       bottom: calc(var(--body-padding) * 2);
       right: var(--body-padding);
+      opacity: 0;
+      transition: 0.5s ease;
 
       @include mq-max("lg") {
         bottom: auto;
@@ -437,7 +493,7 @@
         }
 
         .digit {
-          @include stagger-transition-delay(20, 0, 90ms);
+          @include stagger-transition-delay(2, 0, 50ms);
           display: block;
           width: 1ch;
           height: 1ch;
@@ -450,6 +506,95 @@
           transition-property: transform;
           transition-duration: 2000ms;
           transition-delay: inherit;
+        }
+      }
+
+      &.show-item {
+        opacity: 1;
+      }
+    }
+
+    &__map {
+      // @include absolute-center; // postioning issue
+      @include column-center;
+      position: absolute;
+      top: 20vh;
+      left: 50%;
+      translate: -50% 0;
+      gap: 48px;
+      width: min(50%, 1200px);
+
+      @media all {
+        @include mq-max("xxl") {
+          gap: 24px;
+          width: 47%;
+        }
+
+        @include mq-max("xl") {
+          top: 22.5vh;
+        }
+        @include mq-max("lg") {
+          top: 25vh;
+          left: auto;
+          translate: 0 0;
+          right: var(--body-padding);
+          align-items: flex-start;
+          width: 57%;
+        }
+        @include mq-max("md") {
+          width: 60%;
+          align-items: center;
+          left: 50%;
+          translate: -50% 0;
+          right: auto;
+          top: 28vh;
+        }
+        @include mq-max("sm") {
+          top: 30vh;
+        }
+      }
+
+      &-map {
+        width: 100%;
+        height: 100%;
+
+        .state {
+          stroke: $sunder-ice;
+          fill: transparent;
+          transition: fill 0.5s ease;
+
+          &.active {
+            fill: $color-active;
+          }
+          &.active-pending {
+            fill: $color-pending;
+          }
+        }
+      }
+
+      &-key {
+        @include row-center;
+        gap: 64px;
+
+        span {
+          @include body-font-styles;
+          @include row-center;
+          gap: 1ch;
+
+          &::before {
+            content: "";
+            display: flex;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+          }
+        }
+
+        &-active::before {
+          background-color: $color-active;
+        }
+        &-pending::before {
+          background-color: $color-pending;
         }
       }
     }
