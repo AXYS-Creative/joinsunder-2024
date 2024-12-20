@@ -16,6 +16,10 @@
       @include row-start(space-between);
       position: relative;
       width: 100vw;
+
+      &.safari-styles {
+        width: calc(100vw - var(--scroll-bar-width));
+      }
     }
   }
 

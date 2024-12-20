@@ -475,33 +475,29 @@
       }
 
       @media all {
-        @mixin stagger-transition-delay($i, $initial-delay, $stagger-delay) {
-          @while $i > 0 {
-            &:nth-of-type(#{$i}) {
-              transition-delay: ($initial-delay + $stagger-delay * $i);
-            }
-            $i: $i - 1;
-          }
-        }
+        $duration: 1s;
+        $increment: 0.5s;
 
         .number-counter {
           display: flex;
         }
 
         .digit {
-          @include stagger-transition-delay(2, 0, 50ms);
           display: block;
           width: 1ch;
           height: 1ch;
           overflow: hidden;
-          transition-property: transform;
+
+          &:nth-of-type(2) {
+            .sequence {
+              transition: transform 1.25s $cubic-ease-slow-finish 0s;
+            }
+          }
         }
 
         .sequence {
           display: block;
-          transition-property: transform;
-          transition-duration: 2000ms;
-          transition-delay: inherit;
+          transition: transform 0.75s $cubic-ease-slow-finish 0s;
         }
       }
 
@@ -657,6 +653,10 @@
         font-family: var(--font-family-body);
         font-weight: 600;
       }
+    }
+
+    &.safari-styles {
+      width: calc(100vw - var(--scroll-bar-width));
     }
   }
 

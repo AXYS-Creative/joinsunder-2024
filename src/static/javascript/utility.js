@@ -17,25 +17,25 @@ const handleLenis = (() => {
   requestAnimationFrame(raf);
 })();
 
-// export const isSafari = () => {
-//   let ua = navigator.userAgent.toLowerCase();
-//   return ua.indexOf("safari") !== -1 && ua.indexOf("chrome") === -1;
-// };
+export const isSafari = () => {
+  let ua = navigator.userAgent.toLowerCase();
+  return ua.indexOf("safari") !== -1 && ua.indexOf("chrome") === -1;
+};
 
 /**
  * Custom classes for Safari. Add any element’s class to the array below.
  * This class will now have a customizable 'safari-styles' class you can target.
  */
-// const safariClasses = (() => {
-//   const elementList = [".magnet", ".social-media-link", ".header-logo"];
+const safariClasses = (() => {
+  const elementList = [".nav-slider", ".graph-section", ".main-home .hero"];
 
-//   if (isSafari()) {
-//     elementList.forEach((element) => {
-//       const elements = document.querySelectorAll(element);
+  if (isSafari()) {
+    elementList.forEach((element) => {
+      const elements = document.querySelectorAll(element);
 
-//       elements.forEach((el) => {
-//         el.classList.add("safari-styles");
-//       });
-//     });
-//   }
-// })();
+      elements.forEach((el) => {
+        el.classList.add("safari-styles");
+      });
+    });
+  }
+})();

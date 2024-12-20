@@ -19,6 +19,8 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
   --loader-duration-before: 0s;
   --loader-duration-after: 0s;
 
+  --scroll-bar-width: 12px;
+
   --background-color: #{$sunder-snow};
 
   --font-family-heading: #{$sunder-font--heading};

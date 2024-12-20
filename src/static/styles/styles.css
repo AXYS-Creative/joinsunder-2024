@@ -2,6 +2,7 @@
   --loader-duration: 0s;
   --loader-duration-before: 0s;
   --loader-duration-after: 0s;
+  --scroll-bar-width: 12px;
   --background-color: #f7f7f7;
   --font-family-heading: Monument, sans-serif;
   --font-family-body: Satoshi, sans-serif;
@@ -292,6 +293,22 @@ h6 span,
 * input::-webkit-outer-spin-button,
 * input::-webkit-inner-spin-button {
   display: none;
+}
+* ::-webkit-scrollbar {
+  width: var(--scroll-bar-width);
+}
+* ::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+* ::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #f0f0f0;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f0f0f0;
 }
 
 body {
@@ -618,6 +635,9 @@ img {
     gap: 16px;
   }
 }
+.site-nav .nav-slider.safari-styles {
+  transition: none;
+}
 .site-nav .nav-link {
   overflow: hidden;
 }
@@ -696,6 +716,19 @@ img {
 }
 .site-nav__extra-logo {
   width: var(--logo-width);
+}
+.site-nav__extra-credits {
+  font-size: 14px;
+}
+@media screen and (max-width: 480px) {
+  .site-nav__extra-credits {
+    width: 120px;
+    font-size: 12px;
+    text-align: right;
+  }
+}
+.site-nav__extra-credits > * {
+  font-size: inherit;
 }
 .site-nav__extra-social {
   --link-size: 32px;
@@ -1453,6 +1486,9 @@ img {
     align-items: flex-start;
     position: relative;
     width: 100vw;
+  }
+  .main-home .hero.safari-styles {
+    width: calc(100vw - var(--scroll-bar-width));
   }
 }
 .main-home .text-group {
@@ -2273,19 +2309,13 @@ img {
     width: 1ch;
     height: 1ch;
     overflow: hidden;
-    transition-property: transform;
   }
-  .main-opportunity .sunder-growth__counter .digit:nth-of-type(2) {
-    transition-delay: 100ms;
-  }
-  .main-opportunity .sunder-growth__counter .digit:nth-of-type(1) {
-    transition-delay: 50ms;
+  .main-opportunity .sunder-growth__counter .digit:nth-of-type(2) .sequence {
+    transition: transform 1.25s cubic-bezier(0.09, 0.9, 0.5, 1) 0s;
   }
   .main-opportunity .sunder-growth__counter .sequence {
     display: block;
-    transition-property: transform;
-    transition-duration: 2000ms;
-    transition-delay: inherit;
+    transition: transform 0.75s cubic-bezier(0.09, 0.9, 0.5, 1) 0s;
   }
 }
 .main-opportunity .sunder-growth__counter.show-item {
@@ -2488,6 +2518,9 @@ img {
 }
 .main-opportunity .graph-section__graph-year span {
   font-family: inherit;
+}
+.main-opportunity .graph-section.safari-styles {
+  width: calc(100vw - var(--scroll-bar-width));
 }
 .main-opportunity .sunder-bar-graph {
   background-color: var(--background-color);
