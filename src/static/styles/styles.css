@@ -2693,7 +2693,7 @@ img {
   height: 14%;
 }
 @media screen and (max-width: 768px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2019::before {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2019 .line-graph__years-column-label {
     right: auto;
     left: 0;
   }

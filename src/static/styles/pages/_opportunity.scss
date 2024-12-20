@@ -794,7 +794,7 @@
           &.column-2019 {
             height: 14%;
 
-            &::before {
+            .line-graph__years-column-label {
               @include mq-max("md") {
                 right: auto;
                 left: 0;
