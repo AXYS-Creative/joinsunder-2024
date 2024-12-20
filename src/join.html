@@ -29,6 +29,7 @@ header_fixed: #Leaving this value empty hides the header
         height="50"
       />
     </a>
+    <!-- prettier-ignore -->
     <form
       class="join-sunder-form"
       action="/contact"
@@ -36,8 +37,10 @@ header_fixed: #Leaving this value empty hides the header
       name="join-sunder-form"
       netlify
       netlify-honeybot="bot-field"
-      data-netlify-recaptcha="true"
-      hidden
+      {% if page_join.join_form.show_recaptcha %}
+        data-netlify-recaptcha="true"
+        hidden
+      {% endif %}
     >
       <input type="hidden" name="join-sunder-form" value="contact" />
 
