@@ -3,4 +3,4 @@ hero_img: /static/img/join-hero.webp
 contact_form:
   show_field_discovery: true
   max_count_discovery: 250
-  show_recaptcha: true
+  show_recaptcha: false
