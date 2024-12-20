@@ -7,6 +7,7 @@
       aria-label="Play video: {{ slide.title }} - {{ slide.sub_title }}"
       aria-controls="video-overlay"
     >
+      <!-- prettier-ignore -->
       <img
         class="poster"
         src="{{ slide.poster }}"
@@ -15,6 +16,10 @@
         class=""
         width="250"
         height="500"
+        {%if load_preference == 'low'%}
+          loading="lazy"
+          fetchpriority="low"
+        {%endif%}
       />
       <div class="caption">
         <h2>{{ slide.title }}</h2>

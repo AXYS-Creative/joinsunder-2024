@@ -725,6 +725,10 @@
           height: 0;
         }
 
+        @include mq-max("lg") {
+          width: 50%;
+        }
+
         &-caption {
           // Visit block above for ::after "Growth"
           color: $graph-color;

@@ -2590,6 +2590,11 @@ img {
     height: 0;
   }
 }
+@media screen and (max-width: 1024px) {
+  .main-opportunity .sunder-bar-graph .bar-graph__bar {
+    width: 50%;
+  }
+}
 .main-opportunity .sunder-bar-graph .bar-graph__bar-caption {
   color: #0093d4;
   position: absolute;
