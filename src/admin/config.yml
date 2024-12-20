@@ -5,9 +5,9 @@ backend:
   repo: "https://github.com/AXYS-Creative/joinsunder.git"
 media_folder: "src/static/img"
 public_folder: "/static/img"
-site_url: https://joinsunder-cms.netlify.app # On admin login page, this adds a 'go back to site' link. Also added in the corner when logged in.
-display_url: https://joinsunder-cms.netlify.app # In admin dashboard, this addes the URL in the corner 'View Live'. Used with 'preview_path' for collection viewing.
-logo_url: https://joinsunder-cms.netlify.app/static/img/icons/admin-logo.svg # On admin login page, this adds a custom logo.
+site_url: https://joinsunder-dev.netlify.app # On admin login page, this adds a 'go back to site' link. Also added in the corner when logged in.
+display_url: https://joinsunder-dev.netlify.app # In admin dashboard, this addes the URL in the corner 'View Live'. Used with 'preview_path' for collection viewing.
+logo_url: https://joinsunder-dev.netlify.app/static/img/icons/admin-logo.svg # On admin login page, this adds a custom logo.
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
@@ -195,9 +195,10 @@ collections:
               - {
                   name: "state_count",
                   label: "State Count",
-                  widget: "string",
+                  widget: "number",
                   required: true,
-                  hint: "For example, '07' or '18'",
+                  min: 0,
+                  max: 99,
                 }
       - name: "sales_force"
         label: "Sales Force (Bar Graph)"
@@ -704,6 +705,38 @@ collections:
                   hint: For site performance keep the file under 50kb. The smaller the faster.,
                   media_library: { config: { max_file_size: 50000 } }, # 1KB = 1,000 bytes
                 }
+          # - name: "social_media_toggle"
+          #   label: "Show Social Media"
+          #   widget: "boolean"
+          #   default: false
+          # - name: "social_media"
+          #   label: "Social Media"
+          #   widget: "list"
+          #   allow_add: true
+          #   min: 0
+          #   max: 4
+          #   collapsed: true
+          #   required: false
+          #   fields:
+          #     - {
+          #         name: "title",
+          #         label: "Social Media Platform",
+          #         widget: "string",
+          #         required: true,
+          #       }
+          #     - {
+          #         name: "url",
+          #         label: "Link URL",
+          #         widget: "string",
+          #         required: true,
+          #       }
+          #     - {
+          #         name: "src",
+          #         label: "Social Meida Icon",
+          #         widget: "image",
+          #         required: true,
+          #         hint: "Recommended to use an SVG file",
+          #       }
       - name: "page_loader"
         label: "Page Loader"
         file: "src/_data/loader.yaml"

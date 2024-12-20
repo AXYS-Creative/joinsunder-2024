@@ -25,3 +25,15 @@ nav_links:
     url: "/join"
     desktop_image: "/static/img/nav-join-lg.webp"
     mobile_image: "/static/img/nav-join-sm.webp"
+
+social_media_toggle: false
+
+social_media:
+  - title: Instagram
+    url: https://www.instagram.com/joinsunder
+    src: ../static/img/icon-social-instagram.svg
+    color: "#000014"
+  - title: LinkedIn
+    url: https://www.linkedin.com/company/sunder-energy/
+    src: ../static/img/icon-social-linkedin.svg
+    color: "#000014"

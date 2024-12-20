@@ -14,8 +14,11 @@
 <nav class="site-nav" id="site-nav" aria-label="Site navigation">
   <div class="nav-slider">
     {% for link in navigation.nav_links %}
-    <a class="nav-link tab-element-nav" href="{{link.url}}">
-      {{link.title}}
+    <a
+      class="nav-link tab-element-nav {% if path == link.title | lower %}nav-link--active-page{% endif %}"
+      href="{{link.url}}"
+    >
+      <span>{{link.title}}</span>
       <picture>
         <source
           srcset="{{link.mobile_image}}"
@@ -41,3 +44,33 @@
     {% endfor %}
   </div>
 </nav>
+
+<div class="site-nav__extra">
+  <a class="site-nav__extra-logo tab-element-nav" href="/">
+    <img
+      class="site-nav__extra-logo-img"
+      src="/static/img/logo-dark.svg"
+      alt="sunder logo"
+      width="150"
+      height="35"
+    />
+  </a>
+
+  {% if navigation.social_media_toggle %}
+  <div class="site-nav__extra-social">
+    {% for link in navigation.social_media %}
+    <a
+      class="social-media-link"
+      href="{{ link.url }}"
+      aria-label="{{ link.title }}"
+    >
+      <span class="sr-only">{{ link.title }}</span>
+      <span
+        class="social-media-link__img"
+        style="mask-image: url({{ link.src }}); background-color: {{ link.color }};"
+      ></span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>

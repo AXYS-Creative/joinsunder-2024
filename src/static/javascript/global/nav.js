@@ -6,6 +6,7 @@ import {
 
 export const siteNav = document.querySelector(".site-nav"),
   navBtn = document.querySelector(".nav-btn"),
+  siteNavExtra = document.querySelector(".site-nav__extra"),
   mainContent = document.querySelector(".main-content"),
   siteHeader = document.querySelector(".site-header"),
   siteFooter = document.querySelector(".site-footer");
@@ -45,6 +46,7 @@ const updateNavState = (state) => {
   isNavOpen = state;
 
   siteNav.classList.toggle("site-nav--active", isNavOpen);
+  siteNavExtra.classList.toggle("site-nav__extra--nav-active", isNavOpen);
   siteHeader?.classList.toggle("site-header--nav-active", isNavOpen);
   siteFooter?.classList.toggle("site-footer--nav-active", isNavOpen);
   mainContent.classList.toggle("main-content--nav-active", isNavOpen);
@@ -96,6 +98,7 @@ const closeNav = () => {
 
   siteNav.setAttribute("aria-hidden", "true");
   siteNav.classList.remove("site-nav--active");
+  siteNavExtra.classList.remove("site-nav__extra--nav-active");
   siteHeader?.classList.remove("site-header--nav-active");
   siteFooter?.classList.remove("site-footer--nav-active");
   mainContent.classList.remove("main-content--nav-active");

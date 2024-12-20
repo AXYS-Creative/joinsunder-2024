@@ -31,12 +31,16 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
 
   --nav-height: 436px;
   --nav-background-color: #{$sunder-ice};
+  --nav-btn-distance: 36px;
+  --nav-btn-size: 64px;
 
   --footer-height: 164px;
 
   --hero-top-padding: 180px;
 
   --section-spacing: 248px;
+
+  --logo-width: 148px;
 
   --radius: 12px;
   --radius-lg: 40px;
@@ -67,7 +71,10 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
   }
 
   @media (max-width: 480px) {
+    --nav-btn-distance: 28px;
+    --nav-btn-size: 56px;
     --footer-height: 196px;
+    --logo-width: 96px;
   }
 }
 
