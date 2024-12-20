@@ -1,6 +1,6 @@
-<{{element}} class="popup-text {{ classnames }}">
+<{{element}} class="popup-text {{ classnames }}" aria-label="{{ lines | join(' ') }}">
   {% for line in lines %}
-  <span class="popup-text__block">
+  <span class="popup-text__block" aria-hidden="true">
     <span class="popup-text__block-inner">{{ line }}</span>
   </span>
   {% endfor %}

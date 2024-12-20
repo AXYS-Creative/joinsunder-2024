@@ -13,7 +13,12 @@ footer_gradient: site-footer--sunder-colors
 ---
 
 <section class="hero">
-  <h1 class="h1 hero__title">{{ page_opportunity_hero.heading }}</h1>
+  <h1
+    class="h1 hero__title"
+    aria-label="{{ page_opportunity_hero.heading | removeTokens }}"
+  >
+    <span aria-hidden="true">{{ page_opportunity_hero.heading }}</span>
+  </h1>
 
   <picture class="hero__picture">
     <source
