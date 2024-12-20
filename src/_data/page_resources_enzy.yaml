@@ -4,7 +4,7 @@ enzy_hero:
   video_embed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/LC06KUhhdT4?si=jDXPNfePXtBiZYaM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
   hero_img: /static/img/resources-phone-group.webp
   alt: "Two smart phones showing enzy’s features: a way to message others and a leaderboard."
-  caption: AI-Powered Performance [%br%] and Recognition Platform
+  caption: AI-Powered Performance[%br%] and Recognition Platform
 
 enzy_perks:
   - title: LeaderBoard

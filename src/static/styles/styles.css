@@ -681,13 +681,13 @@ img {
 .site-nav .nav-link__img {
   transition: 0.3s ease, scale 0.4s ease;
 }
-.site-nav .nav-link--active-page span {
+.site-nav .nav-link--active-page .nav-link__text {
   position: relative;
   font-weight: 500;
   display: block;
   translate: 1.5ch 0;
 }
-.site-nav .nav-link--active-page span::before {
+.site-nav .nav-link--active-page .nav-link__text::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -2430,7 +2430,7 @@ img {
   scroll-margin-top: calc(50vh - 4px);
 }
 .main-opportunity .graph-section {
-  --section-y-padding: 10vw;
+  --section-y-padding: 13vw;
   --section-aspect-ratio: 1.5 / 1;
   --section-line-graph-aspect-ratio: 1.25 / 1;
   --graph-aspect-ratio: 1.5 / 1;
@@ -2471,7 +2471,7 @@ img {
   top: var(--section-y-padding);
   left: 50%;
   translate: -50% 0;
-  width: min(65vw, 1200px);
+  width: min(60vw, 1200px);
   aspect-ratio: var(--graph-aspect-ratio);
 }
 @media screen and (min-width: 1921px) {
@@ -2646,7 +2646,7 @@ img {
   position: relative;
   flex-direction: column-reverse;
 }
-.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column::before {
+.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column-label {
   font-family: var(--font-family-heading);
   font-size: 32px;
   font-weight: 400;
@@ -2661,94 +2661,94 @@ img {
   white-space: nowrap;
 }
 @media screen and (max-width: 1512px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column::before {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column-label {
     font-size: 1.6vw;
   }
 }
 @media screen and (max-width: 1024px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column::before {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column-label {
     font-size: 2.4vw;
   }
 }
 @media screen and (max-width: 768px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column::before {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column-label {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 480px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column::before {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column-label {
     font-size: 16px;
   }
 }
-.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column::before span {
+.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column-label span {
   font-family: inherit;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column::before {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column-label {
     opacity: 0;
     translate: -12px 0;
   }
 }
-.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-1 {
+.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2019 {
   height: 14%;
 }
 @media screen and (max-width: 768px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-1::before {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2019::before {
     right: auto;
     left: 0;
   }
 }
 @media screen and (max-width: 1024px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-1 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2019 {
     height: 17%;
   }
 }
 @media screen and (max-width: 768px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-1 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2019 {
     height: 20%;
   }
 }
 @media screen and (max-width: 480px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-1 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2019 {
     height: 25%;
   }
 }
-.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2 {
+.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2020 {
   height: 37%;
 }
 @media screen and (max-width: 1024px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2020 {
     height: 40%;
   }
 }
 @media screen and (max-width: 480px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2020 {
     height: 45%;
   }
 }
-.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-3 {
+.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2021 {
   height: 70%;
 }
 @media screen and (max-width: 1024px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-3 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2021 {
     height: 73%;
   }
 }
 @media screen and (max-width: 480px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-3 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2021 {
     height: 78%;
   }
 }
-.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-4 {
+.main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2022 {
   height: 104%;
 }
 @media screen and (max-width: 1024px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-4 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2022 {
     height: 107%;
   }
 }
 @media screen and (max-width: 480px) {
-  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-4 {
+  .main-opportunity .sunder-line-graph .line-graph .line-graph__years-column.column-2022 {
     height: 112%;
   }
 }
@@ -2774,22 +2774,22 @@ img {
   .main-opportunity .sunder-line-graph .line-graph.animate .svg-dots__dot-4 {
     animation-delay: 0.9s;
   }
-  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(1)::before {
+  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(1) .line-graph__years-column-label {
     transition: 0.5s ease 0.225s;
     opacity: 1;
     translate: 0 0;
   }
-  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(2)::before {
+  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(2) .line-graph__years-column-label {
     transition: 0.5s ease 0.45s;
     opacity: 1;
     translate: 0 0;
   }
-  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(3)::before {
+  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(3) .line-graph__years-column-label {
     transition: 0.5s ease 0.675s;
     opacity: 1;
     translate: 0 0;
   }
-  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(4)::before {
+  .main-opportunity .sunder-line-graph .line-graph.animate .line-graph__years-column:nth-of-type(4) .line-graph__years-column-label {
     transition: 0.5s ease 0.9s;
     opacity: 1;
     translate: 0 0;

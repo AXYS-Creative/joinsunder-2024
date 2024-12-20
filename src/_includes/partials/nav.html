@@ -18,7 +18,11 @@
       class="nav-link tab-element-nav {% if path == link.title | lower %}nav-link--active-page{% endif %}"
       href="{{link.url}}"
     >
-      <span>{{link.title}}</span>
+      <span class="nav-link__text">
+        {{link.title}} {% if path == link.title | lower %}
+        <span class="sr-only">: You are currently on this page</span>
+        {% endif %}
+      </span>
       <picture>
         <source
           srcset="{{link.mobile_image}}"

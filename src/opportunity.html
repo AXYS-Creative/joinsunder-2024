@@ -87,23 +87,29 @@ footer_gradient: site-footer--sunder-colors
 
 <section class="sunder-definition" id="sunder-definition">
   <div class="sunder-definition__pin">
-    <h2 class="sunder-definition__title">
+    <h2
+      class="sunder-definition__title"
+      aria-label="We are the leaders in the solar industry"
+    >
       <span
         class="sunder-definition__title-scrub sunder-definition__title-scrub-1"
+        aria-hidden="true"
       >
-        We are the <br aria-hidden="true" />
+        We are the <br />
         leaders
       </span>
       <span
         class="sunder-definition__title-scrub sunder-definition__title-scrub-2"
+        aria-hidden="true"
       >
-        in the solar <br aria-hidden="true" />
+        in the solar <br />
         industry
       </span>
     </h2>
     <button
       class="sunder-definition__video tab-element-page"
       aria-pressed="false"
+      aria-label="Play video {{ page_opportunity_definition.video_title | removeTokens }}"
     >
       {% if page_opportunity_definition.video_title %}
       <h3 class="sunder-definition__video-title">
@@ -129,23 +135,30 @@ footer_gradient: site-footer--sunder-colors
 
 <section class="sunder-growth" id="sunder-growth">
   <div class="sunder-growth__pin">
-    <h2 class="sunder-growth__title h3">
-      {{ page_opportunity_growth.section_title }}
+    <h2
+      class="sunder-growth__title h3"
+      aria-label="{{ page_opportunity_growth.section_title| removeTokens }}"
+    >
+      <span aria-hidden="true">
+        {{ page_opportunity_growth.section_title }}
+      </span>
     </h2>
 
     <div class="sunder-growth__links">
       {% for year in page_opportunity_growth.growth_data %}
       <a
         class="cta sunder-growth__links-link growth-link-{{ loop.index }} tab-element-page"
-        href="#growth-marker-{{loop.index}}"
+        href="#growth-marker-{{year.year}}"
       >
+        <span class="sr-only">Growth for</span>
         {{ year.year }}
+        <span class="sr-only">: {{ year.state_count }} active states</span>
       </a>
       {% endfor %}
     </div>
 
     <div class="sunder-growth__counter">
-      <h3 class="h1 number-counter" id="state-count" data-counter-value="48">
+      <h3 class="h1 number-counter">
         <span class="digit">
           <span class="sequence" aria-hidden="true">
             0<br />
@@ -176,7 +189,7 @@ footer_gradient: site-footer--sunder-colors
         </span>
       </h3>
 
-      <label class="h5" for="state-count">States</label>
+      <span class="h5" aria-hidden="true">States</span>
     </div>
 
     <div class="sunder-growth__map">
@@ -188,6 +201,7 @@ footer_gradient: site-footer--sunder-colors
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <title class="sr-only">Map of the USA and Puerto Rico</title>
         <!-- prettier-ignore -->
         <path class="state CA state-2019" id="CA" d="M70.7142 342.953L71.1025 345.089V345.477L70.7142 342.953ZM56.446 334.606L57.1254 336.062L57.5136 335.965L56.446 334.606ZM73.432 334.315L73.7232 336.838L75.4703 338.1L73.432 334.315ZM61.6874 320.532L60.6197 320.241L61.4932 320.629L61.6874 320.532ZM50.9134 317.62L48.2926 319.173L48.9721 319.852L50.9134 317.62ZM45.8661 315.776L45.6719 316.552L46.5455 316.746L45.8661 315.776ZM54.4076 317.717L58.6784 320.143L59.4549 319.464L54.4076 317.717ZM31.6949 232.69L31.5977 232.398V232.787L31.6949 232.69ZM87.7003 159.019L83.9148 158.048L42.3718 146.595L26.9388 141.936V142.324L26.0652 151.933L21.9885 163.289L15.1941 171.734L15 176.005L18.3001 181.926L19.9502 189.691L17.6207 196L18.009 202.309L16.8442 204.93L20.8238 213.568L23.3474 216.868L23.1533 226.283L29.1712 232.01L32.6655 226.186L36.451 229.195L37.9069 227.836L32.6655 228.807L32.5684 233.757L33.6361 239.969L30.7242 237.154L29.0741 233.369L28.5888 238.61L29.9477 248.996L35.3832 255.694L31.7919 260.353L32.3743 266.273L36.2568 272.291L43.0512 290.927L45.1866 292.092L44.5071 305.002L45.5748 306.555L60.1343 311.796L64.5992 316.552L66.1522 319.658L70.423 322.085L75.082 322.958L77.0233 328.297L80.9058 330.141L86.7296 337.032L92.1651 346.059L91.7769 354.407L94.7858 358.386L134.485 362.269L137.979 362.075L139.532 357.804L136.523 355.571L136.62 348.486L138.367 348.098L141.861 339.556L143.997 335.576L149.432 332.373L146.423 328.297L143.026 319.173L143.22 316.746V316.649L140.697 313.252L132.932 302.866L117.887 281.706L96.9213 251.617L85.0796 235.213L73.6261 218.712L86.8267 162.707L87.7003 159.019Z" />
         <!-- prettier-ignore -->
@@ -302,7 +316,7 @@ footer_gradient: site-footer--sunder-colors
         <path class="state AL" id="AL" d="M583.013 324.026L583.401 324.803L584.76 325.676L585.343 365.472L585.537 387.311L590.487 417.207L590.875 417.11L595.243 417.983L596.408 409.345L598.349 414.198L601.649 417.207L607.958 413.518L607.279 412.936L607.473 413.033L603.105 403.036L645.036 396.241L647.851 395.756V395.659L645.231 390.709L645.036 383.623L642.901 379.741L643.969 372.17L645.716 370.228L638.533 357.416L625.527 317.814L625.43 317.62L622.518 318.105L606.988 320.629L599.223 321.6L582.916 323.832L583.013 324.026Z" stroke-width="0.970631" stroke-linejoin="round"/>
       </svg>
 
-      <div class="sunder-growth__map-key">
+      <div class="sunder-growth__map-key" aria-hidden="true">
         <span class="sunder-growth__map-key-active">Active</span>
         <span class="sunder-growth__map-key-pending">Pending</span>
       </div>
@@ -314,15 +328,20 @@ footer_gradient: site-footer--sunder-colors
     <div
       class="growth-marker marker-{{ loop.index }}"
       data-counter-value="{{ year.state_count }}"
-      id="growth-marker-{{ loop.index }}"
+      id="growth-marker-{{ year.year }}"
     ></div>
     {% endfor %}
   </div>
 </section>
 
 <section class="sunder-bar-graph graph-section" id="sunder-bar-graph">
-  <h2 class="graph-section__title h3">
-    {{page_opportunity_salesforce.section_title}}
+  <h2
+    class="graph-section__title h3"
+    aria-label="{{ page_opportunity_salesforce.section_title| removeTokens }}"
+  >
+    <span aria-hidden="true">
+      {{page_opportunity_salesforce.section_title}}
+    </span>
   </h2>
 
   <div class="bar-graph graph-section__graph" role="region">
@@ -330,25 +349,34 @@ footer_gradient: site-footer--sunder-colors
     <div class="bar-graph__block gsap-animate">
       <div class="bar-graph__bar" style="--bar-height: {{ bar.height }}%;">
         {% if bar.caption %}
-        <h4 class="bar-graph__bar-caption">{{ bar.caption }}</h4>
+        <h4 class="bar-graph__bar-caption" aria-hidden="true">
+          {{ bar.caption }}
+        </h4>
         {% endif %}
       </div>
-      <h3 class="bar-graph__year graph-section__graph-year">{{ bar.year }}</h3>
+      <h3 class="bar-graph__year graph-section__graph-year">
+        {{ bar.year }}
+        <span class="sr-only">{{ bar.caption }} Growth</span>
+      </h3>
     </div>
     {% endfor %}
   </div>
 </section>
 
 <section class="sunder-line-graph graph-section" id="sunder-line-graph">
-  <h2 class="graph-section__title h3">
-    Kilowatts
-    <br aria-hidden="true" />
-    Installed
+  <h2
+    class="graph-section__title h3"
+    aria-label="{{ page_opportunity_kilowatts.section_title | removeTokens }}"
+  >
+    <span aria-hidden="true">
+      {{ page_opportunity_kilowatts.section_title }}
+    </span>
   </h2>
 
   <div class="line-graph graph-section__graph gsap-animate" role="region">
     <svg
       class="svg-line"
+      aria-hidden="true"
       width="1310"
       height="855"
       viewBox="0 0 1310 855"
@@ -377,6 +405,7 @@ footer_gradient: site-footer--sunder-colors
     </svg>
     <svg
       class="svg-dots"
+      aria-hidden="true"
       width="1310"
       height="855"
       viewBox="0 0 1310 855"
@@ -444,13 +473,13 @@ footer_gradient: site-footer--sunder-colors
     </svg>
     <div class="line-graph__years">
       {% for data in page_opportunity_kilowatts.line_graph %}
-      <div
-        class="line-graph__years-column column-{{loop.index}}"
-        data-stat="{{data.kw_count}} KW"
-      >
+      <div class="line-graph__years-column column-{{data.year}}">
+        <span class="line-graph__years-column-label" aria-hidden="true">
+          {{data.kw_count}} KW
+        </span>
         <h3 class="line-graph__years-year graph-section__graph-year">
           {{ data.year }}
-          <span class="sr-only">{{ data.kw_count }} Kilowatts</span>
+          <span class="sr-only">: {{ data.kw_count }} Kilowatts</span>
         </h3>
       </div>
       {% endfor %}
