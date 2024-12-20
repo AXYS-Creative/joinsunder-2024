@@ -18,12 +18,12 @@ responsiveGsap.add(
     let navyMarkers = {
       startColor: "navy",
       endColor: "navy",
-      indent: 148,
+      indent: 256,
     };
     let whiteMarkers = {
       startColor: "white",
       endColor: "white",
-      indent: 320,
+      indent: 96,
     };
 
     const sunderMidnight = "#000014";
@@ -118,33 +118,13 @@ responsiveGsap.add(
 
       // Growth History (USA map)
       {
-        // Gague distance between two pins
-        let multiplier = maxSm
-          ? 4.9
-          : maxMd
-          ? 4.7
-          : maxLg
-          ? 4.75
-          : maxXl
-          ? 4.825
-          : maxXxl
-          ? 4.85
-          : 4.9;
-        const marker1 = document.querySelector(".marker-1");
-        const marker2 = document.querySelector(".marker-2");
-        const verticalDistance =
-          Math.abs(
-            marker1.getBoundingClientRect().top -
-              marker2.getBoundingClientRect().top
-          ) * multiplier;
-
         const pinDuration = "+=400%";
         const pinDurationExtended = "+=480%";
         const growthMarkers = document.querySelectorAll(
           ".sunder-growth__static-markers .growth-marker"
         );
-        const startPoint = "-12px center";
-        const endPoint = `${verticalDistance}px center`;
+        const startPoint = "-2px center";
+        const endPoint = `bottom center`;
 
         // Pinning the Growth Section
         {
@@ -216,7 +196,7 @@ responsiveGsap.add(
               onEnterBack: () => link.classList.add("active"),
               onLeave: () => link.classList.remove("active"),
               onLeaveBack: () => link.classList.remove("active"),
-              // markers: true,
+              // markers: whiteMarkers,
             });
           });
         }
@@ -240,7 +220,6 @@ responsiveGsap.add(
               onLeaveBack: () => {
                 if (isFirstMarker) updateCounter(numberCounter, "00");
               },
-              // markers: true,
             });
           });
 
