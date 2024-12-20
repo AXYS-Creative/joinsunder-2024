@@ -634,8 +634,8 @@ collections:
             label: "Hero Image"
             widget: image
             required: true
-          - name: "join_form"
-            label: "Join Form"
+          - name: "contact_form"
+            label: "Contact Form"
             widget: object
             required: true
             fields:

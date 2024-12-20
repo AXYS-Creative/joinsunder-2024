@@ -450,20 +450,6 @@ img {
     width: var(--logo-width);
   }
 
-  &-credits {
-    font-size: 14px;
-
-    @include mq-max("sm") {
-      width: 120px;
-      font-size: 12px;
-      text-align: right;
-    }
-
-    > * {
-      font-size: inherit;
-    }
-  }
-
   &-social {
     --link-size: 32px;
 
@@ -489,6 +475,20 @@ img {
         mask-size: cover;
         mask-repeat: no-repeat;
       }
+    }
+  }
+
+  &-credits {
+    font-size: 14px;
+
+    @include mq-max("sm") {
+      width: 120px;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    > * {
+      font-size: inherit;
     }
   }
 

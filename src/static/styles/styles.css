@@ -717,19 +717,6 @@ img {
 .site-nav__extra-logo {
   width: var(--logo-width);
 }
-.site-nav__extra-credits {
-  font-size: 14px;
-}
-@media screen and (max-width: 480px) {
-  .site-nav__extra-credits {
-    width: 120px;
-    font-size: 12px;
-    text-align: right;
-  }
-}
-.site-nav__extra-credits > * {
-  font-size: inherit;
-}
 .site-nav__extra-social {
   --link-size: 32px;
   display: flex;
@@ -760,6 +747,19 @@ img {
           mask-size: cover;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
+}
+.site-nav__extra-credits {
+  font-size: 14px;
+}
+@media screen and (max-width: 480px) {
+  .site-nav__extra-credits {
+    width: 120px;
+    font-size: 12px;
+    text-align: right;
+  }
+}
+.site-nav__extra-credits > * {
+  font-size: inherit;
 }
 .site-nav__extra--nav-active {
   translate: 0 0;

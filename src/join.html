@@ -37,7 +37,7 @@ header_fixed: #Leaving this value empty hides the header
       name="join-sunder-form"
       netlify
       netlify-honeybot="bot-field"
-      {% if page_join.join_form.show_recaptcha %}
+      {% if page_join.contact_form.show_recaptcha %}
         data-netlify-recaptcha="true"
         hidden
       {% endif %}
@@ -132,12 +132,12 @@ header_fixed: #Leaving this value empty hides the header
         </div>
       </div>
 
-      {% if page_join.join_form.show_field_discovery %}
+      {% if page_join.contact_form.show_field_discovery %}
       <div class="form-block form-block--discovery">
         <textarea
           class="input input--textarea tab-element-page"
           id="discovery"
-          maxlength="{{ page_join.join_form.max_count_discovery }}"
+          maxlength="{{ page_join.contact_form.max_count_discovery }}"
           spellcheck="true"
           name="How did you hear about us?"
           title="How did you hear about us?"
@@ -153,7 +153,7 @@ header_fixed: #Leaving this value empty hides the header
         >
           How did you hear about us?
           <!-- prettier-ignore -->
-          {% if page_join.join_form.max_count_discovery %}
+          {% if page_join.contact_form.max_count_discovery %}
           <span class="nested-label"></span>
           {% endif %}
         </label>
@@ -161,7 +161,7 @@ header_fixed: #Leaving this value empty hides the header
       {% endif %}
 
       <!-- prettier-ignore -->
-      {% if page_join.join_form.show_recaptcha %}
+      {% if page_join.contact_form.show_recaptcha %}
       <div data-netlify-recaptcha="true" class="recaptcha"></div>
       {% endif %}
 

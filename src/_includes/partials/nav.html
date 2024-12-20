@@ -56,6 +56,24 @@
     />
   </a>
 
+  {% if navigation.social_media_toggle %}
+  <div class="site-nav__extra-social">
+    {% for link in navigation.social_media %}
+    <a
+      class="social-media-link"
+      href="{{ link.url }}"
+      aria-label="{{ link.title }}"
+    >
+      <span class="sr-only">{{ link.title }}</span>
+      <span
+        class="social-media-link__img"
+        style="mask-image: url({{ link.src }}); background-color: {{ link.color }};"
+      ></span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <p class="sr-only site-nav__extra-credits">
     Website made by
     <a
@@ -76,22 +94,4 @@
       AXYS Creative
     </a> -->
   </p>
-
-  {% if navigation.social_media_toggle %}
-  <div class="site-nav__extra-social">
-    {% for link in navigation.social_media %}
-    <a
-      class="social-media-link"
-      href="{{ link.url }}"
-      aria-label="{{ link.title }}"
-    >
-      <span class="sr-only">{{ link.title }}</span>
-      <span
-        class="social-media-link__img"
-        style="mask-image: url({{ link.src }}); background-color: {{ link.color }};"
-      ></span>
-    </a>
-    {% endfor %}
-  </div>
-  {% endif %}
 </div>
