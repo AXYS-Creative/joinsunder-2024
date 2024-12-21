@@ -3,7 +3,7 @@
   $children-width: calc(50vw - 16px);
   height: 100%;
 
-  @include mq-max("lg") {
+  @include mq-max("xl") {
     --min-height: 672px;
   }
 

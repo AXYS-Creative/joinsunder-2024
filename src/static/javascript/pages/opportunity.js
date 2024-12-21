@@ -54,13 +54,13 @@ if (document.querySelector(".main-opportunity")) {
 
   sunderDefinitionVideoBtn?.addEventListener("focus", () => {
     // This might be here for production mouse click, which might be read as 'focus'
-    // if (sunderDefinitionVideoBtn.matches(":focus-visible")) {
-    const topPoint = sunderGrowthSection.getBoundingClientRect().top;
+    if (sunderDefinitionVideoBtn.matches(":focus-visible")) {
+      const topPoint = sunderGrowthSection.getBoundingClientRect().top;
 
-    window.scrollTo({
-      top: window.scrollY + topPoint - window.innerHeight,
-    });
-    // }
+      window.scrollTo({
+        top: window.scrollY + topPoint - window.innerHeight,
+      });
+    }
   });
 }
 
@@ -69,19 +69,11 @@ const growthMarkers = document.querySelectorAll(".growth-marker");
 
 growthLinks.forEach((link, index) => {
   link.addEventListener("focus", () => {
-    growthMarkers[index].scrollIntoView({
-      behavior: "smooth",
-    });
+    growthMarkers[index].scrollIntoView();
   });
 
   link.addEventListener("click", (event) => {
     event.preventDefault();
-    growthMarkers[index].scrollIntoView({
-      behavior: "smooth",
-    });
-
-    setTimeout(() => {
-      link.focus();
-    }, 300);
+    growthMarkers[index].scrollIntoView();
   });
 });

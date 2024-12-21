@@ -11,9 +11,10 @@ responsiveGsap.add(
     maxXxl: "(max-width: 1512px)",
     minMd: "(min-width: 769px)",
     minLg: "(min-width: 1025px)",
+    noMotion: "(prefers-reduced-motion: reduce)",
   },
   (context) => {
-    let { maxSm, maxMd, maxLg, maxXl, maxXxl, minMd, minLg } =
+    let { maxSm, maxMd, maxLg, maxXl, maxXxl, minMd, minLg, noMotion } =
       context.conditions;
     let navyMarkers = {
       startColor: "navy",
@@ -83,8 +84,8 @@ responsiveGsap.add(
           },
         });
         gsap.to(".sunder-definition__title-scrub-1", {
-          top: "10%",
-          left: "10%",
+          top: noMotion ? null : "10%",
+          left: noMotion ? null : "10%",
           opacity: 0,
           scrollTrigger: {
             trigger: ".sunder-definition__title-scrub-1",
@@ -94,8 +95,8 @@ responsiveGsap.add(
           },
         });
         gsap.to(".sunder-definition__title-scrub-2", {
-          bottom: "10%",
-          right: "10%",
+          bottom: noMotion ? null : "10%",
+          right: noMotion ? null : "10%",
           opacity: 0,
           scrollTrigger: {
             trigger: ".sunder-definition__title-scrub-1",
@@ -105,7 +106,7 @@ responsiveGsap.add(
           },
         });
         gsap.from(".sunder-definition__video", {
-          scale: 0.25,
+          scale: noMotion ? 1 : 0.25,
           opacity: 0,
           scrollTrigger: {
             trigger: ".sunder-definition__title-scrub-1",
@@ -165,6 +166,7 @@ responsiveGsap.add(
             ".sunder-growth__title",
             ".sunder-growth__links",
             ".sunder-growth__counter",
+            ".sunder-growth__map-key",
           ];
 
           fadeElements.forEach((selector) => {
@@ -232,7 +234,7 @@ responsiveGsap.add(
 
               gsap.to(sequence, {
                 y: `-${digitValue * 10}%`,
-                duration: 0.5,
+                duration: noMotion ? 0 : 0.5,
                 ease: "ease",
               });
             });
@@ -357,7 +359,7 @@ responsiveGsap.add(
 
           if (element) {
             gsap.from(el, {
-              y: "100vh",
+              y: noMotion ? null : "100vh",
               ease: "none",
               scrollTrigger: {
                 trigger: trigger,
