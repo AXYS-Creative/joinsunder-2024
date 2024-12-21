@@ -16,25 +16,35 @@
   input::-webkit-inner-spin-button {
     display: none;
   }
-
-  // Scrollbar
-  ::-webkit-scrollbar {
-    width: var(--scroll-bar-width);
-  }
-  ::-webkit-scrollbar-track {
-    background: #f0f0f0;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 6px;
-    border: 3px solid #f0f0f0;
-  }
 }
 
-// Scrollbar Firefox
 html {
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f0f0f0;
+  &:has(.main-home) {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &:has(.main-opportunity) {
+    // Scrollbar Firefox
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f0f0f0;
+
+    * {
+      // Scrollbar
+      ::-webkit-scrollbar {
+        width: var(--scroll-bar-width);
+      }
+      ::-webkit-scrollbar-track {
+        background: #f0f0f0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 6px;
+        border: 3px solid #f0f0f0;
+      }
+    }
+  }
 }
 
 body {
@@ -599,21 +609,17 @@ img {
       overflow: hidden;
       flex-shrink: 0;
 
-      @include mq-max("xl") {
-        --icon-size: 1.25em;
-        scale: 0.75;
-      }
-
       .icon {
+        --icon-size: 0.45em;
         @include absolute-center;
-        width: 80%;
-        height: 80%;
         background: currentColor;
-        mask-image: url(../img/icons/play-solid.svg);
-        // mask-image: url(../img/icon-play.svg);
+        mask-image: url(../img/icon-play.svg);
         mask-repeat: no-repeat;
         mask-position: center;
-        padding: 12px;
+        mask-size: contain;
+        padding: var(
+          --icon-size
+        ); // control size with this, width/height don't work
       }
 
       .icon-1 {

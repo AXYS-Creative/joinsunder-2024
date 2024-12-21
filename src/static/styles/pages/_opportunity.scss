@@ -553,7 +553,7 @@
         &:nth-of-type(2) {
           .sequence {
             @include mq-motion-allow {
-              transition: transform 1.25s $ease;
+              transition: transform 1.35s $ease;
             }
           }
         }
