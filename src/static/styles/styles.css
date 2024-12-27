@@ -375,7 +375,6 @@ textarea {
   font-family: var(--font-family-body);
   font-size: 20px;
   font-weight: 400;
-  text-decoration: none;
 }
 @media screen and (max-width: 1512px) {
   p,

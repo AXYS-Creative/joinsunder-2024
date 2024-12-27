@@ -80,19 +80,10 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
   }
 }
 
-// Site Scaffolding
-
-$content-width: 1920px; // Likely won't use for this site
-$body-padding-xxl: 40px; // remove or clean up
-$body-padding-md: 24px; // remove or clean up
-
 $z-index-header: 1;
 $z-index-loader: 2;
 $z-index-video-overlay: 3;
 $z-index-nav-btn: 4;
-
-// $vertical-section-padding: 196px;
-// $horizontal-section-padding: 148px;
 
 // Easing
 $cubic-ease: cubic-bezier(0.18, 0.97, 0.47, 1);
