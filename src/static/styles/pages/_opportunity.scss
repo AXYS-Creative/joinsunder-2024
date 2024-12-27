@@ -285,7 +285,7 @@
         }
       }
 
-      @include non-mobile-hover {
+      @include desktop-hover {
         // Not for when the video is playing
         &:not(.sunder-definition__video--active) {
           .sunder-definition__video-actual {
@@ -507,7 +507,7 @@
           width: 72px;
         }
 
-        @include non-mobile-hover {
+        @include desktop-hover {
           border-color: var(--hero-color--primary);
           background: transparent;
         }

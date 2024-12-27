@@ -71,11 +71,8 @@ $min-breakpoints: (
   }
 }
 
-//
-// Experimental
-//
-
-@mixin non-mobile-hover {
+// Removes hover state on mobile. Covers hover/focus for desktop
+@mixin desktop-hover {
   @media (hover: hover) and (pointer: fine) {
     &:hover,
     &:focus-visible {

@@ -377,7 +377,7 @@ img {
   .nav-link {
     overflow: hidden;
 
-    @include non-mobile-hover {
+    @include desktop-hover {
       .nav-link__img {
         scale: 1.025;
         filter: brightness(1.2);
