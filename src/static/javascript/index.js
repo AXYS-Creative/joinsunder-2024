@@ -1,5 +1,5 @@
 import "./global/animations.js";
-// import "./global/loader.js";
+import "./global/loader.js";
 import "./global/nav.js";
 
 import "./components/cta.js";
