@@ -13,6 +13,25 @@ $enzy-hero: #6da894;
 $nav-transition: translate 0.5s ease;
 $nav-translate: 0 calc(var(--nav-height) * -1);
 
+$z-index-header: 1;
+$z-index-loader: 2;
+$z-index-video-overlay: 3;
+$z-index-nav-btn: 4;
+
+$img-reel-gap: 12px;
+
+// Easing
+$cubic-ease: cubic-bezier(0.18, 0.97, 0.47, 1);
+$cubic-ease-sudden: cubic-bezier(1, 0.07, 0.2, 1);
+$cubic-ease-sudden-back: cubic-bezier(0.8, -0.11, 0.11, 1.11);
+$cubic-ease-sudden-back-strong: cubic-bezier(0.77, -0.43, 0.11, 1.11);
+$cubic-ease-slow-finish: cubic-bezier(0.09, 0.9, 0.5, 1);
+
+// Debugging
+
+$test: 2px dashed rgba(crimson, 0.75);
+$test-bg: rgba(navy, 0.75);
+
 :root {
   // See _globals.scss body for details. Basically don't animate if the loader is off
   --loader-duration: 0s;
@@ -79,20 +98,3 @@ $nav-translate: 0 calc(var(--nav-height) * -1);
     --logo-width: 96px;
   }
 }
-
-$z-index-header: 1;
-$z-index-loader: 2;
-$z-index-video-overlay: 3;
-$z-index-nav-btn: 4;
-
-// Easing
-$cubic-ease: cubic-bezier(0.18, 0.97, 0.47, 1);
-$cubic-ease-sudden: cubic-bezier(1, 0.07, 0.2, 1);
-$cubic-ease-sudden-back: cubic-bezier(0.8, -0.11, 0.11, 1.11);
-$cubic-ease-sudden-back-strong: cubic-bezier(0.77, -0.43, 0.11, 1.11);
-$cubic-ease-slow-finish: cubic-bezier(0.09, 0.9, 0.5, 1);
-
-// Debugging
-
-$test: 2px dashed rgba(crimson, 0.75);
-$test-bg: rgba(navy, 0.75);

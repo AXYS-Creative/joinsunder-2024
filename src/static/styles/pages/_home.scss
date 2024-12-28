@@ -1,6 +1,6 @@
 .main-home {
   --min-height: 700px;
-  $children-width: calc(50vw - 16px);
+  $children-width: calc(50vw - $img-reel-gap);
   height: 100%;
 
   @include mq-max("xl") {

@@ -681,17 +681,25 @@ img {
 }
 
 .image-reel {
-  --gap: 16px;
+  $reel-spacing: $img-reel-gap * 2;
 
   display: flex;
   align-items: flex-start;
-  gap: var(--gap);
+  gap: $reel-spacing;
   overflow: hidden;
+
+  @include mq-max("md") {
+    gap: $img-reel-gap;
+  }
 
   &__column {
     @include column-center;
-    gap: var(--gap);
+    gap: $reel-spacing;
     flex: 1;
+
+    @include mq-max("md") {
+      gap: $img-reel-gap;
+    }
 
     img {
       border-radius: var(--radius);
