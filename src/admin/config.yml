@@ -577,6 +577,15 @@ collections:
                   hint: "Paste <iframe> embed here. Go to the youtube video, click 'share', then embed. Copy the iframe content and paste here.",
                 }
               - {
+                  name: "video_aspect_ratio",
+                  label: "Video Aspect Ratio",
+                  widget: select,
+                  multiple: false,
+                  required: false,
+                  options: ["landscape", "portrait", "square"],
+                  default: "landscape",
+                }
+              - {
                   name: hero_img,
                   label: Hero Image,
                   widget: image,

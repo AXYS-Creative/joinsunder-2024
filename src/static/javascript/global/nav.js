@@ -9,7 +9,8 @@ export const siteNav = document.querySelector(".site-nav"),
   siteNavExtra = document.querySelector(".site-nav__extra"),
   mainContent = document.querySelector(".main-content"),
   siteHeader = document.querySelector(".site-header"),
-  siteFooter = document.querySelector(".site-footer");
+  siteFooter = document.querySelector(".site-footer"),
+  activeNavLink = document.querySelector(".nav-link--active-page");
 
 export const tabElementsPage = document.querySelectorAll(".tab-element-page"),
   tabElementsNav = document.querySelectorAll(".tab-element-nav");
@@ -110,6 +111,12 @@ const closeNav = () => {
 };
 
 navBtn.addEventListener("click", handleNavBtnClick);
+
+// Close nav vs refresh for active page
+activeNavLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  closeNav();
+});
 
 document.addEventListener("videoOverlayStateChange", updateNavBtnState);
 
