@@ -142,6 +142,9 @@
       }
 
       .recaptcha {
+        width: 304px;
+        height: 78px;
+
         @include mq-max("sm") {
           scale: 0.8;
         }
