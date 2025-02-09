@@ -47,56 +47,54 @@
   white-space: nowrap;
 }
 
-//
-// Media Query Utility // Be mindful to use aria-hidden to avoid a break in speech.
-//
+// Media Query Utility, be mindful of flex vs block
 
 @media all {
-  .lg-screen-and-up {
+  .lg-up {
     display: none;
 
     @include mq-min("lg") {
-      display: flex; // Flex for cta-group
+      display: block;
     }
   }
 
-  .lg-screen-and-below {
+  .lg-down {
     display: none;
 
     @include mq-max("lg") {
-      display: flex;
+      display: block;
     }
   }
 
-  .md-screen-and-up {
+  .md-up {
     display: none;
 
     @include mq-min("md") {
-      display: flex;
+      display: block;
     }
   }
 
-  .md-screen-and-below {
+  .md-down {
     display: none;
 
     @include mq-max("md") {
-      display: flex;
+      display: block;
     }
   }
 
-  .sm-screen-and-up {
+  .sm-up {
     display: none;
 
     @include mq-min("sm") {
-      display: flex;
+      display: block;
     }
   }
 
-  .sm-screen-and-below {
+  .sm-down {
     display: none;
 
     @include mq-max("sm") {
-      display: flex;
+      display: block;
     }
   }
 }
@@ -106,8 +104,6 @@
 //
 
 .popup-text {
-  // border: 2px solid yellow;
-
   &__block {
     font-family: inherit;
     display: flex;

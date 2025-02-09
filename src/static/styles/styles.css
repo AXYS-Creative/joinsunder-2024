@@ -1218,63 +1218,63 @@ img {
 }
 
 @media all {
-  .lg-screen-and-up {
+  .lg-up {
     display: none;
   }
 }
 @media screen and (min-width: 1025px) {
-  .lg-screen-and-up {
-    display: flex;
+  .lg-up {
+    display: block;
   }
 }
 @media all {
-  .lg-screen-and-below {
+  .lg-down {
     display: none;
   }
 }
 @media screen and (max-width: 1024px) {
-  .lg-screen-and-below {
-    display: flex;
+  .lg-down {
+    display: block;
   }
 }
 @media all {
-  .md-screen-and-up {
+  .md-up {
     display: none;
   }
 }
 @media screen and (min-width: 769px) {
-  .md-screen-and-up {
-    display: flex;
+  .md-up {
+    display: block;
   }
 }
 @media all {
-  .md-screen-and-below {
+  .md-down {
     display: none;
   }
 }
 @media screen and (max-width: 768px) {
-  .md-screen-and-below {
-    display: flex;
+  .md-down {
+    display: block;
   }
 }
 @media all {
-  .sm-screen-and-up {
+  .sm-up {
     display: none;
   }
 }
 @media screen and (min-width: 481px) {
-  .sm-screen-and-up {
-    display: flex;
+  .sm-up {
+    display: block;
   }
 }
 @media all {
-  .sm-screen-and-below {
+  .sm-down {
     display: none;
   }
 }
 @media screen and (max-width: 480px) {
-  .sm-screen-and-below {
-    display: flex;
+  .sm-down {
+    display: block;
   }
 }
 .popup-text__block {
