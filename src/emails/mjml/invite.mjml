@@ -36,11 +36,12 @@
           Create Your Account
         </mj-button>
         <mj-text color="#101010" line-height="24px" font-size="15px">
-          Once you’re in, you can start making updates immediately.
-          <strong
-            >Please allow 2-3 minutes after submitting changes for the build to
-            complete in order to see live updates!</strong
-          >
+          After creating your account, visit {{ .SiteURL }}/admin to visit the
+          CMS dashboard.
+          <strong>
+            Please allow between 2-3 minutes after submitting changes for the
+            build to complete in order to see live updates!
+          </strong>
         </mj-text>
         <mj-text color="#101010" line-height="24px" font-size="15px">
           If you have any questions, we’re here to help! Feel free to reach us
