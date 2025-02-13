@@ -19,15 +19,15 @@ show_header_cta: false
     {% set lines = page_home.hero_text %}
     {% set classnames = "hero-text" %}
     {% set element = "h1" %}
-    {% include "./_includes/components/popup-text.html" %}
+    {% include "./_includes/components/popup-text.njk" %}
 
     <div class="cta-group">
       <!-- prettier-ignore -->
       {% set btn_size = "lg"%}
-      {% include "./_includes/components/cta.html" %}
+      {% include "./_includes/components/cta.njk" %}
   
       {% set cta_vid_embed = page_home.video_embed %}
-      {% include "./_includes/components/cta-video.html" %}
+      {% include "./_includes/components/cta-video.njk" %}
     </div>
   </div>
 
@@ -38,36 +38,18 @@ show_header_cta: false
       <!-- prettier-ignore -->
       {% for img in page_home.img_reel | slice(0, 12) %}
       <img
-        src="{{ img.src }}"
-        alt="{{ img.alt }}"
-        loading="eager"
-        fetchpriority="auto"
-        width="360"
-        {%if loop.index0 % 2 == 0%}
-          height="240"
-        {%else%}
-          height="480"
-        {%endif%}
-      />
-      {% endfor %}
+        src="{{ img.src }}" alt="{{ img.alt }}" loading="eager"
+      fetchpriority="auto" width="360" {%if loop.index0 % 2 == 0%} height="240"
+      {%else%} height="480" {%endif%} /> {% endfor %}
     </div>
 
     <div class="image-reel__column image-reel__column-2">
       <!-- prettier-ignore -->
       {% for img in page_home.img_reel | slice(12) %}
       <img
-        src="{{ img.src }}"
-        alt="{{ img.alt }}"
-        loading="eager"
-        fetchpriority="auto"
-        width="360"
-        {%if loop.index0 % 2 == 0%}
-          height="480"
-          {%else%}
-          height="240"
-        {%endif%}
-      />
-      {% endfor %}
+        src="{{ img.src }}" alt="{{ img.alt }}" loading="eager"
+      fetchpriority="auto" width="360" {%if loop.index0 % 2 == 0%} height="480"
+      {%else%} height="240" {%endif%} /> {% endfor %}
     </div>
   </div>
 </section>

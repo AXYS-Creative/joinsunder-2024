@@ -21,37 +21,17 @@ show_header_cta: false
       <!-- prettier-ignore -->
       {% for img in page_experience_images.img_reel_1 %}
       <img 
-        src="{{ img.src }}" 
-        alt="{{ img.alt }}" 
-        width="356"
-        {%if loop.index0 % 2 == 0%}
-          height="472"
-        {%else%}
-          height="236"
-        {%endif%}
-        {%if loop.index > 3 %}
-          loading="lazy"
-        {%endif%}
-      />
-      {% endfor %}
+        src="{{ img.src }}" alt="{{ img.alt }}" width="356" {%if loop.index0 % 2
+      == 0%} height="472" {%else%} height="236" {%endif%} {%if loop.index > 3 %}
+      loading="lazy" {%endif%} /> {% endfor %}
     </div>
     <div class="image-reel__column image-reel__column-2">
       <!-- prettier-ignore -->
       {% for img in page_experience_images.img_reel_2 %}
       <img 
-      src="{{ img.src }}" 
-      alt="{{ img.alt }}" 
-      width="356"
-      {%if loop.index0 % 2 == 0%}
-        height="236"
-      {%else%}
-        height="472"
-      {%endif%}
-      {%if loop.index > 3 %}
-        loading="lazy"
-      {%endif%}
-      />
-      {% endfor %}
+      src="{{ img.src }}" alt="{{ img.alt }}" width="356" {%if loop.index0 % 2
+      == 0%} height="236" {%else%} height="472" {%endif%} {%if loop.index > 3 %}
+      loading="lazy" {%endif%} /> {% endfor %}
     </div>
     <div
       class="image-reel__column image-reel__column-3 image-reel__column-3--experience"
@@ -59,37 +39,17 @@ show_header_cta: false
       <!-- prettier-ignore -->
       {% for img in page_experience_images.img_reel_3 %}
       <img 
-      src="{{ img.src }}" 
-      alt="{{ img.alt }}" 
-      width="356"
-      {%if loop.index0 % 2 == 0%}
-        height="472"
-      {%else%}
-        height="236"
-      {%endif%}
-      {%if loop.index > 3 %}
-        loading="lazy"
-      {%endif%}
-      />
-      {% endfor %}
+      src="{{ img.src }}" alt="{{ img.alt }}" width="356" {%if loop.index0 % 2
+      == 0%} height="472" {%else%} height="236" {%endif%} {%if loop.index > 3 %}
+      loading="lazy" {%endif%} /> {% endfor %}
     </div>
     <div class="image-reel__column image-reel__column-4">
       <!-- prettier-ignore -->
       {% for img in page_experience_images.img_reel_4 %}
       <img 
-      src="{{ img.src }}" 
-      alt="{{ img.alt }}" 
-      width="356"
-      {%if loop.index0 % 2 == 0%}
-        height="236"
-      {%else%}
-        height="472"
-      {%endif%}
-      {%if loop.index > 3 %}
-        loading="lazy"
-      {%endif%}
-      />
-      {% endfor %}
+      src="{{ img.src }}" alt="{{ img.alt }}" width="356" {%if loop.index0 % 2
+      == 0%} height="236" {%else%} height="472" {%endif%} {%if loop.index > 3 %}
+      loading="lazy" {%endif%} /> {% endfor %}
     </div>
   </div>
 </section>
@@ -98,5 +58,5 @@ show_header_cta: false
   <!-- prettier-ignore -->
   {% set video_data = page_experience_videos.video_library %}
   {% set load_preference = 'high' %}
-  {% include "./_includes/components/video-carousel.html" %}
+  {% include "./_includes/components/video-carousel.njk" %}
 </section>

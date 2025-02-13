@@ -78,16 +78,16 @@
     </script>
   </head>
   <body {%if loader.loader_toggle %}class="has-loader" {%endif%}>
-    {% include "./partials/header.html" %}
+    {% include "./partials/header.njk" %}
 
-    <main class="main-content main-{{path}}">{{ content | safe }}</main>
+    <main class="main-content main-{{ path }}">{{ content | safe }}</main>
 
     <!-- prettier-ignore -->
     {% if path == "opportunity" or path == "resources" %}
-      {% include "./partials/footer.html" %}
+      {% include "./partials/footer.njk" %}
     {% endif %}
 
-    {% include "./partials/nav.html" %}
+    {% include "./partials/nav.njk" %}
 
     <!-- prettier-ignore -->
     {% if path == "home" %}
@@ -98,7 +98,7 @@
       {% set lines = loader.loader_text %}
       {% set classnames = "page-loader__text popup-text--loader" %}
       {% set element = "h2" %}
-      {% include "./components/popup-text.html" %}
+      {% include "./components/popup-text.njk" %}
     </div>
     {% endif %}
 
@@ -115,7 +115,7 @@
       or path == "experience" 
       or path == "resources" 
     %}
-      {% include "./components/video-overlay.html" %}
+      {% include "./components/video-overlay.njk" %}
     {% endif %}
 
     <!-- prettier-ignore -->

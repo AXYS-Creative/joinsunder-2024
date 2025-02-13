@@ -14,7 +14,7 @@ footer_gradient: site-footer--enzy-colors
 
 <section class="hero">
   <div class="hero__caption">
-    <h1 class="hero__title">{{ page_resources_hero.heading}}</h1>
+    <h1 class="hero__title">{{ page_resources_hero.heading }}</h1>
     <p class="h4 hero__subtitle">
       {{ page_resources_hero.subheading.static_text }}
 
@@ -95,7 +95,7 @@ footer_gradient: site-footer--enzy-colors
       <!-- prettier-ignore -->
       {% set enzy_styles = 'cta--enzy' %}
       {% set cta_vid_embed = page_resources_enzy.enzy_hero.video_embed %}
-      {% include "./_includes/components/cta-video.html" %}
+      {% include "./_includes/components/cta-video.njk" %}
     </div>
 
     <figure class="enzy-hero__figure">
@@ -116,7 +116,7 @@ footer_gradient: site-footer--enzy-colors
     <!-- prettier-ignore -->
     {% set enzy_styles = 'cta--enzy' %}
     {% set cta_vid_embed = page_resources_enzy.enzy_hero.video_embed %}
-    {% include "./_includes/components/cta-video.html" %}
+    {% include "./_includes/components/cta-video.njk" %}
   </div>
 
   <div class="enzy-features">

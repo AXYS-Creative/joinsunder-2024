@@ -5,7 +5,7 @@
   <a class="site-header__logo tab-element-page" href="/">
     <img
       class="site-header__logo-img"
-      src="/static/img/logo-{{header_logo_color}}.svg"
+      src="/static/img/logo-{{ header_logo_color }}.svg"
       alt="sunder logo"
       width="150"
       height="35"
@@ -16,7 +16,7 @@
     <!-- prettier-ignore -->
     {% if show_header_cta %} 
       {% set cta_type = 'dark' %}
-      {% include '../components/cta.html' %}
+      {% include '../components/cta.njk' %}
     {% endif %}
   </div>
 </header>
