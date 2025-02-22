@@ -714,38 +714,38 @@ collections:
                   hint: For site performance keep the file under 50kb. The smaller the faster.,
                   media_library: { config: { max_file_size: 50000 } }, # 1KB = 1,000 bytes
                 }
-          # - name: "social_media_toggle"
-          #   label: "Show Social Media"
-          #   widget: "boolean"
-          #   default: false
-          # - name: "social_media"
-          #   label: "Social Media"
-          #   widget: "list"
-          #   allow_add: true
-          #   min: 0
-          #   max: 4
-          #   collapsed: true
-          #   required: false
-          #   fields:
-          #     - {
-          #         name: "title",
-          #         label: "Social Media Platform",
-          #         widget: "string",
-          #         required: true,
-          #       }
-          #     - {
-          #         name: "url",
-          #         label: "Link URL",
-          #         widget: "string",
-          #         required: true,
-          #       }
-          #     - {
-          #         name: "src",
-          #         label: "Social Meida Icon",
-          #         widget: "image",
-          #         required: true,
-          #         hint: "Recommended to use an SVG file",
-          #       }
+          - name: "social_media_toggle"
+            label: "Show Social Media"
+            widget: "boolean"
+            default: false
+          - name: "social_media"
+            label: "Social Media"
+            widget: "list"
+            allow_add: true
+            min: 0
+            max: 4
+            collapsed: true
+            required: false
+            fields:
+              - {
+                  name: "title",
+                  label: "Social Media Platform",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "url",
+                  label: "Link URL",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  name: "src",
+                  label: "Social Meida Icon",
+                  widget: "image",
+                  required: true,
+                  hint: "Recommended to use an SVG file",
+                }
       - name: "page_loader"
         label: "Page Loader"
         file: "src/_data/loader.yaml"

@@ -26,7 +26,7 @@ nav_links:
     desktop_image: "/static/img/nav-join-lg.webp"
     mobile_image: "/static/img/nav-join-sm.webp"
 
-social_media_toggle: false
+social_media_toggle: true
 
 social_media:
   - title: Instagram
